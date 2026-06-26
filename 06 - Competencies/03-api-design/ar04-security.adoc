@@ -1,0 +1,87 @@
+```adoc
+[[ar04-security]]
+=== AR-04 - Security
+
+[cols="1,4"]
+|===
+|Area
+|Architecture
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare e sviluppare software tenendo conto dei principali aspetti di sicurezza.
+
+==== Cosa osservare
+
+* Identifica i principali rischi di sicurezza.
+* Non si fida dei dati ricevuti dall'esterno.
+* Comprende autenticazione e autorizzazione.
+* Considera la protezione dei dati sensibili.
+* Integra la sicurezza nella progettazione del sistema.
+
+==== Domanda di base
+
+Stai sviluppando un'API che permette agli utenti autenticati di consultare e modificare i propri dati personali.
+
+Quali aspetti di sicurezza prenderesti in considerazione?
+
+NOTE: Non guidare il candidato verso vulnerabilità specifiche. Lascia che sia lui a identificare gli aspetti rilevanti.
+
+==== Domande di approfondimento
+
+* Come proteggeresti dati sensibili come password o informazioni personali?
+* Qual è la differenza tra autenticazione e autorizzazione?
+* Come impediresti che un utente possa accedere ai dati di un altro utente?
+* Quali controlli effettueresti sui dati ricevuti dal client?
+* Raccontami un problema di sicurezza che hai affrontato in un progetto reale.
+
+==== Segnali positivi
+
+* Ragiona per livelli di difesa.
+* Considera la validazione degli input.
+* Protegge i dati sensibili.
+* Distingue autenticazione e autorizzazione.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Si fida dei dati ricevuti dal client.
+* Non considera i controlli di autorizzazione.
+* Memorizza informazioni sensibili in modo non sicuro.
+* Considera la sicurezza un'attività successiva allo sviluppo.
+* Non riesce a individuare rischi evidenti.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non dimostra una conoscenza sufficiente dei principi fondamentali della sicurezza applicativa.
+
+|L1
+|Conosce i principali rischi di sicurezza e applica le pratiche fondamentali durante lo sviluppo.
+
+|L2
+|Progetta funzionalità considerando autenticazione, autorizzazione, validazione degli input e protezione dei dati.
+
+|L3
+|Valuta i trade-off tra sicurezza, usabilità e prestazioni, integrando la sicurezza nella progettazione del sistema.
+
+|L4
+|Definisce linee guida e strategie di sicurezza condivise, contribuendo alla progettazione di sistemi sicuri a livello organizzativo.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________
+```

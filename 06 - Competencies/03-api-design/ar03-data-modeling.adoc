@@ -1,0 +1,89 @@
+```adoc
+[[ar03-data-modeling]]
+=== AR-03 - Modellazione dei Dati
+
+[cols="1,4"]
+|===
+|Area
+|Architecture
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare un modello dati coerente, facilmente evolvibile e adatto ai requisiti del dominio.
+
+==== Cosa osservare
+
+* Comprende il dominio prima di modellare i dati.
+* Individua correttamente entità e relazioni.
+* Evita duplicazioni inutili.
+* Considera l'evoluzione del modello.
+* Bilancia semplicità e flessibilità.
+
+==== Domanda di base
+
+Devi progettare il modello dati di un sistema di gestione ordini.
+
+Un cliente può effettuare più ordini e ogni ordine può contenere più prodotti.
+
+Come modelleresti il dominio?
+
+NOTE: Non concentrarti sul database utilizzato (relazionale, documentale, ...). Valuta il modello concettuale.
+
+==== Domande di approfondimento
+
+* Se domani venissero introdotti coupon, gift card e programmi fedeltà, cosa cambierebbe?
+* Quali informazioni manterresti nello storico degli ordini?
+* Come gestiresti modifiche future senza dover ridisegnare completamente il modello?
+* In quali casi denormalizzeresti il modello?
+* Hai mai dovuto modificare un modello dati perché non era più adeguato ai requisiti?
+
+==== Segnali positivi
+
+* Parte dai requisiti del dominio.
+* Identifica chiaramente entità e relazioni.
+* Ragiona sull'evoluzione del modello.
+* Evita duplicazioni non necessarie.
+* Motiva le proprie scelte.
+
+==== Segnali di attenzione
+
+* Modella direttamente le tabelle senza ragionare sul dominio.
+* Duplica informazioni senza una motivazione.
+* Ignora completamente i requisiti futuri.
+* Introduce relazioni inutilmente complesse.
+* Non sa spiegare il motivo delle proprie scelte.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non riesce a costruire un modello dati coerente con il dominio.
+
+|L1
+|Modella correttamente entità e relazioni per scenari semplici.
+
+|L2
+|Progetta modelli dati consistenti, motivando le principali scelte progettuali.
+
+|L3
+|Bilancia normalizzazione, prestazioni, semplicità ed evoluzione del modello in funzione del contesto.
+
+|L4
+|Definisce modelli dati condivisi e linee guida che favoriscono la coerenza tra sistemi differenti.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________
+```

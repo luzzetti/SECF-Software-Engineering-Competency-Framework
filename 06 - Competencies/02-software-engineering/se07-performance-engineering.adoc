@@ -1,0 +1,87 @@
+```adoc
+[[se07-performance-engineering]]
+=== SE-07 - Performance Engineering
+
+[cols="1,4"]
+|===
+|Area
+|Software Engineering
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di individuare, analizzare e risolvere problemi di prestazioni nelle applicazioni software.
+
+==== Cosa osservare
+
+* Ricerca le cause dei problemi prima di proporre soluzioni.
+* Utilizza misurazioni oggettive.
+* Individua i colli di bottiglia.
+* Valuta il rapporto tra benefici e costi dell'ottimizzazione.
+* Comprende quando un'ottimizzazione è realmente necessaria.
+
+==== Domanda di base
+
+Dopo l'ultimo rilascio, gli utenti segnalano che alcune funzionalità sono diventate molto lente.
+
+Come affronteresti il problema?
+
+NOTE: L'obiettivo è valutare il metodo seguito dal candidato, non la conoscenza di specifici strumenti di profiling.
+
+==== Domande di approfondimento
+
+* Quali informazioni raccoglieresti prima di intervenire?
+* Come individueresti il collo di bottiglia?
+* Quali strumenti utilizzeresti?
+* Come verificheresti che l'ottimizzazione abbia prodotto il risultato desiderato?
+* Raccontami un caso reale in cui hai migliorato significativamente le prestazioni di un'applicazione.
+
+==== Segnali positivi
+
+* Misura prima di ottimizzare.
+* Procede per ipotesi e verifiche.
+* Considera database, rete, CPU, memoria e I/O.
+* Verifica il risultato delle modifiche.
+* Ragiona sul rapporto costi/benefici.
+
+==== Segnali di attenzione
+
+* Ottimizza senza misurare.
+* Si concentra esclusivamente sul codice applicativo.
+* Applica ottimizzazioni premature.
+* Non verifica i risultati ottenuti.
+* Considera ogni problema di prestazioni come un problema di algoritmo.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non dimostra un metodo per analizzare o risolvere problemi di prestazioni.
+
+|L1
+|Riconosce i problemi di prestazioni più comuni e utilizza strumenti di base per individuarne la causa.
+
+|L2
+|Analizza sistematicamente i colli di bottiglia e propone interventi appropriati basati su misurazioni.
+
+|L3
+|Valuta i trade-off tra prestazioni, complessità, costi e manutenibilità, scegliendo gli interventi più efficaci.
+
+|L4
+|Guida l'ottimizzazione di sistemi complessi, definendo strategie e buone pratiche condivise per il monitoraggio e il miglioramento continuo delle prestazioni.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________
+```

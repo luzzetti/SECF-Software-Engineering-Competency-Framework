@@ -1,0 +1,93 @@
+```adoc
+[[ar02-distributed-systems]]
+=== AR-02 - Sistemi Distribuiti
+
+[cols="1,4"]
+|===
+|Area
+|Architecture
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare e analizzare sistemi composti da più componenti che comunicano tra loro, comprendendone i vantaggi, i limiti e i principali problemi.
+
+==== Cosa osservare
+
+* Comprende i vantaggi e gli svantaggi dei sistemi distribuiti.
+* Riconosce i principali failure mode.
+* Ragiona sulla comunicazione tra servizi.
+* Considera resilienza, consistenza e disponibilità.
+* Valuta i trade-off architetturali.
+
+==== Domanda di base
+
+Stai progettando un sistema composto da più servizi.
+
+Durante la creazione di un ordine devono essere aggiornati:
+
+* il servizio Ordini;
+* il servizio Magazzino;
+* il servizio Pagamenti.
+
+Cosa potrebbe andare storto? Come progetteresti la comunicazione tra questi servizi?
+
+NOTE: Non guidare il candidato verso REST, code, eventi o altri strumenti specifici. L'obiettivo è osservare il ragionamento.
+
+==== Domande di approfondimento
+
+* Cosa succede se uno dei servizi non risponde?
+* Come garantiresti la consistenza dei dati?
+* Quando preferiresti una comunicazione asincrona?
+* Come gestiresti retry e duplicazione dei messaggi?
+* Hai mai affrontato problemi reali in un sistema distribuito?
+
+==== Segnali positivi
+
+* Riconosce che la rete può fallire.
+* Ragiona sugli scenari di errore.
+* Considera la consistenza dei dati.
+* Valuta approcci differenti.
+* Motiva le proprie scelte.
+
+==== Segnali di attenzione
+
+* Assume che tutte le chiamate abbiano sempre successo.
+* Ignora completamente i failure mode.
+* Non considera timeout o retry.
+* Propone un'unica soluzione senza discuterne i limiti.
+* Non distingue comunicazione sincrona e asincrona.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non comprende i problemi fondamentali dei sistemi distribuiti.
+
+|L1
+|Comprende i principi di base della comunicazione tra servizi.
+
+|L2
+|Progetta semplici interazioni tra servizi considerando errori e disponibilità.
+
+|L3
+|Analizza i trade-off tra consistenza, disponibilità, resilienza e complessità, scegliendo l'approccio più adatto al contesto.
+
+|L4
+|Progetta architetture distribuite complesse, definendo strategie condivise per resilienza, affidabilità ed evoluzione del sistema.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________
+```

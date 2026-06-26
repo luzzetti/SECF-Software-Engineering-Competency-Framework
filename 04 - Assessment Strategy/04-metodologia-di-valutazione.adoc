@@ -1,0 +1,135 @@
+[[assessment-methodology]]
+== Metodologia di Valutazione
+
+=== Scopo
+
+Questo capitolo descrive come utilizzare il Software Engineering Competency Framework durante un processo di valutazione.
+
+L'obiettivo non è eliminare la componente soggettiva, ma renderla il più possibile coerente, trasparente e ripetibile.
+
+Il framework non sostituisce il giudizio dell'intervistatore, ma fornisce un metodo strutturato per raccogliere evidenze e trasformarle in una valutazione.
+
+=== Il processo di valutazione
+
+Per ogni competenza il processo di valutazione si articola in quattro fasi.
+
+. Selezionare le competenze rilevanti per il ruolo.
+. Raccogliere evidenze attraverso domande, esempi o prove pratiche.
+. Assegnare il livello più alto dimostrato dal candidato.
+. Documentare brevemente le motivazioni della valutazione.
+
+La valutazione deve essere sempre basata sulle evidenze raccolte durante il colloquio.
+
+=== Le evidenze
+
+Per evidenza si intende qualsiasi elemento osservabile che permetta di supportare una valutazione.
+
+Sono considerate evidenze valide:
+
+* esempi tratti dall'esperienza professionale;
+* descrizione di progetti realmente realizzati;
+* risposte a domande tecniche;
+* esercizi pratici;
+* discussione di decisioni progettuali;
+* analisi di codice.
+
+Le semplici affermazioni non costituiscono, da sole, un'evidenza sufficiente.
+
+Ad esempio:
+
+[cols="2,3"]
+|===
+|Affermazione |Evidenza
+
+|"Conosco Docker."
+|"In un progetto ho creato un'immagine multi-stage per ridurre le dimensioni del container e ho configurato una pipeline di build automatica."
+
+|"So progettare API REST."
+|"Per questo servizio ho scelto versionamento tramite header invece che tramite URL perché..."
+
+|===
+
+=== Assegnazione del livello
+
+Il livello assegnato deve corrispondere al livello più alto dimostrato dal candidato.
+
+Poiché i livelli sono cumulativi, l'intervistatore deve verificare che siano soddisfatti anche i requisiti dei livelli precedenti.
+
+In caso di dubbio tra due livelli consecutivi, è preferibile assegnare il livello inferiore.
+
+=== Utilizzo di NV e L0
+
+NV (Non Valutata) deve essere utilizzato quando la competenza non è stata osservata.
+
+L0 deve essere utilizzato quando la competenza è stata valutata, ma il candidato non ha dimostrato le conoscenze minime previste per il livello L1.
+
+I due stati non sono intercambiabili.
+
+=== Documentare la valutazione
+
+Per ogni competenza è consigliabile annotare una breve motivazione.
+
+Ad esempio:
+
+[cols="1,1,4"]
+|===
+|Competenza |Livello |Motivazione
+
+|Testing
+|L2
+|Descrive correttamente Unit Test e Integration Test. Porta esempi concreti di utilizzo in produzione.
+
+|Concurrency
+|L1
+|Conosce thread e mutex ma non ha esperienza con problemi di sincronizzazione complessi.
+
+|Distributed Systems
+|NV
+|Competenza non approfondita durante il colloquio.
+
+|===
+
+La motivazione facilita il confronto tra valutatori e permette di ricostruire il ragionamento che ha portato all'assegnazione del livello.
+
+=== Errori comuni
+
+Durante una valutazione è opportuno evitare alcuni errori frequenti.
+
+*Attribuire un livello sulla base degli anni di esperienza.*
+
+L'esperienza rappresenta un elemento di contesto, non una misura della competenza.
+
+*Lasciarsi influenzare dalla conoscenza di una tecnologia specifica.*
+
+Il framework valuta competenze trasferibili.
+
+*Compensare una competenza con un'altra.*
+
+Ogni competenza deve essere valutata indipendentemente.
+
+*Confondere sicurezza espositiva con competenza.*
+
+Un candidato molto comunicativo non è necessariamente più competente di uno più introverso.
+
+*Penalizzare il candidato perché propone una soluzione diversa da quella dell'intervistatore.*
+
+È importante comprendere il ragionamento seguito, non verificare che la risposta coincida con la propria soluzione preferita.
+
+=== Il ruolo dell'intervistatore
+
+L'intervistatore non deve cercare di dimostrare la propria preparazione.
+
+Il suo compito consiste nel mettere il candidato nelle condizioni di dimostrare le proprie competenze.
+
+Domande di approfondimento, chiarimenti ed esempi aggiuntivi rappresentano strumenti per raccogliere evidenze, non per mettere in difficoltà il candidato.
+
+Un buon colloquio è una conversazione tecnica strutturata, non un interrogatorio.
+
+=== Punti chiave
+
+* Valutare esclusivamente le competenze rilevanti per il ruolo.
+* Basare ogni valutazione su evidenze osservabili.
+* Assegnare il livello più alto effettivamente dimostrato.
+* Utilizzare NV quando una competenza non viene valutata.
+* Documentare sempre le motivazioni delle valutazioni.
+* Valutare ogni competenza indipendentemente dalle altre.

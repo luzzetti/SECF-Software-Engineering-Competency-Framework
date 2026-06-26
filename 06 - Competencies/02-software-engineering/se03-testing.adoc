@@ -1,0 +1,87 @@
+```adoc
+[[se03-testing]]
+=== SE-03 - Testing
+
+[cols="1,4"]
+|===
+|Area
+|Software Engineering
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare una strategia di testing efficace e di utilizzare i test per aumentare la qualità e l'affidabilità del software.
+
+==== Cosa osservare
+
+* Distingue i diversi livelli di testing.
+* Comprende lo scopo dei test.
+* Progetta test efficaci.
+* Valuta cosa testare e cosa non testare.
+* Considera la manutenibilità della suite di test.
+
+==== Domanda di base
+
+Hai sviluppato un nuovo servizio che calcola il prezzo finale di un ordine applicando sconti, promozioni e regole fiscali.
+
+Come verificheresti che il servizio funzioni correttamente?
+
+NOTE: Non chiedere quali framework di testing utilizza. Concentrati sul ragionamento.
+
+==== Domande di approfondimento
+
+* Quali casi di test considereresti prioritari?
+* Quali parti testeresti con Unit Test e quali con Integration Test?
+* Ci sono parti che non testeresti? Perché?
+* Come organizzeresti i test per renderli facilmente manutenibili?
+* Raccontami un bug importante che avresti potuto evitare con una migliore strategia di testing.
+
+==== Segnali positivi
+
+* Parte dai requisiti funzionali.
+* Considera casi limite e scenari di errore.
+* Distingue correttamente i livelli di testing.
+* Ragiona sul valore dei test.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Verifica solo il caso "felice".
+* Considera i test come un'attività secondaria.
+* Non distingue Unit Test, Integration Test ed End-to-End Test.
+* Propone test difficili da mantenere.
+* Confonde la copertura del codice con la qualità dei test.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non dimostra una conoscenza sufficiente dei principi fondamentali del testing.
+
+|L1
+|Scrive test per verificare il comportamento delle funzionalità principali.
+
+|L2
+|Progetta una strategia di testing adeguata distinguendo correttamente i diversi livelli di test.
+
+|L3
+|Bilancia efficacia, costi di manutenzione e copertura, adattando la strategia al contesto del progetto.
+
+|L4
+|Definisce linee guida e strategie di testing condivise, contribuendo al miglioramento della qualità del software a livello di team o organizzazione.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________
+```

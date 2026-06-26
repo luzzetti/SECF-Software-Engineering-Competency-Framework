@@ -1,0 +1,89 @@
+```adoc
+[[cs06-concurrency]]
+=== CS-06 - Concorrenza e Parallelismo
+
+[cols="1,4"]
+|===
+|Area
+|Computer Science
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di riconoscere, analizzare e risolvere problemi legati all'esecuzione concorrente di un'applicazione.
+
+==== Cosa osservare
+
+* Comprende la differenza tra concorrenza e parallelismo.
+* Riconosce le problematiche di accesso concorrente ai dati.
+* Ragiona sui rischi legati alla sincronizzazione.
+* Valuta i compromessi tra semplicità, sicurezza e prestazioni.
+* Collega i concetti teorici a casi reali.
+
+==== Domanda di base
+
+Stai sviluppando un servizio che riceve contemporaneamente centinaia di richieste.
+
+Ogni richiesta aggiorna lo stesso contatore condiviso.
+
+Quali problemi potrebbero verificarsi? Come li affronteresti?
+
+NOTE: Non è importante il linguaggio utilizzato. Concentrati sul ragionamento del candidato.
+
+==== Domande di approfondimento
+
+* Qual è la differenza tra un processo e un thread in questo scenario?
+* Quando utilizzeresti una struttura dati concorrente invece di sincronizzare manualmente l'accesso?
+* Quali problemi può introdurre un lock?
+* Come individueresti un deadlock in produzione?
+* Hai mai affrontato un problema reale di concorrenza? Come lo hai risolto?
+
+==== Segnali positivi
+
+* Individua possibili race condition.
+* Ragiona prima sulla correttezza e poi sulle prestazioni.
+* Conosce diversi approcci alla sincronizzazione.
+* Considera gli effetti delle proprie scelte.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Ignora completamente l'accesso concorrente ai dati.
+* Ritiene che il problema non possa verificarsi.
+* Propone sincronizzazione indiscriminata senza considerarne l'impatto.
+* Non conosce i rischi di deadlock o starvation.
+* Non sa spiegare come analizzerebbe il problema.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non comprende i concetti fondamentali della concorrenza o non riconosce i problemi derivanti dall'accesso concorrente ai dati.
+
+|L1
+|Conosce i concetti fondamentali di thread, sincronizzazione e accesso concorrente alle risorse condivise.
+
+|L2
+|Riconosce i problemi più comuni e propone soluzioni corrette utilizzando gli strumenti offerti dalla piattaforma.
+
+|L3
+|Analizza i trade-off tra correttezza, prestazioni e complessità, scegliendo l'approccio più adatto al contesto.
+
+|L4
+|Progetta sistemi concorrenti robusti, individuando strategie che minimizzano il rischio di errori e migliorano la scalabilità dell'applicazione.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________
+```

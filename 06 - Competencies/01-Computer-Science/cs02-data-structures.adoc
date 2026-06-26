@@ -1,0 +1,93 @@
+```adoc
+[[cs02-data-structures]]
+=== CS-02 - Strutture Dati
+
+[cols="1,4"]
+|===
+|Area
+|Computer Science
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di scegliere la struttura dati più appropriata in funzione del problema da risolvere.
+
+==== Cosa osservare
+
+* Comprende le caratteristiche delle principali strutture dati.
+* Sceglie la struttura dati in funzione delle operazioni richieste.
+* Comprende il costo delle operazioni fondamentali.
+* Valuta semplicità, prestazioni e utilizzo della memoria.
+* Sa motivare le proprie scelte.
+
+==== Domanda di base
+
+Stai sviluppando un servizio che gestisce gli utenti autenticati.
+
+Le operazioni più frequenti sono:
+
+* verificare rapidamente se un utente è connesso;
+* recuperare le informazioni di un utente dato il suo identificativo;
+* aggiungere e rimuovere utenti durante la giornata.
+
+Come modelleresti questi dati?
+
+NOTE: Non suggerire strutture dati. Lascia che sia il candidato a proporle.
+
+==== Domande di approfondimento
+
+* Se dovessi mantenere gli utenti ordinati per data di accesso, cambierebbe la soluzione?
+* Se la memoria fosse limitata, quali compromessi prenderesti in considerazione?
+* Se il numero di utenti crescesse di cento volte?
+* In quali casi una lista sarebbe comunque una buona scelta?
+* Hai mai dovuto modificare una struttura dati perché non era più adatta all'evoluzione del sistema?
+
+==== Segnali positivi
+
+* Parte dalle operazioni richieste e non dalla struttura dati.
+* Valuta più alternative.
+* Motiva le proprie scelte.
+* Conosce punti di forza e limiti delle principali strutture dati.
+* Adatta la soluzione al contesto.
+
+==== Segnali di attenzione
+
+* Utilizza sempre la stessa struttura dati.
+* Sceglie in base all'abitudine anziché ai requisiti.
+* Non conosce il costo delle operazioni fondamentali.
+* Non considera memoria o scalabilità.
+* Non sa spiegare perché una soluzione sia migliore di un'altra.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non conosce le principali strutture dati oppure le utilizza in modo non appropriato.
+
+|L1
+|Conosce e utilizza correttamente liste, mappe, insiemi e code nei casi più comuni.
+
+|L2
+|Sceglie la struttura dati più adatta in funzione delle operazioni richieste e ne motiva la scelta.
+
+|L3
+|Analizza i trade-off tra strutture dati differenti considerando prestazioni, memoria, manutenibilità ed evoluzione del sistema.
+
+|L4
+|Progetta modelli dati efficienti per problemi complessi, guidando le scelte architetturali del team.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________
+```

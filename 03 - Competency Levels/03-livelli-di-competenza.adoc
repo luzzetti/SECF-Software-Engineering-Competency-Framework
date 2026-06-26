@@ -1,0 +1,212 @@
+[[competency-levels]]
+== Livelli di Competenza
+
+=== Scopo
+
+Il SECF definisce quattro livelli di competenza (L1-L4), oltre a due stati della valutazione (NV e L0).
+
+I livelli descrivono il grado di padronanza di una specifica competenza e rappresentano una progressione in termini di autonomia, capacità decisionale e impatto.
+
+Ogni livello è cumulativo: il raggiungimento di un determinato livello implica automaticamente il possesso delle caratteristiche previste dai livelli precedenti.
+
+I livelli non rappresentano il ruolo aziendale, la retribuzione o gli anni di esperienza del professionista.
+
+=== Stati della valutazione
+
+Prima di assegnare un livello è necessario stabilire se la competenza sia stata effettivamente valutata.
+
+[cols="1,4"]
+|===
+|Stato |Descrizione
+
+|NV
+|La competenza non è stata valutata. Durante il colloquio non sono emerse evidenze sufficienti per assegnare un livello.
+
+|L0
+|La competenza è stata valutata ma il candidato non ha dimostrato le conoscenze o le capacità minime previste per il livello L1.
+
+|===
+
+NOTE: *NV* non rappresenta una valutazione negativa. Indica semplicemente che la competenza non è stata osservata.
+
+=== Livello L1
+
+==== Sintesi
+
+Comprende i concetti fondamentali e li applica in contesti semplici.
+
+==== Autonomia
+
+Lavora seguendo indicazioni, esempi o procedure definite.
+
+Richiede supporto per affrontare situazioni nuove o particolarmente complesse.
+
+==== Decisioni
+
+Prende decisioni limitate al proprio ambito operativo.
+
+Applica soluzioni note.
+
+==== Complessità
+
+Affronta problemi ben definiti e con un numero limitato di variabili.
+
+==== Collaborazione
+
+Collabora con il team e recepisce feedback.
+
+==== Impatto
+
+Il proprio contributo riguarda principalmente il codice che sviluppa direttamente.
+
+==== Durante un colloquio
+
+Un candidato L1:
+
+* conosce la terminologia di base;
+* sa descrivere i concetti fondamentali;
+* risolve esercizi semplici;
+* necessita di aiuto per casi non standard.
+
+'''
+
+=== Livello L2
+
+==== Sintesi
+
+Lavora in autonomia nella maggior parte delle attività ordinarie.
+
+==== Autonomia
+
+Organizza autonomamente il proprio lavoro.
+
+Richiede supporto solo per problemi nuovi o particolarmente complessi.
+
+==== Decisioni
+
+Sa scegliere tra più soluzioni conosciute.
+
+Motiva le proprie scelte.
+
+==== Complessità
+
+Gestisce problemi di media complessità.
+
+Riconosce gli errori più comuni e ne previene alcuni.
+
+==== Collaborazione
+
+Partecipa attivamente alle discussioni tecniche.
+
+Fornisce feedback costruttivi durante le Code Review.
+
+==== Impatto
+
+Contribuisce in modo affidabile alla qualità del software prodotto dal team.
+
+==== Durante un colloquio
+
+Un candidato L2:
+
+* confronta più alternative;
+* spiega vantaggi e svantaggi;
+* utilizza esempi tratti dalla propria esperienza;
+* dimostra autonomia operativa.
+
+'''
+
+=== Livello L3
+
+==== Sintesi
+
+Progetta soluzioni, prende decisioni tecniche e comprende i trade-off.
+
+==== Autonomia
+
+Lavora in completa autonomia.
+
+Supporta gli altri membri del team.
+
+==== Decisioni
+
+Analizza il problema.
+
+Valuta diverse alternative.
+
+Motiva la soluzione adottata considerando vincoli e conseguenze.
+
+==== Complessità
+
+Affronta problemi complessi e caratterizzati da requisiti contrastanti.
+
+==== Collaborazione
+
+Contribuisce alla crescita tecnica del team attraverso mentoring, Code Review e condivisione delle conoscenze.
+
+==== Impatto
+
+Influenza la qualità tecnica del progetto e delle decisioni architetturali.
+
+==== Durante un colloquio
+
+Un candidato L3:
+
+* parla spontaneamente di trade-off;
+* identifica rischi e limiti delle soluzioni;
+* collega esperienze diverse;
+* propone miglioramenti.
+
+'''
+
+=== Livello L4
+
+==== Sintesi
+
+Definisce standard, guida decisioni strategiche e contribuisce alla crescita dell'organizzazione.
+
+==== Autonomia
+
+Opera efficacemente anche in contesti caratterizzati da elevata incertezza.
+
+==== Decisioni
+
+Prende decisioni che influenzano più team o più prodotti.
+
+Definisce linee guida e standard tecnici.
+
+==== Complessità
+
+Affronta problemi sistemici, valutando contemporaneamente aspetti tecnici, organizzativi e di business.
+
+==== Collaborazione
+
+È un punto di riferimento tecnico.
+
+Favorisce la crescita delle persone e la diffusione delle buone pratiche.
+
+==== Impatto
+
+Il proprio contributo produce effetti che vanno oltre il singolo progetto.
+
+==== Durante un colloquio
+
+Un candidato L4:
+
+* ragiona in termini di sistemi;
+* considera gli aspetti organizzativi oltre a quelli tecnici;
+* definisce criteri decisionali;
+* dimostra una visione di lungo periodo.
+
+=== Cosa i livelli non rappresentano
+
+I livelli di competenza non rappresentano:
+
+* gli anni di esperienza;
+* il ruolo aziendale;
+* la retribuzione;
+* il numero di tecnologie conosciute;
+* il numero di certificazioni possedute.
+
+Uno stesso professionista può trovarsi a livelli differenti in competenze differenti.
+
+Questa variabilità è normale e rappresenta uno degli obiettivi del framework: descrivere un profilo professionale realistico, anziché sintetizzarlo in un unico giudizio complessivo.

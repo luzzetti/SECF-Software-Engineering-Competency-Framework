@@ -1,0 +1,93 @@
+[[cs01-algorithms]]
+=== CS-01 - Algoritmi
+
+[cols="1,4"]
+|===
+|Area
+|Computer Science
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di analizzare un problema, individuare una soluzione algoritmica appropriata e motivarne le scelte in funzione del contesto.
+
+==== Cosa osservare
+
+* Comprende il problema prima di proporre una soluzione.
+* Individua le informazioni mancanti e pone domande.
+* Valuta soluzioni alternative.
+* Comprende l'impatto della complessità temporale e spaziale.
+* Adatta la soluzione al contesto e ai vincoli del problema.
+
+==== Domanda di base
+
+Hai una collezione di utenti e devi verificare frequentemente se un determinato utente è presente.
+
+Come imposteresti la soluzione?
+
+NOTE: Lascia che sia il candidato a guidare il ragionamento.
+Evita di suggerire strutture dati o algoritmi.
+
+==== Domande di approfondimento
+
+Se il candidato propone una soluzione adeguata, aumenta progressivamente la complessità.
+
+* La collezione contiene dieci milioni di elementi.
+Cambierebbe qualcosa?
+* I dati non entrano completamente in memoria.
+Come affronteresti il problema?
+* Le operazioni di ricerca sono molto più frequenti degli inserimenti.
+Cambierebbe la tua scelta?
+* Se dovessi minimizzare il consumo di memoria, quale compromesso accetteresti?
+* Hai affrontato un problema simile in un progetto reale?
+Raccontamelo.
+
+==== Segnali positivi
+
+* Analizza il problema prima di proporre una soluzione.
+* Chiede chiarimenti sui requisiti.
+* Esplicita le ipotesi fatte.
+* Confronta più approcci.
+* Motiva la scelta effettuata.
+* Parla spontaneamente di complessità e trade-off.
+
+==== Segnali di attenzione
+
+* Inizia immediatamente a scrivere codice.
+* Fornisce una soluzione senza comprenderne il contesto.
+* Non considera alternative.
+* Ignora completamente la complessità.
+* Non sa motivare le proprie scelte.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non riesce ad affrontare il problema o propone soluzioni non corrette anche in scenari semplici.
+
+|L1
+|Propone una soluzione corretta per il problema iniziale utilizzando algoritmi e strutture dati fondamentali.
+
+|L2
+|Confronta più soluzioni e ne motiva la scelta in funzione dei requisiti.
+
+|L3
+|Analizza i trade-off considerando prestazioni, memoria, scalabilità e vincoli del contesto.
+
+|L4
+|Estende il ragionamento a scenari complessi, individua limiti dell'approccio e propone strategie alternative in funzione dell'evoluzione del sistema.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

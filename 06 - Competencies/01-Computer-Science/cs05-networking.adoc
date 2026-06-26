@@ -1,0 +1,89 @@
+```adoc
+[[cs05-networking]]
+=== CS-05 - Networking
+
+[cols="1,4"]
+|===
+|Area
+|Computer Science
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la comprensione dei concetti fondamentali delle reti e la capacità di utilizzarli per analizzare e risolvere problemi nelle applicazioni distribuite.
+
+==== Cosa osservare
+
+* Comprende il funzionamento della comunicazione tra sistemi.
+* Distingue problemi applicativi da problemi di rete.
+* Comprende latenza, banda e affidabilità.
+* Sa ragionare su timeout, retry e gestione degli errori.
+* Collega i concetti teorici a casi reali.
+
+==== Domanda di base
+
+Un'applicazione comunica con un servizio esterno tramite API.
+
+Da qualche giorno gli utenti segnalano che alcune richieste impiegano molto tempo oppure falliscono.
+
+Come inizieresti ad analizzare il problema?
+
+NOTE: L'obiettivo è comprendere il metodo di analisi del candidato, non verificare la conoscenza di protocolli specifici.
+
+==== Domande di approfondimento
+
+* Quali potrebbero essere le possibili cause?
+* Come distingueresti un problema dell'applicazione da un problema di rete?
+* Quando introdurresti timeout e retry?
+* Quali rischi possono introdurre retry automatici?
+* Hai mai analizzato un problema reale legato alla rete? Come lo hai risolto?
+
+==== Segnali positivi
+
+* Procede per ipotesi.
+* Considera più possibili cause.
+* Comprende che la rete non è affidabile.
+* Ragiona su timeout, retry e latenza.
+* Porta esempi concreti tratti dall'esperienza.
+
+==== Segnali di attenzione
+
+* Attribuisce immediatamente il problema al codice applicativo.
+* Non considera la rete come possibile causa.
+* Introduce retry senza valutarne gli effetti.
+* Non distingue errori temporanei da errori permanenti.
+* Non sa come raccogliere informazioni sul problema.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non possiede una comprensione sufficiente dei concetti fondamentali di networking.
+
+|L1
+|Comprende i principi fondamentali della comunicazione tra sistemi e conosce i principali protocolli utilizzati nello sviluppo di applicazioni.
+
+|L2
+|Analizza problemi comuni di comunicazione tra applicazioni e propone soluzioni appropriate.
+
+|L3
+|Comprende le implicazioni della rete nella progettazione di sistemi distribuiti, valutando timeout, retry, affidabilità e prestazioni.
+
+|L4
+|Utilizza la conoscenza del networking per guidare decisioni architetturali e progettare sistemi resilienti in presenza di guasti e condizioni di rete variabili.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________
+```

@@ -1,0 +1,87 @@
+```adoc
+[[cs04-operating-systems]]
+=== CS-04 - Sistemi Operativi
+
+[cols="1,4"]
+|===
+|Area
+|Computer Science
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la comprensione dei concetti fondamentali dei sistemi operativi e la capacità di applicarli durante lo sviluppo e il debugging di applicazioni.
+
+==== Cosa osservare
+
+* Comprende il ciclo di vita di un processo.
+* Distingue processi e thread.
+* Comprende il ruolo della memoria.
+* Sa interpretare problemi legati al sistema operativo.
+* Collega i concetti teorici a situazioni reali.
+
+==== Domanda di base
+
+Un'applicazione che ha sempre funzionato correttamente inizia improvvisamente a consumare molta memoria e, dopo alcune ore, viene terminata dal sistema operativo.
+
+Come inizieresti ad analizzare il problema?
+
+NOTE: L'obiettivo non è trovare immediatamente la causa, ma comprendere il metodo di analisi del candidato.
+
+==== Domande di approfondimento
+
+* Come distingueresti un memory leak da un picco temporaneo di memoria?
+* Qual è la differenza tra un processo e un thread? Quando preferiresti uno rispetto all'altro?
+* Cosa succede quando la memoria fisica disponibile non è sufficiente?
+* Hai mai utilizzato strumenti del sistema operativo per analizzare un'applicazione in produzione?
+* Raccontami un problema reale che hai risolto grazie alla comprensione del sistema operativo.
+
+==== Segnali positivi
+
+* Procede per ipotesi e verifiche.
+* Collega il comportamento dell'applicazione al sistema operativo.
+* Comprende i concetti di processo, thread e memoria.
+* Conosce gli strumenti di base per l'analisi dei problemi.
+* Porta esempi tratti dalla propria esperienza.
+
+==== Segnali di attenzione
+
+* Attribuisce ogni problema esclusivamente al codice applicativo.
+* Confonde processi e thread.
+* Non considera il ruolo del sistema operativo.
+* Procede per tentativi senza un metodo.
+* Non sa come raccogliere informazioni sul problema.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non conosce i concetti fondamentali dei sistemi operativi o non riesce ad applicarli a problemi concreti.
+
+|L1
+|Conosce i concetti di base (processi, thread, memoria) e ne comprende il ruolo nello sviluppo delle applicazioni.
+
+|L2
+|Utilizza tali concetti per analizzare e risolvere problemi comuni durante lo sviluppo e il debugging.
+
+|L3
+|Comprende le interazioni tra applicazione e sistema operativo, analizzando problemi di prestazioni, memoria e concorrenza.
+
+|L4
+|Utilizza la conoscenza del sistema operativo per guidare decisioni progettuali e supportare l'analisi di problemi complessi in ambienti di produzione.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________
+```

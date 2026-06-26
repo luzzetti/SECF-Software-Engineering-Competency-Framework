@@ -1,0 +1,93 @@
+```adoc
+[[ar01-api-design]]
+=== AR-01 - API Design
+
+[cols="1,4"]
+|===
+|Area
+|Architecture
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare API semplici, coerenti, evolvibili e adatte ai requisiti funzionali e non funzionali del sistema.
+
+==== Cosa osservare
+
+* Comprende il concetto di contratto tra sistemi.
+* Progetta API semplici e consistenti.
+* Ragiona sull'evoluzione delle API.
+* Considera errori, validazione e versioning.
+* Bilancia semplicità, flessibilità e manutenibilità.
+
+==== Domanda di base
+
+Devi progettare le API di un sistema che gestisce ordini per un e-commerce.
+
+Client web e mobile dovranno:
+
+* creare un ordine;
+* consultarne lo stato;
+* annullarlo prima della spedizione.
+
+Come progetteresti le API?
+
+NOTE: Non concentrarti sulla sintassi del protocollo. Valuta il ragionamento progettuale.
+
+==== Domande di approfondimento
+
+* Come gestiresti l'evoluzione delle API senza interrompere i client esistenti?
+* Come modelleresti gli errori restituiti dal servizio?
+* Quando introdurresti il versioning?
+* Quali informazioni includeresti nella risposta?
+* Hai mai dovuto modificare un'API mantenendo la retrocompatibilità?
+
+==== Segnali positivi
+
+* Progetta API coerenti e prevedibili.
+* Utilizza convenzioni consistenti.
+* Ragiona sull'evoluzione futura.
+* Considera l'esperienza di chi utilizzerà l'API.
+* Motiva le proprie scelte.
+
+==== Segnali di attenzione
+
+* Progetta endpoint senza una logica coerente.
+* Espone dettagli implementativi.
+* Ignora la retrocompatibilità.
+* Non considera la gestione degli errori.
+* Prende decisioni basandosi esclusivamente sul framework utilizzato.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non riesce a progettare un'API coerente o ne propone una difficilmente utilizzabile.
+
+|L1
+|Progetta semplici API funzionali per casi d'uso comuni.
+
+|L2
+|Realizza API coerenti, facilmente utilizzabili e ne motiva le principali scelte progettuali.
+
+|L3
+|Progetta API evolvibili, considerando versioning, compatibilità, error handling e requisiti non funzionali.
+
+|L4
+|Definisce linee guida per la progettazione delle API e garantisce coerenza tra sistemi e team differenti.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________
+```

@@ -1,0 +1,89 @@
+```adoc
+[[cs03-computational-complexity]]
+=== CS-03 - Complessità Computazionale
+
+[cols="1,4"]
+|===
+|Area
+|Computer Science
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di stimare l'impatto di una soluzione in termini di tempo e memoria e di riconoscere quando un algoritmo o una struttura dati non sono adeguati al problema.
+
+==== Cosa osservare
+
+* Comprende il concetto di scalabilità.
+* Riconosce algoritmi inefficienti.
+* Stima l'ordine di grandezza di una soluzione.
+* Valuta il compromesso tra tempo e memoria.
+* Comprende quando l'ottimizzazione è realmente necessaria.
+
+==== Domanda di base
+
+Hai sviluppato una funzionalità che funziona correttamente con qualche centinaio di record.
+
+Dopo alcuni mesi il database contiene milioni di record e gli utenti lamentano tempi di risposta molto elevati.
+
+Come affronteresti il problema?
+
+NOTE: L'obiettivo non è trovare immediatamente una soluzione, ma comprendere il ragionamento del candidato.
+
+==== Domande di approfondimento
+
+* Come individueresti il collo di bottiglia?
+* Quali informazioni raccoglieresti prima di modificare il codice?
+* Se il problema fosse nella ricerca dei dati, quali alternative prenderesti in considerazione?
+* Se migliorare le prestazioni richiedesse un maggiore consumo di memoria, come valuteresti il compromesso?
+* Ti è mai capitato di dover riprogettare una soluzione perché non scalava?
+
+==== Segnali positivi
+
+* Non ottimizza senza dati oggettivi.
+* Ragiona in termini di ordine di grandezza.
+* Considera sia il tempo di esecuzione sia l'utilizzo della memoria.
+* Distingue tra ottimizzazioni premature e problemi reali.
+* Parte dalla misurazione prima dell'ottimizzazione.
+
+==== Segnali di attenzione
+
+* Ottimizza "per principio".
+* Non considera la scalabilità.
+* Si concentra esclusivamente sulla velocità di esecuzione.
+* Non distingue tra piccoli e grandi volumi di dati.
+* Propone modifiche senza analizzare il problema.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non comprende il concetto di complessità computazionale o non riesce a valutarne l'impatto.
+
+|L1
+|Conosce il significato della complessità temporale e riconosce le differenze tra gli algoritmi più comuni.
+
+|L2
+|Valuta la complessità delle proprie soluzioni e ne considera l'impatto sulla scalabilità.
+
+|L3
+|Analizza i compromessi tra prestazioni, memoria e semplicità della soluzione, scegliendo l'approccio più adatto al contesto.
+
+|L4
+|Guida le decisioni progettuali considerando la crescita del sistema, i vincoli operativi e i costi dell'ottimizzazione.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________
+```
