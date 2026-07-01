@@ -1,0 +1,88 @@
+[[de02-estimation]]
+=== DE-02 - Stima delle Attività
+
+[cols="1,4"]
+|===
+|Area
+|Delivery
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di stimare un'attività di sviluppo identificandone complessità, dipendenze, rischi e incertezze.
+
+==== Cosa osservare
+
+* Scompone il problema.
+* Identifica le attività principali.
+* Evidenzia dipendenze e rischi.
+* Esplicita le assunzioni.
+* Comunica il grado di incertezza della stima.
+
+==== Domanda di base
+
+Ti viene chiesto di stimare lo sviluppo di una nuova funzionalità:
+
+"Consentire ai clienti di programmare la consegna di un ordine scegliendo data e fascia oraria."
+
+Come procederesti?
+
+NOTE: L'obiettivo non è ottenere una stima precisa, ma comprendere il metodo seguito dal candidato.
+
+==== Domande di approfondimento
+
+* Quali informazioni ti servirebbero prima di fornire una stima?
+* Quali attività prenderesti in considerazione oltre allo sviluppo?
+* Come comunicheresti il livello di incertezza della stima?
+* Se durante lo sviluppo emergessero nuovi requisiti, come aggiorneresti la stima?
+* Raccontami una situazione in cui una stima si è rivelata errata.
+Cosa hai imparato?
+
+==== Segnali positivi
+
+* Non fornisce una stima immediata.
+* Scompone il lavoro in attività.
+* Identifica rischi e dipendenze.
+* Comunica le ipotesi alla base della stima.
+* Considera test, integrazione e rilascio.
+
+==== Segnali di attenzione
+
+* Fornisce una stima senza fare domande.
+* Considera esclusivamente il tempo di sviluppo.
+* Ignora dipendenze e rischi.
+* Presenta la stima come una certezza.
+* Non distingue tra stima e impegno.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non dimostra un metodo per stimare un'attività di sviluppo.
+
+|L1
+|Fornisce stime semplici per attività ben definite.
+
+|L2
+|Scompone il lavoro, identifica le principali attività e produce stime motivate.
+
+|L3
+|Valuta rischi, dipendenze e incertezze, adattando la stima al contesto del progetto.
+
+|L4
+|Guida il processo di stima del team, migliorandone accuratezza, trasparenza e affidabilità.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

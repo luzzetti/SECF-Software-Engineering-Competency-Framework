@@ -1,0 +1,85 @@
+[[pe02-build-automation]]
+=== PE-02 - Build Automation
+
+[cols="1,4"]
+|===
+|Area
+|Platform Engineering
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare e utilizzare un processo di build automatizzato, riproducibile e affidabile.
+
+==== Cosa osservare
+
+* Comprende lo scopo della build automation.
+* Evita dipendenze dall'ambiente di sviluppo locale.
+* Ragiona in termini di riproducibilità.
+* Comprende il concetto di pipeline di build.
+* Considera qualità e affidabilità del processo.
+
+==== Domanda di base
+
+Entri in un progetto nel quale ogni sviluppatore compila l'applicazione manualmente seguendo una pagina di documentazione con decine di passaggi.
+
+Come affronteresti il problema?
+
+NOTE: Non concentrarti su Maven, Gradle, MSBuild o altri strumenti specifici. Valuta il metodo.
+
+==== Domande di approfondimento
+
+* Quali attività inseriresti nella build automatica?
+* Come garantiresti che la build produca sempre lo stesso risultato?
+* Quali controlli eseguiresti prima di produrre un artefatto rilasciabile?
+* Come gestiresti configurazioni differenti tra sviluppo, test e produzione?
+* Hai mai migliorato il processo di build di un progetto? In che modo?
+
+==== Segnali positivi
+
+* Automatizza le attività ripetitive.
+* Riduce la dipendenza dall'ambiente locale.
+* Considera la build parte integrante del processo di sviluppo.
+* Integra controlli di qualità nella build.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Considera normale eseguire manualmente la build.
+* Dipende dalla configurazione della macchina dello sviluppatore.
+* Non considera la riproducibilità.
+* Non distingue build e deployment.
+* Non sa spiegare come garantirebbe una build affidabile.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non comprende il ruolo della build automation nel processo di sviluppo.
+
+|L1
+|Utilizza correttamente il sistema di build del progetto.
+
+|L2
+|Configura e mantiene processi di build automatizzati, comprendendone i principali componenti.
+
+|L3
+|Progetta pipeline di build affidabili e riproducibili, integrando verifiche di qualità e controlli automatici.
+
+|L4
+|Definisce standard e strategie di build automation condivise, migliorando l'affidabilità e l'efficienza del processo di sviluppo.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

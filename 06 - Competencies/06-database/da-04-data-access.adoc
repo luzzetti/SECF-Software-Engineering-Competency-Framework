@@ -1,0 +1,88 @@
+[[da04-data-access]]
+=== DA-04 - ORM e Data Access
+
+[cols="1,4"]
+|===
+|Area
+|Data
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare un accesso ai dati efficace, mantenibile ed efficiente, comprendendo vantaggi e limiti degli ORM.
+
+==== Cosa osservare
+
+* Comprende il ruolo di un ORM.
+* Distingue modello di dominio e modello di persistenza.
+* Riconosce i limiti degli ORM.
+* Ragiona sulle prestazioni dell'accesso ai dati.
+* Sceglie l'approccio più adatto al contesto.
+
+==== Domanda di base
+
+Stai sviluppando un'applicazione che utilizza un ORM per accedere al database.
+
+Con l'aumentare dei dati, alcune schermate diventano molto lente.
+
+Come affronteresti il problema?
+
+NOTE: Non concentrarti su Hibernate, Entity Framework o altri prodotti specifici.
+Valuta il metodo seguito dal candidato.
+
+==== Domande di approfondimento
+
+* Come individueresti la causa del rallentamento?
+* In quali casi preferiresti scrivere una query SQL invece di utilizzare l'ORM?
+* Come eviteresti il problema delle query ripetute (N+1)?
+* Come organizzeresti il layer di accesso ai dati?
+* Hai mai dovuto ottimizzare l'utilizzo di un ORM in un progetto reale?
+
+==== Segnali positivi
+
+* Comprende che un ORM non elimina la necessità di conoscere il database.
+* Ragiona sulle query realmente eseguite.
+* Conosce vantaggi e limiti degli ORM.
+* Utilizza SQL quando rappresenta la soluzione più appropriata.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Considera l'ORM una soluzione a qualsiasi problema.
+* Non sa spiegare cosa avviene tra applicazione e database.
+* Ignora completamente le prestazioni.
+* Non si accorge di query inefficienti.
+* Utilizza SQL o ORM esclusivamente per abitudine.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non comprende il ruolo di un ORM né i principi dell'accesso ai dati.
+
+|L1
+|Utilizza correttamente un ORM per le operazioni più comuni.
+
+|L2
+|Progetta un layer di accesso ai dati mantenibile e comprende quando utilizzare ORM o SQL.
+
+|L3
+|Analizza e ottimizza le prestazioni dell'accesso ai dati, bilanciando produttività, leggibilità ed efficienza.
+
+|L4
+|Definisce strategie condivise di accesso ai dati, contribuendo all'evoluzione dell'architettura applicativa e delle pratiche del team.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

@@ -1,0 +1,89 @@
+[[co02-code-review]]
+=== CO-02 - Code Review
+
+[cols="1,4"]
+|===
+|Area
+|Collaboration
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di analizzare il codice di altri sviluppatori, individuare possibili miglioramenti e fornire feedback costruttivi.
+
+==== Cosa osservare
+
+* Analizza il codice in modo sistematico.
+* Distingue problemi rilevanti da dettagli marginali.
+* Fornisce feedback chiari e motivati.
+* Comprende il valore della Code Review nel processo di sviluppo.
+* Bilancia qualità del codice e pragmatismo.
+
+==== Domanda di base
+
+Un collega apre una Pull Request piuttosto estesa e ti chiede di revisionarla.
+
+Come affronteresti la Code Review?
+
+NOTE: Non valutare la conoscenza dello strumento utilizzato.
+Concentrati sul metodo seguito dal candidato.
+
+==== Domande di approfondimento
+
+* Quali aspetti controlleresti per primi?
+* Come distingui un problema importante da una semplice preferenza personale?
+* Come gestisci un disaccordo con l'autore della Pull Request?
+* Quando approveresti una modifica pur non essendo perfettamente d'accordo?
+* Hai mai evitato un problema importante grazie a una Code Review?
+
+==== Segnali positivi
+
+* Segue un metodo di revisione.
+* Distingue bug, problemi progettuali e aspetti stilistici.
+* Motiva sempre i propri commenti.
+* Mantiene un atteggiamento collaborativo.
+* Considera la Code Review un'occasione di condivisione della conoscenza.
+
+==== Segnali di attenzione
+
+* Si concentra esclusivamente sullo stile del codice.
+* Formula giudizi senza motivazioni.
+* Personalizza il confronto con l'autore.
+* Cerca di imporre le proprie preferenze.
+* Considera la Code Review un'attività puramente formale.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non comprende lo scopo della Code Review o non è in grado di svolgerla efficacemente.
+
+|L1
+|Individua problemi semplici e partecipa alle Code Review del team.
+
+|L2
+|Conduce Code Review complete, distinguendo problemi funzionali, progettuali e di manutenibilità.
+
+|L3
+|Utilizza la Code Review come strumento per migliorare qualità, condivisione della conoscenza e crescita del team.
+
+|L4
+|Definisce linee guida e buone pratiche per il processo di Code Review, contribuendo al miglioramento continuo dello sviluppo del software.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________
+
+// TODO: Durante un colloquio, non mi limiterei alla conversazione.
+// Se il tempo lo permette, mostrerei al candidato una Pull Request reale (opportunamente anonimizzata) e gli chiederei "Facciamo insieme una Code Review."

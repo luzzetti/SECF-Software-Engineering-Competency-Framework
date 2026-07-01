@@ -1,0 +1,87 @@
+[[de01-requirements-analysis]]
+=== DE-01 - Analisi dei Requisiti
+
+[cols="1,4"]
+|===
+|Area
+|Delivery
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di comprendere, analizzare e chiarire i requisiti prima di iniziare lo sviluppo.
+
+==== Cosa osservare
+
+* Analizza il problema prima della soluzione.
+* Individua requisiti mancanti o ambigui.
+* Formula domande pertinenti.
+* Distingue requisiti funzionali e non funzionali.
+* Comprende l'impatto delle modifiche ai requisiti.
+
+==== Domanda di base
+
+Il Product Owner ti assegna questa User Story:
+
+"Come cliente voglio poter annullare un ordine."
+
+Prima di iniziare lo sviluppo, come procederesti?
+
+NOTE: L'obiettivo non è progettare la soluzione, ma capire come il candidato affronta un requisito incompleto.
+
+==== Domande di approfondimento
+
+* Quali domande faresti al Product Owner?
+* Esistono casi particolari che vorresti chiarire?
+* Come gestiresti requisiti in conflitto tra loro?
+* Se i requisiti cambiassero durante lo sviluppo, come organizzeresti il lavoro?
+* Raccontami una situazione in cui un requisito ambiguo ha causato problemi in un progetto.
+
+==== Segnali positivi
+
+* Non parte immediatamente dall'implementazione.
+* Formula domande mirate.
+* Identifica casi limite.
+* Evidenzia ambiguità.
+* Ragiona sugli impatti delle modifiche.
+
+==== Segnali di attenzione
+
+* Assume dettagli non specificati.
+* Inizia subito a progettare la soluzione.
+* Non considera casi particolari.
+* Non distingue tra requisiti e implementazione.
+* Non verifica di aver compreso il problema.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Accetta i requisiti senza analizzarli o non riconosce ambiguità evidenti.
+
+|L1
+|Comprende i requisiti e pone domande sui casi più evidenti.
+
+|L2
+|Analizza criticamente i requisiti, identifica ambiguità e chiarisce gli aspetti mancanti prima dello sviluppo.
+
+|L3
+|Valuta l'impatto dei requisiti sull'architettura, sul piano di sviluppo e sulla qualità del prodotto, proponendo alternative quando opportuno.
+
+|L4
+|Guida l'analisi dei requisiti facilitando il dialogo tra stakeholder tecnici e di business e contribuendo a migliorare il processo di definizione dei requisiti.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

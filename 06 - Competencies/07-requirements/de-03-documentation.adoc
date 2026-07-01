@@ -1,0 +1,89 @@
+// TODO: Meh...non mi convince
+
+[[de03-documentation]]
+=== DE-03 - Documentazione
+
+[cols="1,4"]
+|===
+|Area
+|Delivery
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di produrre documentazione utile, aggiornata e adeguata al contesto.
+
+==== Cosa osservare
+
+* Distingue ciò che deve essere documentato da ciò che dovrebbe essere evidente dal codice.
+* Produce documentazione chiara e sintetica.
+* Aggiorna la documentazione quando il sistema evolve.
+* Adatta il livello di dettaglio ai destinatari.
+* Considera la documentazione parte integrante del software.
+
+==== Domanda di base
+
+Entri a far parte di un progetto esistente.
+
+Il codice è ben scritto ma la documentazione è praticamente assente.
+
+Come affronteresti la situazione?
+
+NOTE: L'obiettivo è comprendere il metodo del candidato, non la sua capacità di scrivere documentazione tecnica.
+
+==== Domande di approfondimento
+
+* Quali documenti consideri indispensabili?
+* Cosa preferisci documentare nel codice e cosa all'esterno?
+* Come eviti che la documentazione diventi obsoleta?
+* Quando ritieni che la documentazione sia eccessiva?
+* Hai mai migliorato significativamente la documentazione di un progetto?
+
+==== Segnali positivi
+
+* Documenta decisioni e motivazioni.
+* Evita documentazione ridondante.
+* Tiene aggiornata la documentazione.
+* Pensa ai futuri manutentori del software.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Documenta tutto indiscriminatamente.
+* Non documenta mai nulla.
+* Duplica informazioni già presenti nel codice.
+* Produce documentazione che non viene mantenuta.
+* Considera la documentazione un'attività secondaria.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non riconosce il valore della documentazione o non è in grado di produrne una utile.
+
+|L1
+|Produce documentazione essenziale per il corretto utilizzo e mantenimento del software.
+
+|L2
+|Realizza documentazione chiara, aggiornata e adatta ai diversi destinatari.
+
+|L3
+|Definisce cosa documentare e con quale livello di dettaglio, bilanciando costi e benefici.
+
+|L4
+|Promuove standard e pratiche condivise che migliorano la qualità e la manutenibilità della documentazione dell'organizzazione.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

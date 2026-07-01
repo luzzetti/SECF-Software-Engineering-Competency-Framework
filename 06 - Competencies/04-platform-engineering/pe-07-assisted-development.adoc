@@ -1,0 +1,85 @@
+[[pe07-ai-assisted-development]]
+=== PE-07 - AI-Assisted Development
+
+[cols="1,4"]
+|===
+|Area
+|Platform Engineering
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di utilizzare strumenti di Intelligenza Artificiale come supporto allo sviluppo software, mantenendo il controllo sulla qualità, correttezza e sicurezza del codice prodotto.
+
+==== Cosa osservare
+
+* Comprende punti di forza e limiti degli strumenti di AI.
+* Verifica il codice generato.
+* Utilizza l'AI come supporto e non come sostituto del ragionamento.
+* Sa formulare richieste efficaci.
+* Considera aspetti di sicurezza, privacy e proprietà del codice.
+
+==== Domanda di base
+
+Nel tuo team viene introdotto uno strumento di AI che genera codice e test automaticamente.
+
+Come lo integreresti nel tuo modo di lavorare?
+
+NOTE: L'obiettivo non è valutare uno strumento specifico, ma il metodo seguito dal candidato.
+
+==== Domande di approfondimento
+
+* Quali tipi di attività delegheresti più volentieri all'AI?
+* Quali attività preferiresti svolgere personalmente?
+* Come verificheresti la correttezza del codice generato?
+* Quali rischi vedi nell'utilizzo dell'AI durante lo sviluppo?
+* Hai esempi concreti di come l'AI abbia migliorato (o peggiorato) il tuo lavoro?
+
+==== Segnali positivi
+
+* Verifica sempre il codice generato.
+* Utilizza l'AI per aumentare la produttività, non per evitare di comprendere il problema.
+* Mantiene senso critico.
+* È consapevole dei limiti dello strumento.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Accetta automaticamente qualsiasi risposta dell'AI.
+* Non verifica il codice prodotto.
+* Utilizza l'AI senza comprendere la soluzione.
+* Ignora aspetti di sicurezza o riservatezza.
+* Considera l'AI infallibile.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non conosce o non è in grado di utilizzare strumenti di AI a supporto dello sviluppo.
+
+|L1
+|Utilizza strumenti di AI per attività semplici, verificandone il risultato.
+
+|L2
+|Integra efficacemente l'AI nel proprio flusso di lavoro, mantenendo il controllo sulla qualità del software.
+
+|L3
+|Sceglie consapevolmente quando utilizzare l'AI e quando evitarla, valutandone benefici, limiti e rischi.
+
+|L4
+|Promuove buone pratiche per l'utilizzo dell'AI nello sviluppo software, contribuendo alla definizione di linee guida condivise.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

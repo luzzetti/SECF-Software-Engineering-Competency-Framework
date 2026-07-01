@@ -1,0 +1,87 @@
+[[pe03-cicd]]
+=== PE-03 - Continuous Integration & Continuous Delivery
+
+[cols="1,4"]
+|===
+|Area
+|Platform Engineering
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare e utilizzare pipeline di Continuous Integration e Continuous Delivery per migliorare qualità, affidabilità e velocità di rilascio del software.
+
+==== Cosa osservare
+
+* Comprende gli obiettivi della CI/CD.
+* Ragiona in termini di automazione.
+* Integra controlli di qualità nel processo di rilascio.
+* Comprende la differenza tra Continuous Integration, Continuous Delivery e Continuous Deployment.
+* Considera affidabilità e ripetibilità del processo.
+
+==== Domanda di base
+
+Il tuo team rilascia una nuova versione dell'applicazione una volta al mese.
+
+Ogni rilascio richiede diverse attività manuali e, frequentemente, vengono introdotti errori.
+
+Come miglioreresti il processo?
+
+NOTE: Non concentrarti sugli strumenti utilizzati. Valuta il ragionamento del candidato.
+
+==== Domande di approfondimento
+
+* Quali verifiche inseriresti nella pipeline?
+* Quando interromperesti automaticamente una pipeline?
+* Come ridurresti il rischio durante un rilascio?
+* Come gestiresti il rollback di una versione difettosa?
+* Hai mai progettato o migliorato una pipeline di rilascio?
+
+==== Segnali positivi
+
+* Automatizza attività ripetitive.
+* Introduce verifiche automatiche.
+* Riduce il rischio dei rilasci.
+* Comprende il valore del feedback rapido.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Considera normali rilasci completamente manuali.
+* Non distingue build, test e deployment.
+* Non prevede controlli automatici.
+* Non considera il rollback.
+* Non comprende il valore della Continuous Integration.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non comprende il ruolo della Continuous Integration e della Continuous Delivery.
+
+|L1
+|Utilizza pipeline esistenti e ne comprende il funzionamento generale.
+
+|L2
+|Progetta o modifica pipeline integrando build, test e deployment automatizzati.
+
+|L3
+|Ottimizza il processo di integrazione e rilascio bilanciando velocità, qualità e affidabilità.
+
+|L4
+|Definisce strategie condivise di CI/CD contribuendo al miglioramento continuo del processo di sviluppo e rilascio.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

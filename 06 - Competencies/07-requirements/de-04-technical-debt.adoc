@@ -1,0 +1,85 @@
+[[de04-technical-debt]]
+=== DE-04 - Gestione del Debito Tecnico
+
+[cols="1,4"]
+|===
+|Area
+|Delivery
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di riconoscere, valutare e gestire il debito tecnico, bilanciando qualità del software, tempi di sviluppo ed esigenze di business.
+
+==== Cosa osservare
+
+* Riconosce il debito tecnico.
+* Distingue il debito tecnico da un bug o da una funzionalità mancante.
+* Valuta costi e benefici degli interventi.
+* Propone strategie per ridurre il debito tecnico.
+* Bilancia esigenze tecniche e di business.
+
+==== Domanda di base
+
+Entri a far parte di un progetto che funziona correttamente, ma il codice è difficile da comprendere e ogni nuova funzionalità richiede molto tempo.
+
+Come affronteresti la situazione?
+
+NOTE: L'obiettivo è comprendere il metodo seguito dal candidato, non verificare la conoscenza di specifiche metodologie.
+
+==== Domande di approfondimento
+
+* Come stabilisci se intervenire subito o rimandare?
+* Come convinceresti il Product Owner a dedicare tempo al miglioramento del codice?
+* Quali indicatori utilizzeresti per capire che il debito tecnico sta diventando un problema?
+* Come eviteresti di introdurre nuovo debito tecnico?
+* Raccontami una situazione nella quale hai gestito un debito tecnico significativo.
+
+==== Segnali positivi
+
+* Distingue problemi tecnici e funzionali.
+* Valuta costi, benefici e rischi.
+* Propone interventi incrementali.
+* Collega il debito tecnico alla velocità di sviluppo futura.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Propone di riscrivere completamente il sistema come prima soluzione.
+* Ignora completamente il debito tecnico.
+* Considera il debito tecnico esclusivamente come un problema estetico.
+* Non valuta l'impatto sul business.
+* Non sa stabilire priorità.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non riconosce il debito tecnico o non è in grado di valutarne l'impatto.
+
+|L1
+|Riconosce le principali situazioni di debito tecnico e propone semplici interventi di miglioramento.
+
+|L2
+|Gestisce il debito tecnico pianificando interventi sostenibili e motivandone la priorità.
+
+|L3
+|Bilancia debito tecnico, requisiti di business e tempi di consegna, definendo strategie di miglioramento continuo.
+
+|L4
+|Guida il team nella gestione del debito tecnico, promuovendo pratiche che ne limitano l'accumulo e ne riducono l'impatto nel tempo.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

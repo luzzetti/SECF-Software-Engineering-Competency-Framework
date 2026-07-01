@@ -1,0 +1,87 @@
+[[pe04-cloud]]
+=== PE-04 - Cloud
+
+[cols="1,4"]
+|===
+|Area
+|Platform Engineering
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare e sviluppare applicazioni che sfruttino correttamente le caratteristiche delle piattaforme cloud.
+
+==== Cosa osservare
+
+* Comprende le caratteristiche fondamentali del cloud.
+* Progetta applicazioni adatte ad ambienti distribuiti.
+* Ragiona su disponibilità, scalabilità e resilienza.
+* Comprende il concetto di servizi gestiti.
+* Valuta vantaggi e limiti delle soluzioni cloud.
+
+==== Domanda di base
+
+La tua applicazione, inizialmente utilizzata da poche centinaia di utenti, deve essere resa disponibile a livello internazionale.
+
+Come affronteresti questa evoluzione?
+
+NOTE: Non è importante che il candidato conosca uno specifico cloud provider.
+Concentrati sul ragionamento.
+
+==== Domande di approfondimento
+
+* Quali componenti renderesti scalabili?
+* Come gestiresti file e dati persistenti?
+* Come progetteresti l'applicazione per ridurre i tempi di inattività?
+* Quando utilizzeresti un servizio gestito invece di gestire direttamente l'infrastruttura?
+* Hai partecipato alla migrazione di un'applicazione verso il cloud?
+Quali problemi avete affrontato?
+
+==== Segnali positivi
+
+* Ragiona in termini di scalabilità.
+* Considera disponibilità e resilienza.
+* Comprende il valore dei servizi gestiti.
+* Valuta costi e benefici delle soluzioni proposte.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Considera il cloud semplicemente come "un server remoto".
+* Ignora la scalabilità.
+* Non considera l'affidabilità dell'infrastruttura.
+* Propone soluzioni fortemente dipendenti dalla singola macchina.
+* Non distingue tra infrastruttura e piattaforma.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non comprende i principi fondamentali dello sviluppo su piattaforme cloud.
+
+|L1
+|Comprende i concetti fondamentali del cloud e utilizza servizi esistenti.
+
+|L2
+|Progetta applicazioni che sfruttano correttamente le caratteristiche delle piattaforme cloud.
+
+|L3
+|Valuta trade-off tra scalabilità, resilienza, costi e semplicità, scegliendo l'architettura più adatta al contesto.
+
+|L4
+|Definisce strategie di adozione del cloud, contribuendo all'evoluzione dell'architettura e delle pratiche dell'organizzazione.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

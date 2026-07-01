@@ -1,0 +1,86 @@
+[[co03-mentoring]]
+=== CO-03 - Mentoring
+
+[cols="1,4"]
+|===
+|Area
+|Collaboration
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di supportare la crescita tecnica di altri sviluppatori attraverso condivisione della conoscenza, coaching e confronto.
+
+==== Cosa osservare
+
+* Condivide le proprie conoscenze.
+* Adatta le spiegazioni all'interlocutore.
+* Favorisce l'autonomia degli altri.
+* Fornisce feedback costruttivi.
+* Considera il mentoring parte del proprio ruolo.
+
+==== Domanda di base
+
+Nel tuo team arriva uno sviluppatore junior che deve lavorare su una parte del sistema che conosci molto bene.
+
+Come organizzeresti il suo inserimento?
+
+NOTE: L'obiettivo non è valutare la capacità didattica, ma il metodo con cui il candidato aiuta gli altri a crescere.
+
+==== Domande di approfondimento
+
+* Come reagisci quando uno sviluppatore continua a commettere lo stesso errore?
+* Quanto tempo dedicheresti al mentoring senza compromettere il tuo lavoro?
+* Preferisci dare direttamente la soluzione o guidare il ragionamento?
+Perché?
+* Raccontami una situazione nella quale hai aiutato un collega a crescere.
+* Cosa rende efficace una sessione di mentoring?
+
+==== Segnali positivi
+
+* Ascolta prima di spiegare.
+* Guida il ragionamento invece di fornire immediatamente la soluzione.
+* Adatta il livello di dettaglio all'esperienza del collega.
+* Condivide conoscenze ed esperienze.
+* Misura il successo del mentoring attraverso la crescita dell'altra persona.
+
+==== Segnali di attenzione
+
+* Risolve direttamente il problema senza coinvolgere il collega.
+* Considera il mentoring una perdita di tempo.
+* Fornisce spiegazioni troppo complesse o troppo superficiali.
+* Si sostituisce sistematicamente agli altri.
+* Mostra poca disponibilità alla condivisione della conoscenza.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non dimostra interesse o capacità nel supportare la crescita tecnica di altri sviluppatori.
+
+|L1
+|Condivide occasionalmente conoscenze ed esperienze con il team.
+
+|L2
+|Supporta colleghi meno esperti attraverso spiegazioni, confronto e feedback costruttivi.
+
+|L3
+|Svolge attività di mentoring in modo continuativo, favorendo la crescita tecnica e l'autonomia del team.
+
+|L4
+|Definisce e promuove pratiche di mentoring che contribuiscono allo sviluppo delle competenze dell'intera organizzazione.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

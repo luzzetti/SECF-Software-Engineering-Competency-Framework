@@ -1,0 +1,92 @@
+[[da05-transaction-management]]
+=== DA-05 - Transaction Management
+
+[cols="1,4"]
+|===
+|Area
+|Data
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di gestire correttamente transazioni, consistenza dei dati e scenari di errore durante operazioni che modificano lo stato del sistema.
+
+==== Cosa osservare
+
+* Comprende il ruolo delle transazioni.
+* Ragiona sulla consistenza dei dati.
+* Distingue operazioni atomiche e non atomiche.
+* Considera rollback, concorrenza e isolamento.
+* Valuta i trade-off tra correttezza, prestazioni e complessità.
+
+==== Domanda di base
+
+Stai sviluppando la funzionalità di creazione di un ordine.
+
+Durante l'operazione devi:
+
+* salvare l'ordine;
+* aggiornare la disponibilità dei prodotti;
+* registrare il pagamento.
+
+Cosa potrebbe andare storto?
+Come gestiresti la transazione?
+
+NOTE: L'obiettivo è capire se il candidato ragiona sugli stati intermedi e sugli scenari di errore, non se conosce una specifica API transazionale.
+
+==== Domande di approfondimento
+
+* Cosa succede se il pagamento fallisce dopo aver salvato l'ordine?
+* Quali operazioni devono essere atomiche?
+* Come gestiresti due utenti che acquistano contemporaneamente l'ultimo prodotto disponibile?
+* Quando una transazione lunga può diventare un problema?
+* Hai mai affrontato problemi reali legati a transazioni, rollback o consistenza dei dati?
+
+==== Segnali positivi
+
+* Identifica correttamente gli stati inconsistenti.
+* Ragiona su commit e rollback.
+* Considera concorrenza e isolamento.
+* Distingue transazioni locali e operazioni distribuite.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Assume che tutte le operazioni vadano sempre a buon fine.
+* Non considera rollback o stati parziali.
+* Ignora problemi di concorrenza.
+* Usa transazioni lunghe senza valutarne l'impatto.
+* Non distingue consistenza applicativa e consistenza del database.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non comprende il ruolo delle transazioni o non riconosce i rischi di inconsistenza dei dati.
+
+|L1
+|Comprende i principi fondamentali delle transazioni e utilizza correttamente commit e rollback nei casi semplici.
+
+|L2
+|Gestisce operazioni transazionali comuni, mantenendo il sistema in uno stato consistente anche in presenza di errori.
+
+|L3
+|Analizza problemi di concorrenza, isolamento e consistenza, bilanciando correttezza, prestazioni e complessità.
+
+|L4
+|Definisce strategie di consistenza per sistemi complessi, considerando transazioni locali, operazioni distribuite e meccanismi compensativi.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

@@ -1,0 +1,85 @@
+[[pe05-containers]]
+=== PE-05 - Container
+
+[cols="1,4"]
+|===
+|Area
+|Platform Engineering
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di comprendere e utilizzare la tecnologia dei container per distribuire applicazioni in modo coerente, isolato e riproducibile.
+
+==== Cosa osservare
+
+* Comprende il ruolo dei container.
+* Distingue applicazione e ambiente di esecuzione.
+* Ragiona sulla portabilità.
+* Comprende il concetto di immagine e container.
+* Considera sicurezza, configurazione e persistenza dei dati.
+
+==== Domanda di base
+
+Il tuo team sviluppa un'applicazione che funziona correttamente sul computer di ogni sviluppatore, ma presenta problemi ogni volta che viene installata in un nuovo ambiente.
+
+Come affronteresti il problema?
+
+NOTE: Non è necessario che il candidato conosca Docker o altri strumenti specifici. Valuta il ragionamento.
+
+==== Domande di approfondimento
+
+* Quali vantaggi offre un container rispetto a una macchina virtuale?
+* Come gestiresti configurazioni differenti tra sviluppo, test e produzione?
+* Dove memorizzeresti dati persistenti?
+* Come organizzeresti un'applicazione composta da più servizi?
+* Hai utilizzato container in progetti reali? Per quali motivi?
+
+==== Segnali positivi
+
+* Comprende il concetto di isolamento.
+* Ragiona sulla riproducibilità dell'ambiente.
+* Distingue chiaramente immagine e container.
+* Considera configurazione e persistenza.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Considera il container soltanto come uno strumento di deployment.
+* Confonde container e macchina virtuale.
+* Non considera la persistenza dei dati.
+* Dipende dalla configurazione della macchina ospite.
+* Non comprende il problema che i container risolvono.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non comprende i principi fondamentali della containerizzazione.
+
+|L1
+|Comprende il funzionamento dei container e utilizza immagini esistenti.
+
+|L2
+|Realizza e configura container per applicazioni e servizi, comprendendone vantaggi e limiti.
+
+|L3
+|Progetta soluzioni basate su container considerando portabilità, sicurezza, configurazione e integrazione tra servizi.
+
+|L4
+|Definisce strategie condivise per l'utilizzo dei container contribuendo alla standardizzazione del processo di sviluppo e distribuzione.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

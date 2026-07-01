@@ -1,0 +1,86 @@
+[[ar08-authentication-authorization]]
+=== AR-08 - Authentication & Authorization
+
+[cols="1,4"]
+|===
+|Area
+|Architecture
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare meccanismi di autenticazione e autorizzazione corretti, coerenti e adeguati al contesto applicativo.
+
+==== Cosa osservare
+
+* Distingue autenticazione e autorizzazione.
+* Comprende il concetto di identità dell'utente.
+* Ragiona sui permessi e sui ruoli.
+* Considera sessioni, token e scadenze.
+* Progetta controlli lato server, non solo lato client.
+
+==== Domanda di base
+
+Stai sviluppando un'applicazione nella quale utenti diversi possono accedere a dati e funzionalità differenti.
+
+Come progetteresti autenticazione e autorizzazione?
+
+NOTE: Non concentrarti su OAuth, JWT o altri standard specifici.
+Valuta prima il modello di sicurezza e il ragionamento.
+
+==== Domande di approfondimento
+
+* Come distingueresti login, identità e permessi?
+* Dove applicheresti i controlli di autorizzazione?
+* Come impediresti a un utente di accedere ai dati di un altro utente?
+* Come gestiresti scadenza, rinnovo o revoca di una sessione o di un token?
+* Hai mai gestito problemi reali legati a permessi, ruoli o accessi non autorizzati?
+
+==== Segnali positivi
+
+* Distingue chiaramente autenticazione e autorizzazione.
+* Applica i controlli lato server.
+* Ragiona su ruoli, permessi e ownership dei dati.
+* Considera scadenza e revoca delle credenziali.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Confonde autenticazione e autorizzazione.
+* Si affida esclusivamente ai controlli lato client.
+* Non considera accessi tra utenti diversi.
+* Gestisce ruoli e permessi in modo implicito o disperso nel codice.
+* Non considera scadenza o revoca delle credenziali.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non distingue autenticazione e autorizzazione o non comprende i rischi legati al controllo degli accessi.
+
+|L1
+|Comprende i concetti fondamentali di identità, login, ruoli e permessi.
+
+|L2
+|Progetta controlli di accesso corretti per funzionalità e dati, applicandoli in modo coerente lato server.
+
+|L3
+|Analizza scenari complessi di autorizzazione, ownership dei dati, sessioni, token e revoca, bilanciando sicurezza e usabilità.
+
+|L4
+|Definisce strategie e linee guida condivise per autenticazione e autorizzazione, contribuendo alla sicurezza complessiva dell'architettura.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

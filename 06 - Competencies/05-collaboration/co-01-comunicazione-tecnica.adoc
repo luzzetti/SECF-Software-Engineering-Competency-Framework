@@ -1,0 +1,86 @@
+[[co01-technical-communication]]
+=== CO-01 - Comunicazione Tecnica
+
+[cols="1,4"]
+|===
+|Area
+|Collaboration
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di comunicare in modo chiaro, preciso ed efficace concetti, decisioni e problemi tecnici.
+
+==== Cosa osservare
+
+* Espone il proprio ragionamento in modo comprensibile.
+* Adatta il livello di dettaglio all'interlocutore.
+* Argomenta le proprie decisioni.
+* Ascolta e risponde alle osservazioni.
+* Utilizza una terminologia appropriata.
+
+==== Domanda di base
+
+Durante una riunione proponi una soluzione tecnica che viene contestata da un collega.
+
+Come gestiresti la discussione?
+
+NOTE: Non valutare se la soluzione proposta sia corretta, ma il modo in cui il candidato conduce il confronto tecnico.
+
+==== Domande di approfondimento
+
+* Come spiegheresti la stessa soluzione a uno sviluppatore junior?
+* E come la presenteresti a un Product Owner non tecnico?
+* Come reagisci quando qualcuno individua un errore nel tuo ragionamento?
+* Hai mai cambiato idea durante una discussione tecnica?
+Raccontami il contesto.
+* Come gestisci un disaccordo tecnico all'interno del team?
+
+==== Segnali positivi
+
+* Espone le idee con ordine.
+* Motiva le proprie decisioni.
+* Ascolta prima di rispondere.
+* Accetta punti di vista differenti.
+* Distingue i fatti dalle opinioni.
+
+==== Segnali di attenzione
+
+* Difende la propria idea senza ascoltare gli altri.
+* Argomenta facendo riferimento esclusivamente all'autorità ("si è sempre fatto così").
+* Fatica a spiegare il proprio ragionamento.
+* Confonde opinioni e fatti.
+* Personalizza il confronto tecnico.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non riesce a comunicare efficacemente il proprio ragionamento tecnico.
+
+|L1
+|Espone le proprie idee in modo comprensibile e partecipa alle discussioni tecniche.
+
+|L2
+|Argomenta le proprie decisioni, ascolta gli altri e contribuisce al confronto tecnico in modo costruttivo.
+
+|L3
+|Facilita le discussioni tecniche, chiarisce problemi complessi e favorisce il raggiungimento di decisioni condivise.
+
+|L4
+|Rappresenta un punto di riferimento nella comunicazione tecnica, favorendo la collaborazione tra team e stakeholder con competenze differenti.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

@@ -1,4 +1,3 @@
-```adoc
 [[cs05-networking]]
 === CS-05 - Networking
 
@@ -39,7 +38,8 @@ NOTE: L'obiettivo è comprendere il metodo di analisi del candidato, non verific
 * Come distingueresti un problema dell'applicazione da un problema di rete?
 * Quando introdurresti timeout e retry?
 * Quali rischi possono introdurre retry automatici?
-* Hai mai analizzato un problema reale legato alla rete? Come lo hai risolto?
+* Hai mai analizzato un problema reale legato alla rete?
+Come lo hai risolto?
 
 ==== Segnali positivi
 
@@ -86,4 +86,3 @@ ____________________________________________________________
 ____________________________________________________________
 
 ____________________________________________________________
-```

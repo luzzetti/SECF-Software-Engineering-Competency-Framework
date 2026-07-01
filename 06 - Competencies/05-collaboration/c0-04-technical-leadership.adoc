@@ -1,0 +1,87 @@
+[[co04-technical-leadership]]
+=== CO-04 - Leadership Tecnica
+
+[cols="1,4"]
+|===
+|Area
+|Collaboration
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di guidare le decisioni tecniche del team, favorire l'allineamento e contribuire all'evoluzione del software.
+
+==== Cosa osservare
+
+* Prende decisioni tecniche motivate.
+* Coinvolge il team nelle scelte.
+* Bilancia esigenze tecniche e di business.
+* Gestisce i disaccordi tecnici.
+* Favorisce una visione condivisa dell'architettura e del codice.
+
+==== Domanda di base
+
+Il team è diviso tra due possibili soluzioni architetturali.
+
+Entrambe sono valide, ma presentano vantaggi e svantaggi differenti.
+
+Come guideresti il processo decisionale?
+
+NOTE: Non valutare quale soluzione sceglierebbe il candidato, ma il metodo utilizzato per arrivare a una decisione condivisa.
+
+==== Domande di approfondimento
+
+* Come gestisci un forte disaccordo tecnico all'interno del team?
+* Quando decideresti di rinunciare a una soluzione tecnicamente migliore?
+* Come comunichi una decisione tecnica impopolare?
+* Hai mai dovuto prendere una decisione tecnica con informazioni incomplete?
+* Raccontami una decisione tecnica che ha avuto un impatto importante sul progetto.
+
+==== Segnali positivi
+
+* Ascolta i diversi punti di vista.
+* Motiva le decisioni.
+* Considera aspetti tecnici e di business.
+* Ricerca il consenso senza evitare le decisioni.
+* Si assume la responsabilità delle scelte effettuate.
+
+==== Segnali di attenzione
+
+* Impone la propria soluzione senza confronto.
+* Evita di prendere decisioni.
+* Si concentra esclusivamente sugli aspetti tecnici.
+* Personalizza il conflitto.
+* Cambia continuamente direzione senza una motivazione.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non dimostra la capacità di guidare decisioni tecniche o di coordinare il confronto all'interno del team.
+
+|L1
+|Partecipa alle decisioni tecniche contribuendo con il proprio punto di vista.
+
+|L2
+|Guida decisioni tecniche all'interno del proprio team, motivando le scelte e favorendo il confronto.
+
+|L3
+|Coordina decisioni architetturali complesse, bilanciando aspetti tecnici, organizzativi e di business.
+
+|L4
+|Definisce la direzione tecnica dell'organizzazione, contribuendo alla crescita delle persone, dei processi e dell'architettura.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

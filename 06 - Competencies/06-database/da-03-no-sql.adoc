@@ -1,0 +1,87 @@
+[[da03-nosql]]
+=== DA-03 - Database NoSQL
+
+[cols="1,4"]
+|===
+|Area
+|Data
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di comprendere le caratteristiche dei database NoSQL e di scegliere quando il loro utilizzo sia appropriato.
+
+==== Cosa osservare
+
+* Comprende le differenze tra database relazionali e NoSQL.
+* Sceglie il modello dati in funzione del problema.
+* Conosce vantaggi e limiti dei principali modelli NoSQL.
+* Ragiona sui trade-off.
+* Evita di scegliere una tecnologia per moda.
+
+==== Domanda di base
+
+Stai progettando un sistema che deve memorizzare grandi quantità di dati con struttura variabile e gestire un elevato numero di richieste contemporanee.
+
+Come sceglieresti il tipo di database da utilizzare?
+
+NOTE: Non valutare la conoscenza di uno specifico prodotto.
+Concentrati sul ragionamento.
+
+==== Domande di approfondimento
+
+* Quando preferiresti un database relazionale?
+* Quali svantaggi può introdurre una soluzione NoSQL?
+* Come modelleresti i dati?
+* Come gestiresti la consistenza dei dati?
+* Hai mai utilizzato database NoSQL in un progetto reale?
+Per quali motivi?
+
+==== Segnali positivi
+
+* Parte dai requisiti del sistema.
+* Non considera NoSQL una soluzione universale.
+* Conosce i principali modelli (documentale, key-value, colonnare, grafo).
+* Ragiona sulla consistenza dei dati.
+* Motiva le proprie scelte.
+
+==== Segnali di attenzione
+
+* Sceglie la tecnologia senza analizzare il problema.
+* Non conosce le differenze rispetto ai database relazionali.
+* Ignora i compromessi introdotti.
+* Considera NoSQL sempre più veloce.
+* Non riesce a motivare la scelta.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non comprende le caratteristiche fondamentali dei database NoSQL.
+
+|L1
+|Conosce i principali modelli NoSQL e ne comprende gli scenari di utilizzo.
+
+|L2
+|Sceglie correttamente tra database relazionali e NoSQL in funzione dei requisiti.
+
+|L3
+|Analizza i trade-off tra consistenza, scalabilità, flessibilità e complessità, progettando modelli dati appropriati.
+
+|L4
+|Definisce strategie di persistenza dei dati per sistemi complessi, integrando tecnologie differenti quando opportuno.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

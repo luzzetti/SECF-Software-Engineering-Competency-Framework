@@ -1,0 +1,87 @@
+[[se08-clean-code]]
+=== SE-08 - Clean Code
+
+[cols="1,4"]
+|===
+|Area
+|Software Engineering
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di scrivere e riconoscere codice semplice, leggibile e facilmente manutenibile.
+
+==== Cosa osservare
+
+* Scrive codice chiaro e comprensibile.
+* Utilizza nomi significativi.
+* Riduce la complessità inutile.
+* Individua codice difficile da mantenere.
+* Motiva le proprie scelte.
+
+==== Domanda di base
+
+Ti viene assegnata la manutenzione di un componente scritto da un altro sviluppatore.
+
+Il codice funziona, ma risulta difficile da leggere e modificare.
+
+Come procederesti?
+
+NOTE: Se possibile, mostra al candidato un breve frammento di codice reale e chiedigli come lo migliorerebbe.
+
+==== Domande di approfondimento
+
+* Quali sono i primi segnali che ti fanno capire che un codice è difficile da mantenere?
+* Come distingui un miglioramento reale da una semplice preferenza stilistica?
+* Quando preferisci non modificare codice poco leggibile?
+* Quali caratteristiche rendono un codice "pulito" secondo te?
+* Raccontami un caso in cui hai migliorato significativamente la qualità del codice di un progetto.
+
+==== Segnali positivi
+
+* Cerca di semplificare.
+* Utilizza nomi significativi.
+* Riduce duplicazioni.
+* Mantiene responsabilità chiare.
+* Ragiona sulla leggibilità futura.
+
+==== Segnali di attenzione
+
+* Introduce livelli di astrazione non necessari.
+* Modifica il codice senza migliorarne la comprensibilità.
+* Si concentra esclusivamente sullo stile.
+* Non distingue un problema di leggibilità da un problema funzionale.
+* Non riesce a motivare le proprie scelte.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non riconosce problemi evidenti di leggibilità o manutenibilità del codice.
+
+|L1
+|Scrive codice semplice e comprensibile nei casi più comuni.
+
+|L2
+|Produce codice leggibile, coeso e facilmente manutenibile, motivando le proprie scelte.
+
+|L3
+|Migliora sistematicamente la qualità del codice bilanciando semplicità, estensibilità e leggibilità.
+
+|L4
+|Promuove standard di qualità condivisi e contribuisce alla diffusione di buone pratiche all'interno del team.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

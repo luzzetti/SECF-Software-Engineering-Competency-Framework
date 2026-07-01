@@ -1,0 +1,89 @@
+[[da01-relational-databases]]
+=== DA-01 - Database Relazionali
+
+[cols="1,4"]
+|===
+|Area
+|Data
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare, interrogare e utilizzare correttamente un database relazionale all'interno di un'applicazione.
+
+==== Cosa osservare
+
+* Comprende il modello relazionale.
+* Progetta uno schema dati coerente.
+* Scrive query corrette ed efficienti.
+* Comprende il ruolo degli indici.
+* Valuta l'impatto delle scelte progettuali sulle prestazioni.
+
+==== Domanda di base
+
+Stai sviluppando un sistema di gestione ordini.
+
+Ogni cliente può effettuare più ordini e ogni ordine può contenere più prodotti.
+
+Come modelleresti il database?
+
+NOTE: Non chiedere direttamente di scrivere SQL.
+Valuta prima il modello dati e il ragionamento.
+
+==== Domande di approfondimento
+
+* Come recupereresti tutti gli ordini di un cliente?
+* Quali colonne indicizzeresti?
+Perché?
+* Se una query diventasse molto lenta con milioni di record, come procederesti?
+* Quando prenderesti in considerazione la denormalizzazione?
+* Hai mai ottimizzato un database in un progetto reale?
+
+==== Segnali positivi
+
+* Parte dal modello dati.
+* Individua correttamente chiavi primarie e relazioni.
+* Comprende il ruolo degli indici.
+* Ragiona sull'impatto delle query.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Modella i dati senza considerare le relazioni.
+* Introduce duplicazioni senza una motivazione.
+* Ignora completamente gli indici.
+* Non considera il volume dei dati.
+* Non sa spiegare le proprie scelte progettuali.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non dimostra una conoscenza sufficiente dei principi fondamentali dei database relazionali.
+
+|L1
+|Progetta semplici modelli relazionali e scrive query corrette per scenari comuni.
+
+|L2
+|Progetta database consistenti, realizza query efficienti e comprende l'utilizzo degli indici.
+
+|L3
+|Bilancia normalizzazione, prestazioni e manutenibilità, adattando il modello dati al contesto applicativo.
+
+|L4
+|Definisce linee guida per la progettazione e l'evoluzione del modello dati, contribuendo alle decisioni architetturali del sistema.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

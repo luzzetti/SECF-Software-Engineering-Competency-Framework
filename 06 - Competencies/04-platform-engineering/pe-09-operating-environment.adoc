@@ -1,0 +1,88 @@
+[[pe09-operating-environment]]
+=== PE-09 - Operating Environment
+
+[cols="1,4"]
+|===
+|Area
+|Platform Engineering
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di operare efficacemente nell'ambiente di esecuzione di un'applicazione, utilizzando gli strumenti fondamentali messi a disposizione dal sistema operativo.
+
+==== Cosa osservare
+
+* Si orienta agevolmente nell'ambiente operativo.
+* Comprende struttura del filesystem, processi e configurazione.
+* Utilizza la riga di comando per diagnosticare problemi.
+* Sa reperire informazioni senza dipendere dall'IDE.
+* Comprende il contesto nel quale viene eseguita l'applicazione.
+
+==== Domanda di base
+
+Un'applicazione in produzione presenta un malfunzionamento.
+
+Puoi accedere esclusivamente tramite una sessione SSH a un server Linux.
+
+Come procederesti per raccogliere le prime informazioni sul problema?
+
+NOTE: L'obiettivo non è verificare la conoscenza mnemonica dei comandi Linux, ma il metodo seguito dal candidato.
+
+==== Domande di approfondimento
+
+* Come individueresti i log dell'applicazione?
+* Come controlleresti se il processo è effettivamente in esecuzione?
+* Come verificheresti il consumo di CPU e memoria?
+* Come cercheresti rapidamente un file di configurazione?
+* Hai mai dovuto analizzare direttamente un problema su un server Linux?
+Raccontami l'esperienza.
+
+==== Segnali positivi
+
+* Procede con metodo.
+* Conosce i principali strumenti della shell.
+* Sa orientarsi nel filesystem.
+* Utilizza i log come primo strumento di analisi.
+* Porta esempi concreti tratti dall'esperienza.
+
+==== Segnali di attenzione
+
+* Dipende completamente dall'IDE.
+* Non sa come raccogliere informazioni dal sistema operativo.
+* Procede per tentativi casuali.
+* Non conosce il ruolo dei log.
+* Mostra difficoltà a lavorare tramite terminale.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non dimostra familiarità con un ambiente operativo a riga di comando.
+
+|L1
+|Utilizza i principali strumenti della shell per navigare il filesystem, consultare file e raccogliere informazioni di base.
+
+|L2
+|Analizza problemi applicativi utilizzando log, processi e strumenti del sistema operativo.
+
+|L3
+|Utilizza l'ambiente operativo come strumento di diagnosi, individuando rapidamente le possibili cause di un problema e collaborando efficacemente con Operations e DevOps.
+
+|L4
+|Definisce procedure e buone pratiche per l'analisi e la gestione degli ambienti di esecuzione, contribuendo a migliorare l'operatività del team.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

@@ -1,0 +1,86 @@
+[[ar05-observability]]
+=== AR-05 - Observability
+
+[cols="1,4"]
+|===
+|Area
+|Architecture
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare applicazioni che possano essere monitorate, analizzate e diagnosticate efficacemente durante il loro esercizio.
+
+==== Cosa osservare
+
+* Comprende l'importanza dell'osservabilità.
+* Progetta sistemi facilmente diagnosticabili.
+* Utilizza correttamente log, metriche e tracing.
+* Considera il monitoraggio fin dalla progettazione.
+* Ragiona sulla diagnosi dei problemi in produzione.
+
+==== Domanda di base
+
+Un'applicazione distribuita funziona correttamente in ambiente di test, ma in produzione alcuni utenti segnalano errori sporadici che non riesci a riprodurre.
+
+Come progetteresti il sistema per capire cosa sta succedendo?
+
+NOTE: Non concentrarti su prodotti specifici.
+Valuta il metodo e il ragionamento del candidato.
+
+==== Domande di approfondimento
+
+* Quali informazioni registreresti nei log?
+* Quali metriche monitoreresti?
+* Quando utilizzeresti il tracing?
+* Come distingueresti un problema applicativo da uno infrastrutturale?
+* Hai mai risolto un problema in produzione grazie a log, metriche o strumenti di monitoraggio?
+
+==== Segnali positivi
+
+* Considera l'osservabilità parte integrante del sistema.
+* Distingue log, metriche e tracing.
+* Ragiona sulla diagnosi dei problemi.
+* Evita log inutili o eccessivi.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Aggiunge log solo dopo la comparsa di un problema.
+* Considera il logging sufficiente per qualsiasi scenario.
+* Non raccoglie informazioni utili alla diagnosi.
+* Non considera il monitoraggio dell'applicazione.
+* Dipende esclusivamente dal debugger.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non considera l'osservabilità come parte della progettazione del software.
+
+|L1
+|Comprende il ruolo di log e monitoraggio nella diagnosi dei problemi.
+
+|L2
+|Progetta applicazioni che espongono informazioni utili all'analisi dei problemi e al monitoraggio.
+
+|L3
+|Integra log, metriche e tracing in una strategia coerente di osservabilità, valutandone costi e benefici.
+
+|L4
+|Definisce linee guida e strategie di osservabilità condivise, migliorando la capacità dell'organizzazione di analizzare e risolvere problemi in produzione.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

@@ -1,0 +1,89 @@
+[[pe06-infrastructure-as-code]]
+=== PE-06 - Infrastructure as Code
+
+[cols="1,4"]
+|===
+|Area
+|Platform Engineering
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare, gestire e versionare l'infrastruttura utilizzando gli stessi principi adottati per lo sviluppo del software.
+
+==== Cosa osservare
+
+* Comprende il valore dell'automazione dell'infrastruttura.
+* Ragiona in termini di riproducibilità.
+* Considera il versionamento dell'infrastruttura.
+* Riduce gli interventi manuali.
+* Comprende il legame tra infrastruttura e processo di rilascio.
+
+==== Domanda di base
+
+Il tuo team deve configurare un nuovo ambiente di test.
+
+Attualmente tutte le operazioni vengono eseguite manualmente seguendo una procedura di circa cinquanta pagine.
+
+Come miglioreresti il processo?
+
+NOTE: Non concentrarti sugli strumenti utilizzati.
+Valuta il ragionamento del candidato.
+
+==== Domande di approfondimento
+
+* Come garantiresti che due ambienti siano realmente identici?
+* Come gestiresti modifiche all'infrastruttura nel tempo?
+* Come ridurresti il rischio di errori durante la configurazione?
+* Come integreresti l'infrastruttura nel processo di rilascio?
+* Hai mai utilizzato Infrastructure as Code in un progetto reale?
+Quali benefici hai ottenuto?
+
+==== Segnali positivi
+
+* Automatizza la configurazione degli ambienti.
+* Versiona l'infrastruttura.
+* Riduce le attività manuali.
+* Considera la riproducibilità.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Configura gli ambienti esclusivamente a mano.
+* Dipende dalla documentazione anziché dall'automazione.
+* Non considera il versionamento.
+* Accetta differenze tra gli ambienti.
+* Non comprende il valore dell'automazione dell'infrastruttura.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non comprende i principi fondamentali dell'Infrastructure as Code.
+
+|L1
+|Comprende il valore dell'automazione dell'infrastruttura e utilizza configurazioni esistenti.
+
+|L2
+|Automatizza la creazione e l'aggiornamento degli ambienti, garantendone la riproducibilità.
+
+|L3
+|Progetta infrastrutture versionate, affidabili e facilmente evolvibili, integrandole nel processo di sviluppo e rilascio.
+
+|L4
+|Definisce strategie condivise di Infrastructure as Code, contribuendo alla standardizzazione e all'automazione dell'intera piattaforma.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

@@ -1,0 +1,87 @@
+[[ar06-scalability]]
+=== AR-06 - Scalabilità
+
+[cols="1,4"]
+|===
+|Area
+|Architecture
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare sistemi in grado di sostenere un aumento del carico mantenendo prestazioni e affidabilità adeguate.
+
+==== Cosa osservare
+
+* Individua i colli di bottiglia.
+* Comprende le strategie di scalabilità.
+* Valuta costi e benefici delle diverse soluzioni.
+* Considera l'evoluzione del sistema.
+* Ragiona sui trade-off.
+
+==== Domanda di base
+
+Un'applicazione che serve circa mille utenti al giorno deve essere estesa per supportarne un milione.
+
+Come affronteresti questa evoluzione?
+
+NOTE: Non cercare una soluzione specifica.
+Valuta il percorso di ragionamento del candidato.
+
+==== Domande di approfondimento
+
+* Quali componenti analizzeresti per primi?
+* Preferiresti scalare verticalmente o orizzontalmente?
+Perché?
+* Come individueresti il primo collo di bottiglia?
+* Quali informazioni raccoglieresti prima di modificare l'architettura?
+* Hai mai affrontato problemi di scalabilità in un progetto reale?
+
+==== Segnali positivi
+
+* Non propone soluzioni premature.
+* Parte dalla misurazione del problema.
+* Ragiona per colli di bottiglia.
+* Considera database, cache, rete e applicazione.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Propone immediatamente una tecnologia.
+* Ignora il costo delle soluzioni.
+* Non considera dove si trovi realmente il problema.
+* Confonde scalabilità e prestazioni.
+* Non riesce a motivare le proprie scelte.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non comprende i principi fondamentali della scalabilità dei sistemi.
+
+|L1
+|Comprende il concetto di scalabilità e riconosce i principali colli di bottiglia.
+
+|L2
+|Analizza il sistema e propone strategie appropriate per aumentarne la capacità.
+
+|L3
+|Bilancia prestazioni, costi, complessità e affidabilità progettando sistemi scalabili in funzione del contesto.
+
+|L4
+|Definisce strategie architetturali per la crescita del sistema contribuendo all'evoluzione della piattaforma nel lungo periodo.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

@@ -1,0 +1,85 @@
+[[ar09-secure-coding]]
+=== AR-09 - Secure Coding
+
+[cols="1,4"]
+|===
+|Area
+|Architecture
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di sviluppare software riducendo il rischio di vulnerabilità attraverso corrette pratiche di sviluppo.
+
+==== Cosa osservare
+
+* Non si fida mai dei dati provenienti dall'esterno.
+* Valida correttamente input e output.
+* Protegge dati sensibili e credenziali.
+* Comprende le principali vulnerabilità applicative.
+* Integra la sicurezza nello sviluppo quotidiano.
+
+==== Domanda di base
+
+Stai sviluppando un servizio che riceve dati da applicazioni esterne e li utilizza per aggiornare il database.
+
+Quali aspetti prenderesti in considerazione per rendere il codice sicuro?
+
+NOTE: Non verificare la conoscenza mnemonica della OWASP Top 10. Valuta il metodo seguito dal candidato.
+
+==== Domande di approfondimento
+
+* Quali controlli eseguiresti sui dati ricevuti?
+* Come proteggeresti password e informazioni sensibili?
+* Come gestiresti segreti e chiavi di accesso?
+* Quali errori eviteresti di mostrare all'utente?
+* Hai mai corretto una vulnerabilità di sicurezza in un progetto reale?
+
+==== Segnali positivi
+
+* Valida sempre gli input.
+* Non memorizza informazioni sensibili in chiaro.
+* Evita di esporre dettagli interni del sistema.
+* Comprende i rischi delle vulnerabilità più comuni.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Si fida dei dati ricevuti dal client.
+* Inserisce credenziali direttamente nel codice.
+* Espone stack trace o informazioni sensibili agli utenti.
+* Non considera la validazione degli input.
+* Ritiene che la sicurezza sia responsabilità esclusiva dell'infrastruttura.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non dimostra una conoscenza sufficiente delle pratiche fondamentali di sviluppo sicuro.
+
+|L1
+|Applica le principali pratiche di validazione e protezione dei dati durante lo sviluppo.
+
+|L2
+|Sviluppa codice robusto riducendo il rischio delle vulnerabilità applicative più comuni.
+
+|L3
+|Integra la sicurezza nel processo di sviluppo valutando rischi, impatti e compromessi progettuali.
+
+|L4
+|Promuove pratiche di Secure Coding all'interno del team contribuendo alla definizione di standard condivisi.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

@@ -1,0 +1,87 @@
+[[pe01-version-control]]
+=== PE-01 - Version Control
+
+[cols="1,4"]
+|===
+|Area
+|Platform Engineering
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di utilizzare un sistema di controllo di versione per sviluppare software in modo collaborativo, mantenendo la storia delle modifiche chiara, coerente e facilmente gestibile.
+
+==== Cosa osservare
+
+* Comprende il ruolo del controllo di versione.
+* Organizza il lavoro in modo collaborativo.
+* Produce una cronologia delle modifiche chiara.
+* Gestisce correttamente branch, merge e conflitti.
+* Comprende l'impatto delle proprie modifiche sul lavoro degli altri.
+
+==== Domanda di base
+
+Stai lavorando a una nuova funzionalità insieme ad altri sviluppatori.
+
+Durante lo sviluppo vengono rilasciate diverse modifiche sul ramo principale.
+
+Come organizzeresti il tuo lavoro?
+
+NOTE: Non chiedere la sintassi dei comandi Git. Concentrati sul flusso di lavoro.
+
+==== Domande di approfondimento
+
+* Come gestisci un conflitto di merge?
+* Quando preferisci creare un nuovo branch?
+* Come organizzi i commit?
+* Hai mai dovuto recuperare modifiche perse o annullare un errore?
+* Raccontami una situazione in cui il controllo di versione ti ha aiutato a risolvere un problema.
+
+==== Segnali positivi
+
+* Realizza commit piccoli e coerenti.
+* Comprende il significato dei branch.
+* Sa spiegare il motivo delle proprie scelte.
+* Gestisce correttamente merge e conflitti.
+* Ragiona in termini di collaborazione.
+
+==== Segnali di attenzione
+
+* Lavora direttamente sul ramo principale senza una motivazione.
+* Produce commit molto grandi o poco significativi.
+* Non comprende il significato di merge o rebase.
+* Considera il controllo di versione un semplice sistema di backup.
+* Non sa spiegare come recupererebbe una modifica errata.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non dimostra una conoscenza sufficiente dei principi fondamentali del controllo di versione.
+
+|L1
+|Utilizza correttamente un sistema di controllo di versione nelle attività quotidiane.
+
+|L2
+|Gestisce in autonomia branch, merge, conflitti e collabora efficacemente con il team.
+
+|L3
+|Organizza workflow di sviluppo, valuta strategie di branching e supporta il team nella gestione del repository.
+
+|L4
+|Definisce linee guida e processi condivisi per il controllo di versione, migliorando la collaborazione e la qualità del processo di sviluppo.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

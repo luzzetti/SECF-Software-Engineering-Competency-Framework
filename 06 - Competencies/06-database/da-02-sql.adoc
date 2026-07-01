@@ -1,0 +1,91 @@
+[[da02-sql]]
+=== DA-02 - SQL
+
+[cols="1,4"]
+|===
+|Area
+|Data
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di interrogare un database relazionale in modo corretto, efficace ed efficiente.
+
+==== Cosa osservare
+
+* Traduce correttamente un requisito in una query.
+* Utilizza in modo appropriato JOIN, GROUP BY e funzioni di aggregazione.
+* Comprende il costo delle interrogazioni.
+* Ragiona sulla leggibilità delle query.
+* Considera l'impatto delle query sulle prestazioni.
+
+==== Domanda di base
+
+Hai un database che contiene:
+
+* Clienti
+* Ordini
+* Prodotti
+
+Devi mostrare, per ogni cliente, il totale degli ordini effettuati nell'ultimo anno.
+
+Come imposteresti la query?
+
+NOTE: Non è importante ricordare la sintassi perfetta. Valuta il ragionamento.
+
+==== Domande di approfondimento
+
+* Come cambierebbe la query con milioni di record?
+* Quali indici potrebbero migliorarne le prestazioni?
+* Come individueresti una query lenta?
+* Quando utilizzeresti una vista?
+* Ti è mai capitato di ottimizzare una query particolarmente complessa?
+
+==== Segnali positivi
+
+* Traduce correttamente il requisito in una query.
+* Utilizza correttamente JOIN e aggregazioni.
+* Ragiona sulle prestazioni.
+* Considera la leggibilità della query.
+* Porta esempi reali.
+
+==== Segnali di attenzione
+
+* Costruisce query senza comprendere il modello dati.
+* Utilizza JOIN in modo improprio.
+* Ignora completamente le prestazioni.
+* Duplica inutilmente la logica.
+* Non sa spiegare il funzionamento della query.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non riesce a tradurre un requisito in una query SQL corretta.
+
+|L1
+|Scrive query corrette per interrogazioni semplici.
+
+|L2
+|Realizza query complesse utilizzando join, aggregazioni e sottoquery in modo appropriato.
+
+|L3
+|Ottimizza query valutando leggibilità, prestazioni e manutenibilità.
+
+|L4
+|Progetta strategie di accesso ai dati e supporta il team nell'ottimizzazione delle interrogazioni più critiche.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

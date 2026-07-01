@@ -1,0 +1,89 @@
+[[ar07-caching]]
+=== AR-07 - Caching
+
+[cols="1,4"]
+|===
+|Area
+|Architecture
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare e utilizzare meccanismi di caching per migliorare prestazioni e scalabilità, comprendendone benefici, limiti e implicazioni.
+
+==== Cosa osservare
+
+* Comprende quando una cache è utile.
+* Individua cosa può essere messo in cache.
+* Ragiona sull'invalidazione della cache.
+* Valuta il compromesso tra prestazioni e consistenza.
+* Considera il ciclo di vita dei dati.
+
+==== Domanda di base
+
+Un'applicazione interroga frequentemente il database per recuperare dati che cambiano molto raramente.
+
+Gli utenti iniziano a lamentare tempi di risposta elevati.
+
+Come affronteresti il problema?
+
+NOTE: Non suggerire l'utilizzo di una cache.
+Lascia che sia il candidato a proporre la soluzione.
+
+==== Domande di approfondimento
+
+* Quali dati metteresti in cache e quali no?
+* Come gestiresti l'aggiornamento dei dati presenti in cache?
+* Cosa potrebbe andare storto introducendo una cache?
+* Quando preferiresti non utilizzare una cache?
+* Hai mai introdotto una cache in un sistema reale?
+Quali problemi hai incontrato?
+
+==== Segnali positivi
+
+* Valuta se la cache sia realmente necessaria.
+* Ragiona sull'invalidazione dei dati.
+* Considera consistenza e aggiornamento.
+* Distingue diversi livelli di caching.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Propone sempre una cache come prima soluzione.
+* Ignora il problema dell'invalidazione.
+* Assume che i dati siano sempre aggiornati.
+* Non considera l'impatto sulla consistenza.
+* Non sa spiegare i benefici reali della cache.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non comprende il ruolo della cache o non riesce a individuare scenari nei quali possa essere utile.
+
+|L1
+|Comprende i principi fondamentali del caching e ne riconosce i principali benefici.
+
+|L2
+|Progetta semplici strategie di caching valutando quali dati memorizzare e quando aggiornarli.
+
+|L3
+|Analizza i trade-off tra prestazioni, consistenza e complessità, scegliendo la strategia di caching più adatta al contesto.
+
+|L4
+|Definisce strategie di caching condivise contribuendo alla progettazione di sistemi scalabili ed efficienti.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

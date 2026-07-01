@@ -1,0 +1,86 @@
+[[pe08-dependency-management]]
+=== PE-08 - Gestione delle Dipendenze
+
+[cols="1,4"]
+|===
+|Area
+|Platform Engineering
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di gestire le dipendenze di un progetto software in modo controllato, sicuro e sostenibile nel tempo.
+
+==== Cosa osservare
+
+* Comprende il ruolo delle dipendenze esterne.
+* Valuta rischi e benefici dell'introduzione di una nuova libreria.
+* Gestisce aggiornamenti e compatibilità.
+* Considera gli aspetti di sicurezza.
+* Evita dipendenze inutili.
+
+==== Domanda di base
+
+Durante lo sviluppo di una nuova funzionalità trovi una libreria open source che sembra risolvere perfettamente il problema.
+
+Come decideresti se introdurla nel progetto?
+
+NOTE: L'obiettivo è comprendere il processo decisionale del candidato, non verificare la conoscenza di uno specifico package manager.
+
+==== Domande di approfondimento
+
+* Quali criteri utilizzeresti per valutare una libreria?
+* Come gestiresti l'aggiornamento delle dipendenze nel tempo?
+* Cosa faresti se una libreria utilizzata presentasse una vulnerabilità di sicurezza?
+* Quando preferiresti sviluppare una soluzione interna?
+* Hai mai dovuto sostituire una dipendenza critica?
+Per quale motivo?
+
+==== Segnali positivi
+
+* Valuta manutenzione, licenza e diffusione della libreria.
+* Considera la sicurezza delle dipendenze.
+* Evita di introdurre librerie per funzionalità banali.
+* Pianifica gli aggiornamenti.
+* Porta esempi concreti.
+
+==== Segnali di attenzione
+
+* Introduce librerie senza valutarne l'impatto.
+* Ignora aggiornamenti e vulnerabilità.
+* Aggiunge dipendenze per qualsiasi esigenza.
+* Non considera la manutenzione futura.
+* Non sa motivare la scelta.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non comprende il ruolo e l'impatto delle dipendenze esterne.
+
+|L1
+|Utilizza correttamente le dipendenze del progetto e ne comprende il funzionamento.
+
+|L2
+|Valuta e gestisce le dipendenze considerando manutenzione, compatibilità e sicurezza.
+
+|L3
+|Definisce criteri per l'adozione e l'aggiornamento delle dipendenze, bilanciando produttività e rischio.
+
+|L4
+|Contribuisce alla definizione delle linee guida dell'organizzazione per la gestione delle dipendenze e della software supply chain.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________
