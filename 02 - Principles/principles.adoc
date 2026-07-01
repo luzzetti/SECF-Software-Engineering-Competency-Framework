@@ -1,0 +1,111 @@
+[[principles]]
+== Principi
+
+=== Scopo
+
+Il Software Engineering Competency Framework (SECF) si fonda su un insieme di principi che ne guidano sia la progettazione sia l'utilizzo.
+
+Questi principi definiscono la filosofia del framework e rappresentano il riferimento per interpretare le competenze, condurre le valutazioni e utilizzare correttamente le Competency Card.
+
+Ogni competenza descritta nel SECF deve essere coerente con tali principi.
+
+=== 1. Le competenze sono più importanti delle tecnologie
+
+Il framework valuta competenze, non tecnologie.
+
+Linguaggi di programmazione, framework, librerie e strumenti rappresentano il contesto nel quale una competenza viene osservata, ma non costituiscono la competenza stessa.
+
+Le tecnologie evolvono rapidamente.
+
+Le competenze rimangono trasferibili e mantengono il proprio valore nel tempo.
+
+=== 2. Le domande devono partire da problemi reali
+
+Le Competency Card sono progettate per simulare situazioni che uno sviluppatore potrebbe realmente incontrare durante il proprio lavoro.
+
+È preferibile chiedere:
+
+____
+
+"Ti trovi in questa situazione.
+Come procederesti?"
+
+____
+
+piuttosto che:
+
+____
+
+"Cos'è..."
+
+____
+
+oppure
+
+____
+
+"Spiegami..."
+
+____
+
+L'obiettivo del colloquio è osservare il ragionamento del candidato, non verificarne la memoria.
+
+=== 3. Il ragionamento è più importante della risposta
+
+Una stessa situazione può essere affrontata con soluzioni differenti.
+
+Il framework non ricerca una risposta "corretta", ma valuta la capacità del candidato di:
+
+* analizzare il problema;
+* motivare le proprie decisioni;
+* valutare soluzioni alternative;
+* comprendere i trade-off.
+
+=== 4. Le evidenze sono più importanti delle impressioni
+
+Ogni valutazione deve essere supportata da evidenze osservabili.
+
+Le impressioni personali, l'intuito o la semplice esperienza dell'intervistatore non devono sostituire le evidenze raccolte durante il colloquio.
+
+Quando una competenza non viene valutata, deve essere classificata come *NV (Non Valutata)*.
+
+=== 5. Le competenze sono indipendenti
+
+Ogni competenza viene valutata indipendentemente dalle altre.
+
+Un livello elevato in una competenza non implica automaticamente un livello analogo nelle restanti.
+
+Il profilo complessivo del candidato deriva dalla combinazione delle singole competenze.
+
+=== 6. I livelli sono cumulativi
+
+Ogni livello comprende automaticamente le competenze previste dai livelli precedenti.
+
+Ad esempio, un candidato valutato come L3 soddisfa implicitamente anche i requisiti previsti per L1 e L2 relativamente alla stessa competenza.
+
+=== 7. Le prove pratiche sono preferibili quando possibile
+
+Quando una competenza può essere valutata attraverso un esercizio pratico, tale modalità è generalmente preferibile rispetto a una domanda teorica.
+
+Una prova pratica consente di osservare direttamente il comportamento del candidato e produce evidenze più affidabili.
+
+Gli esercizi pratici costituiscono un complemento alle Competency Card e sono raccolti nelle appendici del framework.
+
+=== 8. Il framework supporta il giudizio dell'intervistatore
+
+Il SECF non sostituisce il giudizio tecnico dell'intervistatore.
+
+Fornisce una struttura comune per rendere le valutazioni più oggettive, coerenti e ripetibili.
+
+L'esperienza dell'intervistatore rimane fondamentale per interpretare le evidenze raccolte durante il colloquio.
+
+=== Punti chiave
+
+* Valutare competenze, non tecnologie.
+* Partire sempre da problemi reali.
+* Osservare il ragionamento del candidato.
+* Basare ogni valutazione su evidenze.
+* Valutare ogni competenza indipendentemente.
+* Considerare i livelli come cumulativi.
+* Preferire prove pratiche quando appropriate.
+* Utilizzare il framework come supporto al giudizio, non come sostituto.
