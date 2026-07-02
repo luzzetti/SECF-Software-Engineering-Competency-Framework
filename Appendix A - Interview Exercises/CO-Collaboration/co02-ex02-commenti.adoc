@@ -1,0 +1,117 @@
+[[co02-ex02]]
+=== CO-02-EX02 - Quali commenti lasceresti?
+
+==== Metadati
+
+Competenza::
+CO-02 - Code Review
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Un collega apre una Pull Request.
+
+Durante la revisione individui diversi aspetti migliorabili.
+
+Hai però poco tempo e vuoi evitare di sovraccaricare la review con commenti poco utili.
+
+==== Materiale fornito
+
+Il seguente metodo fa parte della Pull Request.
+
+[source,java]
+----
+public List<Order> findOrders(LocalDate startDate, LocalDate endDate) {
+
+    List<Order> result = repository.findAll();
+
+    return result.stream()
+            .filter(o -> o.getOrderDate().isAfter(startDate.minusDays(1)))
+            .filter(o -> o.getOrderDate().isBefore(endDate.plusDays(1)))
+            .sorted(Comparator.comparing(Order::getCustomerName))
+            .collect(Collectors.toList());
+
+}
+----
+
+==== Consegna
+
+Immagina di dover effettuare la Code Review.
+
+Elenca i commenti che lasceresti e, per ciascuno, indica se lo consideri:
+
+* bloccante;
+* importante;
+* semplice suggerimento.
+
+Motiva brevemente la classificazione.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'obiettivo dell'esercizio non è verificare se il candidato individua tutti i possibili miglioramenti.
+
+L'esercizio valuta la capacità di stabilire priorità durante una Code Review.
+
+==== Cosa osservare
+
+* Distingue bug da preferenze stilistiche.
+* Individua problemi di prestazioni.
+* Riconosce possibili problemi di progettazione.
+* Motiva la priorità assegnata.
+* Evita osservazioni marginali.
+
+==== Soluzione canonica
+
+Tra gli aspetti che il candidato potrebbe evidenziare:
+
+* recupero di tutti gli ordini dal database prima del filtro (potenziale problema di prestazioni) → **Bloccante**
+* ordinamento effettuato in memoria anziché sul database → **Importante**
+* possibile gestione degli intervalli di date direttamente nella query → **Importante**
+* nomenclatura della variabile `result` → **Suggerimento**
+* eventuali preferenze di formattazione → **Suggerimento**
+
+L'aspetto più importante non è l'elenco dei problemi, ma la capacità di assegnare loro la giusta priorità.
+
+==== Soluzioni alternative
+
+Sono valide tutte le classificazioni coerenti e adeguatamente motivate.
+
+==== Spunti di approfondimento
+
+* Quando una Code Review contiene troppi commenti?
+* Quali problemi giustificano una richiesta di modifica obbligatoria?
+* Approveresti comunque questa Pull Request?
+* Come comunicheresti questi commenti all'autore?
+
+==== Rubrica di valutazione
+
+L0::
+Commenti casuali o esclusivamente stilistici.
+
+L1::
+Individua alcuni problemi ma fatica a distinguerne la priorità.
+
+L2::
+Distingue correttamente problemi funzionali, prestazionali e stilistici.
+
+L3::
+Motiva la priorità dei commenti e conduce una review orientata alla qualità del software.
+
+L4::
+Bilancia qualità, pragmatismo e collaborazione, trasformando la Code Review in uno strumento di crescita del team.
+
+endif::[]

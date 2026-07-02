@@ -1,0 +1,210 @@
+[[se08-ex02]]
+=== SE-08-EX02 - Notifica ordine
+
+==== Metadati
+
+Competenza::
+SE-08 - Clean Code
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Ti viene assegnata la manutenzione di un metodo che invia notifiche ai clienti dopo la creazione di un ordine.
+
+Il codice funziona, ma nel tempo sono stati aggiunti nuovi canali e nuove condizioni.
+Ora il metodo è difficile da leggere e modificare.
+
+==== Materiale fornito
+
+[source,java]
+----
+public class NotificationService {
+
+    public void send(Order o) {
+
+        if (o != null) {
+            Customer c = o.getCustomer();
+
+            if (c != null) {
+
+                if (c.getEmail() != null && !c.getEmail().equals("")) {
+                    if (o.getStatus().equals("CONFIRMED")) {
+                        emailSender.send(
+                            c.getEmail(),
+                            "Order confirmed",
+                            "Your order " + o.getId() + " has been confirmed"
+                        );
+                    }
+                }
+
+                if (c.getPhone() != null && !c.getPhone().equals("")) {
+                    if (o.getStatus().equals("CONFIRMED")) {
+                        smsSender.send(
+                            c.getPhone(),
+                            "Order " + o.getId() + " confirmed"
+                        );
+                    }
+                }
+
+                if (c.isPushEnabled()) {
+                    if (o.getStatus().equals("CONFIRMED")) {
+                        pushSender.send(
+                            c.getDeviceId(),
+                            "Order confirmed"
+                        );
+                    }
+                }
+            }
+        }
+    }
+}
+----
+
+==== Consegna
+
+Analizza il codice.
+
+Descrivi quali modifiche proporresti per migliorarne leggibilità, manutenibilità ed evoluzione futura.
+
+Non è necessario riscrivere completamente il codice.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di riconoscere duplicazioni, condizioni ripetute, nomi poco espressivi e responsabilità mescolate.
+
+L'obiettivo non è ottenere una soluzione perfetta, ma osservare il modo in cui il candidato migliora progressivamente il codice.
+
+==== Cosa osservare
+
+* Riconosce la duplicazione del controllo sullo stato dell'ordine.
+* Nota nomi poco espressivi come `o` e `c`.
+* Propone guard clauses per ridurre l'annidamento.
+* Distingue la selezione dei canali dal contenuto delle notifiche.
+* Considera l'evoluzione futura verso nuovi canali.
+* Evita astrazioni eccessive se non motivate.
+
+==== Soluzione canonica
+
+La seguente non è una soluzione unica, ma una possibile direzione di miglioramento.
+
+Il candidato potrebbe proporre di:
+
+* rinominare `o` e `c` in `order` e `customer`;
+* usare guard clauses per gestire casi non validi;
+* estrarre il controllo `order.getStatus().equals("CONFIRMED")`;
+* sostituire la stringa `"CONFIRMED"` con enum o costante;
+* estrarre metodi separati per email, SMS e push;
+* evitare duplicazione nella costruzione dei messaggi;
+* separare le regole di invio dalla logica di consegna.
+
+Una possibile struttura migliorata potrebbe essere:
+
+[source,java]
+----
+public class NotificationService {
+
+    public void sendOrderConfirmation(Order order) {
+
+        if (order == null || order.getCustomer() == null) {
+            return;
+        }
+
+        if (!order.isConfirmed()) {
+            return;
+        }
+
+        Customer customer = order.getCustomer();
+
+        sendEmailConfirmation(order, customer);
+        sendSmsConfirmation(order, customer);
+        sendPushConfirmation(order, customer);
+    }
+
+    private void sendEmailConfirmation(Order order, Customer customer) {
+        if (!customer.hasEmail()) {
+            return;
+        }
+
+        emailSender.send(
+            customer.getEmail(),
+            "Order confirmed",
+            "Your order " + order.getId() + " has been confirmed"
+        );
+    }
+
+    private void sendSmsConfirmation(Order order, Customer customer) {
+        if (!customer.hasPhone()) {
+            return;
+        }
+
+        smsSender.send(
+            customer.getPhone(),
+            "Order " + order.getId() + " confirmed"
+        );
+    }
+
+    private void sendPushConfirmation(Order order, Customer customer) {
+        if (!customer.isPushEnabled()) {
+            return;
+        }
+
+        pushSender.send(
+            customer.getDeviceId(),
+            "Order confirmed"
+        );
+    }
+}
+----
+
+==== Soluzioni alternative
+
+Sono valide anche soluzioni che:
+
+* introducono una lista di `NotificationChannel`;
+* utilizzano un pattern Strategy per i diversi canali;
+* separano template dei messaggi e logica di invio;
+* spostano la validazione del cliente in metodi dedicati;
+* introducono un oggetto `NotificationRequest`.
+
+L'intervistatore dovrebbe valutare se le astrazioni proposte sono proporzionate al problema.
+
+==== Spunti di approfondimento
+
+* Quale modifica faresti per prima?
+* Quando introdurresti una gerarchia di canali di notifica?
+* Come testeresti questo codice?
+* Come aggiungeresti un nuovo canale, ad esempio WhatsApp?
+* Quali modifiche eviteresti per non complicare inutilmente il codice?
+
+==== Rubrica di valutazione
+
+L0::
+Non riconosce problemi significativi di leggibilità o duplicazione.
+
+L1::
+Individua problemi evidenti come nomi poco chiari, duplicazioni o annidamento.
+
+L2::
+Propone refactoring semplici e coerenti che migliorano la leggibilità.
+
+L3::
+Bilancia semplicità, estensibilità, testabilità e rischio di over-engineering.
+
+L4::
+Propone una strategia sostenibile per evolvere il sistema di notifiche nel tempo, mantenendo il codice coerente e manutenibile.
+
+endif::[]

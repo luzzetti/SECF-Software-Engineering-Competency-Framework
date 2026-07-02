@@ -1,0 +1,169 @@
+[[da02-ex03]]
+=== DA-02-EX03 - Query lenta
+
+==== Metadati
+
+Competenza::
+DA-02 - SQL
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / discussione tecnica
+
+'''
+
+==== Scenario
+
+Un report utilizzato dal team Operations è diventato molto lento.
+
+Il report mostra gli ordini completati negli ultimi 30 giorni, includendo:
+
+* Id dell'ordine;
+* data dell'ordine;
+* nome del cliente;
+* importo totale dell'ordine.
+
+Con poche migliaia di ordini il report era veloce.
+
+Ora il database contiene milioni di record e la query impiega diversi secondi.
+
+==== Materiale fornito
+
+[source,text]
+----
+Customer
+--------
+Id
+Name
+Email
+
+CustomerOrder
+-------------
+Id
+CustomerId
+OrderDate
+Status
+Total
+----
+
+Query attuale:
+
+[source,sql]
+----
+SELECT
+    o.Id,
+    o.OrderDate,
+    c.Name,
+    o.Total
+FROM CustomerOrder o
+JOIN Customer c
+    ON c.Id = o.CustomerId
+WHERE
+    o.Status = 'Completed'
+    AND o.OrderDate >= CURRENT_DATE - INTERVAL '30 days'
+ORDER BY
+    o.OrderDate DESC;
+----
+
+==== Consegna
+
+Analizza la query e descrivi come procederesti per migliorarne le prestazioni.
+
+Non è necessario riscrivere immediatamente la query.
+
+Spiega quali informazioni raccoglieresti, quali possibili cause considereresti e quali interventi valuteresti.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di ragionare sulle prestazioni di una query SQL.
+
+Non cercare una singola risposta corretta.
+
+L'obiettivo è capire se il candidato procede con metodo, raccoglie evidenze e propone interventi coerenti.
+
+==== Cosa osservare
+
+* Parte dall'analisi del piano di esecuzione.
+* Considera il volume dei dati.
+* Ragiona sugli indici.
+* Valuta selettività dei filtri e ordinamento.
+* Non propone modifiche casuali alla query.
+* Distingue ottimizzazione della query, del modello dati e del report.
+
+==== Soluzione canonica
+
+Una possibile risposta completa dovrebbe includere questi passaggi:
+
+. Verificare il piano di esecuzione della query.
+. Controllare se esistono indici su `CustomerOrder.Status`, `CustomerOrder.OrderDate` e `CustomerOrder.CustomerId`.
+. Valutare un indice composto sui campi usati nel filtro e nell'ordinamento.
+. Verificare la cardinalità dei dati e la selettività di `Status = 'Completed'`.
+. Verificare se l'ordinamento su `OrderDate DESC` richiede un'operazione costosa.
+. Misurare il risultato dopo ogni modifica.
+
+Una possibile strategia di indicizzazione potrebbe essere:
+
+[source,sql]
+----
+CREATE INDEX idx_customer_order_status_date
+ON CustomerOrder (Status, OrderDate DESC);
+----
+
+Oppure, a seconda del database e del piano di esecuzione:
+
+[source,sql]
+----
+CREATE INDEX idx_customer_order_date_status
+ON CustomerOrder (OrderDate DESC, Status);
+----
+
+La scelta tra i due indici dipende dalla distribuzione dei dati, dalla selettività dei filtri e dal DBMS utilizzato.
+
+==== Soluzioni alternative
+
+Sono da considerarsi valide, se motivate:
+
+* introdurre un indice che includa anche `CustomerId`;
+* creare un report pre-calcolato se la query viene eseguita frequentemente;
+* usare una vista materializzata, se supportata dal database;
+* limitare il numero di risultati tramite paginazione;
+* archiviare separatamente gli ordini storici;
+* analizzare eventuali problemi di statistiche non aggiornate.
+
+==== Spunti di approfondimento
+
+Se il candidato risponde bene:
+
+* Come useresti `EXPLAIN` o uno strumento equivalente?
+* Come decideresti l'ordine delle colonne in un indice composto?
+* Quali rischi introduce aggiungere molti indici?
+* Come cambierebbe la soluzione se il report fosse eseguito ogni minuto?
+* Come gestiresti la paginazione su milioni di record?
+
+==== Rubrica di valutazione
+
+L0::
+Non dimostra un metodo per analizzare il problema o propone modifiche casuali.
+
+L1::
+Riconosce genericamente che la query è lenta e propone un indice senza motivarlo.
+
+L2::
+Analizza filtri, join e ordinamento, proponendo interventi coerenti.
+
+L3::
+Ragiona su piano di esecuzione, selettività, indici composti, costi di scrittura e misurazione dei risultati.
+
+L4::
+Propone strategie architetturali per reporting, pre-calcolo, materializzazione o separazione dei carichi, discutendone vantaggi e limiti.
+
+endif::[]

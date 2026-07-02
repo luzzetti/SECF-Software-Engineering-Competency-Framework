@@ -1,0 +1,157 @@
+[[da02-ex02]]
+=== DA-02-EX02 - Prodotti più Venduti
+
+==== Metadati
+
+Competenza::
+DA-02 - SQL
+
+Livello consigliato::
+L2
+
+Tempo stimato::
+15 minuti
+
+Modalità::
+Pratica
+
+'''
+
+==== Scenario
+
+Stai lavorando a un sistema di e-commerce.
+
+Il Product Owner richiede un report con i prodotti più venduti negli ultimi 30 giorni.
+
+==== Materiale fornito
+
+[source,text]
+----
+Customer
+--------
+Id
+Name
+
+CustomerOrder
+-------------
+Id
+CustomerId
+OrderDate
+
+OrderItem
+---------
+Id
+OrderId
+ProductId
+Quantity
+UnitPrice
+
+Product
+-------
+Id
+Name
+Category
+----
+
+==== Consegna
+
+Scrivi una query SQL che restituisca, per ogni prodotto venduto negli ultimi 30 giorni:
+
+* nome del prodotto;
+* categoria;
+* quantità totale venduta;
+* ricavo totale generato.
+
+Il risultato deve essere ordinato dal prodotto con il ricavo maggiore a quello con il ricavo minore.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di:
+
+* comprendere il modello dati;
+* utilizzare correttamente JOIN e GROUP BY;
+* tradurre un requisito funzionale in una query SQL;
+* produrre una soluzione leggibile e coerente.
+
+Non è necessario che la sintassi sia perfetta.
+È più importante osservare il ragionamento seguito dal candidato.
+
+==== Cosa osservare
+
+* Comprende le relazioni tra le tabelle.
+* Utilizza correttamente le JOIN.
+* Filtra correttamente l'intervallo temporale.
+* Utilizza GROUP BY e funzioni di aggregazione in modo appropriato.
+* Calcola correttamente quantità e ricavo totale.
+* Produce una query semplice e leggibile.
+
+==== Soluzione canonica
+
+La seguente rappresenta una possibile soluzione.
+
+Sono da considerarsi corrette anche soluzioni differenti che soddisfino il requisito funzionale e dimostrino una buona comprensione del modello dati.
+
+[source,sql]
+----
+SELECT
+    p.Name,
+    p.Category,
+    SUM(oi.Quantity) AS TotalQuantity,
+    SUM(oi.Quantity * oi.UnitPrice) AS TotalRevenue
+FROM CustomerOrder o
+JOIN OrderItem oi
+    ON oi.OrderId = o.Id
+JOIN Product p
+    ON p.Id = oi.ProductId
+WHERE o.OrderDate >= CURRENT_DATE - INTERVAL '30 days'
+GROUP BY
+    p.Id,
+    p.Name,
+    p.Category
+ORDER BY
+    TotalRevenue DESC;
+----
+
+==== Soluzioni alternative
+
+Sono da considerarsi equivalenti, se correttamente motivate:
+
+* utilizzo di Common Table Expressions (CTE);
+* utilizzo di sottoquery;
+* utilizzo di Window Functions (se supportate dal DBMS);
+* differenti strategie di JOIN o alias.
+
+L'obiettivo non è valutare lo stile della query, ma la correttezza del risultato e il ragionamento seguito.
+
+==== Spunti di approfondimento
+
+Se il candidato risolve rapidamente l'esercizio, è possibile approfondire con alcune domande:
+
+* Come cambierebbe la query con cento milioni di record?
+* Quali indici introdurresti?
+* Come individueresti un eventuale collo di bottiglia?
+* Trasformeresti questa query in una vista o in una vista materializzata?
+* In quali casi preferiresti pre-calcolare queste informazioni?
+
+==== Rubrica di valutazione
+
+L0::
+Non riesce a costruire una query coerente con il requisito.
+
+L1::
+Costruisce una query parzialmente corretta, ma con errori su JOIN, aggregazioni o filtri.
+
+L2::
+Produce una query corretta, leggibile e coerente con il requisito.
+
+L3::
+Discute spontaneamente prestazioni, indici e possibili ottimizzazioni.
+
+L4::
+Propone strategie alternative per il reporting, discutendone vantaggi, limiti e impatto sull'architettura.
+
+endif::[]

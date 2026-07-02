@@ -1,0 +1,187 @@
+[[se08-ex01]]
+=== SE-08-EX01 - Regole di sconto
+
+==== Metadati
+
+Competenza::
+SE-08 - Clean Code
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Ti viene assegnata la manutenzione di un servizio che calcola lo sconto applicabile a un ordine.
+
+Il codice funziona, ma nel tempo sono state aggiunte nuove regole e il metodo è diventato difficile da leggere e modificare.
+
+==== Materiale fornito
+
+[source,java]
+----
+public class DiscountService {
+
+    public double calculateDiscount(Order order) {
+
+        double discount = 0;
+
+        if (order != null) {
+
+            if (order.getCustomer() != null) {
+
+                if (order.getCustomer().getType().equals("VIP")) {
+                    if (order.getTotal() > 1000) {
+                        discount = order.getTotal() * 0.15;
+                    } else {
+                        discount = order.getTotal() * 0.10;
+                    }
+                } else if (order.getCustomer().getType().equals("STANDARD")) {
+                    if (order.getTotal() > 500) {
+                        discount = order.getTotal() * 0.05;
+                    }
+                }
+
+                if (order.hasCoupon()) {
+                    discount = discount + 20;
+                }
+
+                if (order.getItems().size() > 10) {
+                    discount = discount + 15;
+                }
+
+                if (discount > 200) {
+                    discount = 200;
+                }
+            }
+        }
+
+        return discount;
+    }
+}
+----
+
+==== Consegna
+
+Analizza il codice.
+
+Descrivi quali modifiche apporteresti per migliorarne leggibilità, manutenibilità ed evoluzione futura.
+
+Non è necessario riscrivere completamente il codice.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di riconoscere problemi di Clean Code e proporre miglioramenti pragmatici.
+
+Non è importante che proponga una soluzione architetturalmente perfetta.
+È importante osservare se distingue miglioramenti utili da refactoring eccessivi.
+
+==== Cosa osservare
+
+* Riconosce annidamento eccessivo.
+* Individua magic numbers e stringhe magiche.
+* Nota la presenza di regole di business mescolate nello stesso metodo.
+* Propone nomi più espressivi o estrazioni coerenti.
+* Considera test e rischio di regressione.
+* Evita astrazioni sproporzionate.
+
+==== Soluzione canonica
+
+La seguente non è una soluzione unica, ma un insieme di miglioramenti attesi.
+
+Il candidato potrebbe proporre di:
+
+* usare guard clauses per ridurre l'annidamento;
+* sostituire stringhe come `"VIP"` e `"STANDARD"` con enum o costanti;
+* estrarre le soglie e le percentuali in costanti con nome;
+* separare le regole di sconto in metodi distinti;
+* evitare l'uso di `double` per importi monetari;
+* gestire esplicitamente il caso di `order` o `customer` null;
+* rendere più chiara la regola del limite massimo di sconto;
+* aggiungere test prima del refactoring.
+
+Una possibile direzione di miglioramento, senza introdurre troppe astrazioni, potrebbe essere:
+
+[source,java]
+----
+public class DiscountService {
+
+    private static final BigDecimal MAX_DISCOUNT = BigDecimal.valueOf(200);
+    private static final BigDecimal VIP_THRESHOLD = BigDecimal.valueOf(1000);
+    private static final BigDecimal STANDARD_THRESHOLD = BigDecimal.valueOf(500);
+
+    public BigDecimal calculateDiscount(Order order) {
+
+        if (order == null || order.getCustomer() == null) {
+            return BigDecimal.ZERO;
+        }
+
+        BigDecimal discount = calculateCustomerDiscount(order)
+                .add(calculateCouponDiscount(order))
+                .add(calculateItemsDiscount(order));
+
+        return discount.min(MAX_DISCOUNT);
+    }
+
+    private BigDecimal calculateCustomerDiscount(Order order) {
+        // Implementazione delle regole per tipo cliente.
+    }
+
+    private BigDecimal calculateCouponDiscount(Order order) {
+        // Implementazione dello sconto coupon.
+    }
+
+    private BigDecimal calculateItemsDiscount(Order order) {
+        // Implementazione dello sconto per numero articoli.
+    }
+}
+----
+
+==== Soluzioni alternative
+
+Sono corrette anche soluzioni che:
+
+* introducono un pattern Strategy per le regole di sconto;
+* usano una lista di regole applicabili;
+* spostano le soglie in configurazione;
+* separano validazione, calcolo e applicazione del limite massimo.
+
+L'intervistatore dovrebbe valutare se l'astrazione proposta è proporzionata alla complessità del problema.
+
+==== Spunti di approfondimento
+
+* Quale modifica faresti per prima?
+* Scriveresti test prima di modificare il codice?
+* Quando introdurresti un pattern Strategy?
+* Quali regole renderesti configurabili?
+* Come eviteresti che questo metodo torni a crescere nel tempo?
+
+==== Rubrica di valutazione
+
+L0::
+Non riconosce problemi significativi di leggibilità o manutenibilità.
+
+L1::
+Individua problemi evidenti, come annidamento o magic numbers.
+
+L2::
+Propone refactoring semplici, coerenti e motivati.
+
+L3::
+Bilancia leggibilità, testabilità, rischio di regressione ed evoluzione futura.
+
+L4::
+Propone una strategia sostenibile per gestire l'evoluzione delle regole di business nel tempo.
+
+endif::[]

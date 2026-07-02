@@ -1,0 +1,157 @@
+[[da02-ex04]]
+=== DA-02-EX04 - La Query Sbagliata
+
+==== Metadati
+
+Competenza::
+DA-02 - SQL
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+15 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Un collega ha scritto una query per mostrare tutti i clienti con il numero totale di ordini effettuati.
+
+Gli utenti segnalano però che alcuni clienti risultano avere un numero di ordini errato.
+
+==== Materiale fornito
+
+[source,text]
+----
+Customer
+--------
+Id
+Name
+
+CustomerOrder
+-------------
+Id
+CustomerId
+OrderDate
+
+OrderItem
+---------
+Id
+OrderId
+ProductId
+Quantity
+----
+
+Query esistente:
+
+[source,sql]
+----
+SELECT
+    c.Id,
+    c.Name,
+    COUNT(*) AS TotalOrders
+FROM Customer c
+JOIN CustomerOrder o
+    ON o.CustomerId = c.Id
+JOIN OrderItem oi
+    ON oi.OrderId = o.Id
+GROUP BY
+    c.Id,
+    c.Name;
+----
+
+==== Consegna
+
+Analizza la query.
+
+Spiega quale problema presenta e proponi una soluzione.
+
+Non è necessario conoscere la sintassi perfetta.
+
+È importante spiegare il ragionamento.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di leggere una query esistente, comprenderne il comportamento e individuarne gli errori logici.
+
+==== Cosa osservare
+
+* Comprende il modello dati.
+* Individua rapidamente il problema.
+* Spiega perché COUNT(*) produce un risultato errato.
+* Propone una soluzione corretta.
+* Mantiene il ragionamento semplice.
+
+==== Soluzione canonica
+
+Il problema è che la JOIN con `OrderItem` produce una riga per ogni prodotto presente nell'ordine.
+
+Di conseguenza:
+
+`COUNT(*)`
+
+non conta gli ordini, ma le righe risultanti dalla JOIN.
+
+Una possibile soluzione è utilizzare:
+
+[source,sql]
+----
+SELECT
+    c.Id,
+    c.Name,
+    COUNT(DISTINCT o.Id) AS TotalOrders
+FROM Customer c
+JOIN CustomerOrder o
+    ON o.CustomerId = c.Id
+JOIN OrderItem oi
+    ON oi.OrderId = o.Id
+GROUP BY
+    c.Id,
+    c.Name;
+----
+
+In alternativa è possibile eliminare completamente la JOIN con `OrderItem`, se non necessaria.
+
+==== Soluzioni alternative
+
+Sono corrette anche soluzioni che:
+
+* eliminano la JOIN inutile;
+* utilizzano una sottoquery;
+* utilizzano una CTE.
+
+L'importante è che il numero degli ordini venga calcolato correttamente.
+
+==== Spunti di approfondimento
+
+* In quali casi `COUNT(*)` è la scelta corretta?
+* Quando utilizzeresti `COUNT(DISTINCT ...)`?
+* Qual è il costo di `COUNT(DISTINCT)` su dataset molto grandi?
+* Come testeresti la correttezza della query?
+
+==== Rubrica di valutazione
+
+L0::
+Non individua il problema.
+
+L1::
+Comprende che il risultato è errato ma non riesce a spiegarne la causa.
+
+L2::
+Individua correttamente il problema e propone una soluzione funzionante.
+
+L3::
+Discute prestazioni, alternative e semplificazioni della query.
+
+L4::
+Propone una revisione complessiva del modello o della query motivando le proprie scelte.
+
+endif::[]

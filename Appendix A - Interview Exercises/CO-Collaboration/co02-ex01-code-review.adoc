@@ -1,0 +1,133 @@
+[[co02-ex01]]
+=== CO-02-EX01 - Code Review
+
+==== Metadati
+
+Competenza::
+CO-02 - Code Review
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica
+
+'''
+
+==== Scenario
+
+Un collega apre una Pull Request contenente una modifica a un servizio esistente.
+
+Ti viene chiesto di effettuare la Code Review.
+
+==== Materiale fornito
+
+Il seguente metodo è stato aggiunto alla Pull Request.
+
+[source,java]
+----
+public void processOrders(List<Order> orders) {
+
+    for (Order order : orders) {
+
+        if(order.getCustomer() != null) {
+
+            if(order.getItems() != null && order.getItems().size() > 0) {
+
+                double total = 0;
+
+                for(OrderItem item : order.getItems()) {
+                    total += item.getPrice();
+                }
+
+                if(total > 1000) {
+                    order.setDiscount(total * 0.1);
+                }
+
+                repository.save(order);
+
+            }
+
+        }
+
+    }
+
+}
+----
+
+==== Consegna
+
+Immagina di essere il reviewer della Pull Request.
+
+Descrivi i commenti che lasceresti all'autore prima di approvare la modifica.
+
+Non è necessario riscrivere il codice.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'obiettivo dell'esercizio non è individuare tutti i problemi presenti nel codice.
+
+È osservare il metodo con cui il candidato conduce una Code Review.
+
+==== Cosa osservare
+
+* Da dove inizia la revisione.
+* Se distingue bug da miglioramenti.
+* Se motiva i commenti.
+* Se evita osservazioni puramente stilistiche.
+* Se mantiene un atteggiamento collaborativo.
+
+==== Soluzione canonica
+
+Una possibile review potrebbe evidenziare:
+
+* annidamento eccessivo;
+* controlli `null` migliorabili;
+* metodo con responsabilità multiple;
+* valore `1000` come magic number;
+* possibile utilizzo di BigDecimal invece di double per importi monetari;
+* mancanza di gestione degli errori durante il salvataggio;
+* assenza di logging;
+* possibile estrazione del calcolo dello sconto in un componente dedicato.
+
+Non è necessario individuare tutti i punti.
+
+È importante che il candidato distingua problemi funzionali, progettuali e di leggibilità.
+
+==== Soluzioni alternative
+
+Sono corrette review che evidenziano ulteriori aspetti rilevanti purché motivati.
+
+==== Spunti di approfondimento
+
+* Quali osservazioni ritieni bloccanti?
+* Quali lasceresti come semplice suggerimento?
+* Approveresti questa Pull Request?
+* Chiederesti modifiche?
+Perché?
+
+==== Rubrica di valutazione
+
+L0::
+Non riesce a condurre una revisione strutturata.
+
+L1::
+Individua alcuni problemi evidenti.
+
+L2::
+Distingue problemi funzionali, progettuali e di leggibilità motivando le osservazioni.
+
+L3::
+Prioritizza correttamente i commenti e conduce una review orientata alla qualità del software.
+
+L4::
+Trasforma la Code Review in un momento di condivisione della conoscenza e miglioramento del team.
+
+endif::[]

@@ -1,0 +1,127 @@
+[[se04-ex01]]
+=== SE-04-EX01 - Il Bug Misterioso
+
+==== Metadati
+
+Competenza::
+SE-04 - Debugging
+
+Livello consigliato::
+L1-L2
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Dopo l'ultimo rilascio, alcuni utenti segnalano che il totale dell'ordine risulta errato.
+
+Il problema non si verifica sempre e non è facilmente riproducibile.
+
+Uno sviluppatore del team ti consegna il seguente metodo.
+
+==== Materiale fornito
+
+[source,java]
+----
+public BigDecimal calculateTotal(Order order) {
+
+    BigDecimal total = BigDecimal.ZERO;
+
+    for (OrderItem item : order.getItems()) {
+
+        total = total.add(item.getPrice());
+
+        if (item.getDiscount() != null) {
+            total = total.subtract(item.getDiscount());
+        }
+    }
+
+    if (order.getCoupon() != null) {
+        total = total.subtract(order.getCoupon().getValue());
+    }
+
+    if (total.compareTo(BigDecimal.ZERO) < 0) {
+        total = BigDecimal.ZERO;
+    }
+
+    return total;
+}
+----
+
+Lo sviluppatore sostiene che il metodo sia corretto.
+
+==== Consegna
+
+Non cercare immediatamente il bug.
+
+Descrivi invece come procederesti per capire se il problema dipende realmente da questo metodo oppure da un'altra parte del sistema.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio non valuta la capacità di individuare un bug specifico.
+
+L'obiettivo è osservare il metodo seguito dal candidato durante un'attività di debugging.
+
+==== Cosa osservare
+
+* Cerca di riprodurre il problema.
+* Formula ipotesi.
+* Chiede informazioni aggiuntive.
+* Propone strumenti di analisi.
+* Evita modifiche casuali al codice.
+
+==== Soluzione canonica
+
+Una possibile strategia comprende:
+
+* raccogliere un caso reale in cui il problema si manifesta;
+* verificare gli input ricevuti dal metodo;
+* aggiungere logging o utilizzare il debugger;
+* verificare se il metodo viene invocato più volte;
+* scrivere un test che riproduca il problema;
+* modificare il codice solo dopo aver individuato la causa.
+
+Il candidato potrebbe anche osservare che il metodo sembra corretto e ipotizzare che il problema sia esterno (ad esempio dati duplicati, sconti applicati più volte o errori nella costruzione dell'ordine).
+
+Questa osservazione è da considerarsi positiva.
+
+==== Soluzioni alternative
+
+Sono corrette tutte le strategie che prevedono una raccolta sistematica delle evidenze prima di intervenire sul codice.
+
+==== Spunti di approfondimento
+
+* Quali log aggiungeresti?
+* Come costruiresti un test di riproduzione?
+* Come procederesti se il bug si verificasse solo in produzione?
+* Quali informazioni chiederesti al cliente?
+* Quando inizieresti a modificare il codice?
+
+==== Rubrica di valutazione
+
+L0::
+Procede modificando il codice senza alcuna analisi.
+
+L1::
+Formula alcune ipotesi ma segue un metodo poco strutturato.
+
+L2::
+Procede in modo sistematico raccogliendo evidenze prima di intervenire.
+
+L3::
+Utilizza strumenti appropriati, restringe progressivamente il problema e propone una strategia di debugging completa.
+
+L4::
+Definisce un processo di analisi ripetibile, coinvolgendo logging, test, monitoraggio e collaborazione con il team.
+
+endif::[]

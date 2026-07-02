@@ -1,0 +1,136 @@
+[[da02-ex02]]
+=== DA-02-EX02 - Clienti inattivi
+
+==== Metadati
+
+Competenza::
+DA-02 - SQL
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+15 minuti
+
+Modalità::
+Pratica
+
+'''
+
+==== Scenario
+
+Il reparto Marketing desidera contattare i clienti che non effettuano acquisti da almeno sei mesi.
+
+==== Materiale fornito
+
+[source,text]
+----
+Customer
+--------
+Id
+Name
+Email
+
+CustomerOrder
+-------------
+Id
+CustomerId
+OrderDate
+Total
+----
+
+==== Consegna
+
+Scrivi una query SQL che restituisca:
+
+* Id del cliente;
+* Nome;
+* Email;
+* Data dell'ultimo ordine effettuato.
+
+Devono essere inclusi:
+
+* i clienti che non effettuano ordini da almeno sei mesi;
+* i clienti che non hanno mai effettuato un ordine.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di:
+
+* comprendere un requisito funzionale;
+* utilizzare correttamente JOIN e aggregazioni;
+* gestire valori NULL;
+* distinguere tra INNER JOIN e LEFT JOIN.
+
+==== Cosa osservare
+
+* Comprende immediatamente che devono comparire anche i clienti senza ordini.
+* Utilizza una LEFT JOIN (o soluzione equivalente).
+* Calcola correttamente la data dell'ultimo ordine.
+* Gestisce correttamente i valori NULL.
+* Produce una query leggibile.
+
+==== Soluzione canonica
+
+La seguente rappresenta una possibile soluzione.
+
+Sono da considerarsi corrette anche soluzioni differenti che soddisfino il requisito.
+
+[source,sql]
+----
+SELECT
+    c.Id,
+    c.Name,
+    c.Email,
+    MAX(o.OrderDate) AS LastOrderDate
+FROM Customer c
+LEFT JOIN CustomerOrder o
+    ON o.CustomerId = c.Id
+GROUP BY
+    c.Id,
+    c.Name,
+    c.Email
+HAVING
+    MAX(o.OrderDate) < CURRENT_DATE - INTERVAL '6 months'
+    OR MAX(o.OrderDate) IS NULL;
+----
+
+==== Soluzioni alternative
+
+Sono da considerarsi corrette, se adeguatamente motivate:
+
+* utilizzo di una sottoquery;
+* utilizzo di una Common Table Expression (CTE);
+* utilizzo di funzioni finestra (Window Functions).
+
+==== Spunti di approfondimento
+
+Se il candidato completa rapidamente l'esercizio:
+
+* Come miglioreresti le prestazioni con milioni di clienti?
+* Quali indici introdurresti?
+* Se il report dovesse essere eseguito ogni notte, cambierebbe qualcosa?
+* Come gestiresti il fuso orario nel calcolo dei sei mesi?
+
+==== Rubrica di valutazione
+
+L0::
+Non riesce a costruire una query coerente.
+
+L1::
+Costruisce una query ma dimentica i clienti senza ordini oppure gestisce in modo errato le aggregazioni.
+
+L2::
+Produce una query corretta e leggibile.
+
+L3::
+Discute spontaneamente prestazioni, indici e possibili ottimizzazioni.
+
+L4::
+Propone strategie alternative (materializzazione, reporting, pre-aggregazione), discutendone vantaggi e limiti.
+
+endif::[]
