@@ -1,4 +1,3 @@
-```adoc
 [[ar01-api-design]]
 === AR-01 - API Design
 
@@ -19,8 +18,9 @@ Valutare la capacità del candidato di progettare API semplici, coerenti, evolvi
 
 * Comprende il concetto di contratto tra sistemi.
 * Progetta API semplici e consistenti.
+* Considera il contesto dei client che consumeranno l'API, inclusi i browser.
 * Ragiona sull'evoluzione delle API.
-* Considera errori, validazione e versioning.
+* Considera errori, validazione, CORS e versioning.
 * Bilancia semplicità, flessibilità e manutenibilità.
 
 ==== Domanda di base
@@ -42,6 +42,8 @@ NOTE: Non concentrarti sulla sintassi del protocollo. Valuta il ragionamento pro
 * Come gestiresti l'evoluzione delle API senza interrompere i client esistenti?
 * Come modelleresti gli errori restituiti dal servizio?
 * Quando introdurresti il versioning?
+* Se l'API fosse consumata da un'applicazione web, come affronteresti CORS e i vincoli del browser?
+* Quali decisioni prenderesti lato API per evitare configurazioni fragili o troppo permissive?
 * Quali informazioni includeresti nella risposta?
 * Hai mai dovuto modificare un'API mantenendo la retrocompatibilità?
 
@@ -49,6 +51,7 @@ NOTE: Non concentrarti sulla sintassi del protocollo. Valuta il ragionamento pro
 
 * Progetta API coerenti e prevedibili.
 * Utilizza convenzioni consistenti.
+* Tiene conto dei vincoli dei client che consumano l'API.
 * Ragiona sull'evoluzione futura.
 * Considera l'esperienza di chi utilizzerà l'API.
 * Motiva le proprie scelte.
@@ -58,6 +61,7 @@ NOTE: Non concentrarti sulla sintassi del protocollo. Valuta il ragionamento pro
 * Progetta endpoint senza una logica coerente.
 * Espone dettagli implementativi.
 * Ignora la retrocompatibilità.
+* Tratta CORS come un dettaglio puramente operativo e non come parte del contratto tra API e client browser.
 * Non considera la gestione degli errori.
 * Prende decisioni basandosi esclusivamente sul framework utilizzato.
 
@@ -90,4 +94,3 @@ ____________________________________________________________
 ____________________________________________________________
 
 ____________________________________________________________
-```

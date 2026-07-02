@@ -1,0 +1,86 @@
+[[se04-debugging]]
+=== SE-04 - Debugging
+
+[cols="1,4"]
+|===
+|Area
+|Software Engineering
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di analizzare un problema, individuarne la causa e risolverlo con un approccio sistematico.
+
+==== Cosa osservare
+
+* Procede per ipotesi e verifiche.
+* Raccoglie evidenze prima di modificare il codice.
+* Isola il problema.
+* Utilizza strumenti adeguati.
+* Ricerca la causa del problema, non solo il sintomo.
+
+==== Domanda di base
+
+Un'applicazione che ha sempre funzionato correttamente inizia improvvisamente a restituire risultati errati dopo l'ultimo rilascio.
+
+Come affronteresti il problema?
+
+NOTE: L'obiettivo è comprendere il metodo seguito dal candidato, non verificare la conoscenza di uno specifico debugger.
+
+==== Domande di approfondimento
+
+* Quali informazioni raccoglieresti prima di modificare il codice?
+* Come restringeresti il campo delle possibili cause?
+* Se il problema non fosse facilmente riproducibile, come procederesti?
+* Quali strumenti utilizzeresti durante l'analisi?
+* Raccontami il bug più difficile che hai risolto.
+Come ci sei arrivato?
+
+==== Segnali positivi
+
+* Riproduce il problema prima di correggerlo.
+* Formula ipotesi e le verifica.
+* Utilizza log, debugger o strumenti di analisi in modo appropriato.
+* Isola progressivamente la causa.
+* Evita modifiche casuali al codice.
+
+==== Segnali di attenzione
+
+* Modifica il codice senza aver compreso il problema.
+* Procede per tentativi.
+* Non raccoglie informazioni sufficienti.
+* Si concentra sul sintomo invece che sulla causa.
+* Considera il debugging come una semplice attività di correzione.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non dimostra un metodo strutturato per analizzare e risolvere problemi.
+
+|L1
+|Riesce a individuare e correggere problemi semplici utilizzando strumenti di base.
+
+|L2
+|Analizza problemi di media complessità seguendo un processo logico e ripetibile.
+
+|L3
+|Affronta problemi complessi, individua rapidamente la causa e sceglie la strategia di analisi più efficace.
+
+|L4
+|Definisce pratiche e strumenti che migliorano la capacità del team di diagnosticare e risolvere problemi complessi.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

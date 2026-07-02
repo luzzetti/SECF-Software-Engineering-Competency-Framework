@@ -1,0 +1,86 @@
+[[se01-code-design]]
+=== SE-01 - Code Design
+
+[cols="1,4"]
+|===
+|Area
+|Software Engineering
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare codice semplice, leggibile, manutenibile e facilmente estendibile.
+
+==== Cosa osservare
+
+* Scompone correttamente un problema.
+* Definisce responsabilità chiare.
+* Evita duplicazioni inutili.
+* Scrive codice facilmente comprensibile.
+* Bilancia semplicità ed estensibilità.
+
+==== Domanda di base
+
+Devi sviluppare un servizio che riceve un ordine, ne verifica la validità, calcola il prezzo finale e invia una conferma al cliente.
+
+Come organizzeresti il codice?
+
+NOTE: Non chiedere di scrivere codice.
+Chiedi al candidato di descrivere classi, componenti, responsabilità e interazioni.
+
+==== Domande di approfondimento
+
+* Come eviteresti che una singola classe diventi troppo complessa?
+* Se domani cambiasse il modo di calcolare gli sconti, quali parti del codice dovresti modificare?
+* Come organizzeresti il codice per renderlo facilmente testabile?
+* Come gestiresti la validazione degli ordini?
+* Hai mai dovuto rifattorizzare una parte del sistema perché il design iniziale non era più adeguato?
+
+==== Segnali positivi
+
+* Suddivide il problema in componenti con responsabilità ben definite.
+* Utilizza nomi significativi.
+* Motiva le scelte progettuali.
+* Ragiona in termini di manutenibilità.
+* Considera l'evoluzione futura del software senza introdurre complessità inutile.
+
+==== Segnali di attenzione
+
+* Concentra tutta la logica in un unico componente.
+* Introduce livelli di astrazione non giustificati.
+* Duplica la logica senza rendersene conto.
+* Progetta pensando esclusivamente al caso attuale.
+* Non riesce a spiegare il motivo delle proprie scelte.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non riesce a organizzare il codice in modo coerente o propone soluzioni difficilmente manutenibili.
+
+|L1
+|Organizza il codice in componenti semplici con responsabilità comprensibili.
+
+|L2
+|Progetta componenti coesi, riduce le duplicazioni e motiva le proprie scelte progettuali.
+
+|L3
+|Bilancia semplicità, estensibilità e manutenibilità, adattando il design ai requisiti del sistema.
+
+|L4
+|Definisce linee guida progettuali, promuove un design coerente tra più componenti e contribuisce all'evoluzione dell'architettura del software.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

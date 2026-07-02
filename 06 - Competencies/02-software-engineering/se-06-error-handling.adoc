@@ -1,0 +1,87 @@
+[[se06-error-handling]]
+=== SE-06 - Gestione degli Errori
+
+[cols="1,4"]
+|===
+|Area
+|Software Engineering
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare una gestione degli errori che renda il sistema robusto, prevedibile e facilmente diagnosticabile.
+
+==== Cosa osservare
+
+* Identifica i possibili punti di errore.
+* Distingue errori recuperabili e non recuperabili.
+* Propone una gestione coerente degli errori.
+* Considera logging, tracciabilità e diagnosi.
+* Evita di nascondere gli errori.
+
+==== Domanda di base
+
+Stai sviluppando un servizio che, durante l'elaborazione di un ordine, deve chiamare tre servizi esterni.
+
+Uno dei servizi può risultare temporaneamente non disponibile.
+
+Come gestiresti questa situazione?
+
+NOTE: L'obiettivo è comprendere il ragionamento del candidato, non verificare la conoscenza di uno specifico framework.
+
+==== Domande di approfondimento
+
+* Come distingueresti un errore temporaneo da uno permanente?
+* In quali casi ritenteresti automaticamente l'operazione?
+* Quali informazioni registreresti nei log?
+* Come comunicheresti l'errore al chiamante?
+* Hai mai gestito un problema in produzione causato da una cattiva gestione degli errori?
+
+==== Segnali positivi
+
+* Identifica i possibili scenari di errore.
+* Distingue errori tecnici e funzionali.
+* Evita di intercettare indiscriminatamente tutte le eccezioni.
+* Considera logging e osservabilità.
+* Ragiona sull'esperienza dell'utente oltre che sull'aspetto tecnico.
+
+==== Segnali di attenzione
+
+* Ignora completamente i casi di errore.
+* Utilizza catch generici senza una motivazione.
+* Nasconde gli errori invece di gestirli.
+* Non considera il logging.
+* Non distingue errori recuperabili e non recuperabili.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non considera i casi di errore oppure propone una gestione incoerente.
+
+|L1
+|Gestisce correttamente gli errori più comuni evitando il fallimento dell'applicazione.
+
+|L2
+|Progetta una strategia coerente di gestione degli errori, distinguendo i diversi scenari e mantenendo il sistema in uno stato consistente.
+
+|L3
+|Bilancia robustezza, semplicità e manutenibilità, considerando logging, diagnosi, resilienza ed esperienza dell'utente.
+
+|L4
+|Definisce linee guida condivise per la gestione degli errori, contribuendo alla resilienza dell'intero sistema.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

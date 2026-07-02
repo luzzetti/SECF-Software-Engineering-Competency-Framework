@@ -1,0 +1,89 @@
+[[se02-object-oriented-design]]
+=== SE-02 - Object-Oriented Design
+
+[cols="1,4"]
+|===
+|Area
+|Software Engineering
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di modellare un dominio utilizzando i principi della programmazione orientata agli oggetti.
+
+==== Cosa osservare
+
+* Identifica correttamente responsabilità e collaborazioni.
+* Modella il dominio utilizzando astrazioni appropriate.
+* Applica correttamente incapsulamento, composizione ed ereditarietà quando opportuno.
+* Evita dipendenze inutili.
+* Ragiona in termini di evoluzione del modello.
+
+==== Domanda di base
+
+Stai sviluppando un sistema di e-commerce.
+
+Un ordine può contenere prodotti fisici e prodotti digitali.
+I prodotti digitali vengono consegnati immediatamente, mentre quelli fisici devono essere spediti.
+
+Come modelleresti il dominio?
+
+NOTE: Non chiedere di scrivere codice.
+Concentrati sul modello e sulle responsabilità.
+
+==== Domande di approfondimento
+
+* Se domani venissero introdotti gli abbonamenti, cosa cambierebbe?
+* Quando utilizzeresti l'ereditarietà e quando la composizione?
+* Dove inseriresti la logica di calcolo del prezzo?
+* Come renderesti il modello facilmente estendibile?
+* Hai mai dovuto modificare un modello a oggetti perché era diventato difficile da mantenere?
+
+==== Segnali positivi
+
+* Identifica correttamente le responsabilità.
+* Evita classi "onnipotenti".
+* Utilizza composizione quando appropriato.
+* Ragiona sul dominio prima dell'implementazione.
+* Giustifica le proprie scelte progettuali.
+
+==== Segnali di attenzione
+
+* Utilizza l'ereditarietà senza una reale necessità.
+* Inserisce tutta la logica in un'unica classe.
+* Confonde dati e comportamento.
+* Introduce astrazioni inutilmente complesse.
+* Non sa spiegare le relazioni tra gli oggetti.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non riesce a modellare il dominio o propone un modello incoerente.
+
+|L1
+|Modella semplici relazioni tra oggetti utilizzando i principi fondamentali dell'OOP.
+
+|L2
+|Progetta modelli coesi e facilmente estendibili, scegliendo correttamente tra composizione ed ereditarietà.
+
+|L3
+|Bilancia semplicità, flessibilità e manutenibilità, adattando il modello all'evoluzione del dominio.
+
+|L4
+|Definisce modelli condivisi e linee guida progettuali, contribuendo alla qualità complessiva dell'architettura.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

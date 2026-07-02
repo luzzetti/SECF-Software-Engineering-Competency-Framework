@@ -1,0 +1,85 @@
+[[se05-refactoring]]
+=== SE-05 - Refactoring
+
+[cols="1,4"]
+|===
+|Area
+|Software Engineering
+
+|Priorità
+|Essenziale
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di migliorare la struttura del codice preservandone il comportamento.
+
+==== Cosa osservare
+
+* Riconosce il debito tecnico.
+* Individua opportunità di semplificazione.
+* Migliora la leggibilità del codice.
+* Riduce duplicazioni e complessità.
+* Comprende i rischi del refactoring.
+
+==== Domanda di base
+
+Ti viene assegnata la manutenzione di un componente che funziona correttamente, ma è difficile da comprendere e modificare.
+
+Come affronteresti il problema?
+
+NOTE: L'obiettivo è comprendere il metodo seguito dal candidato, non verificare la conoscenza di specifiche tecniche di refactoring.
+
+==== Domande di approfondimento
+
+* Quali segnali ti fanno capire che un componente necessita di refactoring?
+* Come ridurresti il rischio di introdurre regressioni?
+* Quando decideresti di non fare refactoring?
+* Come convinceresti il team a investire tempo nel miglioramento del codice?
+* Raccontami un refactoring significativo che hai eseguito in un progetto reale.
+
+==== Segnali positivi
+
+* Procede per piccoli passi.
+* Si preoccupa di preservare il comportamento del software.
+* Collega il refactoring ai test.
+* Distingue tra miglioramento del codice e introduzione di nuove funzionalità.
+* Considera costi e benefici.
+
+==== Segnali di attenzione
+
+* Riscrivere completamente il componente come prima soluzione.
+* Modificare contemporaneamente comportamento e struttura del codice.
+* Non considerare il rischio di regressioni.
+* Fare refactoring senza una motivazione concreta.
+* Considerare il refactoring un'attività puramente estetica.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non riconosce la necessità del refactoring o propone interventi che aumentano il rischio senza reali benefici.
+
+|L1
+|Riconosce codice difficile da mantenere ed esegue semplici interventi di miglioramento.
+
+|L2
+|Pianifica e realizza refactoring in modo sicuro, migliorando leggibilità e manutenibilità senza alterare il comportamento.
+
+|L3
+|Valuta costi, benefici e priorità del refactoring nel contesto del progetto, integrandolo nel processo di sviluppo.
+
+|L4
+|Promuove una cultura del miglioramento continuo, definendo pratiche condivise per la gestione del debito tecnico.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________
