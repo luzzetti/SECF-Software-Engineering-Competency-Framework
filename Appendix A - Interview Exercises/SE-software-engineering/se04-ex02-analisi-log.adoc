@@ -1,0 +1,121 @@
+[[se04-ex02]]
+=== SE-04-EX02 - Leggere i Log
+
+==== Metadati
+
+Competenza::
+SE-04 - Debugging
+
+Livello consigliato::
+L1-L2
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Un'applicazione Java riceve richieste HTTP per la creazione di nuovi ordini.
+
+Da alcuni giorni gli utenti segnalano errori sporadici.
+
+Il sistema produce il seguente estratto del log.
+
+==== Materiale fornito
+
+[source,text]
+----
+2026-10-12 09:14:03 INFO  OrderController - Creating order 10542
+
+2026-10-12 09:14:03 INFO  PaymentService - Charging customer 781
+
+2026-10-12 09:14:04 ERROR OrderService - Error while processing order 10542
+
+java.lang.NullPointerException
+    at com.company.order.OrderService.calculateDiscount(OrderService.java:84)
+    at com.company.order.OrderService.process(OrderService.java:42)
+    at com.company.api.OrderController.create(OrderController.java:57)
+
+2026-10-12 09:14:04 INFO PaymentService - Payment completed
+
+2026-10-12 09:14:04 WARN NotificationService - Notification skipped
+----
+
+==== Consegna
+
+Analizza il log.
+
+Descrivi:
+
+* quali informazioni ricaveresti;
+* quali ipotesi formuleresti;
+* quali verifiche eseguiresti prima di modificare il codice.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'obiettivo non è individuare immediatamente la causa del problema.
+
+L'esercizio valuta la capacità del candidato di interpretare correttamente le informazioni disponibili e costruire un piano di analisi.
+
+==== Cosa osservare
+
+* Legge il log in ordine cronologico.
+* Distingue fatti e ipotesi.
+* Individua il punto dell'eccezione.
+* Ragiona sulle possibili conseguenze dell'errore.
+* Propone verifiche prima di modificare il codice.
+
+==== Soluzione canonica
+
+Una possibile analisi comprende:
+
+* individuare il punto esatto in cui si verifica la NullPointerException;
+* osservare che il pagamento viene comunque completato;
+* notare che la notifica viene saltata;
+* ipotizzare una possibile inconsistenza tra pagamento e creazione dell'ordine;
+* verificare il codice in corrispondenza della riga indicata;
+* riprodurre il problema con gli stessi dati;
+* verificare i log precedenti e successivi.
+
+Non è necessario individuare la causa esatta del bug.
+
+È invece importante costruire un piano di analisi coerente.
+
+==== Soluzioni alternative
+
+Sono corrette tutte le strategie che partono dalle evidenze disponibili e procedono tramite verifiche progressive.
+
+==== Spunti di approfondimento
+
+* Quali log aggiungeresti?
+* Cosa controlleresti nel database?
+* Come verificheresti se il problema è già avvenuto in passato?
+* Quali metriche potrebbero aiutarti?
+* Come capiresti se il pagamento è stato realmente completato?
+
+==== Rubrica di valutazione
+
+L0::
+Legge superficialmente il log o propone modifiche casuali.
+
+L1::
+Individua il punto dell'errore ma formula poche ipotesi.
+
+L2::
+Analizza correttamente il flusso degli eventi e propone verifiche coerenti.
+
+L3::
+Collega i diversi eventi del log, individua possibili inconsistenze e costruisce un piano di debugging strutturato.
+
+L4::
+Analizza il problema considerando anche aspetti architetturali, monitoraggio, logging e resilienza del sistema.
+
+endif::[]
