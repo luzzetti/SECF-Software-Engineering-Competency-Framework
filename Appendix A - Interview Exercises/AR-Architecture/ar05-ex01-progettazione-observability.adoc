@@ -1,0 +1,186 @@
+[[ar05-ex01]]
+=== AR-05-EX01 - Rendere Osservabile un Servizio
+
+==== Metadati
+
+Competenza::
+AR-05 - Observability
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Stai lavorando su un servizio backend che consente agli utenti di creare ordini.
+
+Il servizio espone un endpoint HTTP.
+
+[source,text]
+----
+POST /orders
+----
+
+Il flusso principale è il seguente:
+
+[source,text]
+----
+1. Riceve la richiesta dal client.
+2. Valida i dati ricevuti.
+3. Verifica la disponibilità dei prodotti.
+4. Autorizza il pagamento.
+5. Salva l'ordine.
+6. Invia una notifica al cliente.
+----
+
+Il team segnala che, quando qualcosa va storto, è difficile capire dove si sia verificato il problema.
+
+==== Consegna
+
+Descrivi come renderesti il servizio più osservabile.
+
+Spiega:
+
+* quali log introdurresti;
+* quali metriche raccoglieresti;
+* quali errori monitoreresti;
+* quali informazioni useresti per correlare gli eventi;
+* quali dashboard o alert considereresti utili.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di progettare osservabilità applicativa in modo intenzionale.
+
+L'obiettivo non è ottenere una lista infinita di log e metriche, ma osservare se il candidato distingue segnali utili, rumore e informazioni sensibili.
+
+==== Cosa osservare
+
+* Distingue log, metriche e tracing.
+* Propone correlation ID o request ID.
+* Individua punti significativi del flusso.
+* Evita logging eccessivo o inutile.
+* Non propone di loggare dati sensibili.
+* Ragiona su error rate, latenza e dipendenze esterne.
+* Considera dashboard e alert azionabili.
+
+==== Soluzione canonica
+
+Una buona risposta dovrebbe includere almeno tre categorie di segnali.
+
+Log applicativi:
+
+[source,text]
+----
+- richiesta ricevuta;
+- validazione fallita;
+- disponibilità prodotto non sufficiente;
+- pagamento autorizzato o rifiutato;
+- ordine salvato;
+- errore nell'invio della notifica;
+- errore inatteso.
+----
+
+I log dovrebbero includere informazioni utili alla correlazione, ad esempio:
+
+[source,text]
+----
+- correlationId;
+- orderId, quando disponibile;
+- customerId, se non sensibile nel contesto;
+- operation;
+- esito;
+- durata dell'operazione.
+----
+
+Metriche:
+
+[source,text]
+----
+- numero di richieste ricevute;
+- numero di ordini creati;
+- numero di errori;
+- latenza dell'endpoint;
+- latenza delle chiamate a inventario e pagamento;
+- percentuale di pagamenti rifiutati;
+- error rate per dipendenza esterna;
+- numero di notifiche fallite.
+----
+
+Tracing:
+
+[source,text]
+----
+POST /orders
+  -> validation
+  -> inventory check
+  -> payment authorization
+  -> order persistence
+  -> notification
+----
+
+Alert utili potrebbero essere basati su:
+
+[source,text]
+----
+- aumento degli errori 5xx;
+- latenza elevata;
+- errori verso PaymentService;
+- errori verso InventoryService;
+- calo anomalo degli ordini creati;
+- crescita delle notifiche fallite.
+----
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* introducono structured logging;
+* usano distributed tracing;
+* separano metriche tecniche e metriche di business;
+* definiscono SLI e SLO;
+* introducono dashboard operative;
+* usano alert basati su soglie o anomalie;
+* evitano log rumorosi e non azionabili.
+
+L'intervistatore dovrebbe valutare se il candidato propone segnali utili a diagnosticare problemi reali, non solo una maggiore quantità di output.
+
+==== Spunti di approfondimento
+
+* Qual è la differenza tra log, metriche e trace?
+* Quali log metteresti a livello INFO?
+* Quali eventi loggeresti a WARN o ERROR?
+* Quali dati non loggeresti mai?
+* Come useresti un correlation ID?
+* Quali alert rischiano di generare rumore?
+* Come capiresti se il pagamento è il collo di bottiglia?
+* Come monitoreresti il tasso di successo degli ordini?
+
+==== Rubrica di valutazione
+
+L0::
+Non propone segnali utili o confonde osservabilità con logging casuale.
+
+L1::
+Propone alcuni log utili ma senza una strategia complessiva.
+
+L2::
+Distingue log, metriche e tracing, proponendo segnali coerenti con il flusso applicativo.
+
+L3::
+Ragiona su correlazione, dipendenze esterne, dashboard, alert e diagnosi dei problemi.
+
+L4::
+Definisce una strategia completa di osservabilità, considerando SLI/SLO, rumore operativo, sicurezza dei dati e miglioramento continuo del sistema.
+
+endif::[]

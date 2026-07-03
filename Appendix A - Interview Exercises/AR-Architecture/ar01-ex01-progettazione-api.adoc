@@ -1,0 +1,123 @@
+[[ar01-ex01]]
+=== AR-01-EX01 - Progettazione di una API
+
+==== Metadati
+
+Competenza::
+AR-01 - API Design
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Stai sviluppando il backend di un sistema di e-commerce.
+
+Il frontend deve consentire agli utenti di:
+
+* visualizzare il contenuto del carrello;
+* aggiungere un prodotto;
+* modificarne la quantità;
+* rimuovere un prodotto;
+* completare il checkout.
+
+==== Consegna
+
+Progetta le API che esporresti.
+
+Non è necessario utilizzare una sintassi specifica (REST, OpenAPI, ...).
+
+Descrivi:
+
+* gli endpoint;
+* le operazioni disponibili;
+* le informazioni scambiate;
+* gli eventuali codici di errore.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'obiettivo non è verificare la conoscenza di REST.
+
+L'esercizio valuta la capacità del candidato di progettare un contratto semplice, coerente e facilmente utilizzabile.
+
+==== Cosa osservare
+
+* Modella correttamente le risorse.
+* Mantiene coerenza nella nomenclatura.
+* Distingue operazioni diverse.
+* Considera gli errori.
+* Evita di esporre dettagli implementativi.
+
+==== Soluzione canonica
+
+Una possibile progettazione potrebbe prevedere:
+
+[source,text]
+----
+GET    /cart
+
+POST   /cart/items
+
+PUT    /cart/items/{productId}
+
+DELETE /cart/items/{productId}
+
+POST   /checkout
+----
+
+Per ogni operazione il candidato dovrebbe descrivere:
+
+* dati richiesti;
+* dati restituiti;
+* principali condizioni di errore.
+
+Non è importante utilizzare esattamente questi endpoint.
+
+È importante che il modello sia coerente.
+
+==== Soluzioni alternative
+
+Sono corrette progettazioni differenti purché:
+
+* mantengano coerenza;
+* rappresentino correttamente il dominio;
+* risultino facilmente utilizzabili.
+
+==== Spunti di approfondimento
+
+* Come gestiresti il versioning?
+* Come modelleresti gli errori?
+* Come aggiungeresti il supporto ai coupon?
+* Come garantiresti la retrocompatibilità?
+* Come documenteresti l'API?
+
+==== Rubrica di valutazione
+
+L0::
+Non riesce a progettare un'API coerente.
+
+L1::
+Propone endpoint funzionali ma poco consistenti.
+
+L2::
+Progetta un'API semplice, coerente e facilmente utilizzabile.
+
+L3::
+Discute versioning, error handling, evoluzione dell'API e trade-off progettuali.
+
+L4::
+Progetta API evolvibili nel lungo periodo, considerando anche aspetti architetturali e organizzativi.
+
+endif::[]

@@ -1,0 +1,176 @@
+[[se05-ex01]]
+=== SE-05-EX01 - Refactoring Progressivo
+
+==== Metadati
+
+Competenza::
+SE-05 - Refactoring
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Stai lavorando su un'applicazione esistente.
+
+Il seguente metodo viene utilizzato in produzione e contiene regole di business importanti.
+
+Il team vuole migliorarlo, ma non vuole introdurre regressioni.
+
+==== Materiale fornito
+
+[source,java]
+----
+public class InvoiceService {
+
+    public BigDecimal calculateTotal(Invoice invoice) {
+
+        BigDecimal total = BigDecimal.ZERO;
+
+        for (InvoiceLine line : invoice.getLines()) {
+            BigDecimal lineTotal =
+                line.getUnitPrice().multiply(BigDecimal.valueOf(line.getQuantity()));
+
+            if (line.getDiscountPercentage() != null) {
+                BigDecimal discount =
+                    lineTotal.multiply(line.getDiscountPercentage())
+                             .divide(BigDecimal.valueOf(100));
+
+                lineTotal = lineTotal.subtract(discount);
+            }
+
+            total = total.add(lineTotal);
+        }
+
+        if (invoice.getCustomer().isVip()) {
+            total = total.multiply(BigDecimal.valueOf(0.95));
+        }
+
+        if (invoice.getCountry().equals("IT")) {
+            total = total.multiply(BigDecimal.valueOf(1.22));
+        } else {
+            total = total.multiply(BigDecimal.valueOf(1.20));
+        }
+
+        return total;
+    }
+}
+----
+
+==== Consegna
+
+Descrivi come procederesti per fare refactoring del metodo.
+
+Spiega:
+
+* quali problemi individui;
+* quali modifiche faresti per prime;
+* come ridurresti il rischio di regressione;
+* quali test scriveresti prima o durante il refactoring.
+
+Non è necessario riscrivere completamente il codice.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di affrontare un refactoring in modo incrementale e sicuro.
+
+L'obiettivo non è ottenere il codice finale perfetto, ma osservare se il candidato sa migliorare il codice preservandone il comportamento.
+
+==== Cosa osservare
+
+* Distingue refactoring da cambio funzionale.
+* Propone test di caratterizzazione prima delle modifiche.
+* Procede per piccoli passi.
+* Riduce il rischio di regressione.
+* Estrae metodi con responsabilità chiare.
+* Evita riscritture complete non necessarie.
+
+==== Soluzione canonica
+
+Una buona risposta dovrebbe includere una strategia progressiva.
+
+Prima di modificare il codice, il candidato dovrebbe proporre test che catturino il comportamento esistente, ad esempio:
+
+[source,text]
+----
+- fattura con una riga senza sconto;
+- fattura con una riga con sconto;
+- fattura con più righe;
+- cliente VIP;
+- cliente non VIP;
+- paese IT;
+- paese non IT.
+----
+
+Possibili passi di refactoring:
+
+. Scrivere o completare test di caratterizzazione.
+. Estrarre il calcolo del totale di una riga.
+. Estrarre l'applicazione dello sconto di riga.
+. Estrarre l'applicazione dello sconto VIP.
+. Estrarre il calcolo delle tasse.
+. Sostituire magic numbers con costanti nominate.
+. Verificare i test dopo ogni passo.
+
+Una possibile direzione di miglioramento:
+
+[source,java]
+----
+public BigDecimal calculateTotal(Invoice invoice) {
+    BigDecimal subtotal = calculateSubtotal(invoice);
+    BigDecimal discountedTotal = applyCustomerDiscount(subtotal, invoice.getCustomer());
+    return applyTax(discountedTotal, invoice.getCountry());
+}
+----
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* introducono una classe dedicata al calcolo delle tasse;
+* separano sconti e tasse in componenti distinti;
+* usano una pipeline di regole;
+* mantengono tutto nella stessa classe ma con metodi più piccoli;
+* evitano astrazioni premature se il dominio è ancora semplice.
+
+L'intervistatore dovrebbe valutare se il candidato mantiene il comportamento esistente durante il refactoring.
+
+==== Spunti di approfondimento
+
+* Come dimostreresti che il comportamento non è cambiato?
+* Quando scriveresti test di caratterizzazione?
+* Qual è il primo refactoring che faresti?
+* Quando ti fermeresti?
+* Quali modifiche considereresti fuori scope?
+* Come gestiresti regole fiscali più complesse in futuro?
+
+==== Rubrica di valutazione
+
+L0::
+Propone modifiche casuali o cambia il comportamento senza accorgersene.
+
+L1::
+Individua problemi di leggibilità ma non definisce una strategia sicura.
+
+L2::
+Propone un refactoring incrementale con test a supporto.
+
+L3::
+Distingue chiaramente refactoring e cambio funzionale, procedendo per piccoli passi verificabili.
+
+L4::
+Definisce una strategia completa di refactoring, bilanciando rischio, testabilità, evoluzione del dominio e semplicità della soluzione.
+
+endif::[]

@@ -1,0 +1,172 @@
+[[ar01-ex03]]
+=== AR-01-EX03 - Evoluzione di una API
+
+==== Metadati
+
+Competenza::
+AR-01 - API Design
+
+Livello consigliato::
+L3-L4
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Il seguente endpoint è utilizzato da numerose applicazioni web e mobile.
+
+[source,text]
+----
+GET /customers/{id}
+----
+
+Restituisce la seguente risposta.
+
+[source,json]
+----
+{
+  "id": 123,
+  "name": "Mario Rossi",
+  "email": "mario.rossi@example.com",
+  "phone": "+39 3331234567"
+}
+----
+
+Il Product Owner introduce un nuovo requisito.
+
+Ogni cliente può avere più numeri di telefono, ciascuno con un tipo associato:
+
+* mobile;
+* home;
+* work.
+
+I client esistenti devono continuare a funzionare senza modifiche.
+
+==== Consegna
+
+Descrivi come evolveresti l'API.
+
+Spiega:
+
+* quali modifiche apporteresti;
+* come manterresti la retrocompatibilità;
+* quali alternative prenderesti in considerazione;
+* come gestiresti una futura deprecazione del campo `phone`.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'obiettivo è osservare come il candidato affronta l'evoluzione di un contratto pubblico già utilizzato da altri sistemi.
+
+Il punto critico dell'esercizio è che il campo esistente `phone` rappresenta un singolo valore, mentre il nuovo requisito introduce una collezione di valori.
+
+==== Cosa osservare
+
+* Comprende il concetto di retrocompatibilità.
+* Evita di cambiare tipo o significato di un campo esistente.
+* Ragiona sull'evoluzione del contratto.
+* Considera l'impatto sui client esistenti.
+* Valuta più strategie di migrazione.
+
+==== Soluzione canonica
+
+Il candidato dovrebbe evitare di modificare direttamente il campo esistente:
+
+[source,json]
+----
+{
+  "phone": "+39 3331234567"
+}
+----
+
+in una struttura incompatibile come:
+
+[source,json]
+----
+{
+  "phone": [
+    {
+      "type": "mobile",
+      "number": "+39 3331234567"
+    }
+  ]
+}
+----
+
+Una possibile evoluzione backward-compatible consiste nel mantenere `phone` e aggiungere un nuovo campo `phones`.
+
+[source,json]
+----
+{
+  "id": 123,
+  "name": "Mario Rossi",
+  "email": "mario.rossi@example.com",
+  "phone": "+39 3331234567",
+  "phones": [
+    {
+      "type": "mobile",
+      "number": "+39 3331234567"
+    },
+    {
+      "type": "work",
+      "number": "+39 021234567"
+    }
+  ]
+}
+----
+
+In questa soluzione:
+
+* i client esistenti continuano a leggere `phone`;
+* i nuovi client possono utilizzare `phones`;
+* `phone` può essere considerato il numero principale o legacy;
+* la deprecazione di `phone` può essere pianificata in modo esplicito.
+
+==== Soluzioni alternative
+
+Sono corrette, se adeguatamente motivate:
+
+* introdurre un nuovo endpoint dedicato ai telefoni, ad esempio `/customers/{id}/phones`;
+* introdurre una nuova versione dell'API;
+* mantenere `phone` come alias del numero principale;
+* introdurre un campo `primaryPhone` e una collezione `phones`;
+* usare un meccanismo di feature negotiation o contract versioning.
+
+L'intervistatore dovrebbe valutare soprattutto la capacità del candidato di evitare breaking change non necessari.
+
+==== Spunti di approfondimento
+
+* Quali modifiche consideri breaking?
+* Quando introdurresti una nuova versione dell'API?
+* Come comunicheresti la deprecazione del campo `phone`?
+* Per quanto tempo manterresti entrambi i campi?
+* Come testeresti la retrocompatibilità?
+* Come gestiresti client che aggiornano lentamente?
+
+==== Rubrica di valutazione
+
+L0::
+Propone modifiche incompatibili senza riconoscerne l'impatto.
+
+L1::
+Comprende il nuovo requisito ma fatica a preservare la compatibilità.
+
+L2::
+Propone una soluzione compatibile mantenendo il campo esistente e aggiungendo una nuova rappresentazione.
+
+L3::
+Discute versioning, deprecazione, compatibilità ed evoluzione del contratto.
+
+L4::
+Definisce una strategia completa di migrazione, considerando impatto sui client, comunicazione, tempi di deprecazione e governance dell'API.
+
+endif::[]

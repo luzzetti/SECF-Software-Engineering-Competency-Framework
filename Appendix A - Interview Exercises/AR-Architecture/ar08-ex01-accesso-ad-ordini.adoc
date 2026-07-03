@@ -1,0 +1,210 @@
+[[ar08-ex01]]
+=== AR-08-EX01 - Accesso agli Ordini
+
+==== Metadati
+
+Competenza::
+AR-08 - Authentication & Authorization
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Un'applicazione backend espone un endpoint per recuperare il dettaglio di un ordine.
+
+[source,text]
+----
+GET /orders/{id}
+----
+
+L'endpoint viene utilizzato sia dai clienti finali sia dagli operatori del Customer Care.
+
+Regole funzionali:
+
+[source,text]
+----
+- Un cliente può vedere solo i propri ordini.
+- Un operatore del Customer Care può vedere gli ordini di qualsiasi cliente.
+- Un utente non autenticato non può accedere all'endpoint.
+----
+
+Il team segnala che il controllo attuale è troppo debole.
+
+==== Materiale fornito
+
+Codice semplificato:
+
+[source,java]
+----
+public OrderDetails getOrder(Long orderId, User currentUser) {
+
+    if (currentUser == null) {
+        throw new UnauthorizedException();
+    }
+
+    Order order = orderRepository.findById(orderId)
+        .orElseThrow(() -> new OrderNotFoundException(orderId));
+
+    return OrderDetails.from(order);
+}
+----
+
+==== Consegna
+
+Analizza il codice.
+
+Descrivi:
+
+* quale problema individui;
+* quali controlli aggiungeresti;
+* come distingueresti autenticazione e autorizzazione;
+* quali errori restituiresti nei diversi casi;
+* quali test scriveresti.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di distinguere autenticazione e autorizzazione e di applicare controlli di accesso coerenti con il dominio.
+
+L'obiettivo non è verificare la conoscenza di uno specifico framework di sicurezza.
+
+==== Cosa osservare
+
+* Distingue utente autenticato da utente autorizzato.
+* Riconosce che il codice controlla solo la presenza dell'utente.
+* Propone controllo sul proprietario dell'ordine.
+* Considera il ruolo Customer Care.
+* Ragiona sui codici di errore.
+* Considera test per i casi consentiti e negati.
+* Evita di esporre informazioni non necessarie.
+
+==== Soluzione canonica
+
+Il problema principale è che il codice verifica solo se l'utente è autenticato.
+
+Non verifica se l'utente ha diritto ad accedere all'ordine richiesto.
+
+Una possibile logica corretta:
+
+[source,text]
+----
+1. Se currentUser è null:
+   accesso negato come utente non autenticato.
+
+2. Recuperare l'ordine.
+
+3. Se currentUser ha ruolo CUSTOMER_CARE:
+   accesso consentito.
+
+4. Se currentUser è il proprietario dell'ordine:
+   accesso consentito.
+
+5. Altrimenti:
+   accesso negato.
+----
+
+Una possibile implementazione semplificata:
+
+[source,java]
+----
+public OrderDetails getOrder(Long orderId, User currentUser) {
+
+    if (currentUser == null) {
+        throw new UnauthorizedException();
+    }
+
+    Order order = orderRepository.findById(orderId)
+        .orElseThrow(() -> new OrderNotFoundException(orderId));
+
+    if (!canViewOrder(currentUser, order)) {
+        throw new ForbiddenException();
+    }
+
+    return OrderDetails.from(order);
+}
+
+private boolean canViewOrder(User user, Order order) {
+    return user.hasRole("CUSTOMER_CARE")
+        || order.getCustomerId().equals(user.getCustomerId());
+}
+----
+
+Dal punto di vista HTTP:
+
+[source,text]
+----
+401 Unauthorized
+----
+
+per utente non autenticato.
+
+[source,text]
+----
+403 Forbidden
+----
+
+per utente autenticato ma non autorizzato.
+
+In alcuni contesti si potrebbe valutare di restituire:
+
+[source,text]
+----
+404 Not Found
+----
+
+per evitare di rivelare l'esistenza di una risorsa non accessibile.
+
+Questa scelta deve essere esplicita e coerente.
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* spostano la logica di autorizzazione in un componente dedicato;
+* usano policy o permission service;
+* applicano controlli a livello di query;
+* usano annotazioni del framework, se adeguatamente motivate;
+* restituiscono 404 per risorse non accessibili, se la scelta è coerente con il modello di sicurezza.
+
+L'intervistatore dovrebbe valutare soprattutto la chiarezza nella distinzione tra autenticazione e autorizzazione.
+
+==== Spunti di approfondimento
+
+* Qual è la differenza tra 401 e 403?
+* Quando restituiresti 404 invece di 403?
+* Dove collocheresti la logica di autorizzazione?
+* Come eviteresti che un cliente acceda agli ordini di altri utenti?
+* Quali test scriveresti?
+* Come gestiresti ruoli e permessi più complessi?
+* Come auditeresti accessi a dati sensibili?
+
+==== Rubrica di valutazione
+
+L0::
+Non riconosce il problema di autorizzazione.
+
+L1::
+Riconosce che manca un controllo, ma lo descrive in modo incompleto.
+
+L2::
+Distingue autenticazione e autorizzazione e propone controlli coerenti.
+
+L3::
+Ragiona su ruoli, ownership, codici di errore, test e collocazione della logica.
+
+L4::
+Propone una strategia completa di access control considerando policy, auditing, least privilege, sicurezza dei dati e coerenza del contratto API.
+
+endif::[]

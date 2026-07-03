@@ -1,0 +1,186 @@
+[[se07-ex02]]
+=== SE-07-EX02 - Ottimizzazione Sbagliata
+
+==== Metadati
+
+Competenza::
+SE-07 - Performance Engineering
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Un endpoint usato per cercare prodotti era diventato lento.
+
+Un collega ha introdotto una cache in memoria per migliorare le performance.
+
+Dopo la modifica, il tempo medio di risposta è diminuito, ma sono comparsi nuovi problemi:
+
+* alcuni utenti vedono dati non aggiornati;
+* il consumo di memoria dell'applicazione cresce durante la giornata;
+* dopo ogni deploy, il primo accesso è molto lento;
+* in alcune giornate di traffico elevato l'applicazione va in errore per memoria insufficiente.
+
+==== Materiale fornito
+
+Codice semplificato:
+
+[source,java]
+----
+public class ProductSearchService {
+
+    private final ProductRepository productRepository;
+
+    private final Map<String, List<Product>> cache = new HashMap<>();
+
+    public List<Product> search(String query) {
+
+        if (cache.containsKey(query)) {
+            return cache.get(query);
+        }
+
+        List<Product> products = productRepository.searchByText(query);
+
+        cache.put(query, products);
+
+        return products;
+    }
+}
+----
+
+Informazioni aggiuntive:
+
+[source,text]
+----
+- Il catalogo contiene circa 500.000 prodotti.
+- Le query degli utenti sono molto variabili.
+- I prodotti cambiano spesso prezzo e disponibilità.
+- L'applicazione gira su più istanze.
+- Non esiste un limite alla dimensione della cache.
+----
+
+==== Consegna
+
+Analizza la soluzione introdotta.
+
+Descrivi:
+
+* quali problemi individui;
+* perché la cache può peggiorare il sistema;
+* quali informazioni raccoglieresti;
+* quali alternative valuteresti;
+* come verificheresti se la soluzione scelta migliora davvero le performance.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di ragionare su performance, caching e trade-off.
+
+L'obiettivo non è far dire al candidato "serve una cache migliore", ma osservare se comprende quando una cache è utile, quando è pericolosa e quali condizioni devono essere controllate.
+
+==== Cosa osservare
+
+* Riconosce l'assenza di TTL o invalidazione.
+* Riconosce l'assenza di limiti di dimensione.
+* Considera la variabilità delle query.
+* Considera dati obsoleti e consistenza.
+* Considera il problema multi-istanza.
+* Propone misurazioni e non solo nuove tecnologie.
+* Valuta alternative alla cache applicativa.
+
+==== Soluzione canonica
+
+Problemi principali della soluzione:
+
+* la cache cresce indefinitamente;
+* non esiste eviction policy;
+* non esiste TTL;
+* non esiste invalidazione quando prodotto, prezzo o disponibilità cambiano;
+* ogni istanza mantiene una cache diversa;
+* dopo il deploy la cache è vuota e va ricostruita;
+* query molto variabili riducono l'efficacia della cache;
+* la cache memorizza liste potenzialmente grandi;
+* `HashMap` non è thread-safe in un contesto concorrente;
+* il miglioramento del tempo medio può nascondere peggioramenti su memoria, consistenza e percentile alti.
+
+Una buona analisi dovrebbe partire da misurazioni:
+
+[source,text]
+----
+- hit rate della cache;
+- dimensione della cache;
+- memoria utilizzata;
+- tempi medi e percentili;
+- frequenza di aggiornamento dei prodotti;
+- numero di query uniche;
+- errori per memoria insufficiente;
+- impatto sui deploy e sul cold start.
+----
+
+Possibili alternative:
+
+[source,text]
+----
+- ottimizzare la query o l'indice di ricerca;
+- usare un motore di ricerca dedicato;
+- introdurre una cache con TTL e dimensione massima;
+- cacheare solo query frequenti;
+- cacheare identificativi invece di oggetti completi;
+- usare una cache distribuita se serve coerenza tra istanze;
+- invalidare la cache su eventi di aggiornamento prodotto;
+- evitare la cache se l'hit rate è basso.
+----
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* propongono una cache bounded con eviction policy;
+* introducono TTL differenziati in base al tipo di dato;
+* separano ricerca testuale e dati aggiornati di prezzo/disponibilità;
+* usano strumenti di full-text search;
+* introducono metriche prima di modificare l'implementazione;
+* rimuovono la cache se le evidenze mostrano che non è efficace.
+
+L'intervistatore dovrebbe valutare se il candidato comprende i trade-off tra performance, consistenza, memoria e complessità operativa.
+
+==== Spunti di approfondimento
+
+* Quale metrica useresti per capire se la cache è utile?
+* Che cosa succede se il prezzo di un prodotto cambia?
+* Come gestiresti più istanze applicative?
+* Quando una cache peggiora le performance?
+* Preferiresti cache locale o distribuita?
+* Come limiteresti il consumo di memoria?
+* Come testeresti questa modifica in produzione in modo sicuro?
+
+==== Rubrica di valutazione
+
+L0::
+Accetta la cache come soluzione senza riconoscerne i rischi.
+
+L1::
+Individua alcuni problemi, ma propone una soluzione generica.
+
+L2::
+Riconosce i principali rischi della cache e propone correttivi coerenti.
+
+L3::
+Ragiona su hit rate, TTL, invalidazione, memoria, multi-istanza e misurazione dei risultati.
+
+L4::
+Definisce una strategia completa di ottimizzazione considerando architettura, consistenza dei dati, osservabilità, deploy e sostenibilità operativa.
+
+endif::[]

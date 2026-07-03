@@ -1,0 +1,201 @@
+[[se03-ex02]]
+=== SE-03-EX02 - Migliorare una Suite di Test
+
+==== Metadati
+
+Competenza::
+SE-03 - Testing
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Stai lavorando su un servizio che calcola il costo di spedizione di un ordine.
+
+Il metodo è già coperto da alcuni test, ma il team sospetta che la suite non sia sufficiente a prevenire regressioni.
+
+==== Materiale fornito
+
+Codice applicativo:
+
+[source,java]
+----
+public class ShippingCostCalculator {
+
+    public BigDecimal calculate(Order order) {
+
+        if (order == null) {
+            throw new IllegalArgumentException("Order is required");
+        }
+
+        if (order.getTotal().compareTo(BigDecimal.valueOf(100)) >= 0) {
+            return BigDecimal.ZERO;
+        }
+
+        if (order.getCountry().equals("IT")) {
+            return BigDecimal.valueOf(5);
+        }
+
+        if (order.getCountry().equals("EU")) {
+            return BigDecimal.valueOf(10);
+        }
+
+        return BigDecimal.valueOf(20);
+    }
+}
+----
+
+Test esistenti:
+
+[source,java]
+----
+class ShippingCostCalculatorTest {
+
+    private final ShippingCostCalculator calculator =
+        new ShippingCostCalculator();
+
+    @Test
+    void testCalculate() {
+        Order order = new Order();
+        order.setTotal(BigDecimal.valueOf(50));
+        order.setCountry("IT");
+
+        BigDecimal result = calculator.calculate(order);
+
+        assertEquals(BigDecimal.valueOf(5), result);
+    }
+
+    @Test
+    void testCalculate2() {
+        Order order = new Order();
+        order.setTotal(BigDecimal.valueOf(150));
+        order.setCountry("IT");
+
+        BigDecimal result = calculator.calculate(order);
+
+        assertEquals(BigDecimal.ZERO, result);
+    }
+}
+----
+
+==== Consegna
+
+Analizza la suite di test esistente.
+
+Descrivi:
+
+* quali problemi individui;
+* quali casi non sono coperti;
+* quali test aggiungeresti;
+* quali test rinomineresti o riscriveresti;
+* se useresti test parametrizzati.
+
+Non è necessario scrivere codice di test completo.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di leggere una suite di test esistente, comprenderne i limiti e proporre miglioramenti concreti.
+
+L'obiettivo non è verificare la sintassi di JUnit, ma osservare il ragionamento sulla copertura dei comportamenti rilevanti.
+
+==== Cosa osservare
+
+* Riconosce nomi dei test poco descrittivi.
+* Individua casi funzionali mancanti.
+* Considera casi limite.
+* Considera casi di errore.
+* Propone test leggibili e mantenibili.
+* Valuta se usare test parametrizzati.
+
+==== Soluzione canonica
+
+Problemi principali della suite esistente:
+
+* i nomi `testCalculate` e `testCalculate2` non descrivono il comportamento verificato;
+* viene coperto solo il caso `IT` sotto soglia;
+* viene coperto solo un caso di spedizione gratuita;
+* mancano i casi `EU` ed extra EU;
+* manca il caso `order == null`;
+* manca il caso al confine `total == 100`;
+* manca il caso appena sotto soglia;
+* non viene discusso il comportamento con `country == null`.
+
+Una possibile suite migliorata potrebbe includere:
+
+[source,text]
+----
+calculate_shouldThrowException_whenOrderIsNull
+
+calculate_shouldReturnFreeShipping_whenTotalIsEqualTo100
+
+calculate_shouldReturnFreeShipping_whenTotalIsGreaterThan100
+
+calculate_shouldReturnItalianShippingCost_whenCountryIsITAndTotalIsBelow100
+
+calculate_shouldReturnEuropeanShippingCost_whenCountryIsEUAndTotalIsBelow100
+
+calculate_shouldReturnDefaultShippingCost_whenCountryIsOutsideEUAndTotalIsBelow100
+
+calculate_shouldUseCountrySpecificCost_whenTotalIsBelow100
+----
+
+Il candidato potrebbe proporre test parametrizzati per i casi basati sul paese:
+
+[source,text]
+----
+country = IT, expected = 5
+country = EU, expected = 10
+country = US, expected = 20
+----
+
+==== Soluzioni alternative
+
+Sono valide proposte differenti purché migliorino:
+
+* copertura dei comportamenti;
+* leggibilità dei test;
+* capacità di prevenire regressioni;
+* manutenibilità della suite.
+
+Non è necessario coprire ogni possibile input se il candidato motiva una suite essenziale e mirata.
+
+==== Spunti di approfondimento
+
+* Come decideresti quando una suite è sufficiente?
+* Quali test consideri indispensabili?
+* Quando useresti test parametrizzati?
+* Come nomineresti i test?
+* Testeresti anche `country == null`?
+* Come cambieresti i test se le regole di spedizione diventassero configurabili?
+
+==== Rubrica di valutazione
+
+L0::
+Non riconosce limiti significativi nella suite di test.
+
+L1::
+Individua alcuni casi mancanti ma senza una strategia chiara.
+
+L2::
+Propone una suite più completa, leggibile e coerente con le regole funzionali.
+
+L3::
+Ragiona su casi limite, regressioni, test parametrizzati e manutenibilità.
+
+L4::
+Propone una strategia di testing sostenibile, considerando evoluzione delle regole, leggibilità della suite e rapporto tra copertura e valore dei test.
+
+endif::[]

@@ -1,0 +1,172 @@
+[[ar03-ex02]]
+=== AR-03-EX02 - Migliorare un Modello Dati
+
+==== Metadati
+
+Competenza::
+AR-03 - Modellazione dei Dati
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Entri in un team che gestisce un sistema di e-commerce.
+
+Il database contiene una tabella utilizzata per memorizzare gli ordini dei clienti.
+
+Nel tempo sono stati aggiunti nuovi requisiti e la tabella è diventata difficile da gestire.
+
+==== Materiale fornito
+
+[source,text]
+----
+Order
+-----
+Id
+CustomerName
+CustomerEmail
+CustomerPhone
+ProductId
+ProductName
+ProductPrice
+Quantity
+Discount
+OrderDate
+ShippingAddress
+BillingAddress
+PaymentStatus
+ShippingStatus
+Total
+----
+
+==== Consegna
+
+Analizza il modello dati.
+
+Descrivi:
+
+* quali problemi individui;
+* quali entità separeresti;
+* quali relazioni introdurresti;
+* quali informazioni manterresti sull'ordine anche se già presenti altrove;
+* quali trade-off considereresti.
+
+Non è necessario produrre un diagramma formale.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di riconoscere problemi in un modello dati esistente e proporre una struttura più coerente.
+
+L'obiettivo non è ottenere una normalizzazione perfetta, ma osservare il ragionamento su entità, duplicazione controllata, storicizzazione e vincoli.
+
+==== Cosa osservare
+
+* Riconosce che la tabella mescola troppe responsabilità.
+* Distingue cliente, ordine, prodotto, righe ordine, pagamento e spedizione.
+* Comprende il problema degli ordini con più prodotti.
+* Distingue duplicazione accidentale e denormalizzazione intenzionale.
+* Capisce quali dati devono essere storicizzati sull'ordine.
+* Motiva i trade-off.
+
+==== Soluzione canonica
+
+Una possibile revisione del modello prevede di separare almeno:
+
+[source,text]
+----
+Customer
+--------
+Id
+Name
+Email
+Phone
+
+Product
+-------
+Id
+Name
+CurrentPrice
+
+CustomerOrder
+-------------
+Id
+CustomerId
+OrderDate
+Total
+PaymentStatus
+ShippingStatus
+ShippingAddress
+BillingAddress
+
+OrderItem
+---------
+Id
+OrderId
+ProductId
+ProductName
+UnitPrice
+Quantity
+Discount
+----
+
+Questa struttura consente di rappresentare correttamente un ordine con più prodotti.
+
+Il modello mantiene alcune informazioni duplicate su `OrderItem`, come `ProductName` e `UnitPrice`.
+
+Questa duplicazione può essere corretta perché rappresenta lo stato del prodotto al momento dell'acquisto.
+
+Se il nome o il prezzo corrente del prodotto cambiano, lo storico dell'ordine deve rimanere coerente.
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* separano pagamento e spedizione in entità dedicate;
+* introducono una tabella `Address`;
+* distinguono indirizzo di fatturazione e indirizzo di spedizione;
+* rappresentano lo stato dell'ordine con un campo dedicato;
+* mantengono snapshot più completi dei dati cliente e prodotto;
+* propongono una denormalizzazione motivata per esigenze di reporting.
+
+L'intervistatore dovrebbe valutare se la proposta migliora coerenza, evolvibilità e rappresentazione del dominio.
+
+==== Spunti di approfondimento
+
+* Cosa succede se un ordine contiene più prodotti?
+* Quali dati del cliente copieresti sull'ordine?
+* Quali dati del prodotto copieresti sulla riga d'ordine?
+* Quando accetteresti duplicazione nel modello dati?
+* Come gestiresti cambi di prezzo dopo l'acquisto?
+* Come modelleresti pagamenti multipli o spedizioni parziali?
+
+==== Rubrica di valutazione
+
+L0::
+Non riconosce i problemi principali del modello.
+
+L1::
+Individua alcuni problemi ma propone una separazione incompleta o poco coerente.
+
+L2::
+Propone un modello più corretto, distinguendo entità principali e relazioni.
+
+L3::
+Discute storicizzazione, duplicazione intenzionale, vincoli e casi limite.
+
+L4::
+Propone una revisione del modello considerando evoluzione del dominio, reporting, consistenza e impatto sui processi applicativi.
+
+endif::[]

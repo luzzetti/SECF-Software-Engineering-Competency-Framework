@@ -1,0 +1,182 @@
+[[se03-ex01]]
+=== SE-03-EX01 - Casi di Test
+
+==== Metadati
+
+Competenza::
+SE-03 - Testing
+
+Livello consigliato::
+L1-L2
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Stai lavorando su un servizio che calcola il costo di spedizione di un ordine.
+
+Il metodo è già stato implementato.
+
+Ti viene chiesto di definire i casi di test principali.
+
+==== Materiale fornito
+
+[source,java]
+----
+public class ShippingCostCalculator {
+
+    public BigDecimal calculate(Order order) {
+
+        if (order == null) {
+            throw new IllegalArgumentException("Order is required");
+        }
+
+        if (order.getTotal().compareTo(BigDecimal.valueOf(100)) >= 0) {
+            return BigDecimal.ZERO;
+        }
+
+        if (order.getCountry().equals("IT")) {
+            return BigDecimal.valueOf(5);
+        }
+
+        if (order.getCountry().equals("EU")) {
+            return BigDecimal.valueOf(10);
+        }
+
+        return BigDecimal.valueOf(20);
+    }
+}
+----
+
+Regole funzionali:
+
+[source,text]
+----
+- Se l'ordine è nullo, il metodo deve generare errore.
+- Se il totale dell'ordine è maggiore o uguale a 100, la spedizione è gratuita.
+- Se il paese è IT, la spedizione costa 5.
+- Se il paese è EU, la spedizione costa 10.
+- In tutti gli altri casi, la spedizione costa 20.
+----
+
+==== Consegna
+
+Definisci i principali casi di test che scriveresti per questo metodo.
+
+Per ogni test indica:
+
+* scenario;
+* input rilevanti;
+* risultato atteso.
+
+Non è necessario scrivere codice di test completo.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di individuare casi di test significativi a partire da codice e requisiti.
+
+Non è importante che conosca una libreria specifica di testing.
+
+L'obiettivo è osservare se copre i casi principali, i confini e gli errori.
+
+==== Cosa osservare
+
+* Identifica i casi principali.
+* Considera il caso di errore.
+* Verifica la soglia `100`.
+* Distingue comportamento normale e casi limite.
+* Evita test ridondanti o puramente casuali.
+* Nomina i test in modo comprensibile.
+
+==== Soluzione canonica
+
+Una possibile suite minima di test comprende:
+
+[source,text]
+----
+1. Ordine nullo
+   Input: order = null
+   Atteso: IllegalArgumentException
+
+2. Ordine con totale pari a 100
+   Input: total = 100
+   Atteso: costo spedizione = 0
+
+3. Ordine con totale maggiore di 100
+   Input: total = 150
+   Atteso: costo spedizione = 0
+
+4. Ordine italiano sotto soglia
+   Input: total = 50, country = IT
+   Atteso: costo spedizione = 5
+
+5. Ordine europeo sotto soglia
+   Input: total = 50, country = EU
+   Atteso: costo spedizione = 10
+
+6. Ordine extra europeo sotto soglia
+   Input: total = 50, country = US
+   Atteso: costo spedizione = 20
+----
+
+Un candidato più attento potrebbe aggiungere:
+
+[source,text]
+----
+7. Ordine appena sotto soglia
+   Input: total = 99.99
+   Atteso: costo spedizione in base al paese
+
+8. Country nullo o non valorizzato
+   Input: country = null
+   Atteso: comportamento da chiarire o errore esplicito
+----
+
+==== Soluzioni alternative
+
+Sono valide suite di test differenti purché coprano:
+
+* caso nullo;
+* soglia della spedizione gratuita;
+* paese italiano;
+* paese europeo;
+* paese extra europeo;
+* almeno un caso limite significativo.
+
+==== Spunti di approfondimento
+
+* Qual è il numero minimo di test che ritieni sufficiente?
+* Testeresti anche il valore `99.99`?
+* Come nomineresti questi test?
+* Cosa faresti se `country` fosse null?
+* Preferiresti test parametrizzati?
+* Quali test scriveresti prima di modificare il metodo?
+
+==== Rubrica di valutazione
+
+L0::
+Non riesce a individuare casi di test significativi.
+
+L1::
+Propone alcuni test sui casi principali, ma ignora errori o casi limite.
+
+L2::
+Copre casi principali, errore e soglia in modo coerente.
+
+L3::
+Propone una suite essenziale ma completa, considera casi limite e test parametrizzati.
+
+L4::
+Ragiona su strategia di testing, leggibilità, manutenzione della suite e prevenzione delle regressioni.
+
+endif::[]

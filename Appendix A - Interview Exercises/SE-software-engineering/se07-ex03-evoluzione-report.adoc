@@ -1,0 +1,209 @@
+[[se07-ex03]]
+=== SE-07-EX03 - Evoluzione di un Report
+
+==== Metadati
+
+Competenza::
+SE-07 - Performance Engineering
+
+Livello consigliato::
+L3-L4
+
+Tempo stimato::
+30 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Un'applicazione backend espone un report utilizzato dal management per monitorare l'andamento delle vendite.
+
+Il report mostra:
+
+* totale vendite giornaliere;
+* numero di ordini;
+* valore medio dell'ordine;
+* prodotti più venduti;
+* confronto con il giorno precedente.
+
+Attualmente il report viene calcolato in tempo reale a ogni richiesta.
+
+Negli ultimi mesi il volume degli ordini è cresciuto e il report è diventato lento.
+
+==== Materiale fornito
+
+Informazioni disponibili:
+
+[source,text]
+----
+- La tabella CustomerOrder contiene circa 30 milioni di record.
+- La tabella OrderItem contiene circa 120 milioni di record.
+- Il report viene consultato frequentemente durante la giornata.
+- Il report non deve essere aggiornato al secondo.
+- Un ritardo di 10-15 minuti è accettabile.
+- Il database principale è già molto carico durante gli orari di punta.
+----
+
+Query semplificata attuale:
+
+[source,sql]
+----
+SELECT
+    DATE(o.OrderDate) AS Day,
+    COUNT(DISTINCT o.Id) AS TotalOrders,
+    SUM(oi.Quantity * oi.UnitPrice) AS TotalRevenue,
+    AVG(o.Total) AS AverageOrderValue
+FROM CustomerOrder o
+JOIN OrderItem oi
+    ON oi.OrderId = o.Id
+WHERE o.OrderDate >= CURRENT_DATE - INTERVAL '7 days'
+GROUP BY DATE(o.OrderDate)
+ORDER BY Day DESC;
+----
+
+==== Consegna
+
+Analizza il problema.
+
+Descrivi:
+
+* quali limiti individui nella soluzione attuale;
+* quali informazioni raccoglieresti prima di proporre modifiche;
+* quali alternative valuteresti;
+* quale soluzione proporresti;
+* quali trade-off considereresti;
+* come misureresti il successo dell'intervento.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di ragionare sulle performance oltre la singola query.
+
+L'obiettivo è osservare se il candidato considera carico, freschezza del dato, reporting, pre-calcolo, caching, separazione dei carichi e misurazione.
+
+==== Cosa osservare
+
+* Non si limita a proporre un indice.
+* Comprende che il report non richiede dati real-time.
+* Considera pre-calcolo o materializzazione.
+* Considera l'impatto sul database principale.
+* Ragiona su aggiornamento periodico e freshness.
+* Valuta trade-off tra semplicità, complessità e affidabilità.
+* Propone metriche per validare la soluzione.
+
+==== Soluzione canonica
+
+Limiti principali della soluzione attuale:
+
+* calcola aggregazioni pesanti a ogni richiesta;
+* lavora su tabelle molto grandi;
+* esegue join e aggregazioni sul database principale;
+* può competere con il traffico applicativo normale;
+* non sfrutta il fatto che il dato può essere aggiornato con ritardo;
+* rischia di peggiorare con la crescita dei dati.
+
+Una buona analisi dovrebbe raccogliere almeno:
+
+[source,text]
+----
+- frequenza di accesso al report;
+- tempi medi e percentili della richiesta;
+- piano di esecuzione della query;
+- carico sul database durante l'esecuzione;
+- finestre temporali più consultate;
+- requisiti reali di freschezza del dato;
+- frequenza di aggiornamento accettabile;
+- eventuali picchi di traffico.
+----
+
+Una possibile soluzione consiste nel pre-calcolare il report periodicamente.
+
+Ad esempio:
+
+[source,text]
+----
+SalesDailySummary
+-----------------
+Day
+TotalOrders
+TotalRevenue
+AverageOrderValue
+UpdatedAt
+----
+
+Il job di aggiornamento potrebbe essere eseguito ogni 10 minuti, aggiornando solo i dati recenti.
+
+L'endpoint leggerebbe quindi da una tabella di summary o da una vista materializzata, evitando di ricalcolare tutto a ogni richiesta.
+
+[source,text]
+----
+GET /reports/sales
+
+-> legge da SalesDailySummary
+----
+
+Per i prodotti più venduti si potrebbe introdurre una seconda tabella aggregata:
+
+[source,text]
+----
+TopSellingProductSummary
+------------------------
+Day
+ProductId
+ProductName
+TotalQuantity
+TotalRevenue
+Rank
+UpdatedAt
+----
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* usano una vista materializzata;
+* introducono caching con TTL;
+* separano carico transazionale e carico analitico;
+* usano una replica read-only;
+* introducono un data warehouse o sistema OLAP;
+* usano aggregazioni incrementali;
+* mantengono il calcolo real-time solo per finestre molto piccole;
+* combinano dato pre-calcolato e dato recente.
+
+L'intervistatore dovrebbe valutare se la soluzione è proporzionata al contesto e supportata da requisiti e misurazioni.
+
+==== Spunti di approfondimento
+
+* Perché il requisito di freshness è importante?
+* Quando una vista materializzata è sufficiente?
+* Quando useresti una replica read-only?
+* Quando introdurresti un sistema analitico separato?
+* Come gestiresti errori nel job di pre-calcolo?
+* Come segnaleresti all'utente l'orario dell'ultimo aggiornamento?
+* Come verificheresti che i dati aggregati siano corretti?
+* Come cambierebbe la soluzione se il report dovesse essere real-time?
+
+==== Rubrica di valutazione
+
+L0::
+Propone ottimizzazioni casuali senza analizzare requisiti o carico.
+
+L1::
+Individua genericamente che la query è pesante, ma propone soluzioni poco motivate.
+
+L2::
+Propone ottimizzazioni coerenti come indici, paginazione, caching o query più efficienti.
+
+L3::
+Ragiona su pre-calcolo, freshness, separazione dei carichi, misurazione e trade-off.
+
+L4::
+Definisce una strategia completa di performance engineering considerando architettura, operatività, affidabilità dei dati, crescita futura e impatto sul sistema transazionale.
+
+endif::[]

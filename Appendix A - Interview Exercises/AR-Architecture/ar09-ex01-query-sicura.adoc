@@ -1,0 +1,158 @@
+[[ar09-ex01]]
+=== AR-09-EX01 - Query Sicura
+
+==== Metadati
+
+Competenza::
+AR-09 - Secure Coding
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Stai lavorando su un backend che consente agli operatori interni di cercare clienti per email.
+
+Il codice seguente funziona nei casi più semplici, ma il team vuole verificare se sia sicuro prima di rilasciarlo in produzione.
+
+==== Materiale fornito
+
+[source,java]
+----
+public class CustomerSearchService {
+
+    private final JdbcTemplate jdbcTemplate;
+
+    public List<Customer> searchByEmail(String email) {
+
+        String sql =
+            "SELECT id, name, email " +
+            "FROM customer " +
+            "WHERE email = '" + email + "'";
+
+        return jdbcTemplate.query(sql, customerRowMapper);
+    }
+}
+----
+
+==== Consegna
+
+Analizza il codice.
+
+Descrivi:
+
+* quali problemi di sicurezza individui;
+* quale rischio introduce il codice attuale;
+* come lo correggeresti;
+* quali test o verifiche faresti;
+* quali altre attenzioni applicheresti prima del rilascio.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di riconoscere una vulnerabilità semplice ma critica e di proporre una correzione corretta.
+
+L'obiettivo non è verificare la conoscenza mnemonica di categorie OWASP, ma osservare se il candidato riconosce il rischio e sa evitarlo in modo pratico.
+
+==== Cosa osservare
+
+* Riconosce il rischio di SQL injection.
+* Evita concatenazione di input utente nella query.
+* Propone query parametrizzate o prepared statement.
+* Considera validazione e normalizzazione dell'input.
+* Non si limita a filtrare caratteri manualmente.
+* Considera test e code review di sicurezza.
+
+==== Soluzione canonica
+
+Il problema principale è la concatenazione diretta dell'input nella query SQL.
+
+[source,java]
+----
+String sql =
+    "SELECT id, name, email " +
+    "FROM customer " +
+    "WHERE email = '" + email + "'";
+----
+
+Un input malevolo potrebbe alterare la query generata.
+
+Una soluzione corretta consiste nell'utilizzare parametri bindati.
+
+[source,java]
+----
+public List<Customer> searchByEmail(String email) {
+
+    String sql =
+        "SELECT id, name, email " +
+        "FROM customer " +
+        "WHERE email = ?";
+
+    return jdbcTemplate.query(sql, customerRowMapper, email);
+}
+----
+
+La validazione dell'input può essere utile, ma non sostituisce le query parametrizzate.
+
+Una buona risposta dovrebbe evitare soluzioni come:
+
+[source,text]
+----
+- rimuovere manualmente gli apici;
+- bloccare alcune parole chiave;
+- costruire blacklist di stringhe sospette.
+----
+
+Queste strategie sono fragili e non risolvono il problema alla radice.
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* usano named parameters;
+* usano prepared statement;
+* usano un ORM in modo corretto;
+* centralizzano l'accesso ai dati in repository sicuri;
+* introducono test automatici per input speciali;
+* includono controlli statici o strumenti SAST nella pipeline.
+
+L'intervistatore dovrebbe valutare se il candidato corregge il problema alla radice senza introdurre workaround fragili.
+
+==== Spunti di approfondimento
+
+* Perché la validazione non basta?
+* Qual è la differenza tra escaping e query parametrizzate?
+* Come testeresti questa vulnerabilità?
+* Come individueresti problemi simili nel codice esistente?
+* Quali strumenti useresti in CI/CD?
+* Come gestiresti query dinamiche con filtri opzionali?
+
+==== Rubrica di valutazione
+
+L0::
+Non riconosce la vulnerabilità.
+
+L1::
+Riconosce genericamente un problema di sicurezza ma propone soluzioni fragili.
+
+L2::
+Riconosce la SQL injection e propone query parametrizzate.
+
+L3::
+Discute validazione, test, code review, strumenti automatici e limiti delle soluzioni manuali.
+
+L4::
+Propone una strategia completa di secure coding, considerando pattern sicuri, pipeline, formazione del team e prevenzione sistematica di vulnerabilità simili.
+
+endif::[]

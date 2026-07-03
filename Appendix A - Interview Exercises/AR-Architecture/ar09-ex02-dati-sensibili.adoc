@@ -1,0 +1,222 @@
+[[ar09-ex02]]
+=== AR-09-EX02 - Dati Sensibili nei Log
+
+==== Metadati
+
+Competenza::
+AR-09 - Secure Coding
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Stai lavorando su un servizio backend che gestisce pagamenti.
+
+Durante un incidente in produzione, il team nota che alcuni log contengono informazioni sensibili.
+
+Il codice seguente è stato individuato durante l'analisi.
+
+==== Materiale fornito
+
+[source,java]
+----
+public class PaymentService {
+
+    private static final Logger log =
+        LoggerFactory.getLogger(PaymentService.class);
+
+    private final PaymentGatewayClient paymentGatewayClient;
+
+    public PaymentResult pay(PaymentRequest request) {
+
+        log.info("Processing payment request: {}", request);
+
+        try {
+            PaymentResult result = paymentGatewayClient.charge(request);
+
+            log.info("Payment completed: {}", result);
+
+            return result;
+
+        } catch (Exception ex) {
+            log.error("Payment failed for request: " + request, ex);
+            throw ex;
+        }
+    }
+}
+----
+
+Esempio semplificato di `PaymentRequest`:
+
+[source,java]
+----
+public class PaymentRequest {
+
+    private String customerId;
+    private String cardNumber;
+    private String cardHolderName;
+    private String expiryDate;
+    private String cvv;
+    private BigDecimal amount;
+
+    // getter, setter, toString()
+}
+----
+
+==== Consegna
+
+Analizza il codice.
+
+Descrivi:
+
+* quali problemi di sicurezza individui;
+* quali dati non dovrebbero comparire nei log;
+* come modificheresti il logging;
+* quali informazioni manterresti per consentire diagnosi e audit;
+* quali controlli introdurresti per evitare problemi simili.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di riconoscere rischi legati alla gestione impropria di dati sensibili nei log.
+
+L'obiettivo non è verificare la conoscenza normativa dettagliata, ma osservare se il candidato sa bilanciare diagnosi, sicurezza e minimizzazione dei dati.
+
+==== Cosa osservare
+
+* Riconosce che `request` non deve essere loggata integralmente.
+* Individua dati sensibili come numero carta, CVV e scadenza.
+* Propone mascheramento o omissione dei dati.
+* Mantiene informazioni utili alla diagnosi.
+* Evita di loggare dettagli sensibili anche nei casi di errore.
+* Considera controlli automatici o convenzioni di team.
+* Ragiona su retention e accesso ai log.
+
+==== Soluzione canonica
+
+Il problema principale è che il codice logga oggetti completi:
+
+[source,java]
+----
+log.info("Processing payment request: {}", request);
+----
+
+e:
+
+[source,java]
+----
+log.error("Payment failed for request: " + request, ex);
+----
+
+Se `PaymentRequest.toString()` include tutti i campi, nei log possono finire dati sensibili come:
+
+[source,text]
+----
+- cardNumber;
+- cardHolderName;
+- expiryDate;
+- cvv;
+- eventuali token o identificativi del pagamento.
+----
+
+Il `cvv` non dovrebbe mai essere loggato.
+
+Anche il numero carta non dovrebbe essere loggato integralmente.
+Se necessario, si potrebbe usare solo una forma mascherata, ad esempio ultime quattro cifre.
+
+Una possibile direzione di miglioramento:
+
+[source,java]
+----
+public PaymentResult pay(PaymentRequest request) {
+
+    String paymentReference = request.getPaymentReference();
+
+    log.info(
+        "Processing payment: customerId={}, amount={}, paymentReference={}",
+        request.getCustomerId(),
+        request.getAmount(),
+        paymentReference
+    );
+
+    try {
+        PaymentResult result = paymentGatewayClient.charge(request);
+
+        log.info(
+            "Payment completed: paymentReference={}, status={}",
+            paymentReference,
+            result.getStatus()
+        );
+
+        return result;
+
+    } catch (Exception ex) {
+        log.error(
+            "Payment failed: customerId={}, amount={}, paymentReference={}",
+            request.getCustomerId(),
+            request.getAmount(),
+            paymentReference,
+            ex
+        );
+        throw ex;
+    }
+}
+----
+
+La soluzione dovrebbe evitare di dipendere da `toString()` per oggetti che possono contenere dati sensibili.
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* introducono DTO specifici per il logging;
+* usano masking centralizzato;
+* rimuovono `toString()` da oggetti contenenti dati sensibili;
+* usano annotation o strumenti per redigere campi sensibili;
+* introducono controlli statici o review checklist;
+* limitano accesso e retention dei log;
+* usano correlation ID o payment reference non sensibili.
+
+L'intervistatore dovrebbe valutare se il candidato preserva la capacità di diagnosi senza esporre dati sensibili.
+
+==== Spunti di approfondimento
+
+* Quali dati non loggeresti mai?
+* È sufficiente mascherare il numero della carta?
+* Come gestiresti il `toString()` di oggetti sensibili?
+* Come controlleresti che il problema non sia presente altrove?
+* Chi dovrebbe poter accedere ai log?
+* Per quanto tempo conserveresti questi log?
+* Come useresti correlation ID o payment reference?
+* Che differenza c'è tra dato utile alla diagnosi e dato sensibile non necessario?
+
+==== Rubrica di valutazione
+
+L0::
+Non riconosce il rischio di esposizione dei dati sensibili.
+
+L1::
+Riconosce alcuni dati sensibili ma propone correzioni parziali.
+
+L2::
+Propone di non loggare oggetti completi e di mascherare o omettere i dati sensibili.
+
+L3::
+Ragiona su logging sicuro, minimizzazione, diagnosi, accesso ai log e controlli preventivi.
+
+L4::
+Definisce una strategia completa di secure logging, considerando standard di team, strumenti automatici, retention, audit, compliance e prevenzione sistematica.
+
+endif::[]

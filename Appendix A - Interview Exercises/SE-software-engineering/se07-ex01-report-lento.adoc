@@ -1,0 +1,182 @@
+[[se07-ex01]]
+=== SE-07-EX01 - Report Lento
+
+==== Metadati
+
+Competenza::
+SE-07 - Performance Engineering
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Un'applicazione backend espone un endpoint utilizzato dal team Operations per visualizzare gli ordini più recenti.
+
+Negli ultimi mesi il numero di ordini è cresciuto molto e l'endpoint è diventato lento.
+
+Gli utenti segnalano tempi di risposta di diversi secondi.
+
+==== Materiale fornito
+
+Endpoint:
+
+[source,text]
+----
+GET /reports/recent-orders
+----
+
+Codice semplificato:
+
+[source,java]
+----
+public List<OrderReportRow> getRecentOrders() {
+
+    List<Order> orders = orderRepository.findAll();
+
+    return orders.stream()
+        .filter(order -> order.getStatus().equals("COMPLETED"))
+        .filter(order -> order.getCreatedAt().isAfter(LocalDateTime.now().minusDays(30)))
+        .sorted(Comparator.comparing(Order::getCreatedAt).reversed())
+        .map(order -> new OrderReportRow(
+            order.getId(),
+            order.getCustomer().getName(),
+            order.getTotal(),
+            order.getCreatedAt()
+        ))
+        .collect(Collectors.toList());
+}
+----
+
+Informazioni aggiuntive:
+
+[source,text]
+----
+- La tabella Order contiene circa 8 milioni di record.
+- Il report mostra solo gli ordini degli ultimi 30 giorni.
+- Il report viene consultato spesso durante la giornata.
+- Non è richiesto che i dati siano aggiornati al secondo.
+----
+
+==== Consegna
+
+Analizza il problema.
+
+Descrivi:
+
+* quali possibili cause individui;
+* quali informazioni raccoglieresti prima di intervenire;
+* quali modifiche proporresti;
+* quali trade-off considereresti;
+* come verificheresti il miglioramento.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di affrontare un problema di performance in modo sistematico.
+
+L'obiettivo non è proporre subito una soluzione, ma osservare se il candidato misura, formula ipotesi e valuta trade-off.
+
+==== Cosa osservare
+
+* Evita ottimizzazioni premature.
+* Riconosce il problema di caricare tutti i record in memoria.
+* Sposta filtro e ordinamento verso il database.
+* Considera indici, paginazione e limiti.
+* Valuta caching o pre-calcolo solo dopo aver compreso il carico.
+* Propone misurazioni prima e dopo l'intervento.
+
+==== Soluzione canonica
+
+Problemi principali:
+
+* `findAll()` carica milioni di record;
+* filtro e ordinamento vengono eseguiti in memoria;
+* possibile caricamento inutile di dati collegati, ad esempio `Customer`;
+* assenza di paginazione o limite sul risultato;
+* endpoint usato frequentemente senza strategia di caching o pre-calcolo;
+* nessuna evidenza disponibile su tempi, query e consumo risorse.
+
+Una buona strategia di analisi potrebbe includere:
+
+. misurare tempi di risposta dell'endpoint;
+. analizzare query generate e piano di esecuzione;
+. verificare numero di record letti;
+. controllare uso di CPU, memoria e database;
+. verificare eventuali query N+1;
+. introdurre modifiche incrementali e misurare il risultato.
+
+Una possibile direzione di miglioramento:
+
+[source,text]
+----
+- filtrare per Status e CreatedAt direttamente nel database;
+- ordinare nel database;
+- aggiungere paginazione;
+- selezionare solo i campi necessari al report;
+- valutare un indice su Status e CreatedAt;
+- valutare caching o materializzazione se il report è molto usato.
+----
+
+Esempio di query repository più appropriata:
+
+[source,java]
+----
+List<OrderReportRow> findCompletedOrdersCreatedAfter(
+    LocalDateTime from,
+    Pageable pageable
+);
+----
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* introducono una vista materializzata;
+* pre-calcolano il report periodicamente;
+* usano caching con TTL;
+* separano carichi operazionali e carichi di reporting;
+* introducono una replica read-only;
+* ottimizzano fetch e join per evitare query N+1.
+
+L'intervistatore dovrebbe valutare se il candidato sceglie soluzioni proporzionate al problema e supportate da misurazioni.
+
+==== Spunti di approfondimento
+
+* Qual è la prima cosa che misureresti?
+* Come individueresti una query N+1?
+* Quando introdurresti una cache?
+* Quali indici valuteresti?
+* Come cambierebbe la soluzione se il report dovesse essere real-time?
+* Come eviteresti di peggiorare le performance in scrittura?
+* Come dimostreresti che l'intervento ha funzionato?
+
+==== Rubrica di valutazione
+
+L0::
+Propone modifiche casuali senza misurare il problema.
+
+L1::
+Individua genericamente che il codice è lento, ma propone soluzioni poco motivate.
+
+L2::
+Riconosce i problemi principali e propone ottimizzazioni coerenti.
+
+L3::
+Ragiona su misurazione, query, indici, paginazione, caching e verifica dei risultati.
+
+L4::
+Definisce una strategia completa di performance engineering, considerando carico, trade-off, architettura, osservabilità e sostenibilità delle ottimizzazioni.
+
+endif::[]

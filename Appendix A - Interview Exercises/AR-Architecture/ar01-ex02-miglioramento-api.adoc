@@ -1,0 +1,140 @@
+[[ar01-ex02]]
+=== AR-01-EX02 - Migliorare una API esistente
+
+==== Metadati
+
+Competenza::
+AR-01 - API Design
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Entri a far parte di un team che espone le seguenti API per la gestione degli ordini.
+
+==== Materiale fornito
+
+[source,text]
+----
+GET    /getOrders
+
+POST   /createOrder
+
+POST   /deleteOrder
+
+POST   /updateOrder
+
+GET    /getCustomerOrders?id=123
+
+POST   /applyDiscount
+
+GET    /searchOrders?customer=Mario&status=CONFIRMED&from=2026-01-01&to=2026-12-31
+
+POST   /cancelOrder?id=123
+----
+
+==== Consegna
+
+Analizza il design delle API.
+
+Descrivi:
+
+* quali problemi individui;
+* quali modifiche proporresti;
+* come evolveresti il contratto mantenendo, se possibile, la retrocompatibilità.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'obiettivo non è verificare la conoscenza delle convenzioni REST.
+
+L'esercizio valuta la capacità del candidato di riconoscere problemi di progettazione e proporre un'evoluzione coerente delle API.
+
+==== Cosa osservare
+
+* Individua problemi di naming.
+* Distingue risorse e operazioni.
+* Riconosce utilizzi impropri dei metodi HTTP.
+* Ragiona sulla coerenza complessiva.
+* Considera la retrocompatibilità.
+
+==== Soluzione canonica
+
+Tra gli aspetti che il candidato potrebbe evidenziare:
+
+* endpoint non consistenti;
+* utilizzo improprio di POST per operazioni di cancellazione;
+* nomi orientati alle azioni (`getOrders`, `createOrder`, ...);
+* parametri passati in modo non uniforme;
+* assenza di una modellazione coerente delle risorse.
+
+Una possibile evoluzione potrebbe essere:
+
+[source,text]
+----
+GET    /orders
+
+POST   /orders
+
+GET    /orders/{id}
+
+PUT    /orders/{id}
+
+DELETE /orders/{id}
+
+POST   /orders/{id}/discount
+
+POST   /orders/{id}/cancel
+
+GET    /customers/{id}/orders
+----
+
+Non è importante che il candidato proponga esattamente questa soluzione.
+
+È importante che il nuovo design risulti più coerente del precedente.
+
+==== Soluzioni alternative
+
+Sono correti approcci differenti purché:
+
+* mantengano coerenza;
+* semplifichino il contratto;
+* tengano conto dell'evoluzione futura.
+
+==== Spunti di approfondimento
+
+* Come introdurresti queste modifiche senza interrompere i client esistenti?
+* Quando introdurresti una nuova versione delle API?
+* Come modelleresti gli errori?
+* Come documenteresti la migrazione?
+
+==== Rubrica di valutazione
+
+L0::
+Non individua problemi significativi.
+
+L1::
+Riconosce alcuni problemi evidenti ma propone modifiche poco coerenti.
+
+L2::
+Migliora il design mantenendo coerenza tra risorse, endpoint e operazioni.
+
+L3::
+Discute evoluzione, versioning e retrocompatibilità motivando le proprie scelte.
+
+L4::
+Propone una strategia completa di evoluzione dell'API considerando impatto tecnico, organizzativo e sugli utilizzatori.
+
+endif::[]

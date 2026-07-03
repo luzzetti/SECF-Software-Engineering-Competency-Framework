@@ -1,0 +1,159 @@
+[[ar03-ex01]]
+=== AR-03-EX01 - Modellare un Carrello
+
+==== Metadati
+
+Competenza::
+AR-03 - Modellazione dei Dati
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Stai sviluppando il backend di un sistema di e-commerce.
+
+Il sistema deve gestire il carrello di un utente.
+
+Un carrello contiene uno o più prodotti.
+
+Per ogni prodotto nel carrello devono essere memorizzati:
+
+* prodotto selezionato;
+* quantità;
+* prezzo unitario al momento dell'inserimento;
+* eventuale sconto applicato.
+
+Un utente può avere al massimo un carrello attivo.
+
+Quando il checkout viene completato, il carrello viene trasformato in un ordine.
+
+==== Consegna
+
+Progetta un possibile modello dati per rappresentare il carrello.
+
+Descrivi:
+
+* le entità principali;
+* le relazioni tra le entità;
+* i campi più importanti;
+* eventuali vincoli;
+* eventuali scelte progettuali rilevanti.
+
+Non è necessario usare una notazione formale.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di tradurre un requisito funzionale in un modello dati coerente.
+
+Non è necessario ottenere un diagramma perfetto.
+
+L'obiettivo è osservare come il candidato ragiona su entità, relazioni, vincoli e trade-off.
+
+==== Cosa osservare
+
+* Identifica correttamente le entità principali.
+* Distingue prodotto e riga di carrello.
+* Comprende perché il prezzo unitario deve essere salvato sulla riga.
+* Rappresenta correttamente la relazione tra utente e carrello.
+* Considera vincoli e casi limite.
+* Motiva le proprie scelte.
+
+==== Soluzione canonica
+
+Una possibile modellazione prevede le seguenti entità:
+
+[source,text]
+----
+User
+----
+
+Id Name Email
+
+Product
+-------
+
+Id Name CurrentPrice Status
+
+Cart
+----
+
+Id UserId Status CreatedAt UpdatedAt
+
+CartItem
+--------
+
+Id CartId ProductId Quantity UnitPrice Discount
+
+----
+
+Relazioni principali:
+
+* `User` 1 - N `Cart`;
+* `Cart` 1 - N `CartItem`;
+* `Product` 1 - N `CartItem`.
+
+Anche se un utente può avere più carrelli storici, dovrebbe avere al massimo un carrello attivo.
+
+Un possibile vincolo è quindi:
+
+[source,text]
+----
+
+Un solo Cart con Status = ACTIVE per ciascun User.
+
+----
+
+Il campo `UnitPrice` su `CartItem` è importante perché il prezzo del prodotto potrebbe cambiare dopo l'inserimento nel carrello.
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* modellano solo il carrello attivo, se il contesto lo giustifica;
+* separano sconto assoluto e percentuale;
+* introducono una tabella dedicata per promozioni o coupon;
+* modellano direttamente la trasformazione da carrello a ordine;
+* usano un identificatore di sessione per carrelli anonimi.
+
+L'intervistatore dovrebbe valutare soprattutto la coerenza del modello rispetto ai requisiti.
+
+==== Spunti di approfondimento
+
+* Come gestiresti utenti non autenticati?
+* Cosa succede se il prezzo del prodotto cambia?
+* Cosa succede se un prodotto viene disattivato?
+* Come impediresti a un utente di avere due carrelli attivi?
+* Come modelleresti la trasformazione da carrello a ordine?
+* Quali campi copieresti nell'ordine e perché?
+
+==== Rubrica di valutazione
+
+L0::
+Non riesce a identificare entità e relazioni principali.
+
+L1::
+Propone un modello parziale o ambiguo.
+
+L2::
+Propone un modello coerente, con entità, relazioni e campi principali corretti.
+
+L3::
+Discute vincoli, storicizzazione, prezzo al momento dell'inserimento e casi limite.
+
+L4::
+Valuta trade-off tra semplicità, consistenza, evoluzione del dominio e impatto sui processi di checkout e ordine.
+
+endif::[]

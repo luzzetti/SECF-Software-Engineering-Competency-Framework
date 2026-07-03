@@ -1,0 +1,192 @@
+[[ar07-ex01]]
+=== AR-07-EX01 - Introdurre una Cache
+
+==== Metadati
+
+Competenza::
+AR-07 - Caching
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Un'applicazione backend espone un endpoint per recuperare il dettaglio di un prodotto.
+
+L'endpoint è molto utilizzato dal frontend e viene chiamato frequentemente durante la navigazione del catalogo.
+
+==== Materiale fornito
+
+Endpoint:
+
+[source,text]
+----
+GET /products/{id}
+----
+
+Codice semplificato:
+
+[source,java]
+----
+public ProductDetails getProductDetails(Long productId) {
+
+    Product product = productRepository.findById(productId)
+        .orElseThrow(() -> new ProductNotFoundException(productId));
+
+    Price price = priceService.getCurrentPrice(productId);
+
+    Availability availability =
+        inventoryService.getAvailability(productId);
+
+    return new ProductDetails(
+        product.getId(),
+        product.getName(),
+        product.getDescription(),
+        price.getAmount(),
+        availability.getQuantity()
+    );
+}
+----
+
+Informazioni aggiuntive:
+
+[source,text]
+----
+- I dati anagrafici del prodotto cambiano raramente.
+- Il prezzo può cambiare più volte al giorno.
+- La disponibilità può cambiare frequentemente.
+- L'endpoint è tra i più chiamati dell'applicazione.
+- Il frontend può tollerare un piccolo ritardo sui dati non critici.
+----
+
+==== Consegna
+
+Descrivi se e come introdurresti una cache.
+
+Spiega:
+
+* quali dati metteresti in cache;
+* quali dati eviteresti di mettere in cache;
+* quale durata assegneresti alla cache;
+* come gestiresti invalidazione o aggiornamento;
+* quali rischi considereresti;
+* quali metriche useresti per verificare l'efficacia della cache.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di ragionare sull'uso della cache come scelta architetturale, considerando freschezza del dato, consistenza, prestazioni e complessità operativa.
+
+L'obiettivo non è ottenere una tecnologia specifica, ma osservare se il candidato distingue dati con caratteristiche diverse.
+
+==== Cosa osservare
+
+* Non propone di mettere tutto in cache indiscriminatamente.
+* Distingue dati statici, semi-dinamici e dinamici.
+* Ragiona su TTL e invalidazione.
+* Considera il rischio di dati obsoleti.
+* Considera cache locale o distribuita.
+* Propone metriche di efficacia.
+* Valuta il comportamento in caso di cache miss.
+
+==== Soluzione canonica
+
+Una buona risposta dovrebbe distinguere le diverse componenti del dato.
+
+Dati anagrafici del prodotto:
+
+[source,text]
+----
+Id
+Name
+Description
+----
+
+Questi dati cambiano raramente e sono buoni candidati per la cache.
+
+Prezzo:
+
+[source,text]
+----
+Amount
+----
+
+Il prezzo cambia più spesso e può avere impatti commerciali.
+Può essere messo in cache solo con TTL breve o invalidazione esplicita.
+
+Disponibilità:
+
+[source,text]
+----
+Quantity
+----
+
+La disponibilità cambia frequentemente e può essere critica durante il checkout.
+Potrebbe essere evitato il caching oppure gestito con TTL molto breve, a seconda dei requisiti.
+
+Una possibile strategia:
+
+[source,text]
+----
+- cache dei dati anagrafici prodotto con TTL lungo;
+- prezzo con TTL breve o invalidazione su evento;
+- disponibilità letta live o cacheata solo per visualizzazione non vincolante;
+- verifica definitiva della disponibilità durante il checkout.
+----
+
+Il candidato dovrebbe anche considerare che il dato mostrato nel dettaglio prodotto può essere meno vincolante rispetto al dato usato per completare l'acquisto.
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* separano il modello di lettura dal modello usato per il checkout;
+* usano una cache distribuita;
+* usano una cache locale per dati molto stabili;
+* invalidano la cache su eventi di aggiornamento prodotto o prezzo;
+* cacheano solo parti della risposta;
+* usano un CDN o edge caching per contenuti statici;
+* non cacheano la disponibilità ma mostrano un valore approssimato.
+
+L'intervistatore dovrebbe valutare se il candidato motiva la scelta rispetto alla natura dei dati e ai requisiti del sistema.
+
+==== Spunti di approfondimento
+
+* Quale parte della risposta è più adatta alla cache?
+* Quale parte è più rischiosa?
+* Che cosa succede se il prezzo cambia?
+* Che cosa succede se la disponibilità cambia?
+* Come gestiresti un cache miss?
+* Preferiresti cache locale o distribuita?
+* Come misureresti hit rate e beneficio reale?
+* Come eviteresti che la cache nasconda problemi del sistema sottostante?
+
+==== Rubrica di valutazione
+
+L0::
+Propone una cache generica senza distinguere i dati.
+
+L1::
+Riconosce che alcuni dati possono essere cacheati, ma non discute freschezza o invalidazione.
+
+L2::
+Propone una strategia coerente distinguendo dati statici, semi-dinamici e dinamici.
+
+L3::
+Ragiona su TTL, invalidazione, cache miss, consistenza, rischi e metriche.
+
+L4::
+Definisce una strategia completa di caching considerando architettura, dominio, operatività, osservabilità e impatto sui processi critici come il checkout.
+
+endif::[]

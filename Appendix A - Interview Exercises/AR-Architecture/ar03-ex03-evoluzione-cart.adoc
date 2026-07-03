@@ -1,0 +1,197 @@
+[[ar03-ex03]]
+=== AR-03-EX03 - Evoluzione del Modello Ordini
+
+==== Metadati
+
+Competenza::
+AR-03 - Modellazione dei Dati
+
+Livello consigliato::
+L3-L4
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Un sistema di e-commerce gestisce ordini, clienti e indirizzi.
+
+Il modello attuale è il seguente.
+
+==== Materiale fornito
+
+[source,text]
+----
+Customer
+--------
+Id
+Name
+Email
+
+Address
+-------
+Id
+CustomerId
+Street
+City
+ZipCode
+Country
+
+CustomerOrder
+-------------
+Id
+CustomerId
+ShippingAddressId
+BillingAddressId
+OrderDate
+Total
+Status
+----
+
+Il sistema funziona correttamente, ma emergono alcuni problemi.
+
+Quando un cliente modifica un indirizzo nel proprio profilo, anche gli ordini storici sembrano mostrare il nuovo indirizzo.
+
+Questo crea problemi per:
+
+* assistenza clienti;
+* fatturazione;
+* audit;
+* spedizioni già effettuate.
+
+Il Product Owner chiede che gli ordini storici mantengano sempre gli indirizzi usati al momento dell'acquisto.
+
+==== Consegna
+
+Analizza il modello attuale.
+
+Descrivi:
+
+* quale problema individui;
+* quali modifiche proporresti al modello dati;
+* quali informazioni copieresti sull'ordine;
+* quali trade-off considereresti;
+* come gestiresti i dati già esistenti.
+
+Non è necessario produrre un diagramma formale.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di ragionare sull'evoluzione di un modello dati quando cambiano i requisiti di storicizzazione e immutabilità.
+
+L'obiettivo non è ottenere una soluzione unica, ma osservare se il candidato comprende che alcune informazioni devono essere salvate come snapshot storico e non lette sempre dal dato corrente.
+
+==== Cosa osservare
+
+* Comprende il problema causato dai riferimenti agli indirizzi modificabili.
+* Distingue dati correnti del profilo e dati storici dell'ordine.
+* Propone una forma di snapshot degli indirizzi sull'ordine.
+* Considera audit, fatturazione e consistenza storica.
+* Ragiona sulla migrazione dei dati esistenti.
+* Valuta il trade-off tra normalizzazione e storicizzazione.
+
+==== Soluzione canonica
+
+Il problema principale è che `CustomerOrder` fa riferimento agli indirizzi correnti tramite:
+
+[source,text]
+----
+ShippingAddressId
+BillingAddressId
+----
+
+Se gli indirizzi vengono modificati, anche gli ordini storici risultano associati ai nuovi valori.
+
+Una possibile soluzione consiste nel salvare sull'ordine uno snapshot degli indirizzi usati al momento dell'acquisto.
+
+Ad esempio:
+
+[source,text]
+----
+CustomerOrder
+-------------
+Id
+CustomerId
+OrderDate
+Total
+Status
+ShippingStreet
+ShippingCity
+ShippingZipCode
+ShippingCountry
+BillingStreet
+BillingCity
+BillingZipCode
+BillingCountry
+----
+
+In alternativa, è possibile introdurre entità dedicate:
+
+[source,text]
+----
+OrderAddress
+------------
+Id
+OrderId
+Type
+Street
+City
+ZipCode
+Country
+----
+
+dove `Type` può assumere valori come:
+
+* `SHIPPING`;
+* `BILLING`.
+
+In questo modo l'ordine mantiene una copia storica degli indirizzi, indipendente dalle modifiche successive al profilo cliente.
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* mantengono una tabella `OrderAddress` separata;
+* copiano direttamente i campi indirizzo su `CustomerOrder`;
+* introducono versioning sugli indirizzi del cliente;
+* rendono immutabili gli indirizzi già usati da ordini;
+* creano un nuovo indirizzo a ogni modifica invece di aggiornare quello esistente.
+
+L'intervistatore dovrebbe valutare se la soluzione preserva correttamente lo storico degli ordini.
+
+==== Spunti di approfondimento
+
+* Quali dati del cliente copieresti sull'ordine?
+* Copieresti anche nome, email o telefono?
+* Quando preferiresti uno snapshot rispetto al versioning?
+* Come migreresti gli ordini già esistenti?
+* Come impediresti modifiche accidentali agli indirizzi storici?
+* Come gestiresti requisiti fiscali o audit?
+
+==== Rubrica di valutazione
+
+L0::
+Non riconosce il problema di storicizzazione.
+
+L1::
+Riconosce il problema ma propone una soluzione parziale o fragile.
+
+L2::
+Propone una soluzione che preserva gli indirizzi storici degli ordini.
+
+L3::
+Discute snapshot, immutabilità, migrazione dei dati e trade-off rispetto alla normalizzazione.
+
+L4::
+Propone una strategia completa considerando audit, requisiti fiscali, consistenza storica, evoluzione del dominio e impatto operativo.
+
+endif::[]

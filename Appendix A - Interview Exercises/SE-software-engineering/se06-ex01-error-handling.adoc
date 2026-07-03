@@ -1,0 +1,200 @@
+[[se06-ex01]]
+=== SE-06-EX01 - Gestione degli Errori
+
+==== Metadati
+
+Competenza::
+SE-06 - Gestione degli Errori
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Stai lavorando su un servizio backend che consente di creare un ordine.
+
+Il metodo riceve una richiesta, verifica la disponibilità dei prodotti, crea l'ordine e restituisce una risposta al client.
+
+Il codice seguente funziona nei casi più semplici, ma il team segnala che la gestione degli errori è fragile e poco chiara.
+
+==== Materiale fornito
+
+[source,java]
+----
+public class OrderService {
+
+    private final InventoryClient inventoryClient;
+    private final OrderRepository orderRepository;
+
+    public OrderResponse createOrder(CreateOrderRequest request) {
+
+        try {
+            boolean available = inventoryClient.isAvailable(
+                request.getProductId(),
+                request.getQuantity()
+            );
+
+            if (!available) {
+                return new OrderResponse(false, "Product not available", null);
+            }
+
+            Order order = new Order();
+            order.setProductId(request.getProductId());
+            order.setQuantity(request.getQuantity());
+            order.setStatus("CREATED");
+
+            orderRepository.save(order);
+
+            return new OrderResponse(true, "Order created", order.getId());
+
+        } catch (Exception ex) {
+            return new OrderResponse(false, "Generic error", null);
+        }
+    }
+}
+----
+
+==== Consegna
+
+Analizza il codice.
+
+Descrivi:
+
+* quali problemi individui nella gestione degli errori;
+* quali errori distingueresti;
+* quali errori esporresti al client;
+* quali errori registreresti nei log;
+* come miglioreresti il codice senza renderlo inutilmente complesso.
+
+Non è necessario riscrivere completamente il metodo.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di distinguere errori di dominio, errori di validazione, errori tecnici e problemi di integrazione.
+
+L'obiettivo non è ottenere una gerarchia perfetta di eccezioni, ma osservare se il candidato gestisce gli errori in modo esplicito, leggibile e coerente.
+
+==== Cosa osservare
+
+* Riconosce il problema del `catch (Exception)`.
+* Distingue errori attesi e inattesi.
+* Evita messaggi generici inutili.
+* Non espone dettagli tecnici al client.
+* Propone logging utile.
+* Considera errori dell'integrazione con `InventoryClient`.
+* Ragiona su risposte coerenti per il client.
+
+==== Soluzione canonica
+
+Problemi principali del codice:
+
+* cattura qualsiasi eccezione con `catch (Exception)`;
+* nasconde la causa reale dell'errore;
+* restituisce sempre lo stesso messaggio generico;
+* non produce log utili;
+* mescola logica di dominio, gestione errori e costruzione della risposta;
+* non distingue prodotto non disponibile, richiesta non valida, errore di inventario ed errore di persistenza;
+* rende difficile monitorare e diagnosticare i problemi.
+
+Una possibile strategia consiste nel distinguere almeno:
+
+[source,text]
+----
+- richiesta non valida;
+- prodotto non disponibile;
+- servizio inventario non raggiungibile;
+- errore durante il salvataggio dell'ordine;
+- errore inatteso.
+----
+
+Una possibile direzione di miglioramento:
+
+[source,java]
+----
+public OrderResponse createOrder(CreateOrderRequest request) {
+
+    validate(request);
+
+    try {
+        if (!inventoryClient.isAvailable(request.getProductId(), request.getQuantity())) {
+            return OrderResponse.rejected("Product not available");
+        }
+
+        Order order = createOrderFrom(request);
+
+        orderRepository.save(order);
+
+        return OrderResponse.created(order.getId());
+
+    } catch (InventoryUnavailableException ex) {
+        log.warn("Inventory service unavailable", ex);
+        return OrderResponse.temporaryFailure("Inventory service unavailable");
+
+    } catch (OrderPersistenceException ex) {
+        log.error("Unable to save order", ex);
+        return OrderResponse.failure("Unable to create order");
+
+    } catch (Exception ex) {
+        log.error("Unexpected error while creating order", ex);
+        return OrderResponse.failure("Unexpected error");
+    }
+}
+----
+
+La soluzione non deve necessariamente usare questi nomi o questa struttura.
+
+È importante che gli errori siano trattati in modo intenzionale e osservabile.
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* usano eccezioni applicative specifiche;
+* restituiscono un tipo `Result` invece di usare eccezioni per errori attesi;
+* separano gestione errori applicativa e mapping HTTP nel controller;
+* introducono un error handler globale;
+* distinguono errori retryable e non retryable;
+* usano codici di errore stabili invece di soli messaggi testuali.
+
+L'intervistatore dovrebbe valutare se la soluzione migliora chiarezza, diagnosi e comportamento verso il client.
+
+==== Spunti di approfondimento
+
+* Quali errori consideri attesi?
+* Quali errori consideri tecnici?
+* Che cosa loggeresti e a quale livello?
+* Quali dettagli non esporresti mai al client?
+* Come mapperesti questi errori in codici HTTP?
+* Come gestiresti un errore temporaneo del servizio inventario?
+* Quando useresti retry o circuit breaker?
+
+==== Rubrica di valutazione
+
+L0::
+Non riconosce problemi significativi nella gestione degli errori.
+
+L1::
+Riconosce che il `catch (Exception)` è problematico ma propone una soluzione generica.
+
+L2::
+Distingue errori attesi, errori tecnici ed errori inattesi, proponendo una gestione più chiara.
+
+L3::
+Propone logging, mapping coerente verso il client e separazione delle responsabilità.
+
+L4::
+Definisce una strategia robusta di gestione degli errori, considerando osservabilità, integrazioni esterne, retry, resilienza e contratti applicativi.
+
+endif::[]
