@@ -1,0 +1,128 @@
+[[co01-ex01]]
+=== CO-01-EX01 - Convincere il Team
+
+==== Metadati
+
+Competenza::
+CO-01 - Comunicazione Tecnica
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Discussione
+
+'''
+
+==== Scenario
+
+Durante una riunione tecnica proponi di introdurre una cache per migliorare le prestazioni di un endpoint molto utilizzato.
+
+Un collega non è d'accordo.
+
+Sostiene che:
+
+____
+
+"La cache renderà il sistema più complesso e introdurrà problemi di consistenza."
+
+____
+
+Il Tech Lead ti chiede di spiegare la tua proposta.
+
+==== Consegna
+
+Immagina di partecipare alla riunione.
+
+Descrivi come presenteresti la tua proposta.
+
+Spiega:
+
+* come motiveresti la scelta;
+* quali vantaggi evidenzieresti;
+* quali rischi riconosceresti;
+* come risponderesti alle obiezioni del collega.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di sostenere una discussione tecnica in modo razionale e collaborativo.
+
+Non interessa quale soluzione venga scelta.
+
+Interessa il modo in cui il candidato argomenta.
+
+==== Cosa osservare
+
+* Espone il ragionamento con ordine.
+* Porta evidenze invece di opinioni.
+* Riconosce i limiti della propria proposta.
+* Considera punti di vista differenti.
+* Evita argomentazioni basate sull'autorità.
+* Mantiene un tono collaborativo.
+
+==== Soluzione canonica
+
+Una buona risposta dovrebbe:
+
+* partire dal problema;
+* spiegare perché la cache viene proposta;
+* riconoscere i rischi evidenziati dal collega;
+* discutere possibili mitigazioni;
+* proporre eventuali misurazioni o sperimentazioni.
+
+Una possibile struttura potrebbe essere:
+
+[source,text]
+----
+1. Descrivere il problema.
+
+2. Presentare i dati disponibili.
+
+3. Spiegare la proposta.
+
+4. Discutere vantaggi e rischi.
+
+5. Valutare insieme eventuali alternative.
+
+6. Concordare come verificare la soluzione.
+----
+
+==== Soluzioni alternative
+
+Sono correti tutti gli approcci che favoriscono una discussione tecnica basata su dati, evidenze e confronto costruttivo.
+
+L'intervistatore dovrebbe valutare il processo comunicativo piuttosto che la scelta tecnica finale.
+
+==== Spunti di approfondimento
+
+* Come reagiresti se il collega avesse ragione?
+* Come gestiresti un forte disaccordo?
+* Quali dati raccoglieresti prima della riunione?
+* Come presenteresti la stessa proposta a un Product Owner?
+* Quando interromperesti una discussione tecnica?
+
+==== Rubrica di valutazione
+
+L0::
+Non riesce a spiegare la propria proposta o reagisce in modo conflittuale.
+
+L1::
+Espone la soluzione ma con argomentazioni deboli o poco strutturate.
+
+L2::
+Argomenta in modo chiaro, ascolta le obiezioni e motiva le proprie scelte.
+
+L3::
+Conduce un confronto tecnico costruttivo, utilizzando dati, trade-off ed evidenze per facilitare una decisione condivisa.
+
+L4::
+Facilita discussioni tecniche complesse, favorendo il confronto tra punti di vista differenti e guidando il team verso decisioni consapevoli.
+
+endif::[]

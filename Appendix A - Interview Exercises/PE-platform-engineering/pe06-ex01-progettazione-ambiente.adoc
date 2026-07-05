@@ -1,0 +1,159 @@
+[[pe06-ex01]]
+=== PE-06-EX01 - Un Nuovo Ambiente
+
+==== Metadati
+
+Competenza::
+PE-06 - Infrastructure as Code
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+L'azienda deve creare un nuovo ambiente di test.
+
+Attualmente ogni ambiente viene configurato manualmente seguendo una procedura documentata.
+
+==== Materiale fornito
+
+Procedura attuale:
+
+[source,text]
+----
+1. Creare una nuova macchina virtuale.
+
+2. Installare Java.
+
+3. Installare PostgreSQL.
+
+4. Configurare il firewall.
+
+5. Copiare il file application.properties.
+
+6. Creare gli utenti del database.
+
+7. Configurare il backup.
+
+8. Installare il servizio applicativo.
+
+9. Avviare l'applicazione.
+
+Tempo medio:
+4-6 ore.
+
+Ogni ambiente viene configurato manualmente.
+----
+
+Problemi segnalati:
+
+[source,text]
+----
+- gli ambienti risultano spesso differenti;
+- alcune configurazioni vengono dimenticate;
+- la documentazione non è sempre aggiornata;
+- la ricostruzione di un ambiente richiede diverse ore.
+----
+
+==== Consegna
+
+Analizza il processo.
+
+Descrivi:
+
+* quali problemi individui;
+* come automatizzeresti la creazione degli ambienti;
+* quali elementi renderesti versionabili;
+* quali aspetti manterresti fuori dal codice;
+* come verificheresti che due ambienti siano realmente identici.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di ragionare sull'infrastruttura come parte integrante del software.
+
+Non interessa lo strumento utilizzato.
+
+Interessa il metodo.
+
+==== Cosa osservare
+
+* Individua le attività manuali.
+* Comprende il concetto di infrastruttura dichiarativa.
+* Ragiona sulla riproducibilità.
+* Considera il versionamento.
+* Distingue configurazione, segreti e codice.
+* Propone verifiche automatiche.
+
+==== Soluzione canonica
+
+I principali problemi sono:
+
+* configurazione manuale;
+* differenze tra ambienti;
+* documentazione non affidabile;
+* attività non ripetibili;
+* elevato rischio di errore umano.
+
+Una possibile strategia comprende:
+
+* descrivere l'infrastruttura tramite codice;
+* versionare la configurazione;
+* automatizzare provisioning e configurazione;
+* automatizzare la creazione degli utenti e delle risorse;
+* eseguire controlli automatici dopo il provisioning.
+
+I segreti (password, chiavi API, certificati) non dovrebbero essere salvati nel repository, ma gestiti tramite un sistema dedicato.
+
+L'obiettivo è rendere possibile la ricostruzione completa di un ambiente partendo esclusivamente dal repository e dalle configurazioni autorizzate.
+
+==== Soluzioni alternative
+
+Sono corrette soluzioni che:
+
+* utilizzano Infrastructure as Code dichiarativa;
+* utilizzano configurazione imperativa, se adeguatamente motivata;
+* introducono pipeline di provisioning;
+* validano automaticamente la configurazione;
+* utilizzano immagini preconfigurate come supporto all'automazione.
+
+L'intervistatore dovrebbe valutare il ragionamento del candidato piuttosto che la conoscenza di uno specifico prodotto.
+
+==== Spunti di approfondimento
+
+* Quali elementi metteresti sotto versionamento?
+* Dove conserveresti password e certificati?
+* Come gestiresti ambienti differenti?
+* Come aggiorneresti un ambiente già esistente?
+* Come individueresti differenze tra ambienti?
+* Come testeresti l'infrastruttura?
+
+==== Rubrica di valutazione
+
+L0::
+Non riconosce i limiti della configurazione manuale.
+
+L1::
+Propone alcune automazioni ma mantiene una forte dipendenza dalle attività manuali.
+
+L2::
+Progetta un processo riproducibile, automatizzato e versionato.
+
+L3::
+Bilancia automazione, sicurezza, gestione dei segreti e manutenzione dell'infrastruttura.
+
+L4::
+Definisce una strategia completa di Infrastructure as Code, integrata con il processo di delivery e con la governance dell'infrastruttura.
+
+endif::[]

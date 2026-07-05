@@ -1,0 +1,158 @@
+[[pe02-ex01]]
+=== PE-02-EX01 - La Build Funziona Solo Sul Mio PC
+
+==== Metadati
+
+Competenza::
+PE-02 - Build Automation
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Entri in un nuovo progetto.
+
+Il team ti informa che l'applicazione viene compilata senza problemi sul computer degli sviluppatori, ma frequentemente la build fallisce sul server di Continuous Integration.
+
+Ogni sviluppatore ha inoltre una procedura personale per preparare l'ambiente di lavoro.
+
+==== Materiale fornito
+
+Procedura attuale:
+
+[source,text]
+----
+1. Installare Java 21.
+
+2. Installare Maven.
+
+3. Copiare manualmente il file:
+
+   config/application.properties
+
+4. Configurare la variabile:
+
+   MY_COMPANY_HOME
+
+5. Scaricare manualmente una libreria interna.
+
+6. Lanciare:
+
+   mvn clean install
+
+Se la build fallisce:
+
+- pulire la cartella target;
+- rieseguire il comando.
+----
+
+==== Consegna
+
+Analizza il processo di build.
+
+Descrivi:
+
+* quali problemi individui;
+* quali attività automatizzeresti;
+* quali dipendenze elimineresti dalla macchina dello sviluppatore;
+* come renderesti la build riproducibile;
+* quali verifiche inseriresti nella pipeline.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di ragionare sul processo di build come parte integrante dello sviluppo del software.
+
+Non interessa il tool utilizzato.
+
+Interessa il metodo.
+
+==== Cosa osservare
+
+* Individua attività manuali.
+* Ragiona sulla riproducibilità.
+* Comprende il concetto di build deterministica.
+* Elimina dipendenze dall'ambiente locale.
+* Considera test automatici e verifiche.
+* Distingue build e deployment.
+
+==== Soluzione canonica
+
+I principali problemi della procedura attuale sono:
+
+* configurazione manuale;
+* file copiati manualmente;
+* dipendenza da variabili d'ambiente locali;
+* download manuale di librerie;
+* build non riproducibile;
+* procedura diversa tra sviluppatori.
+
+Una possibile strategia consiste nel:
+
+* utilizzare il wrapper del sistema di build;
+* versionare tutta la configurazione possibile;
+* eliminare copie manuali;
+* recuperare automaticamente le dipendenze;
+* utilizzare configurazioni esterne solo quando necessario;
+* rendere la build eseguibile da una macchina completamente nuova.
+
+La pipeline dovrebbe includere almeno:
+
+* compilazione;
+* test automatici;
+* analisi statica;
+* packaging;
+* pubblicazione dell'artefatto.
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* introducono container per la build;
+* utilizzano immagini standardizzate;
+* separano configurazione e codice;
+* introducono quality gate;
+* utilizzano cache delle dipendenze;
+* rendono la build completamente automatica.
+
+L'intervistatore dovrebbe valutare soprattutto il ragionamento seguito dal candidato.
+
+==== Spunti di approfondimento
+
+* Cosa significa "build riproducibile"?
+* Quali file dovrebbero essere versionati?
+* Come gestiresti configurazioni differenti tra sviluppo e produzione?
+* Come individueresti una build flaky?
+* Come ridurresti il tempo della pipeline?
+* Quali verifiche consideri obbligatorie?
+
+==== Rubrica di valutazione
+
+L0::
+Non individua problemi significativi nel processo di build.
+
+L1::
+Riconosce alcune attività manuali ma propone interventi limitati.
+
+L2::
+Propone una build automatizzata, riproducibile e indipendente dalla macchina dello sviluppatore.
+
+L3::
+Ragiona su pipeline, quality gate, riproducibilità e affidabilità della build.
+
+L4::
+Definisce una strategia completa di Build Automation integrata con CI/CD e standard di team.
+
+endif::[]

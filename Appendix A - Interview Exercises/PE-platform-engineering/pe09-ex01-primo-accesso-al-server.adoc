@@ -1,0 +1,167 @@
+[[pe09-ex01]]
+=== PE-09-EX01 - Primo Accesso al Server
+
+==== Metadati
+
+Competenza::
+PE-09 - Operating Environment
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+È il tuo primo giorno in reperibilità.
+
+Ricevi una telefonata.
+
+L'applicazione di produzione non risponde correttamente.
+
+Puoi accedere esclusivamente tramite SSH.
+
+Non conosci ancora il server.
+
+==== Materiale fornito
+
+Appena effettuato il login trovi questa situazione.
+
+[source,text]
+----
+$ pwd
+
+/home/application
+
+------------------------------------------------
+
+$ ls
+
+app
+logs
+scripts
+
+------------------------------------------------
+
+$ ps -ef | grep java
+
+application  21458  ... java -jar backend.jar
+
+------------------------------------------------
+
+$ df -h
+
+Filesystem      Size  Used Avail Use%
+
+/dev/sda1        80G   71G    5G  94%
+
+------------------------------------------------
+
+$ free -m
+
+              total   used   free
+
+Mem:           4096   3720    180
+
+------------------------------------------------
+
+$ tail -20 logs/application.log
+
+2026-10-12 10:14:05 INFO ...
+
+2026-10-12 10:14:06 WARN Database connection timeout
+
+2026-10-12 10:14:07 ERROR Unable to process request
+----
+
+==== Consegna
+
+Descrivi come procederesti.
+
+Non è necessario conoscere la sintassi esatta dei comandi.
+
+Spiega:
+
+* quali informazioni raccoglieresti;
+* quali verifiche eseguiresti;
+* quali ipotesi formuleresti;
+* quali strumenti utilizzeresti successivamente.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta il metodo seguito dal candidato durante una prima analisi di un problema su un server Linux.
+
+Non interessa la memoria dei comandi.
+
+Interessa il ragionamento.
+
+==== Cosa osservare
+
+* Procede con ordine.
+* Analizza prima lo stato del sistema.
+* Consulta i log.
+* Formula ipotesi.
+* Evita azioni distruttive.
+* Non riavvia immediatamente l'applicazione.
+
+==== Soluzione canonica
+
+Una possibile sequenza comprende:
+
+. capire se il processo è realmente in esecuzione;
+. analizzare il log;
+. verificare spazio disco;
+. verificare memoria;
+. controllare eventuali errori del database;
+. verificare utilizzo CPU;
+. verificare connessioni di rete;
+. raccogliere evidenze prima di intervenire.
+
+Il candidato non deve necessariamente seguire esattamente questa sequenza.
+
+L'obiettivo è osservare il metodo.
+
+==== Soluzioni alternative
+
+Sono corrette strategie differenti purché:
+
+* raccolgano informazioni prima di intervenire;
+* evitino modifiche premature;
+* costruiscano progressivamente una teoria del problema.
+
+==== Spunti di approfondimento
+
+* Quale comando utilizzeresti adesso?
+* Controlleresti il database?
+* Riavvieresti subito il servizio?
+* Come capiresti se il problema riguarda solo questa macchina?
+* Quali log consulteresti?
+
+==== Rubrica di valutazione
+
+L0::
+Procede casualmente senza raccogliere informazioni.
+
+L1::
+Esegue alcune verifiche ma senza un metodo preciso.
+
+L2::
+Segue una procedura logica raccogliendo evidenze.
+
+L3::
+Costruisce rapidamente ipotesi coerenti restringendo progressivamente il problema.
+
+L4::
+Utilizza il sistema operativo come strumento di diagnosi, distinguendo chiaramente sintomi, cause e verifiche necessarie.
+
+endif::[]

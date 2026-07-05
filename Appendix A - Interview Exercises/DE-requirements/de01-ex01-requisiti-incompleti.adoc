@@ -1,0 +1,142 @@
+[[de01-ex01]]
+=== DE-01-EX01 - Requisiti Incompleti
+
+==== Metadati
+
+Competenza::
+DE-01 - Analisi dei Requisiti
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Il Product Owner apre una nuova User Story.
+
+==== Materiale fornito
+
+[source,text]
+----
+Titolo
+
+Annullamento Ordine
+
+Descrizione
+
+Come cliente
+
+voglio poter annullare un ordine
+
+così da non ricevere prodotti che non desidero più.
+----
+
+Non sono disponibili ulteriori informazioni.
+
+==== Consegna
+
+Immagina che questa User Story venga assegnata a te.
+
+Non progettare la soluzione.
+
+Descrivi invece come procederesti.
+
+Quali domande porresti?
+
+Quali aspetti ritieni ambigui o mancanti?
+
+Quali rischi individui?
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di analizzare un requisito prima di iniziare lo sviluppo.
+
+L'obiettivo non è ottenere la soluzione tecnica, ma osservare il processo di analisi.
+
+==== Cosa osservare
+
+* Non parte immediatamente dalla soluzione.
+* Formula domande pertinenti.
+* Individua requisiti mancanti.
+* Identifica casi limite.
+* Distingue requisiti funzionali e non funzionali.
+* Considera l'impatto sul dominio.
+
+==== Soluzione canonica
+
+Una buona analisi potrebbe far emergere domande come:
+
+[source,text]
+----
+Quando è possibile annullare un ordine?
+
+Dopo il pagamento?
+
+Dopo la spedizione?
+
+Dopo la preparazione?
+
+Chi può annullare un ordine?
+
+Solo il cliente?
+
+Anche il Customer Care?
+
+Che cosa succede al pagamento?
+
+È previsto un rimborso?
+
+Come viene aggiornato il magazzino?
+
+Il cliente riceve una notifica?
+
+L'annullamento deve essere tracciato?
+
+Esistono casi particolari?
+----
+
+Il candidato non dovrebbe partire immediatamente parlando di API, database o codice.
+
+==== Soluzioni alternative
+
+Sono corrette tutte le analisi che cercano di chiarire il dominio prima di proporre una soluzione tecnica.
+
+L'intervistatore dovrebbe valutare la qualità delle domande più che il loro numero.
+
+==== Spunti di approfondimento
+
+* Quale domanda faresti per prima?
+* Quali informazioni ritieni indispensabili prima di stimare il lavoro?
+* Come documenteresti le decisioni prese?
+* Se il Product Owner rispondesse "decidi tu", come procederesti?
+* Come distingueresti un requisito da una scelta implementativa?
+
+==== Rubrica di valutazione
+
+L0::
+Accetta il requisito senza alcuna analisi.
+
+L1::
+Formula poche domande, limitandosi agli aspetti più evidenti.
+
+L2::
+Individua le principali ambiguità e chiarisce i casi funzionali rilevanti.
+
+L3::
+Analizza il dominio in modo sistematico, evidenziando dipendenze, casi limite e impatti sul sistema.
+
+L4::
+Guida l'analisi dei requisiti facilitando il confronto con gli stakeholder e trasformando requisiti incompleti in specifiche chiare e verificabili.
+
+endif::[]

@@ -1,0 +1,169 @@
+[[de05-ex01]]
+=== DE-05-EX01 - Suddividere una Funzionalità
+
+==== Metadati
+
+Competenza::
+DE-05 - Incremental Delivery
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Il Product Owner presenta una nuova funzionalità.
+
+==== Materiale fornito
+
+[source,text]
+----
+Titolo
+
+Sistema di Recensioni
+
+Descrizione
+
+Come cliente
+
+voglio poter recensire i prodotti acquistati
+
+così da aiutare altri clienti nella scelta.
+
+Requisiti iniziali
+
+- voto da 1 a 5 stelle;
+- commento testuale;
+- modifica della recensione;
+- eliminazione della recensione;
+- risposta del venditore;
+- moderazione automatica;
+- segnalazione di contenuti offensivi;
+- allegati fotografici;
+- ordinamento delle recensioni;
+- ricerca full-text.
+----
+
+Il Product Owner chiede di rilasciare la funzionalità il prima possibile.
+
+==== Consegna
+
+Descrivi come organizzeresti lo sviluppo.
+
+Spiega:
+
+* quale sarebbe il primo incremento;
+* quali funzionalità rimanderesti;
+* come ridurresti il rischio;
+* quali vantaggi porteresti al Product Owner;
+* come raccoglieresti feedback.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di individuare un Minimum Viable Product (MVP) e di pianificare rilasci incrementali.
+
+L'obiettivo non è ottenere una pianificazione perfetta, ma osservare il metodo.
+
+==== Cosa osservare
+
+* Individua rapidamente un MVP.
+* Distingue funzionalità essenziali e accessorie.
+* Riduce il rischio.
+* Considera il feedback degli utenti.
+* Evita Big Bang Release.
+* Motiva le proprie scelte.
+
+==== Soluzione canonica
+
+Una possibile suddivisione potrebbe essere:
+
+Incremento 1
+
+[source,text]
+----
+- voto da 1 a 5
+- commento
+- visualizzazione recensioni
+----
+
+Incremento 2
+
+[source,text]
+----
+- modifica recensione
+- eliminazione recensione
+----
+
+Incremento 3
+
+[source,text]
+----
+- risposta del venditore
+----
+
+Incremento 4
+
+[source,text]
+----
+- moderazione
+- segnalazioni
+----
+
+Incremento 5
+
+[source,text]
+----
+- immagini
+- ricerca
+- ordinamenti avanzati
+----
+
+L'obiettivo è consegnare rapidamente una funzionalità utilizzabile e raccogliere feedback prima di investire nelle funzionalità più complesse.
+
+==== Soluzioni alternative
+
+Sono correti approcci differenti purché:
+
+* ogni incremento produca valore;
+* le dipendenze siano limitate;
+* il rischio venga ridotto progressivamente.
+
+L'intervistatore dovrebbe valutare la qualità della suddivisione più che la sequenza proposta.
+
+==== Spunti di approfondimento
+
+* Quale incremento realizzeresti in una settimana?
+* Cosa faresti se il Product Owner volesse tutto nel primo rilascio?
+* Come useresti Feature Flag?
+* Come raccoglieresti feedback?
+* Come cambierebbe la pianificazione se il team fosse composto da due sviluppatori?
+
+==== Rubrica di valutazione
+
+L0::
+Propone un unico rilascio finale.
+
+L1::
+Suddivide il lavoro ma senza una reale strategia.
+
+L2::
+Identifica un MVP coerente e organizza incrementi progressivi.
+
+L3::
+Bilancia valore, rischio e feedback progettando rilasci incrementali efficaci.
+
+L4::
+Definisce una strategia di delivery che massimizza valore, apprendimento e riduzione del rischio, coinvolgendo gli stakeholder durante tutto il processo.
+
+endif::[]

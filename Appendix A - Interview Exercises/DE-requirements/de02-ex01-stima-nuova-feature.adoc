@@ -1,0 +1,165 @@
+[[de02-ex01]]
+=== DE-02-EX01 - Stimare una Nuova Funzionalità
+
+==== Metadati
+
+Competenza::
+DE-02 - Stima delle Attività
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Durante lo Sprint Planning viene presentata una nuova funzionalità.
+
+==== Materiale fornito
+
+[source,text]
+----
+Titolo
+
+Wishlist
+
+Descrizione
+
+Come cliente
+
+voglio poter salvare prodotti nella mia wishlist
+
+così da poterli acquistare successivamente.
+----
+
+Il Product Owner conclude chiedendo:
+
+"Quanto tempo pensate che ci voglia?"
+
+==== Consegna
+
+Non fornire immediatamente una stima.
+
+Descrivi invece come procederesti.
+
+Spiega:
+
+* quali informazioni ti servirebbero;
+* quali attività individueresti;
+* quali rischi considereresti;
+* come comunicheresti il livello di incertezza della stima.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'obiettivo dell'esercizio è osservare il metodo seguito dal candidato per arrivare a una stima.
+
+Non interessa il numero finale.
+
+Interessa il processo.
+
+==== Cosa osservare
+
+* Non fornisce subito una stima.
+* Formula domande.
+* Scompone il lavoro.
+* Individua dipendenze.
+* Considera test, documentazione e rilascio.
+* Comunica il livello di incertezza.
+
+==== Soluzione canonica
+
+Una buona risposta dovrebbe iniziare con ulteriori domande.
+
+Ad esempio:
+
+[source,text]
+----
+La wishlist è privata?
+
+Esiste già un modello utenti?
+
+Serve una API?
+
+Serve una pagina frontend?
+
+Esiste già un database?
+
+Serve una notifica?
+
+Esistono limiti sul numero di prodotti?
+
+Come verrà utilizzata?
+----
+
+Successivamente il candidato dovrebbe suddividere il lavoro.
+
+Ad esempio:
+
+[source,text]
+----
+Analisi
+
+Modello dati
+
+API
+
+Business logic
+
+Persistenza
+
+Testing
+
+Code Review
+
+Deployment
+----
+
+Solo successivamente dovrebbe parlare di una possibile stima.
+
+Una buona risposta dovrebbe inoltre evidenziare il livello di incertezza.
+
+==== Soluzioni alternative
+
+Sono correti approcci differenti purché il candidato espliciti:
+
+* ipotesi;
+* dipendenze;
+* rischi;
+* elementi ancora sconosciuti.
+
+==== Spunti di approfondimento
+
+* Come aggiorneresti la stima dopo alcuni giorni di sviluppo?
+* Cosa faresti se emergesse un nuovo requisito?
+* Come distingui una stima da un impegno?
+* Come comunicheresti il rischio al Product Owner?
+* Come ridurresti l'incertezza?
+
+==== Rubrica di valutazione
+
+L0::
+Fornisce una stima senza alcuna analisi.
+
+L1::
+Formula poche domande ma produce una stima poco motivata.
+
+L2::
+Scompone il lavoro e comunica chiaramente le ipotesi della stima.
+
+L3::
+Valuta rischi, dipendenze e incertezze, adattando la stima al contesto.
+
+L4::
+Guida il processo di stima del team, migliorandone accuratezza, trasparenza e affidabilità.
+
+endif::[]

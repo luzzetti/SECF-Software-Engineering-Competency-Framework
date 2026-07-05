@@ -1,0 +1,182 @@
+[[pe03-ex01]]
+=== PE-03-EX01 - Una Pipeline Fragile
+
+==== Metadati
+
+Competenza::
+PE-03 - Continuous Integration & Continuous Delivery
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Il team rilascia una nuova versione dell'applicazione circa una volta alla settimana.
+
+Il processo attuale è il seguente.
+
+==== Materiale fornito
+
+[source,text]
+----
+1. Uno sviluppatore esegue la build sulla propria macchina.
+
+2. Copia manualmente il file .jar su un server.
+
+3. Ferma l'applicazione.
+
+4. Sostituisce il file.
+
+5. Riavvia il servizio.
+
+6. Controlla manualmente i log.
+
+7. Comunica su Teams che il rilascio è terminato.
+----
+
+Problemi segnalati:
+
+[source,text]
+----
+- alcuni rilasci falliscono;
+- capita di distribuire versioni sbagliate;
+- talvolta vengono dimenticati alcuni passaggi;
+- il downtime è di alcuni minuti;
+- non esiste una procedura di rollback.
+----
+
+==== Consegna
+
+Analizza il processo.
+
+Descrivi:
+
+* quali problemi individui;
+* quali attività automatizzeresti;
+* come costruiresti una pipeline di Continuous Integration e Continuous Delivery;
+* quali controlli introdurresti;
+* come gestiresti eventuali rollback.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di progettare una pipeline di rilascio affidabile.
+
+Non interessa lo strumento utilizzato.
+
+Interessa il processo.
+
+==== Cosa osservare
+
+* Individua attività manuali.
+* Riduce il rischio umano.
+* Introduce verifiche automatiche.
+* Ragiona sul rollback.
+* Distingue build, test e deployment.
+* Considera affidabilità e riproducibilità.
+
+==== Soluzione canonica
+
+I principali problemi sono:
+
+* build eseguita localmente;
+* deployment manuale;
+* nessuna verifica automatica;
+* assenza di rollback;
+* forte dipendenza dall'operatore.
+
+Una possibile pipeline potrebbe essere:
+
+[source,text]
+----
+Commit
+
+↓
+
+Build automatica
+
+↓
+
+Test automatici
+
+↓
+
+Analisi statica
+
+↓
+
+Packaging
+
+↓
+
+Pubblicazione artefatto
+
+↓
+
+Deploy automatico
+
+↓
+
+Smoke Test
+
+↓
+
+Notifica
+----
+
+Per il rollback:
+
+* mantenere l'artefatto precedente;
+* automatizzare il ripristino;
+* evitare modifiche manuali sui server.
+
+==== Soluzioni alternative
+
+Sono corrette soluzioni che introducono:
+
+* Blue/Green Deployment;
+* Canary Release;
+* Rolling Update;
+* Feature Flag;
+* Deployment progressivo.
+
+L'intervistatore dovrebbe valutare il ragionamento e non la conoscenza delle singole tecniche.
+
+==== Spunti di approfondimento
+
+* Quando interromperesti automaticamente una pipeline?
+* Quali verifiche ritieni obbligatorie?
+* Come ridurresti il downtime?
+* Come gestiresti un deploy fallito?
+* Quando preferiresti una Canary Release?
+* Come comunicheresti l'esito del rilascio?
+
+==== Rubrica di valutazione
+
+L0::
+Non individua problemi significativi nel processo.
+
+L1::
+Riconosce alcune attività manuali ma propone miglioramenti limitati.
+
+L2::
+Progetta una pipeline automatizzata introducendo build, test e deployment.
+
+L3::
+Ragiona su rollback, affidabilità, qualità e riduzione del rischio.
+
+L4::
+Progetta una pipeline completa considerando strategie di rilascio, resilienza, osservabilità e miglioramento continuo.
+
+endif::[]

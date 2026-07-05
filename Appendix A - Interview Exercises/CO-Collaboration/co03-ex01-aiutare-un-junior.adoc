@@ -1,0 +1,113 @@
+[[co03-ex01]]
+=== CO-03-EX01 - Aiutare uno Junior
+
+==== Metadati
+
+Competenza::
+CO-03 - Mentoring
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Discussione / Role Play
+
+'''
+
+==== Scenario
+
+Nel tuo team è arrivato uno sviluppatore junior.
+
+Dopo alcuni giorni ti chiede aiuto.
+
+Ti dice:
+
+____
+
+"Non riesco a capire perché questo metodo restituisca un risultato errato.
+
+Puoi sistemarlo tu?"
+
+____
+
+Hai circa trenta minuti disponibili.
+
+==== Consegna
+
+Descrivi come gestiresti la situazione.
+
+Spiega:
+
+* come imposteresti la conversazione;
+* quanto tempo dedicheresti al problema;
+* come aiuteresti il collega;
+* quando interverresti direttamente;
+* come verificheresti che abbia realmente compreso il problema.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di favorire la crescita tecnica di un collega.
+
+L'obiettivo non è verificare la capacità didattica, ma osservare come il candidato trasferisce conoscenza senza sostituirsi all'altra persona.
+
+==== Cosa osservare
+
+* Cerca di capire il problema prima di proporre soluzioni.
+* Pone domande.
+* Guida il ragionamento.
+* Evita di prendere direttamente la tastiera.
+* Adatta il livello della spiegazione.
+* Verifica la comprensione del collega.
+
+==== Soluzione canonica
+
+Una possibile strategia potrebbe essere:
+
+. Chiedere allo sviluppatore di spiegare il problema.
+. Capire cosa ha già provato.
+. Guidarlo con domande anziché fornire subito la risposta.
+. Suggerire strumenti di analisi.
+. Intervenire direttamente solo se necessario.
+. Chiedergli infine di riassumere la soluzione trovata.
+
+Il candidato dovrebbe evitare di risolvere immediatamente il problema al posto del collega.
+
+==== Soluzioni alternative
+
+Sono corretti tutti gli approcci che favoriscono l'autonomia dello sviluppatore junior mantenendo un adeguato equilibrio tra supporto e produttività.
+
+L'intervistatore dovrebbe valutare soprattutto il metodo.
+
+==== Spunti di approfondimento
+
+* Cosa faresti se il collega continuasse a commettere lo stesso errore?
+* Come gestiresti una situazione di forte pressione temporale?
+* Come capiresti se il mentoring sta funzionando?
+* Quando preferiresti fare pair programming?
+* Quando invece risolveresti direttamente il problema?
+
+==== Rubrica di valutazione
+
+L0::
+Risolve direttamente il problema senza coinvolgere il collega.
+
+L1::
+Fornisce spiegazioni ma con scarso coinvolgimento dello sviluppatore.
+
+L2::
+Guida il collega nel ragionamento favorendone la comprensione.
+
+L3::
+Bilancia efficacemente mentoring, autonomia e produttività adattando l'approccio alla situazione.
+
+L4::
+Definisce un percorso di crescita strutturato, contribuendo allo sviluppo tecnico dell'intero team.
+
+endif::[]

@@ -1,0 +1,140 @@
+[[pe08-ex01]]
+=== PE-08-EX01 - Aggiungere una Nuova Libreria
+
+==== Metadati
+
+Competenza::
+PE-08 - Gestione delle Dipendenze
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Durante lo sviluppo di una nuova funzionalità trovi una libreria open source che sembra risolvere completamente il problema.
+
+La libreria:
+
+* è disponibile pubblicamente;
+* ha una documentazione discreta;
+* introduce circa 40 dipendenze transitive;
+* è mantenuta da una piccola community.
+
+Un collega propone di aggiungerla immediatamente al progetto.
+
+==== Materiale fornito
+
+Informazioni disponibili:
+
+[source,text]
+----
+Libreria:
+awesome-report-engine
+
+Ultima release:
+2 mesi fa
+
+GitHub:
+850 stelle
+
+Contributor attivi:
+3
+
+Dipendenze dirette:
+12
+
+Dipendenze transitive:
+40
+
+Licenza:
+Apache 2.0
+----
+
+==== Consegna
+
+Descrivi come prenderesti la decisione.
+
+Spiega:
+
+* quali aspetti valuteresti;
+* quali rischi considereresti;
+* quando preferiresti utilizzare la libreria;
+* quando invece preferiresti sviluppare internamente la funzionalità.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta il processo decisionale del candidato.
+
+L'obiettivo non è ottenere un "sì" o un "no", ma comprendere come valuta una nuova dipendenza.
+
+==== Cosa osservare
+
+* Valuta manutenzione e maturità.
+* Considera sicurezza.
+* Considera numero e qualità delle dipendenze.
+* Valuta costo di manutenzione futura.
+* Ragiona sul vendor lock-in.
+* Considera licenza e comunità.
+
+==== Soluzione canonica
+
+Una buona analisi dovrebbe prendere in considerazione almeno:
+
+* maturità del progetto;
+* frequenza degli aggiornamenti;
+* numero di maintainer;
+* vulnerabilità note;
+* qualità della documentazione;
+* dipendenze introdotte;
+* impatto sul progetto;
+* licenza;
+* facilità di sostituzione futura.
+
+Una possibile conclusione potrebbe essere:
+
+> La libreria sembra interessante, ma prima di introdurla valuterei se la funzionalità richiesta giustifica davvero quaranta dipendenze transitive.
+
+==== Soluzioni alternative
+
+Sono corrette tutte le decisioni adeguatamente motivate.
+
+L'intervistatore dovrebbe valutare il processo decisionale e non la scelta finale.
+
+==== Spunti di approfondimento
+
+* Quando una libreria è "troppo grande"?
+* Come gestiresti aggiornamenti futuri?
+* Come controlleresti eventuali vulnerabilità?
+* Come reagiresti se il progetto venisse abbandonato?
+* Quali strumenti utilizzeresti per analizzare le dipendenze?
+
+==== Rubrica di valutazione
+
+L0::
+Introduce la libreria senza alcuna valutazione.
+
+L1::
+Considera alcuni aspetti ma in modo superficiale.
+
+L2::
+Valuta manutenzione, sicurezza, dipendenze e impatto sul progetto.
+
+L3::
+Bilancia benefici e rischi considerando anche manutenzione futura e software supply chain.
+
+L4::
+Definisce criteri oggettivi per l'adozione delle dipendenze contribuendo alle linee guida del team.
+
+endif::[]

@@ -1,0 +1,170 @@
+[[pe09-ex02]]
+=== PE-09-EX02 - Il Server è Lentissimo
+
+==== Metadati
+
+Competenza::
+PE-09 - Operating Environment
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Da alcuni minuti gli utenti segnalano che l'applicazione è molto lenta.
+
+L'applicazione risponde ancora, ma i tempi di risposta sono aumentati notevolmente.
+
+Hai accesso al server tramite SSH.
+
+==== Materiale fornito
+
+[source,text]
+----
+$ uptime
+
+14:25:18 up 23 days,  3:14,  2 users,
+load average: 18.34, 17.91, 15.42
+
+------------------------------------------------
+
+$ top
+
+PID USER   %CPU %MEM COMMAND
+
+24561 app   392  48 java
+
+18112 mysql  81  35 mysqld
+
+------------------------------------------------
+
+$ df -h
+
+Filesystem      Size  Used Avail Use%
+
+/dev/sda1        80G   52G   24G  69%
+
+------------------------------------------------
+
+$ free -m
+
+              total   used   free
+
+Mem:           8192   7960     70
+
+Swap:          4096   3810    286
+
+------------------------------------------------
+
+$ tail -10 application.log
+
+INFO  Executing report generation
+
+INFO  Executing report generation
+
+INFO  Executing report generation
+
+INFO  Executing report generation
+
+WARN  Slow database query
+
+WARN  Slow database query
+----
+
+==== Consegna
+
+Analizza la situazione.
+
+Descrivi:
+
+* quali informazioni ritieni più significative;
+* quali ipotesi formuleresti;
+* quali verifiche eseguiresti successivamente;
+* quali interventi prenderesti in considerazione.
+
+Non è necessario conoscere la sintassi esatta dei comandi Linux.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'obiettivo è osservare come il candidato interpreta informazioni provenienti da strumenti diversi.
+
+L'esercizio non richiede una soluzione immediata.
+
+Richiede un metodo.
+
+==== Cosa osservare
+
+* Legge i dati nell'insieme.
+* Collega CPU, memoria e log.
+* Formula ipotesi coerenti.
+* Evita di riavviare immediatamente il servizio.
+* Propone verifiche prima degli interventi.
+* Distingue sintomi e possibili cause.
+
+==== Soluzione canonica
+
+Le principali evidenze sono:
+
+* load average molto elevato;
+* processo Java con elevato utilizzo della CPU;
+* memoria quasi completamente occupata;
+* swap molto utilizzata;
+* presenza di query lente nel log;
+* generazione ripetuta di report.
+
+Una possibile strategia comprende:
+
+. capire se i report siano realmente necessari;
+. verificare quali query risultano lente;
+. verificare eventuali thread bloccati;
+. raccogliere un thread dump;
+. verificare il piano di esecuzione delle query;
+. analizzare eventuali modifiche recenti;
+. valutare solo successivamente eventuali riavvii.
+
+Il candidato dovrebbe evitare di considerare il riavvio del servizio come prima soluzione.
+
+==== Soluzioni alternative
+
+Sono corrette tutte le strategie che raccolgono ulteriori evidenze prima di intervenire.
+
+L'intervistatore dovrebbe valutare il metodo seguito dal candidato più che la soluzione proposta.
+
+==== Spunti di approfondimento
+
+* Quale comando utilizzeresti adesso?
+* Come raccoglieresti un thread dump?
+* Come capiresti se il problema riguarda il database?
+* Come distingueresti un memory leak da un picco temporaneo?
+* Quando prenderesti in considerazione un riavvio?
+
+==== Rubrica di valutazione
+
+L0::
+Analizza i dati in modo casuale o propone interventi immediati senza verifiche.
+
+L1::
+Individua alcuni elementi rilevanti ma non costruisce una teoria coerente.
+
+L2::
+Collega le informazioni disponibili e propone verifiche sistematiche.
+
+L3::
+Costruisce un piano di diagnosi coerente distinguendo chiaramente sintomi, cause e verifiche.
+
+L4::
+Integra informazioni provenienti da sistema operativo, applicazione e database, definendo una strategia strutturata di troubleshooting.
+
+endif::[]

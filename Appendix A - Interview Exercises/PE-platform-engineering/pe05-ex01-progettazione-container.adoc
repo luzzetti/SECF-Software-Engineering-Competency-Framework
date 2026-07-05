@@ -1,0 +1,129 @@
+[[pe05-ex01]]
+=== PE-05-EX01 - Containerizzare un'Applicazione
+
+==== Metadati
+
+Competenza::
+PE-05 - Container
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Un'applicazione backend viene eseguita direttamente su una macchina Linux.
+
+L'azienda desidera distribuire l'applicazione tramite container.
+
+==== Materiale fornito
+
+L'applicazione presenta le seguenti caratteristiche:
+
+[source,text]
+----
+- salva file temporanei nella directory /tmp;
+- scrive i log nella directory /var/log/application;
+- utilizza un file locale application.properties;
+- mantiene le sessioni HTTP in memoria;
+- utilizza il filesystem locale per caricare immagini.
+----
+
+==== Consegna
+
+Analizza l'applicazione.
+
+Descrivi:
+
+* quali problemi individui per una futura containerizzazione;
+* quali modifiche apporteresti;
+* quali aspetti manterresti invariati;
+* quali rischi considereresti;
+* quali verifiche eseguiresti prima del rilascio.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di riconoscere le dipendenze tra l'applicazione e l'ambiente di esecuzione.
+
+L'obiettivo non è discutere Docker, ma verificare se il candidato comprende le caratteristiche di un'applicazione adatta a essere eseguita all'interno di un container.
+
+==== Cosa osservare
+
+* Riconosce dipendenze dal filesystem locale.
+* Comprende il problema delle sessioni in memoria.
+* Ragiona sulla configurazione esterna.
+* Considera logging e persistenza.
+* Distingue dati persistenti e dati temporanei.
+* Comprende il principio di immutabilità dell'immagine.
+
+==== Soluzione canonica
+
+L'applicazione presenta diverse dipendenze dal server sul quale viene eseguita.
+
+In particolare:
+
+* utilizza file locali come configurazione;
+* scrive log sul filesystem;
+* utilizza storage locale per dati persistenti;
+* mantiene stato in memoria.
+
+Una possibile strategia comprende:
+
+* esternalizzare la configurazione;
+* utilizzare lo standard output per i log;
+* utilizzare object storage o volumi dedicati per i file persistenti;
+* rendere il backend stateless;
+* mantenere l'immagine indipendente dall'ambiente.
+
+L'obiettivo è rendere il container facilmente sostituibile senza perdita di dati o configurazione.
+
+==== Soluzioni alternative
+
+Sono corrette soluzioni che:
+
+* utilizzano volumi persistenti;
+* utilizzano variabili d'ambiente;
+* separano upload e storage;
+* utilizzano servizi esterni per sessioni e configurazione;
+* mantengono dati temporanei nel filesystem del container quando appropriato.
+
+L'intervistatore dovrebbe valutare il ragionamento seguito dal candidato e non la conoscenza di Docker.
+
+==== Spunti di approfondimento
+
+* Dove salveresti i log?
+* Dove salveresti le immagini caricate dagli utenti?
+* Come gestiresti le sessioni?
+* Come distribuiresti configurazioni differenti?
+* Come gestiresti più istanze contemporaneamente?
+* Cosa succede se il container viene terminato improvvisamente?
+
+==== Rubrica di valutazione
+
+L0::
+Non riconosce le principali dipendenze dall'ambiente di esecuzione.
+
+L1::
+Individua alcuni problemi ma propone modifiche limitate.
+
+L2::
+Progetta un'applicazione facilmente containerizzabile eliminando le principali dipendenze dal server.
+
+L3::
+Bilancia portabilità, semplicità operativa, persistenza e configurazione motivando le proprie scelte.
+
+L4::
+Definisce una strategia completa di containerizzazione considerando deployment, scalabilità, resilienza e manutenzione dell'applicazione.
+
+endif::[]

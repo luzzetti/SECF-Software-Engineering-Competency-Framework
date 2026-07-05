@@ -1,0 +1,156 @@
+[[pe04-ex01]]
+=== PE-04-EX01 - Migrazione al Cloud
+
+==== Metadati
+
+Competenza::
+PE-04 - Cloud
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Un'applicazione backend è attualmente installata su un singolo server virtuale.
+
+Il sistema gestisce circa 2.000 utenti al giorno.
+
+L'azienda prevede una forte crescita e desidera migrare l'applicazione verso una piattaforma cloud.
+
+L'obiettivo è migliorare:
+
+* disponibilità;
+* scalabilità;
+* semplicità operativa.
+
+==== Materiale fornito
+
+Architettura attuale:
+
+[source,text]
+----
+                +-------------------+
+                |   Web Server      |
+                |-------------------|
+                | Backend           |
+                | Frontend          |
+                | Scheduler         |
+                +-------------------+
+                         |
+                         |
+                +-------------------+
+                | Database          |
+                +-------------------+
+----
+
+Informazioni aggiuntive:
+
+[source,text]
+----
+- L'applicazione salva file sul filesystem locale.
+- Le sessioni utente sono mantenute in memoria.
+- Alcuni job schedulati vengono eseguiti ogni notte.
+- I rilasci richiedono il riavvio dell'applicazione.
+----
+
+==== Consegna
+
+Descrivi come affronteresti la migrazione.
+
+Spiega:
+
+* quali componenti modificheresti;
+* quali problemi individui nell'architettura attuale;
+* quali aspetti renderesti cloud-ready;
+* quali rischi considereresti;
+* quali modifiche faresti prima della migrazione.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di riconoscere le principali caratteristiche richieste da un'applicazione destinata a essere eseguita nel cloud.
+
+L'obiettivo non è progettare un'architettura perfetta, ma osservare il ragionamento.
+
+==== Cosa osservare
+
+* Individua dipendenze dal server locale.
+* Comprende il problema delle sessioni in memoria.
+* Riconosce i limiti del filesystem locale.
+* Considera disponibilità e scalabilità.
+* Ragiona sulla separazione delle responsabilità.
+* Evita di parlare esclusivamente di prodotti cloud.
+
+==== Soluzione canonica
+
+I principali problemi dell'architettura attuale sono:
+
+* sessioni mantenute in memoria;
+* file salvati sul filesystem locale;
+* backend stateful;
+* scheduler legato alla singola istanza;
+* deploy con downtime.
+
+Una possibile strategia comprende:
+
+* rendere il backend stateless;
+* spostare le sessioni in uno storage condiviso o utilizzare token;
+* utilizzare object storage per i file;
+* separare gli scheduler dall'applicazione principale;
+* automatizzare il deployment;
+* rendere possibile l'esecuzione di più istanze contemporaneamente.
+
+L'obiettivo non è utilizzare uno specifico cloud provider, ma eliminare le dipendenze dalla singola macchina.
+
+==== Soluzioni alternative
+
+Sono corrette soluzioni che:
+
+* introducono container;
+* utilizzano servizi gestiti;
+* separano frontend e backend;
+* introducono un load balancer;
+* spostano i job schedulati su componenti dedicati;
+* adottano deployment rolling o blue/green.
+
+L'intervistatore dovrebbe valutare il ragionamento seguito dal candidato piuttosto che la conoscenza di specifici servizi cloud.
+
+==== Spunti di approfondimento
+
+* Quale modifica realizzeresti per prima?
+* Come gestiresti le sessioni?
+* Dove salveresti i file?
+* Come organizzeresti i job schedulati?
+* Come ridurresti il downtime?
+* Quali metriche monitoreresti dopo la migrazione?
+* Come affronteresti un improvviso aumento del traffico?
+
+==== Rubrica di valutazione
+
+L0::
+Non riconosce le principali limitazioni dell'architettura attuale.
+
+L1::
+Individua alcuni problemi ma propone soluzioni parziali.
+
+L2::
+Progetta una migrazione coerente eliminando le principali dipendenze dalla singola macchina.
+
+L3::
+Bilancia disponibilità, scalabilità, semplicità operativa e costi, motivando le proprie scelte.
+
+L4::
+Definisce una strategia di migrazione completa considerando architettura, operatività, deployment, resilienza ed evoluzione futura.
+
+endif::[]

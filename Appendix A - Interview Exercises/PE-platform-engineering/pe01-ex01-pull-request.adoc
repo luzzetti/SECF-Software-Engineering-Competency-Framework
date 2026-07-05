@@ -1,0 +1,201 @@
+[[pe01-ex01]]
+=== PE-01-EX01 - Pull Request Difficile da Revisionare
+
+==== Metadati
+
+Competenza::
+PE-01 - Version Control
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Un collega apre una Pull Request per correggere un bug nel calcolo degli sconti.
+
+La Pull Request contiene molte modifiche non direttamente collegate al bug.
+
+==== Materiale fornito
+
+Estratto della Pull Request:
+
+[source,text]
+----
+Titolo:
+Fix discount bug
+
+Descrizione:
+Fixed discount calculation.
+
+File modificati:
+- DiscountService.java
+- OrderService.java
+- CustomerService.java
+- ProductController.java
+- application.yml
+- README.md
+- User.java
+- Product.java
+- Order.java
+
+Commit:
+1. fix
+2. update stuff
+3. refactor
+4. final changes
+5. fix tests
+----
+
+Diff semplificato:
+
+[source,text]
+----
+DiscountService.java
+- Correzione del calcolo dello sconto VIP.
+
+OrderService.java
+- Rinominati alcuni metodi.
+- Modificato il formato della risposta.
+
+CustomerService.java
+- Rimosso codice non utilizzato.
+
+ProductController.java
+- Cambiata la gestione degli errori.
+
+application.yml
+- Modificata una configurazione non documentata.
+
+README.md
+- Aggiornata una sezione non correlata.
+
+User.java / Product.java / Order.java
+- Riformattazione automatica.
+----
+
+==== Consegna
+
+Analizza la Pull Request dal punto di vista del version control e del lavoro collaborativo.
+
+Descrivi:
+
+* quali problemi individui;
+* come chiederesti di riorganizzare le modifiche;
+* come dovrebbero essere strutturati commit e Pull Request;
+* quali rischi introduce una Pull Request di questo tipo;
+* quali buone pratiche applicheresti in futuro.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di usare il version control come strumento di collaborazione, revisione e tracciabilità.
+
+Non valuta la conoscenza mnemonica dei comandi Git, ma la capacità di organizzare il lavoro in modo chiaro e sicuro.
+
+==== Cosa osservare
+
+* Riconosce che la Pull Request contiene modifiche non correlate.
+* Propone di separare bug fix, refactoring, formattazione e documentazione.
+* Considera la leggibilità della review.
+* Ragiona sulla tracciabilità dei commit.
+* Evita atteggiamenti puramente burocratici.
+* Comprende il rischio di regressioni nascoste.
+
+==== Soluzione canonica
+
+Problemi principali:
+
+* la Pull Request ha uno scope troppo ampio;
+* il titolo e la descrizione sono poco informativi;
+* i commit non spiegano l'intento delle modifiche;
+* sono mescolati bug fix, refactoring, formattazione, configurazione e documentazione;
+* alcune modifiche non sono correlate al bug;
+* la review diventa più difficile;
+* aumenta il rischio di introdurre regressioni non individuate.
+
+Una possibile richiesta al collega:
+
+[source,text]
+----
+Separare la Pull Request in più interventi:
+
+1. Bug fix sul calcolo dello sconto.
+2. Eventuale refactoring collegato, solo se necessario.
+3. Riformattazione automatica in una Pull Request separata.
+4. Modifiche a configurazione e documentazione in Pull Request dedicate.
+----
+
+I commit dovrebbero descrivere l'intento, ad esempio:
+
+[source,text]
+----
+Fix VIP discount calculation
+
+Extract discount threshold constant
+
+Add regression test for VIP discount
+----
+
+Una Pull Request più chiara dovrebbe includere:
+
+[source,text]
+----
+- contesto del problema;
+- comportamento attuale;
+- comportamento atteso;
+- soluzione adottata;
+- test aggiunti o modificati;
+- eventuali rischi.
+----
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* chiedono di ridurre lo scope della Pull Request;
+* usano squash o rebase per rendere la storia più leggibile;
+* mantengono commit separati quando aiutano la review;
+* accettano piccoli refactoring solo se direttamente collegati al fix;
+* propongono linee guida di team per dimensione e struttura delle Pull Request.
+
+L'intervistatore dovrebbe valutare se il candidato comprende che il version control non serve solo a salvare codice, ma anche a comunicare intenzione e ridurre rischio.
+
+==== Spunti di approfondimento
+
+* Quando una Pull Request è troppo grande?
+* Quando separeresti refactoring e bug fix?
+* Preferisci commit piccoli o Pull Request piccole?
+* Quando useresti squash?
+* Come scriveresti un buon messaggio di commit?
+* Come gestiresti una riformattazione automatica?
+* Cosa faresti se il fix fosse urgente?
+
+==== Rubrica di valutazione
+
+L0::
+Non riconosce problemi nella struttura della Pull Request.
+
+L1::
+Riconosce che la Pull Request è grande, ma non propone una riorganizzazione chiara.
+
+L2::
+Propone di separare modifiche non correlate e migliorare commit e descrizione.
+
+L3::
+Ragiona su reviewability, tracciabilità, rischio di regressione e gestione della storia Git.
+
+L4::
+Definisce pratiche di team sostenibili per version control, Pull Request, commit, branch e collaborazione tecnica.
+
+endif::[]

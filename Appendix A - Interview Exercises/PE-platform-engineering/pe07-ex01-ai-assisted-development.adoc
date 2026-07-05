@@ -1,0 +1,126 @@
+[[pe07-ex01]]
+=== PE-07-EX01 - Codice Generato dall'AI
+
+==== Metadati
+
+Competenza::
+PE-07 - AI-Assisted Development
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Uno sviluppatore del team utilizza un assistente AI per implementare una nuova funzionalità.
+
+Prima di effettuare il commit, ti chiede di revisionare il codice generato.
+
+==== Materiale fornito
+
+Lo sviluppatore fornisce la seguente spiegazione.
+
+[source,text]
+----
+Ho chiesto all'assistente AI di implementare
+la funzionalità.
+
+Il codice compila, tutti i test esistenti passano
+e la soluzione sembra corretta.
+
+Non ho verificato ulteriormente il risultato.
+----
+
+==== Consegna
+
+Descrivi come procederesti.
+
+Spiega:
+
+* quali verifiche eseguiresti;
+* quali aspetti controlleresti;
+* quali rischi considereresti;
+* quali parti del codice analizzeresti con maggiore attenzione;
+* in quali casi accetteresti il codice senza modifiche.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta il modo in cui il candidato utilizza strumenti di AI durante lo sviluppo.
+
+Non interessa lo strumento utilizzato.
+
+Interessa il processo di verifica.
+
+==== Cosa osservare
+
+* Non considera il codice AI automaticamente corretto.
+* Verifica il comportamento del codice.
+* Controlla sicurezza, prestazioni e manutenibilità.
+* Considera i test.
+* Ragiona sui limiti dello strumento.
+* Mantiene senso critico.
+
+==== Soluzione canonica
+
+Una buona risposta dovrebbe prevedere almeno:
+
+* lettura completa del codice;
+* verifica della correttezza rispetto ai requisiti;
+* verifica dei casi limite;
+* valutazione della qualità del codice;
+* verifica delle prestazioni;
+* verifica degli aspetti di sicurezza;
+* eventuale integrazione dei test;
+* revisione come qualsiasi altro codice.
+
+Il candidato dovrebbe evitare affermazioni del tipo:
+
+> "Se i test passano, il codice è corretto."
+
+oppure:
+
+> "Mi fido dell'AI."
+
+==== Soluzioni alternative
+
+Sono corrette tutte le strategie che mantengono il controllo umano sulla qualità del software.
+
+L'intervistatore dovrebbe valutare il processo di validazione piuttosto che il giudizio finale sul codice.
+
+==== Spunti di approfondimento
+
+* Per quali attività utilizzeresti più volentieri l'AI?
+* Per quali attività la eviteresti?
+* Come individueresti una "hallucination"?
+* Come useresti l'AI durante una Code Review?
+* Come cambierebbe il tuo processo di sviluppo?
+
+==== Rubrica di valutazione
+
+L0::
+Accetta il codice generato senza alcuna verifica.
+
+L1::
+Verifica superficialmente il codice.
+
+L2::
+Analizza criticamente il risultato verificandone correttezza, qualità e sicurezza.
+
+L3::
+Integra l'AI nel proprio processo di sviluppo mantenendo pieno controllo tecnico.
+
+L4::
+Definisce linee guida condivise per l'utilizzo dell'AI, promuovendo un uso consapevole e responsabile degli strumenti.
+
+endif::[]
