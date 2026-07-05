@@ -1,0 +1,175 @@
+[[ar10-ex02]]
+=== AR-10-EX02 - Eventi Duplicati
+
+==== Metadati
+
+Competenza::
+AR-10 - Event-Driven Architecture
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Un sistema e-commerce pubblica un evento ogni volta che un ordine viene confermato.
+
+L'evento viene consumato da un servizio che invia email di conferma ai clienti.
+
+Negli ultimi giorni alcuni clienti hanno ricevuto due o tre email per lo stesso ordine.
+
+==== Materiale fornito
+
+Evento pubblicato:
+
+[source,json]
+----
+{
+  "eventId": "evt-789",
+  "eventType": "OrderConfirmed",
+  "orderId": 456,
+  "customerEmail": "mario.rossi@example.com",
+  "occurredAt": "2026-10-14T10:21:31Z"
+}
+----
+
+Log del consumer:
+
+[source,text]
+----
+2026-10-14 10:21:32 INFO  EmailConsumer - Received OrderConfirmed event evt-789 for order 456
+2026-10-14 10:21:32 INFO  EmailService  - Sending confirmation email for order 456
+2026-10-14 10:21:33 ERROR EmailConsumer - Error while acknowledging event evt-789
+
+2026-10-14 10:21:40 INFO  EmailConsumer - Received OrderConfirmed event evt-789 for order 456
+2026-10-14 10:21:40 INFO  EmailService  - Sending confirmation email for order 456
+2026-10-14 10:21:41 INFO  EmailConsumer - Event evt-789 acknowledged
+----
+
+==== Consegna
+
+Analizza il problema.
+
+Descrivi:
+
+* cosa potrebbe essere successo;
+* perché lo stesso evento può essere elaborato più volte;
+* come renderesti il consumer idempotente;
+* quali dati salveresti per evitare duplicati;
+* quali trade-off considereresti.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di comprendere il concetto di at-least-once delivery e la necessità di progettare consumer idempotenti.
+
+L'obiettivo non è verificare la conoscenza di uno specifico broker, ma osservare se il candidato riconosce il failure mode.
+
+==== Cosa osservare
+
+* Riconosce che l'evento può essere consegnato più volte.
+* Collega il problema al fallimento dell'acknowledgement.
+* Distingue invio email e conferma di elaborazione.
+* Propone una strategia di idempotenza.
+* Considera persistenza degli eventi già processati.
+* Valuta rischi e limiti della soluzione.
+
+==== Soluzione canonica
+
+Il log suggerisce che il consumer ha inviato la mail, ma non è riuscito a confermare correttamente l'elaborazione dell'evento.
+
+Di conseguenza, il broker o il meccanismo di consegna ha riproposto lo stesso evento.
+
+Una possibile soluzione consiste nel rendere il consumer idempotente.
+
+Ad esempio:
+
+[source,text]
+----
+ProcessedEvent
+--------------
+EventId
+ProcessedAt
+Status
+----
+
+Prima di inviare la mail, il consumer verifica se `eventId` è già stato processato.
+
+Pseudo-flusso:
+
+[source,text]
+----
+receive event
+
+if eventId already processed:
+    acknowledge event
+    stop
+
+send email
+
+mark eventId as processed
+
+acknowledge event
+----
+
+Tuttavia, il candidato dovrebbe notare che anche questa sequenza può avere problemi se il sistema fallisce dopo l'invio email ma prima del salvataggio dello stato.
+
+Una soluzione più robusta potrebbe prevedere:
+
+* salvataggio di uno stato di elaborazione;
+* vincolo di unicità su `eventId`;
+* invio tramite un sistema che supporti deduplicazione;
+* registrazione di una notifica già inviata per `orderId` e tipo notifica;
+* retry controllati;
+* dead letter queue per errori persistenti.
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* deduplicano per `eventId`;
+* deduplicano per coppia `orderId` + tipo notifica;
+* rendono l'invio email idempotente tramite una notification key;
+* usano una tabella di outbox/inbox;
+* separano ricezione evento e invio notifica;
+* usano un provider email con idempotency key, se disponibile.
+
+L'intervistatore dovrebbe valutare se il candidato comprende che i duplicati sono un comportamento da gestire, non un'anomalia impossibile.
+
+==== Spunti di approfondimento
+
+* È realistico aspettarsi exactly-once delivery?
+* Deduplicheresti per `eventId` o per `orderId`?
+* Cosa succede se l'evento viene ripubblicato con un nuovo `eventId`?
+* Come gestiresti un errore dopo l'invio email ma prima dell'ack?
+* Quando useresti una dead letter queue?
+* Come monitoreresti il numero di duplicati?
+
+==== Rubrica di valutazione
+
+L0::
+Non riconosce il problema degli eventi duplicati.
+
+L1::
+Riconosce il duplicato ma propone soluzioni fragili o manuali.
+
+L2::
+Propone una strategia semplice di idempotenza basata su identificativi persistiti.
+
+L3::
+Discute failure mode, acknowledgement, retry, deduplicazione e limiti della soluzione.
+
+L4::
+Propone una strategia robusta considerando inbox/outbox pattern, idempotency key, monitoring, dead letter queue e semantica degli eventi.
+
+endif::[]

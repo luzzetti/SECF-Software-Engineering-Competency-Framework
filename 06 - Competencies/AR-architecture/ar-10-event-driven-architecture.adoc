@@ -1,0 +1,94 @@
+[[ar10-event-driven-architecture]]
+=== AR-10 - Event-Driven Architecture
+
+[cols="1,4"]
+|===
+|Area
+|Architecture
+
+|Priorità
+|Importante
+|===
+
+==== Scopo
+
+Valutare la capacità del candidato di progettare sistemi basati su eventi, comprendendone vantaggi, limiti e principali problematiche.
+
+==== Cosa osservare
+
+* Comprende quando utilizzare la comunicazione asincrona.
+* Distingue eventi e comandi.
+* Ragiona sul disaccoppiamento tra servizi.
+* Considera consistenza, idempotenza e gestione degli errori.
+* Valuta i trade-off rispetto alla comunicazione sincrona.
+
+==== Domanda di base
+
+Un nuovo ordine viene creato.
+
+Dopo la creazione devono essere eseguite le seguenti attività:
+
+* aggiornare il magazzino;
+* inviare una mail al cliente;
+* notificare il CRM;
+* aggiornare il sistema di Analytics.
+
+Come progetteresti la comunicazione tra questi componenti?
+
+NOTE: Non suggerire l'utilizzo di Kafka, RabbitMQ o altri strumenti specifici.
+Valuta il ragionamento.
+
+==== Domande di approfondimento
+
+* Quali operazioni eseguiresti in modo sincrono e quali in modo asincrono?
+* Cosa succede se uno dei sistemi destinatari non è disponibile?
+* Come eviteresti l'elaborazione duplicata dello stesso evento?
+* Come gestiresti eventi fuori ordine?
+* Hai utilizzato architetture event-driven in progetti reali?
+Quali vantaggi e difficoltà hai incontrato?
+
+==== Segnali positivi
+
+* Distingue chiaramente eventi e chiamate sincrone.
+* Riduce l'accoppiamento tra sistemi.
+* Considera retry e idempotenza.
+* Ragiona sulla consistenza eventuale.
+* Motiva le proprie scelte.
+
+==== Segnali di attenzione
+
+* Propone comunicazione sincrona per qualsiasi scenario.
+* Non considera errori o indisponibilità dei destinatari.
+* Ignora la possibilità di eventi duplicati.
+* Assume che gli eventi arrivino sempre nell'ordine corretto.
+* Confonde eventi e chiamate RPC.
+
+==== Livelli
+
+[cols="1,5"]
+|===
+
+|L0
+|Non comprende le caratteristiche fondamentali della comunicazione basata su eventi.
+
+|L1
+|Comprende il ruolo degli eventi e riconosce semplici scenari in cui possono essere utilizzati.
+
+|L2
+|Progetta semplici flussi event-driven distinguendo correttamente comunicazione sincrona e asincrona.
+
+|L3
+|Analizza trade-off relativi a consistenza, idempotenza, ordine degli eventi, retry e resilienza, scegliendo l'approccio più appropriato.
+
+|L4
+|Definisce architetture event-driven complesse, contribuendo alla progettazione di sistemi distribuiti resilienti, scalabili ed evolvibili.
+
+|===
+
+==== Note
+
+____________________________________________________________
+
+____________________________________________________________
+
+____________________________________________________________

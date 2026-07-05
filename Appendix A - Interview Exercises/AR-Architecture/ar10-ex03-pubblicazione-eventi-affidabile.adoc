@@ -1,0 +1,208 @@
+[[ar10-ex03]]
+=== AR-10-EX03 - Pubblicazione Affidabile degli Eventi
+
+==== Metadati
+
+Competenza::
+AR-10 - Event-Driven Architecture
+
+Livello consigliato::
+L3-L4
+
+Tempo stimato::
+30 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Un servizio backend crea ordini e pubblica un evento `OrderCreated`.
+
+L'evento viene utilizzato da altri sistemi per:
+
+* inviare una email al cliente;
+* aggiornare il CRM;
+* alimentare Analytics.
+
+Il team ha notato che, in alcuni casi rari, l'ordine viene salvato correttamente nel database, ma l'evento non viene pubblicato.
+
+==== Materiale fornito
+
+Codice semplificato:
+
+[source,java]
+----
+public class OrderService {
+
+    private final OrderRepository orderRepository;
+    private final EventPublisher eventPublisher;
+
+    public Order createOrder(CreateOrderRequest request) {
+
+        Order order = Order.from(request);
+
+        orderRepository.save(order);
+
+        eventPublisher.publish(new OrderCreatedEvent(order.getId()));
+
+        return order;
+    }
+}
+----
+
+Problema osservato:
+
+[source,text]
+----
+- Se il database salva correttamente l'ordine ma il broker non è disponibile,
+  l'evento non viene pubblicato.
+
+- I sistemi downstream non vengono notificati.
+
+- L'ordine esiste, ma alcuni processi successivi non partono.
+----
+
+==== Consegna
+
+Analizza il problema.
+
+Descrivi:
+
+* quale failure mode individui;
+* perché la soluzione attuale è fragile;
+* come renderesti affidabile la pubblicazione dell'evento;
+* quali trade-off introdurrebbe la soluzione;
+* come monitoreresti eventuali eventi non pubblicati.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di ragionare sull'affidabilità della pubblicazione degli eventi.
+
+L'obiettivo non è verificare se conosce il nome "Outbox Pattern", ma osservare se comprende il problema di consistenza tra stato applicativo ed evento pubblicato.
+
+==== Cosa osservare
+
+* Riconosce che salvataggio ordine e pubblicazione evento non sono atomici.
+* Comprende il rischio di eventi persi.
+* Propone una strategia di pubblicazione affidabile.
+* Considera retry e monitoraggio.
+* Ragiona su consistenza eventuale.
+* Valuta complessità operativa e trade-off.
+
+==== Soluzione canonica
+
+Il problema principale è che il salvataggio dell'ordine e la pubblicazione dell'evento avvengono in due passaggi separati.
+
+[source,text]
+----
+1. Salva ordine nel database.
+2. Pubblica evento sul broker.
+----
+
+Se il primo passaggio riesce e il secondo fallisce, il sistema rimane in uno stato incoerente: l'ordine esiste, ma i sistemi downstream non lo sanno.
+
+Una possibile soluzione è utilizzare una tabella di outbox.
+
+[source,text]
+----
+Order
+-----
+Id
+Status
+CreatedAt
+
+OutboxEvent
+-----------
+Id
+AggregateType
+AggregateId
+EventType
+Payload
+Status
+CreatedAt
+PublishedAt
+RetryCount
+----
+
+Durante la stessa transazione del salvataggio dell'ordine, il sistema salva anche l'evento nella tabella `OutboxEvent`.
+
+[source,text]
+----
+BEGIN TRANSACTION
+
+save Order
+
+save OutboxEvent
+
+COMMIT
+----
+
+Un processo separato legge gli eventi non pubblicati dalla outbox e li pubblica sul broker.
+
+[source,text]
+----
+OutboxEvent PENDING
+
+↓
+
+Publisher Job
+
+↓
+
+Broker
+
+↓
+
+OutboxEvent PUBLISHED
+----
+
+In questo modo, se il broker è temporaneamente non disponibile, l'evento rimane persistito e può essere ripubblicato successivamente.
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* usano Outbox Pattern;
+* usano transactional messaging, se disponibile;
+* usano CDC (Change Data Capture) per pubblicare eventi dal database;
+* introducono retry persistenti;
+* usano una coda locale affidabile;
+* prevedono job di riconciliazione periodici.
+
+L'intervistatore dovrebbe valutare se il candidato comprende il problema di affidabilità e non si limita a proporre un semplice retry in memoria.
+
+==== Spunti di approfondimento
+
+* Perché un retry immediato non è sempre sufficiente?
+* Cosa succede se il servizio si spegne dopo aver salvato l'ordine?
+* Come eviteresti di pubblicare due volte lo stesso evento?
+* Come monitoreresti eventi rimasti in stato `PENDING`?
+* Come gestiresti errori persistenti verso il broker?
+* Quali informazioni inseriresti nel payload dell'evento?
+* Come garantiresti l'ordine degli eventi per lo stesso ordine?
+
+==== Rubrica di valutazione
+
+L0::
+Non riconosce il rischio di eventi persi.
+
+L1::
+Riconosce il problema ma propone solo retry temporanei o non persistenti.
+
+L2::
+Propone una soluzione persistente per evitare la perdita degli eventi.
+
+L3::
+Discute outbox, retry, idempotenza, monitoraggio, duplicati e consistenza eventuale.
+
+L4::
+Definisce una strategia completa di pubblicazione affidabile considerando outbox, CDC, ordering, observability, recovery e governance degli eventi.
+
+endif::[]

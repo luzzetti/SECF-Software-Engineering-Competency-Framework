@@ -1,0 +1,174 @@
+[[ar10-ex01]]
+=== AR-10-EX01 - Dopo la Creazione di un Ordine
+
+==== Metadati
+
+Competenza::
+AR-10 - Event-Driven Architecture
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Stai sviluppando il backend di un sistema e-commerce.
+
+Quando un ordine viene creato correttamente, il sistema deve eseguire alcune attività successive.
+
+==== Materiale fornito
+
+[source,text]
+----
+Evento principale:
+OrderCreated
+
+Attività successive:
+- aggiornare il magazzino;
+- inviare una email di conferma al cliente;
+- notificare il CRM;
+- aggiornare il sistema di Analytics.
+----
+
+Informazioni aggiuntive:
+
+[source,text]
+----
+- Il cliente deve ricevere una risposta rapidamente.
+- L'aggiornamento del magazzino è critico.
+- L'email può essere inviata con qualche secondo di ritardo.
+- Il CRM può essere temporaneamente non disponibile.
+- Analytics non è critico per il completamento dell'ordine.
+----
+
+==== Consegna
+
+Progetta il flusso di comunicazione tra i componenti.
+
+Descrivi:
+
+* quali operazioni eseguiresti in modo sincrono;
+* quali operazioni eseguiresti in modo asincrono;
+* quali eventi pubblicheresti;
+* come gestiresti errori, retry e duplicati;
+* quali trade-off considereresti.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di distinguere tra comunicazione sincrona e asincrona, progettando un flusso basato su eventi senza dipendere da una tecnologia specifica.
+
+L'obiettivo non è ottenere una soluzione con un particolare broker, ma osservare il ragionamento architetturale.
+
+==== Cosa osservare
+
+* Distingue operazioni critiche e non critiche.
+* Non rende tutto sincrono per semplicità.
+* Non rende tutto asincrono per moda.
+* Propone eventi coerenti con il dominio.
+* Considera retry e idempotenza.
+* Considera indisponibilità temporanea dei sistemi destinatari.
+* Ragiona sulla consistenza eventuale.
+
+==== Soluzione canonica
+
+Una possibile soluzione consiste nel mantenere sincrone solo le operazioni necessarie per confermare l'ordine.
+
+Ad esempio:
+
+[source,text]
+----
+POST /orders
+    |
+    |-- valida richiesta
+    |-- verifica disponibilità
+    |-- crea ordine
+    |-- pubblica OrderCreated
+    |
+    --> risposta al client
+----
+
+Le attività successive possono essere gestite tramite consumatori dell'evento `OrderCreated`.
+
+[source,text]
+----
+OrderCreated
+    |
+    |-- Inventory Handler
+    |-- Email Handler
+    |-- CRM Handler
+    |-- Analytics Handler
+----
+
+Il candidato dovrebbe discutere con attenzione il magazzino.
+
+Se la disponibilità deve essere garantita prima della creazione dell'ordine, la verifica o prenotazione dello stock potrebbe essere parte del flusso sincrono.
+
+Se invece l'aggiornamento del magazzino è successivo, deve essere gestito con meccanismi robusti di retry, idempotenza e compensazione.
+
+Per email, CRM e Analytics, una gestione asincrona è generalmente appropriata.
+
+Aspetti importanti:
+
+[source,text]
+----
+- ogni consumer deve essere idempotente;
+- gli eventi possono essere ricevuti più di una volta;
+- un consumer non disponibile non deve bloccare la creazione dell'ordine;
+- i retry devono essere controllati;
+- gli errori persistenti possono finire in una dead letter queue;
+- gli eventi devono contenere un identificativo stabile.
+----
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* usano un broker di messaggi;
+* usano code separate per ciascun consumer;
+* usano un event bus;
+* usano webhook verso sistemi esterni;
+* mantengono alcune integrazioni sincrone se motivate dal dominio;
+* introducono un outbox pattern per pubblicare eventi in modo affidabile;
+* separano `OrderCreated` da eventi più specifici come `OrderConfirmed` o `PaymentAuthorized`.
+
+L'intervistatore dovrebbe valutare se il candidato sceglie la comunicazione asincrona per ridurre accoppiamento e aumentare resilienza, non per moda.
+
+==== Spunti di approfondimento
+
+* Quale operazione non renderesti asincrona?
+* Cosa succede se il CRM non risponde per un'ora?
+* Come eviteresti che la stessa email venga inviata due volte?
+* Cosa dovrebbe contenere l'evento `OrderCreated`?
+* Come garantiresti che l'evento venga pubblicato dopo il salvataggio dell'ordine?
+* Come monitoreresti i consumer?
+* Quando useresti una dead letter queue?
+
+==== Rubrica di valutazione
+
+L0::
+Non distingue comunicazione sincrona e asincrona o propone un flusso incoerente.
+
+L1::
+Propone eventi o code in modo generico, senza discutere errori e consistenza.
+
+L2::
+Progetta un flusso semplice e coerente, distinguendo correttamente operazioni sincrone e asincrone.
+
+L3::
+Discute retry, idempotenza, failure mode, consistenza eventuale e indisponibilità dei consumer.
+
+L4::
+Propone una strategia completa considerando affidabilità della pubblicazione, outbox pattern, monitoring, dead letter queue e governance degli eventi.
+
+endif::[]

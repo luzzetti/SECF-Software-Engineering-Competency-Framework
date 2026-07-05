@@ -1,0 +1,165 @@
+[[se02-ex01]]
+=== SE-02-EX01 - Due Oggetti Uguali?
+
+==== Metadati
+
+Competenza::
+SE-02 - Identità e Uguaglianza degli Oggetti
+
+Livello consigliato::
+L1-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Durante una Code Review trovi il seguente codice.
+
+==== Materiale fornito
+
+[source,java]
+----
+public class User {
+
+    private Long id;
+    private String name;
+
+    public User(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+}
+
+User user1 = new User(1L, "Mario");
+User user2 = new User(1L, "Mario");
+
+System.out.println(user1 == user2);
+
+System.out.println(user1.equals(user2));
+
+Set<User> users = new HashSet<>();
+
+users.add(user1);
+users.add(user2);
+
+System.out.println(users.size());
+----
+
+==== Consegna
+
+Analizza il codice.
+
+Descrivi:
+
+* quale output ti aspetti;
+* perché;
+* quali problemi individui;
+* come modificheresti la classe;
+* quali conseguenze potrebbero emergere utilizzando questi oggetti in `HashSet` o `HashMap`.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la comprensione dell'identità degli oggetti e del contratto tra `equals()` e `hashCode()`.
+
+Non interessa verificare la memoria della sintassi Java.
+
+Interessa il ragionamento.
+
+==== Cosa osservare
+
+* Distingue `==` ed `equals()`.
+* Comprende il comportamento di `HashSet`.
+* Introduce spontaneamente `hashCode()`.
+* Motiva quali campi usare per l'uguaglianza.
+* Collega la soluzione al dominio.
+
+==== Soluzione canonica
+
+Nello stato attuale della classe:
+
+[source,text]
+----
+user1 == user2
+
+false
+
+user1.equals(user2)
+
+false
+
+users.size()
+
+2
+----
+
+poiché `User` eredita l'implementazione di `equals()` da `Object`.
+
+Una possibile implementazione consiste nel ridefinire entrambi i metodi.
+
+[source,java]
+----
+@Override
+public boolean equals(Object obj) {
+
+    if (this == obj)
+        return true;
+
+    if (!(obj instanceof User))
+        return false;
+
+    User other = (User) obj;
+
+    return Objects.equals(id, other.id);
+}
+
+@Override
+public int hashCode() {
+    return Objects.hash(id);
+}
+----
+
+Il candidato dovrebbe discutere anche quale campo rappresenta realmente l'identità del dominio.
+
+==== Soluzioni alternative
+
+Sono corrette tutte le implementazioni coerenti con il dominio applicativo.
+
+È positivo se il candidato osserva che l'uguaglianza potrebbe dipendere dal contesto e non esclusivamente dall'identificatore.
+
+==== Spunti di approfondimento
+
+* Perché è necessario ridefinire anche `hashCode()`?
+* Cosa succede in una `HashMap`?
+* Perché a volte `==` sembra funzionare con le `String`?
+* Cos'è lo String Pool?
+* Utilizzeresti sempre l'identificatore per definire l'uguaglianza?
+* Come cambia il problema con entity JPA o ORM?
+
+==== Rubrica di valutazione
+
+L0::
+Non distingue identità e uguaglianza.
+
+L1::
+Conosce la differenza tra `==` ed `equals()`.
+
+L2::
+Comprende il contratto `equals()` / `hashCode()` e il comportamento delle collection.
+
+L3::
+Discute identità di dominio, String Pool, entity persistenti e conseguenze progettuali.
+
+L4::
+Analizza criticamente diverse strategie di definizione dell'uguaglianza, motivandole rispetto al dominio applicativo.
+
+endif::[]

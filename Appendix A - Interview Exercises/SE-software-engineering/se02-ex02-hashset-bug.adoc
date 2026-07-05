@@ -1,0 +1,99 @@
+[[se02-ex02]]
+=== SE-02-EX02 - Il Bug nel HashSet
+
+==== Metadati
+
+Competenza::
+SE-02 - Identità e Uguaglianza degli Oggetti
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Dopo una modifica recente, il team segnala un comportamento anomalo.
+
+Alcuni utenti risultano presenti più volte all'interno di un `HashSet`, anche se rappresentano la stessa persona.
+
+==== Materiale fornito
+
+[source,java]
+----
+public class User {
+
+    private Long id;
+    private String email;
+
+    @Override
+    public boolean equals(Object obj) {
+
+        if (this == obj)
+            return true;
+
+        if (!(obj instanceof User))
+            return false;
+
+        User other = (User) obj;
+
+        return Objects.equals(id, other.id);
+    }
+
+}
+----
+
+Codice applicativo:
+
+[source,java]
+----
+Set<User> users = new HashSet<>();
+
+users.add(new User(1L, "mario@example.com"));
+users.add(new User(1L, "mario@example.com"));
+
+System.out.println(users.size());
+----
+
+==== Consegna
+
+Analizza il codice.
+
+Descrivi:
+
+* quale problema individui;
+* quale comportamento ti aspetti;
+* quale ne pensi sia la causa;
+* come correggeresti la classe.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la comprensione del contratto tra `equals()` e `hashCode()`.
+
+==== Cosa osservare
+
+* Individua rapidamente l'assenza di `hashCode()`.
+* Comprende il comportamento di `HashSet`.
+* Sa spiegare perché il bug si manifesta.
+* Non propone workaround.
+
+==== Soluzione canonica
+
+Il candidato dovrebbe osservare che è stato ridefinito `equals()` ma non `hashCode()`.
+
+Questo viola il contratto richiesto dalle collection hash-based.
+
+La correzione consiste nell'implementare un `hashCode()` coerente con `equals()`.
+
+...
+endif::[]

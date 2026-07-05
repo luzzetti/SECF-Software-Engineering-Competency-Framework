@@ -1,5 +1,5 @@
-[[se02-object-oriented-design]]
-=== SE-02 - Object-Oriented Design
+[[se02-object-identity]]
+=== SE-02 - Identità e Uguaglianza degli Oggetti
 
 [cols="1,4"]
 |===
@@ -12,51 +12,49 @@
 
 ==== Scopo
 
-Valutare la capacità del candidato di modellare un dominio utilizzando i principi della programmazione orientata agli oggetti.
+Valutare la capacità del candidato di comprendere la differenza tra identità e uguaglianza degli oggetti, progettando correttamente classi destinate a essere utilizzate in collezioni, algoritmi e strutture dati.
 
 ==== Cosa osservare
 
-* Identifica correttamente responsabilità e collaborazioni.
-* Modella il dominio utilizzando astrazioni appropriate.
-* Applica correttamente incapsulamento, composizione ed ereditarietà quando opportuno.
-* Evita dipendenze inutili.
-* Ragiona in termini di evoluzione del modello.
+* Distingue identità e uguaglianza.
+* Comprende il ruolo di `equals()` e `hashCode()`.
+* Conosce il contratto tra i due metodi.
+* Comprende le conseguenze nelle collection.
+* Motiva le proprie scelte progettuali.
 
 ==== Domanda di base
 
-Stai sviluppando un sistema di e-commerce.
+Due oggetti rappresentano lo stesso concetto del dominio.
 
-Un ordine può contenere prodotti fisici e prodotti digitali.
-I prodotti digitali vengono consegnati immediatamente, mentre quelli fisici devono essere spediti.
+Come stabiliresti se devono essere considerati uguali?
 
-Come modelleresti il dominio?
-
-NOTE: Non chiedere di scrivere codice.
-Concentrati sul modello e sulle responsabilità.
+NOTE: Non chiedere immediatamente la differenza tra `==` e `equals()`.
+Lascia che il candidato introduca spontaneamente il concetto.
 
 ==== Domande di approfondimento
 
-* Se domani venissero introdotti gli abbonamenti, cosa cambierebbe?
-* Quando utilizzeresti l'ereditarietà e quando la composizione?
-* Dove inseriresti la logica di calcolo del prezzo?
-* Come renderesti il modello facilmente estendibile?
-* Hai mai dovuto modificare un modello a oggetti perché era diventato difficile da mantenere?
+* Qual è la differenza tra identità e uguaglianza?
+* Quando utilizzeresti `==`?
+* Quando utilizzeresti `equals()`?
+* Perché `hashCode()` è importante?
+* Cosa succede se `equals()` e `hashCode()` non sono coerenti?
+* Hai mai risolto un bug legato a questo problema?
 
 ==== Segnali positivi
 
-* Identifica correttamente le responsabilità.
-* Evita classi "onnipotenti".
-* Utilizza composizione quando appropriato.
-* Ragiona sul dominio prima dell'implementazione.
-* Giustifica le proprie scelte progettuali.
+* Distingue identità e uguaglianza logica.
+* Comprende il contratto `equals()` / `hashCode()`.
+* Porta esempi con Set e Map.
+* Motiva la scelta dei campi utilizzati per il confronto.
+* Considera il dominio applicativo.
 
 ==== Segnali di attenzione
 
-* Utilizza l'ereditarietà senza una reale necessità.
-* Inserisce tutta la logica in un'unica classe.
-* Confonde dati e comportamento.
-* Introduce astrazioni inutilmente complesse.
-* Non sa spiegare le relazioni tra gli oggetti.
+* Confonde `==` con `equals()`.
+* Ridefinisce `equals()` senza `hashCode()`.
+* Considera l'uguaglianza indipendentemente dal dominio.
+* Non comprende il comportamento delle collection.
+* Risponde esclusivamente in termini di sintassi Java.
 
 ==== Livelli
 
@@ -64,19 +62,19 @@ Concentrati sul modello e sulle responsabilità.
 |===
 
 |L0
-|Non riesce a modellare il dominio o propone un modello incoerente.
+|Non distingue identità e uguaglianza degli oggetti.
 
 |L1
-|Modella semplici relazioni tra oggetti utilizzando i principi fondamentali dell'OOP.
+|Conosce la differenza tra `==` ed `equals()` nei casi più comuni.
 
 |L2
-|Progetta modelli coesi e facilmente estendibili, scegliendo correttamente tra composizione ed ereditarietà.
+|Progetta correttamente `equals()` e `hashCode()` comprendendone l'impatto sulle collection.
 
 |L3
-|Bilancia semplicità, flessibilità e manutenibilità, adattando il modello all'evoluzione del dominio.
+|Motiva la definizione di uguaglianza in funzione del dominio applicativo, considerando identità, valore e ciclo di vita degli oggetti.
 
 |L4
-|Definisce modelli condivisi e linee guida progettuali, contribuendo alla qualità complessiva dell'architettura.
+|Definisce linee guida e modelli condivisi per la gestione dell'identità e dell'uguaglianza nelle architetture object-oriented.
 
 |===
 
