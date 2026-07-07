@@ -1,0 +1,168 @@
+[[da03-ex01]]
+=== DA-03-EX01 - Catalogo Prodotti
+
+==== Metadati
+
+Competenza::
+DA-03 - Database NoSQL
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Stai sviluppando un sistema di e-commerce.
+
+Il catalogo prodotti contiene articoli appartenenti a categorie molto differenti.
+
+Alcuni esempi:
+
+[source,text]
+----
+Notebook
+
+- CPU
+- RAM
+- SSD
+- GPU
+- Peso
+
+Televisore
+
+- Dimensione
+- Risoluzione
+- HDR
+- HDMI
+
+Lavatrice
+
+- Capacità
+- Classe energetica
+- Giri centrifuga
+
+Libro
+
+- Autore
+- Editore
+- ISBN
+- Numero pagine
+----
+
+Ogni categoria possiede caratteristiche molto diverse dalle altre.
+
+Inoltre, nuove categorie vengono aggiunte frequentemente.
+
+==== Consegna
+
+Descrivi come modelleresti i dati.
+
+Spiega:
+
+* quale tipo di database prenderesti in considerazione;
+* quali vantaggi e svantaggi individui;
+* come rappresenteresti gli attributi specifici dei prodotti;
+* quali aspetti influenzerebbero la tua decisione.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di scegliere il modello di persistenza più adatto al problema.
+
+L'obiettivo non è verificare la conoscenza di uno specifico database NoSQL.
+
+==== Cosa osservare
+
+* Parte dai requisiti.
+* Riconosce l'elevata variabilità dello schema.
+* Confronta database relazionali e documentali.
+* Considera query, evoluzione e manutenzione.
+* Ragiona sui trade-off.
+* Evita scelte basate sulla moda.
+
+==== Soluzione canonica
+
+Il candidato dovrebbe osservare che:
+
+* gli attributi cambiano molto tra una categoria e l'altra;
+* il modello evolve frequentemente;
+* uno schema rigido potrebbe diventare difficile da mantenere.
+
+Una possibile soluzione consiste nell'utilizzare un database documentale per rappresentare gli attributi specifici dei prodotti.
+
+Ad esempio:
+
+[source,json]
+----
+{
+  "id": 123,
+  "name": "Notebook XYZ",
+  "category": "Notebook",
+  "attributes": {
+    "cpu": "Intel i7",
+    "ram": "32 GB",
+    "ssd": "1 TB",
+    "gpu": "RTX 4070"
+  }
+}
+----
+
+Tuttavia il candidato dovrebbe discutere anche gli svantaggi:
+
+* maggiore complessità nelle query;
+* minori vincoli sullo schema;
+* possibile duplicazione dei dati;
+* validazione applicativa.
+
+Una risposta molto positiva è quella che conclude:
+
+> "Prima di scegliere il database vorrei capire quali query dovrà eseguire il sistema."
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* utilizzano un database relazionale con modello EAV (Entity-Attribute-Value);
+* combinano database relazionale e documentale;
+* introducono JSON column in un database relazionale;
+* mantengono il modello relazionale se le query lo richiedono.
+
+L'intervistatore dovrebbe valutare il ragionamento seguito dal candidato più che la tecnologia proposta.
+
+==== Spunti di approfondimento
+
+* Come cercheresti tutti i notebook con almeno 32 GB di RAM?
+* Come gestiresti l'aggiunta di una nuova categoria?
+* Quando preferiresti un database relazionale?
+* Quali problemi potrebbe creare un modello troppo flessibile?
+* Come indicizzeresti gli attributi più ricercati?
+* Come evolveresti il modello nel tempo?
+
+==== Rubrica di valutazione
+
+L0::
+Non riconosce le caratteristiche del problema o propone una soluzione incoerente.
+
+L1::
+Riconosce che il modello è flessibile ma motiva poco la scelta del database.
+
+L2::
+Confronta correttamente approccio relazionale e documentale, scegliendo una soluzione coerente con i requisiti.
+
+L3::
+Discute schema, query, indicizzazione, evoluzione e trade-off tra consistenza e flessibilità.
+
+L4::
+Progetta una strategia di persistenza che combina modelli differenti quando opportuno, motivando chiaramente vantaggi e limiti.
+
+endif::[]

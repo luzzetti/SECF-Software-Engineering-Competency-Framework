@@ -1,0 +1,149 @@
+[[da04-ex01]]
+=== DA-04-EX01 - Una Pagina Molto Lenta
+
+==== Metadati
+
+Competenza::
+DA-04 - ORM & Data Access
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Dopo il rilascio di una nuova versione, la pagina che mostra l'elenco degli ordini diventa molto lenta.
+
+Il problema si manifesta soprattutto quando il numero di ordini supera qualche migliaio.
+
+==== Materiale fornito
+
+Codice semplificato.
+
+[source,java]
+----
+List<Order> orders = orderRepository.findRecentOrders();
+
+for (Order order : orders) {
+
+    System.out.println(
+        order.getCustomer().getName()
+    );
+
+}
+----
+
+Log SQL.
+
+[source,text]
+----
+SELECT * FROM orders;
+
+SELECT * FROM customers WHERE id = 10;
+
+SELECT * FROM customers WHERE id = 21;
+
+SELECT * FROM customers WHERE id = 32;
+
+SELECT * FROM customers WHERE id = 15;
+
+...
+
+(continua per ogni ordine)
+----
+
+==== Consegna
+
+Analizza la situazione.
+
+Descrivi:
+
+* quale problema individui;
+* quale potrebbe esserne la causa;
+* come procederesti per verificarla;
+* quali possibili soluzioni prenderesti in considerazione;
+* quali trade-off valuteresti.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di comprendere il comportamento di un layer ORM e il suo impatto sulle prestazioni.
+
+L'obiettivo non è verificare la conoscenza di Hibernate o di uno specifico ORM.
+
+==== Cosa osservare
+
+* Riconosce rapidamente il pattern N+1.
+* Collega il problema al lazy loading.
+* Ragiona sul numero delle query.
+* Considera fetch join o strategie equivalenti.
+* Evita ottimizzazioni premature.
+* Propone misurazioni prima delle modifiche.
+
+==== Soluzione canonica
+
+Il candidato dovrebbe osservare che:
+
+* viene eseguita una query per recuperare gli ordini;
+* successivamente viene eseguita una query per ogni cliente;
+* il numero totale delle query cresce linearmente con il numero degli ordini.
+
+Una possibile strategia comprende:
+
+* verificare il numero delle query generate;
+* utilizzare una fetch join o un meccanismo equivalente;
+* valutare DTO dedicati;
+* limitare i dati realmente necessari;
+* verificare il piano di esecuzione dopo la modifica.
+
+L'intervistatore dovrebbe valutare soprattutto il metodo seguito dal candidato.
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* utilizzano eager loading quando appropriato;
+* utilizzano Entity Graph;
+* utilizzano query dedicate;
+* introducono projection;
+* utilizzano cache di secondo livello, se motivata;
+* eliminano completamente l'ORM per quel caso specifico.
+
+L'intervistatore dovrebbe valutare il ragionamento e non la tecnologia citata.
+
+==== Spunti di approfondimento
+
+* Come individueresti un problema N+1?
+* Quando preferiresti un DTO?
+* Come misureresti il miglioramento?
+* Quando rinunceresti all'ORM?
+* Quali strumenti utilizzeresti per analizzare le query?
+
+==== Rubrica di valutazione
+
+L0::
+Non individua il problema.
+
+L1::
+Riconosce genericamente un problema di prestazioni.
+
+L2::
+Identifica il pattern N+1 e propone soluzioni coerenti.
+
+L3::
+Bilancia prestazioni, leggibilità e manutenibilità scegliendo la strategia più appropriata.
+
+L4::
+Definisce linee guida condivise per l'accesso ai dati, contribuendo all'evoluzione dell'architettura applicativa.
+
+endif::[]

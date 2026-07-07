@@ -33,7 +33,8 @@ NOTE: L'obiettivo non è trovare immediatamente la causa, ma comprendere il meto
 ==== Domande di approfondimento
 
 * Come distingueresti un memory leak da un picco temporaneo di memoria?
-* Qual è la differenza tra un processo e un thread? Quando preferiresti uno rispetto all'altro?
+* Qual è la differenza tra un processo e un thread?
+Quando preferiresti uno rispetto all'altro?
 * Cosa succede quando la memoria fisica disponibile non è sufficiente?
 * Hai mai utilizzato strumenti del sistema operativo per analizzare un'applicazione in produzione?
 * Raccontami un problema reale che hai risolto grazie alla comprensione del sistema operativo.

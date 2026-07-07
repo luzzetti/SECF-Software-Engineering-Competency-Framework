@@ -36,8 +36,7 @@ Valuta prima il modello dati e il ragionamento.
 ==== Domande di approfondimento
 
 * Come recupereresti tutti gli ordini di un cliente?
-* Quali colonne indicizzeresti?
-Perché?
+* Quali colonne indicizzeresti? Perché?
 * Se una query diventasse molto lenta con milioni di record, come procederesti?
 * Quando prenderesti in considerazione la denormalizzazione?
 * Hai mai ottimizzato un database in un progetto reale?

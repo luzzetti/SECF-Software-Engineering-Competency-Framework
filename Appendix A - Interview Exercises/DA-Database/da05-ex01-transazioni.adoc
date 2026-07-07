@@ -1,0 +1,150 @@
+[[da05-ex01]]
+=== DA-05-EX01 - Creazione di un Ordine
+
+==== Metadati
+
+Competenza::
+DA-05 - Transaction Management
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+'''
+
+==== Scenario
+
+Stai sviluppando il backend di un sistema e-commerce.
+
+Quando un cliente conferma un ordine devono essere eseguite le seguenti operazioni:
+
+* creare l'ordine;
+* diminuire la disponibilità dei prodotti;
+* registrare il pagamento;
+* inviare una email di conferma.
+
+==== Materiale fornito
+
+Pseudo-codice attuale:
+
+[source,java]
+----
+createOrder();
+
+updateInventory();
+
+chargePayment();
+
+sendConfirmationEmail();
+----
+
+==== Consegna
+
+Analizza il flusso.
+
+Descrivi:
+
+* quali problemi individui;
+* quali operazioni dovrebbero appartenere alla stessa transazione;
+* quali operazioni non includeresti nella transazione;
+* cosa potrebbe succedere in caso di errore;
+* come gestiresti gli scenari di fallimento.
+
+ifdef::interviewer[]
+
+'''
+
+==== Guida per l'intervistatore
+
+L'esercizio valuta la capacità del candidato di ragionare sui confini di una transazione.
+
+L'obiettivo non è discutere uno specifico framework transazionale.
+
+==== Cosa osservare
+
+* Individua operazioni atomiche.
+* Distingue database e sistemi esterni.
+* Riconosce il problema delle transazioni distribuite.
+* Evita transazioni troppo lunghe.
+* Considera rollback e consistenza.
+* Ragiona sui failure mode.
+
+==== Soluzione canonica
+
+Il candidato dovrebbe osservare che:
+
+* la creazione dell'ordine e l'aggiornamento del magazzino appartengono normalmente alla stessa transazione locale;
+* il pagamento e l'invio email coinvolgono sistemi esterni e richiedono strategie differenti;
+* l'invio della mail non dovrebbe bloccare la creazione dell'ordine.
+
+Una possibile strategia:
+
+[source,text]
+----
+BEGIN TRANSACTION
+
+createOrder()
+
+updateInventory()
+
+COMMIT
+
+↓
+
+chargePayment()
+
+↓
+
+publish PaymentCompleted
+
+↓
+
+sendConfirmationEmail()
+----
+
+Sono accettabili anche strategie differenti purché coerenti e motivate.
+
+L'intervistatore dovrebbe valutare il ragionamento piuttosto che la soluzione scelta.
+
+==== Soluzioni alternative
+
+Sono valide soluzioni che:
+
+* introducono eventi;
+* utilizzano compensazioni;
+* introducono una Saga;
+* mantengono il pagamento nella transazione solo se supportato dal dominio;
+* distinguono chiaramente consistenza forte e consistenza eventuale.
+
+==== Spunti di approfondimento
+
+* Cosa succede se il pagamento fallisce?
+* Cosa succede se la mail non viene inviata?
+* Quali operazioni sono realmente atomiche?
+* Quando utilizzeresti una Saga?
+* Come eviteresti doppie elaborazioni?
+* Come testeresti questi scenari?
+
+==== Rubrica di valutazione
+
+L0::
+Non distingue le operazioni transazionali da quelle esterne.
+
+L1::
+Riconosce alcuni problemi ma propone una soluzione poco strutturata.
+
+L2::
+Individua correttamente il confine della transazione e distingue operazioni locali e remote.
+
+L3::
+Ragiona su rollback, consistenza eventuale, compensazioni e failure mode.
+
+L4::
+Progetta una strategia completa considerando transazioni distribuite, resilienza, idempotenza e affidabilità del sistema.
+
+endif::[]

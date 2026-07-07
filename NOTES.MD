@@ -26,3 +26,11 @@ Fare un po' di tweaking sulle card che non ci convincono
 -> Building Great Software Engineering Teams
 -> How to Recruit and Hire Great Software Engineers
 -> The Holloway Guide to Technical Recruiting and Hiring
+
+
+Rest:
+-   singleton-subresources
+-   long-jobs
+-   custom-methods
+-   bulk-methods
+-   altra roba trovata su API Design della Manning
