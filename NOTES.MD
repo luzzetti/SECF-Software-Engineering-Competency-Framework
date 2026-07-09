@@ -34,3 +34,28 @@ Rest:
 -   custom-methods
 -   bulk-methods
 -   altra roba trovata su API Design della Manning
+
+
+-> Rendere più "Facile" l'utilizzo delle schede lato 'Interviewer'.
+Valutare e prendere appunti.
+
+Non mettere "Troppe" cose da leggere;
+Eventualmente "Accorpare" le valutazioni
+
+O creare una vera e propria "Matrice" globale.
+
+----->
+
+Linguette
+----->
+
+Semplificare le schede per l'interviewer.
+Probabilmente potrebbero bastare solo i livelli;
+e tra un livello e l'altro, le possibili domande
+per passare al prossimo livello;
+nel caso in cui il candidato non riesca a farlo da solo
+
+----->
+
+Stilare poi la vera ladder, con il ruolo e i task.
+Così facendo, dopo aver fatto la valutazione, sarà possibile "Posizionare" il candidato in uno degli step

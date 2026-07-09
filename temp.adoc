@@ -1,0 +1,30 @@
+= Progetto Inquisizione
+
+Core: (Possibili candidati)
+* AR01 - api-design
+* CS05 - Networking
+* AR08 - Auth-Auth
+* DA01 - db-relazionali
+* DA04 - orm
+* SE04 - log & debug
+
+* PE07 - Da formulare meglio
+* DA05 - transazioni
+
+Specifiche:
+* SE02 - equals
+* AR07 - Caching
+* AR04 - Security
+* AR10 - Event-Driven Architecture
+* SE07-EX01 - report lento
+
+
+* CO* -   in base al profilo. da definire
+* DE* -   In base al profilo. Da definire
+
+* DA03-nosql - da formulare meglio
+
+
+AR02 - Distributed System
+SE03 - testing
+SE05 - refactoring
