@@ -1,0 +1,97 @@
+[[interview-playbook]]
+== Interview Playbook
+
+=== Scopo
+
+Questo documento descrive un possibile approccio all'utilizzo del Software Engineering Competency Framework durante un colloquio tecnico.
+
+Non rappresenta una procedura obbligatoria, ma raccoglie una serie di pratiche che hanno l'obiettivo di rendere il colloquio più efficace, coerente e orientato alla raccolta di evidenze.
+
+=== Preparazione del colloquio
+
+Prima del colloquio l'intervistatore dovrebbe:
+
+* definire il ruolo da valutare;
+* identificare le competenze più rilevanti;
+* selezionare le Competency Card da utilizzare;
+* preparare eventuali esercizi pratici.
+
+Non è necessario utilizzare tutte le Competency Card durante un singolo colloquio.
+
+=== Iniziare dal candidato
+
+È consigliabile iniziare il colloquio con alcune domande aperte relative all'esperienza del candidato.
+
+Ad esempio:
+
+____
+
+"Puoi descrivermi brevemente i progetti principali sui quali hai lavorato?"
+
+____
+
+oppure
+
+____
+
+"Qual è stato il problema tecnico più interessante o più difficile che hai affrontato negli ultimi anni?"
+
+____
+
+Queste domande hanno diversi obiettivi:
+
+* aiutano il candidato a iniziare parlando di argomenti familiari;
+* permettono di osservare la comunicazione tecnica;
+* aiutano a comprendere il contesto professionale;
+* fanno emergere spontaneamente competenze, responsabilità e tecnologie utilizzate;
+* aiutano l'intervistatore a scegliere le Competency Card più pertinenti per il resto del colloquio.
+
+=== Utilizzare le Competency Card
+
+Le Competency Card rappresentano il principale strumento di valutazione.
+
+Per ciascuna competenza è consigliabile:
+
+. porre la domanda di base;
+. utilizzare le domande di approfondimento quando necessario;
+. interrompere l'approfondimento quando sono state raccolte evidenze sufficienti.
+
+L'obiettivo non è completare tutte le domande della scheda, ma comprendere il livello di padronanza della competenza.
+
+=== Utilizzare gli esercizi
+
+Quando appropriato è consigliabile integrare il colloquio con uno o più esercizi pratici.
+
+Gli esercizi permettono di osservare direttamente il comportamento del candidato e rappresentano spesso la fonte di evidenze più affidabile.
+
+=== Prendere appunti
+
+Durante il colloquio è preferibile prendere pochi appunti.
+
+Per ogni competenza è normalmente sufficiente annotare:
+
+* il livello osservato;
+* una breve evidenza significativa;
+* eventuali aspetti da approfondire.
+
+L'intervistatore dovrebbe dedicare la maggior parte dell'attenzione all'ascolto del candidato.
+
+=== Dopo il colloquio
+
+Terminato il colloquio è consigliabile:
+
+. completare la valutazione delle Competency Card;
+. assegnare i livelli di competenza (`L0`-`L5`);
+. determinare il livello di progressione (`E0`-`E5`);
+. scrivere una breve sintesi della valutazione.
+
+Questa attività dovrebbe essere svolta prima di iniziare altri colloqui, quando le evidenze raccolte sono ancora recenti.
+
+=== Suggerimenti
+
+* Preferire poche competenze valutate bene a molte competenze valutate superficialmente.
+* Lasciare al candidato il tempo di ragionare.
+* Chiedere esempi concreti quando possibile.
+* Approfondire le decisioni, non solo le soluzioni.
+* Adattare il colloquio al profilo del candidato e al ruolo ricercato.
+* Utilizzare il framework come guida, non come checklist rigida.

@@ -5,95 +5,109 @@
 
 Questo capitolo descrive come utilizzare il Software Engineering Competency Framework durante un processo di valutazione.
 
-L'obiettivo non è eliminare la componente soggettiva, ma renderla il più possibile coerente, trasparente e ripetibile.
+L'obiettivo del framework è supportare un processo decisionale il più possibile trasparente, coerente e basato su evidenze.
 
-Il framework non sostituisce il giudizio dell'intervistatore, ma fornisce un metodo strutturato per raccogliere evidenze e trasformarle in una valutazione.
+Il SECF non sostituisce il giudizio dell'intervistatore, ma fornisce un metodo strutturato per raccogliere evidenze, valutare le singole competenze e determinare il profilo professionale complessivo.
 
 === Il processo di valutazione
 
-Per ogni competenza il processo di valutazione si articola in quattro fasi.
+L'utilizzo del framework si articola in cinque fasi.
 
-. Selezionare le competenze rilevanti per il ruolo.
-. Raccogliere evidenze attraverso domande, esempi o prove pratiche.
-. Assegnare il livello più alto dimostrato dal candidato.
-. Documentare brevemente le motivazioni della valutazione.
+. Identificare le competenze rilevanti per il ruolo.
+. Raccogliere evidenze attraverso domande, discussioni ed esercizi pratici.
+. Assegnare un livello (`L0`-`L5`) a ciascuna competenza osservata.
+. Determinare il livello di progressione (`E0`-`E5`) utilizzando il Progression Framework.
+. Documentare sinteticamente le evidenze che hanno portato alla valutazione.
 
-La valutazione deve essere sempre basata sulle evidenze raccolte durante il colloquio.
+Ogni fase deve essere supportata da evidenze osservabili.
 
 === Le evidenze
 
-Per evidenza si intende qualsiasi elemento osservabile che permetta di supportare una valutazione.
+Per evidenza si intende qualsiasi elemento osservabile che consenta di motivare una valutazione.
 
-Sono considerate evidenze valide:
+Sono considerate evidenze valide, ad esempio:
 
-* esempi tratti dall'esperienza professionale;
-* descrizione di progetti realmente realizzati;
+* esperienze realmente vissute;
+* descrizione di progetti sviluppati;
 * risposte a domande tecniche;
 * esercizi pratici;
-* discussione di decisioni progettuali;
-* analisi di codice.
+* analisi di codice;
+* discussione di decisioni progettuali e relativi trade-off.
 
-Le semplici affermazioni non costituiscono, da sole, un'evidenza sufficiente.
+Le semplici dichiarazioni non costituiscono, da sole, un'evidenza sufficiente.
 
-Ad esempio:
-
+.Ad esempio
 [cols="2,3"]
 |===
-|Affermazione |Evidenza
+|Dichiarazione |Evidenza
 
 |"Conosco Docker."
-|"In un progetto ho creato un'immagine multi-stage per ridurre le dimensioni del container e ho configurato una pipeline di build automatica."
+|"In un progetto ho realizzato immagini multi-stage, configurato la pipeline di build e ridotto i tempi di deploy."
 
-|"So progettare API REST."
-|"Per questo servizio ho scelto versionamento tramite header invece che tramite URL perché..."
+|"So progettare API."
+|"Per questo servizio ho scelto il versionamento tramite header per mantenere la retrocompatibilità con i client esistenti."
 
 |===
 
-=== Assegnazione del livello
+=== Assegnazione dei livelli di competenza
 
-Il livello assegnato deve corrispondere al livello più alto dimostrato dal candidato.
+Per ogni competenza osservata l'intervistatore assegna il livello più alto effettivamente dimostrato dal candidato.
 
-Poiché i livelli sono cumulativi, l'intervistatore deve verificare che siano soddisfatti anche i requisiti dei livelli precedenti.
+Poiché i livelli sono cumulativi, il raggiungimento di un livello implica automaticamente il possesso delle capacità previste dai livelli precedenti.
 
-In caso di dubbio tra due livelli consecutivi, è preferibile assegnare il livello inferiore.
+In caso di dubbio tra due livelli consecutivi è preferibile assegnare il livello inferiore.
 
-=== Utilizzo di NV e L0
+Se una competenza non viene osservata, deve essere classificata come `NV`.
 
-NV (Non Valutata) deve essere utilizzato quando la competenza non è stata osservata.
+=== Determinazione del livello di progressione
 
-L0 deve essere utilizzato quando la competenza è stata valutata, ma il candidato non ha dimostrato le conoscenze minime previste per il livello L1.
+Terminata la valutazione delle singole competenze, l'intervistatore determina il livello di progressione (`E0`-`E5`) utilizzando il Progression Framework.
 
-I due stati non sono intercambiabili.
+La valutazione complessiva considera:
+
+* le competenze essenziali per il ruolo;
+* il pattern delle evidenze raccolte;
+* eventuali lacune critiche;
+* lo scope dei problemi affrontati;
+* l'impatto del contributo tecnico;
+* i comportamenti professionali osservati.
+
+Il livello di progressione non rappresenta una media dei livelli delle singole competenze.
 
 === Documentare la valutazione
 
 Per ogni competenza è consigliabile annotare una breve motivazione.
 
-Ad esempio:
-
+.Ad esempio
 [cols="1,1,4"]
 |===
-|Competenza |Livello |Motivazione
+|Competenza |Livello |Evidenza
 
 |Testing
 |L2
-|Descrive correttamente Unit Test e Integration Test. Porta esempi concreti di utilizzo in produzione.
+|Ha distinto correttamente Unit Test e Integration Test, descrivendo esempi reali di utilizzo.
 
 |Concurrency
 |L1
-|Conosce thread e mutex ma non ha esperienza con problemi di sincronizzazione complessi.
+|Conosce i concetti fondamentali ma non ha esperienza nella gestione di problemi di sincronizzazione complessi.
 
 |Distributed Systems
 |NV
-|Competenza non approfondita durante il colloquio.
+|Competenza non osservata durante il colloquio.
 
 |===
 
-La motivazione facilita il confronto tra valutatori e permette di ricostruire il ragionamento che ha portato all'assegnazione del livello.
+È inoltre consigliabile produrre una breve sintesi finale contenente:
+
+* livello di progressione proposto;
+* livello di confidenza della valutazione;
+* principali punti di forza;
+* eventuali lacune rilevanti;
+* motivazione complessiva.
 
 === Errori comuni
 
-Durante una valutazione è opportuno evitare alcuni errori frequenti.
+Durante una valutazione è opportuno evitare alcuni errori ricorrenti.
 
 *Attribuire un livello sulla base degli anni di esperienza.*
 
@@ -101,7 +115,7 @@ L'esperienza rappresenta un elemento di contesto, non una misura della competenz
 
 *Lasciarsi influenzare dalla conoscenza di una tecnologia specifica.*
 
-Il framework valuta competenze trasferibili.
+Il framework valuta competenze, non strumenti.
 
 *Compensare una competenza con un'altra.*
 
@@ -109,19 +123,19 @@ Ogni competenza deve essere valutata indipendentemente.
 
 *Confondere sicurezza espositiva con competenza.*
 
-Un candidato molto comunicativo non è necessariamente più competente di uno più introverso.
+Un candidato molto comunicativo non è necessariamente più competente di uno meno loquace.
 
-*Penalizzare il candidato perché propone una soluzione diversa da quella dell'intervistatore.*
+*Valutare la soluzione invece del ragionamento.*
 
-È importante comprendere il ragionamento seguito, non verificare che la risposta coincida con la propria soluzione preferita.
+Il framework osserva il processo decisionale, non la coincidenza della risposta con la soluzione preferita dall'intervistatore.
 
 === Il ruolo dell'intervistatore
 
 L'intervistatore non deve cercare di dimostrare la propria preparazione.
 
-Il suo compito consiste nel mettere il candidato nelle condizioni di dimostrare le proprie competenze.
+Il suo compito consiste nel mettere il candidato nelle condizioni di mostrare le proprie competenze.
 
-Domande di approfondimento, chiarimenti ed esempi aggiuntivi rappresentano strumenti per raccogliere evidenze, non per mettere in difficoltà il candidato.
+Domande di approfondimento, chiarimenti ed esercizi pratici rappresentano strumenti per raccogliere evidenze, non per mettere in difficoltà il candidato.
 
 Un buon colloquio è una conversazione tecnica strutturata, non un interrogatorio.
 
@@ -130,6 +144,7 @@ Un buon colloquio è una conversazione tecnica strutturata, non un interrogatori
 * Valutare esclusivamente le competenze rilevanti per il ruolo.
 * Basare ogni valutazione su evidenze osservabili.
 * Assegnare il livello più alto effettivamente dimostrato.
-* Utilizzare NV quando una competenza non viene valutata.
+* Utilizzare `NV` quando una competenza non viene osservata.
+* Determinare il livello di progressione solo al termine della valutazione delle competenze.
 * Documentare sempre le motivazioni delle valutazioni.
-* Valutare ogni competenza indipendentemente dalle altre.
+* Valutare il ragionamento del candidato, non la coincidenza con una soluzione prestabilita.

@@ -3,17 +3,15 @@
 
 === Scopo
 
-Il SECF definisce quattro livelli di competenza (L1-L4), oltre a due stati della valutazione (NV e L0).
+Il Software Engineering Competency Framework (SECF) descrive il livello di padronanza di ciascuna competenza attraverso una scala composta da sei livelli (`L0`-`L5`) e da uno stato di valutazione (`NV`).
 
-I livelli descrivono il grado di padronanza di una specifica competenza e rappresentano una progressione in termini di autonomia, capacità decisionale e impatto.
+I livelli descrivono esclusivamente la padronanza osservata di una singola competenza.
 
-Ogni livello è cumulativo: il raggiungimento di un determinato livello implica automaticamente il possesso delle caratteristiche previste dai livelli precedenti.
-
-I livelli non rappresentano il ruolo aziendale, la retribuzione o gli anni di esperienza del professionista.
+Non rappresentano il ruolo aziendale, gli anni di esperienza o il livello professionale complessivo del candidato.
 
 === Stati della valutazione
 
-Prima di assegnare un livello è necessario stabilire se la competenza sia stata effettivamente valutata.
+Prima di assegnare un livello è necessario stabilire se la competenza sia stata effettivamente osservata.
 
 [cols="1,4"]
 |===
@@ -23,190 +21,87 @@ Prima di assegnare un livello è necessario stabilire se la competenza sia stata
 |La competenza non è stata valutata. Durante il colloquio non sono emerse evidenze sufficienti per assegnare un livello.
 
 |L0
-|La competenza è stata valutata ma il candidato non ha dimostrato le conoscenze o le capacità minime previste per il livello L1.
+|La competenza è stata valutata, ma il candidato non ha dimostrato le conoscenze o le capacità minime previste per il livello L1.
 
 |===
 
-NOTE: *NV* non rappresenta una valutazione negativa. Indica semplicemente che la competenza non è stata osservata.
+NOTE: *NV* non rappresenta una valutazione negativa.
+Indica semplicemente che la competenza non è stata osservata.
 
 === Livello L1
 
-==== Sintesi
+Il candidato:
 
-Comprende i concetti fondamentali e li applica in contesti semplici.
-
-==== Autonomia
-
-Lavora seguendo indicazioni, esempi o procedure definite.
-
-Richiede supporto per affrontare situazioni nuove o particolarmente complesse.
-
-==== Decisioni
-
-Prende decisioni limitate al proprio ambito operativo.
-
-Applica soluzioni note.
-
-==== Complessità
-
-Affronta problemi ben definiti e con un numero limitato di variabili.
-
-==== Collaborazione
-
-Collabora con il team e recepisce feedback.
-
-==== Impatto
-
-Il proprio contributo riguarda principalmente il codice che sviluppa direttamente.
-
-==== Durante un colloquio
-
-Un candidato L1:
-
-* conosce la terminologia di base;
-* sa descrivere i concetti fondamentali;
-* risolve esercizi semplici;
-* necessita di aiuto per casi non standard.
-
-'''
+* comprende i concetti fondamentali della competenza;
+* utilizza correttamente gli strumenti e le tecniche di base;
+* applica la competenza in situazioni semplici e ben definite;
+* necessita di supporto nei casi non standard.
 
 === Livello L2
 
-==== Sintesi
+Il candidato:
 
-Lavora in autonomia nella maggior parte delle attività ordinarie.
-
-==== Autonomia
-
-Organizza autonomamente il proprio lavoro.
-
-Richiede supporto solo per problemi nuovi o particolarmente complessi.
-
-==== Decisioni
-
-Sa scegliere tra più soluzioni conosciute.
-
-Motiva le proprie scelte.
-
-==== Complessità
-
-Gestisce problemi di media complessità.
-
-Riconosce gli errori più comuni e ne previene alcuni.
-
-==== Collaborazione
-
-Partecipa attivamente alle discussioni tecniche.
-
-Fornisce feedback costruttivi durante le Code Review.
-
-==== Impatto
-
-Contribuisce in modo affidabile alla qualità del software prodotto dal team.
-
-==== Durante un colloquio
-
-Un candidato L2:
-
-* confronta più alternative;
-* spiega vantaggi e svantaggi;
-* utilizza esempi tratti dalla propria esperienza;
-* dimostra autonomia operativa.
-
-'''
+* applica la competenza in autonomia nei casi più comuni;
+* sceglie tra soluzioni note in funzione del contesto;
+* motiva le proprie decisioni;
+* riconosce i principali casi limite.
 
 === Livello L3
 
-==== Sintesi
+Il candidato:
 
-Progetta soluzioni, prende decisioni tecniche e comprende i trade-off.
-
-==== Autonomia
-
-Lavora in completa autonomia.
-
-Supporta gli altri membri del team.
-
-==== Decisioni
-
-Analizza il problema.
-
-Valuta diverse alternative.
-
-Motiva la soluzione adottata considerando vincoli e conseguenze.
-
-==== Complessità
-
-Affronta problemi complessi e caratterizzati da requisiti contrastanti.
-
-==== Collaborazione
-
-Contribuisce alla crescita tecnica del team attraverso mentoring, Code Review e condivisione delle conoscenze.
-
-==== Impatto
-
-Influenza la qualità tecnica del progetto e delle decisioni architetturali.
-
-==== Durante un colloquio
-
-Un candidato L3:
-
-* parla spontaneamente di trade-off;
-* identifica rischi e limiti delle soluzioni;
-* collega esperienze diverse;
-* propone miglioramenti.
-
-'''
+* affronta problemi complessi relativi alla competenza;
+* confronta più alternative;
+* valuta i principali trade-off;
+* adatta la soluzione al contesto applicativo.
 
 === Livello L4
 
-==== Sintesi
+Il candidato:
 
-Definisce standard, guida decisioni strategiche e contribuisce alla crescita dell'organizzazione.
+* padroneggia la competenza anche in scenari articolati;
+* affronta situazioni nuove o caratterizzate da vincoli contrastanti;
+* definisce criteri per scegliere tra soluzioni differenti;
+* individua rischi e conseguenze delle decisioni tecniche.
 
-==== Autonomia
+=== Livello L5
 
-Opera efficacemente anche in contesti caratterizzati da elevata incertezza.
+Il candidato:
 
-==== Decisioni
+* dimostra una padronanza approfondita della competenza;
+* contribuisce all'evoluzione delle pratiche relative alla competenza;
+* definisce linee guida, modelli o soluzioni riutilizzabili;
+* affronta problemi caratterizzati da elevata complessità e forte incertezza.
 
-Prende decisioni che influenzano più team o più prodotti.
+=== Caratteristiche dei livelli
 
-Definisce linee guida e standard tecnici.
+I livelli di competenza seguono alcuni principi generali.
 
-==== Complessità
-
-Affronta problemi sistemici, valutando contemporaneamente aspetti tecnici, organizzativi e di business.
-
-==== Collaborazione
-
-È un punto di riferimento tecnico.
-
-Favorisce la crescita delle persone e la diffusione delle buone pratiche.
-
-==== Impatto
-
-Il proprio contributo produce effetti che vanno oltre il singolo progetto.
-
-==== Durante un colloquio
-
-Un candidato L4:
-
-* ragiona in termini di sistemi;
-* considera gli aspetti organizzativi oltre a quelli tecnici;
-* definisce criteri decisionali;
-* dimostra una visione di lungo periodo.
+* Sono *cumulativi*: ogni livello comprende automaticamente le capacità previste dai livelli precedenti.
+* Sono *indipendenti*: il livello raggiunto in una competenza non determina il livello delle altre competenze.
+* Sono *contestuali*: il livello viene assegnato sulla base delle evidenze raccolte durante la valutazione.
 
 === Cosa i livelli non rappresentano
 
 I livelli di competenza non rappresentano:
 
-* gli anni di esperienza;
 * il ruolo aziendale;
+* gli anni di esperienza;
 * la retribuzione;
 * il numero di tecnologie conosciute;
-* il numero di certificazioni possedute.
+* il numero di certificazioni possedute;
+* il livello professionale complessivo della persona.
 
 Uno stesso professionista può trovarsi a livelli differenti in competenze differenti.
 
-Questa variabilità è normale e rappresenta uno degli obiettivi del framework: descrivere un profilo professionale realistico, anziché sintetizzarlo in un unico giudizio complessivo.
+Questa variabilità è normale e rappresenta uno degli obiettivi del framework: descrivere in modo accurato il profilo delle competenze osservate, evitando di sintetizzarle in un unico giudizio.
+
+=== Relazione con il Progression Framework
+
+I livelli `L0`-`L5` descrivono esclusivamente la padronanza di una singola competenza.
+
+Il livello professionale complessivo (`E0`-`E5`) viene invece determinato dal Progression Framework, considerando l'insieme delle competenze osservate, il pattern delle evidenze raccolte e il contesto del ruolo.
+
+Non esiste una corrispondenza diretta tra i livelli di competenza (`L`) e i livelli di progressione (`E`).
+
+La valutazione delle competenze rappresenta uno degli elementi utilizzati per determinare il profilo professionale complessivo del candidato.

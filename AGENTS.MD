@@ -10,13 +10,15 @@ Produrre contenuti coerenti con il framework descritto in questo repository:
 - ancorati a problemi realistici;
 - orientati a raccogliere evidenze osservabili;
 - scritti in modo chiaro, sintetico e mantenibile;
-- allineati ai principi del SECF e ai livelli di competenza cumulativi.
+- allineati ai principi del SECF, ai livelli di competenza cumulativi `L0`-`L5` e alla sintesi di profilo `E0`-`E5` usata dopo il colloquio.
 
 Prima di scrivere una nuova card o un nuovo esercizio, leggere almeno:
 
 - `02 - Principles/principles.adoc`
 - `05 - Interview guide/interview-guide.adoc`
-- il documento della competenza interessata in `06 - Competencies/**`
+- il documento della competenza interessata in `06 - Competencies/**` oppure in `proto-v2/competenze/**` se si sta lavorando sulla nuova struttura;
+- `proto-v2/ladder/secf-progression-framework.adoc`;
+- `proto-v2/struttura-cards/creazione-scheda-operativa.prompt` quando serve allineare il formato delle schede.
 
 ## Principi di progettazione
 
@@ -53,7 +55,8 @@ La struttura deve rispettare questa logica:
 
 - la domanda di base individua il livello iniziale;
 - le domande di approfondimento esplorano progressivamente livelli piu alti;
-- i livelli descrivono evidenze cumulative, non categorie indipendenti.
+- i livelli descrivono evidenze cumulative, non categorie indipendenti;
+- la scheda valuta una singola competenza; il profilo complessivo `E0`-`E5` si assegna dopo il colloquio usando l'insieme delle evidenze raccolte.
 
 Non mischiare nella stessa domanda segnali di piu livelli senza una progressione chiara.
 
@@ -67,7 +70,7 @@ La card deve contenere solo cio che aiuta l'intervistatore a valutare in modo af
 - domande di approfondimento;
 - segnali positivi;
 - segnali di attenzione;
-- livelli;
+- livelli `L0`-`L5`;
 - eventuali note utili.
 
 Evita ridondanze con il codice o con altri documenti del framework.
@@ -126,7 +129,7 @@ Prima di considerare pronta una card o un esercizio, verificare che:
 - gli approfondimenti siano progressivi;
 - i segnali positivi siano osservabili;
 - i segnali di attenzione siano davvero utili;
-- i livelli siano coerenti con i principi del framework;
+- i livelli siano coerenti con i principi del framework e con la progressione `L0`-`L5`;
 - il testo non introduca tecnologie come se fossero la competenza;
 - il contenuto sia breve quanto basta per essere usato davvero.
 
@@ -177,6 +180,7 @@ Quando devi creare una nuova card o un nuovo esercizio:
 5. Scrivi segnali positivi e segnali di attenzione.
 6. Rimuovi ogni dettaglio superfluo.
 7. Rileggi per verificare che la card sia usabile in colloquio.
+8. Verifica che il profilo `E0`-`E5` non venga confuso con i livelli della singola competenza.
 
 ## Regola finale
 

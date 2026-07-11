@@ -1,37 +1,29 @@
 [[introduction]]
 == Introduzione
 
-=== Scopo del framework
+=== Cos'è il SECF
 
-Il Software Engineering Competency Framework (SECF) definisce un modello strutturato per la valutazione delle competenze tecniche e professionali degli ingegneri del software.
+Il Software Engineering Competency Framework (SECF) è un framework progettato per osservare, valutare e sviluppare le competenze degli ingegneri del software.
 
-Il framework nasce con i seguenti obiettivi:
+L'obiettivo del framework è rendere le valutazioni tecniche più oggettive, coerenti e ripetibili, supportando sia i processi di selezione sia la crescita professionale delle persone e dei team.
 
-* fornire un linguaggio comune per descrivere le competenze;
-* rendere le valutazioni più oggettive, coerenti e ripetibili;
-* supportare la crescita professionale attraverso aspettative chiare e osservabili;
-* favorire la definizione di percorsi di sviluppo individuali e di team.
+=== Cosa contiene
 
-Il SECF non è progettato esclusivamente per i processi di selezione. Può essere utilizzato anche per:
+Il SECF è composto da tre elementi principali.
 
-* colloqui tecnici;
-* valutazioni periodiche;
-* definizione delle career ladder;
-* identificazione delle esigenze formative;
-* pianificazione delle competenze di un team;
-* supporto ai percorsi di mentoring.
-
-Il framework è indipendente dalle tecnologie adottate e può essere applicato a sviluppatori Backend, Frontend, Mobile, Full Stack, Embedded e, più in generale, a tutti i professionisti coinvolti nello sviluppo del software.
+* *Competency Framework*, che definisce il catalogo delle competenze tecniche e professionali.
+* *Progression Framework*, che descrive i livelli di crescita professionale (E0–E5).
+* *Interview Framework*, che raccoglie Competency Card, guide per l'intervistatore ed esercizi pratici per la valutazione delle competenze.
 
 === Obiettivi
 
 Il framework è progettato per essere:
 
-* *Oggettivo*, basato su comportamenti osservabili.
+* *Oggettivo*, basato su evidenze osservabili.
+* *Coerente*, utilizzando criteri di valutazione condivisi.
 * *Ripetibile*, riducendo la variabilità tra valutatori.
-* *Indipendente dalle tecnologie*, privilegiando principi e competenze trasferibili.
-* *Evolutivo*, adattabile all'evoluzione della disciplina.
-* *Utilizzabile* sia durante i processi di selezione sia come strumento di crescita professionale.
+* *Indipendente dalle tecnologie*, privilegiando competenze e principi trasferibili.
+* *Evolutivo*, adattabile all'evoluzione delle tecnologie e delle pratiche di sviluppo.
 
 === Cosa non è
 
@@ -41,9 +33,9 @@ Il SECF non è:
 * un esame universitario;
 * una misura del valore professionale di una persona;
 * uno strumento per confrontare gli sviluppatori tra loro;
-* una misura della produttività.
+* una misura della produttività individuale.
 
-Il framework descrive esclusivamente il livello di padronanza di specifiche competenze osservate durante il processo di valutazione.
+Il framework descrive esclusivamente il livello di padronanza delle competenze osservate durante il processo di valutazione.
 
 === Destinatari
 
@@ -59,10 +51,10 @@ Il framework è rivolto principalmente a:
 
 === Struttura del documento
 
-Il SECF è organizzato in due parti principali.
+Il documento è organizzato in tre sezioni principali:
 
-La prima descrive il framework, i suoi principi e la metodologia di valutazione.
+. il framework e i suoi principi;
+. il catalogo delle competenze;
+. gli strumenti di valutazione, comprendenti Competency Card, guide ed esercizi pratici.
 
-La seconda contiene il catalogo delle competenze, organizzate per area, corredate da livelli di competenza, esempi di domande, indicatori osservabili e note per l'intervistatore.
-
-Ogni competenza segue una struttura uniforme, così da garantire coerenza e facilità di consultazione.
+Le competenze sono organizzate per area e descritte attraverso livelli di padronanza, indicatori osservabili ed esempi di valutazione, così da favorire un utilizzo coerente del framework nei diversi contesti.
