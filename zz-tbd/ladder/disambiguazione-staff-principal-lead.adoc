@@ -19,7 +19,7 @@ In breve:
 | Staff Engineer | “Chi migliora un dominio o più team in modo sistematico?” |
 | Principal Engineer | “Chi influenza la direzione tecnica dell’azienda?” |
 
-Nella bozza attuale ho accorpato `Staff / Principal` in `E5`. Ha senso per una prima versione, ma se vuoi un framework più preciso io li separerei:
+Nella bozza attuale `Staff / Principal` sono accorpati in `E5`. Ha senso per una prima versione, ma se vogliamo un framework più preciso io li separerei:
 
 - `E5 - Staff Engineer`: impatto multi-team / dominio.
 - `E6 - Principal Engineer`: impatto aziendale / strategico.

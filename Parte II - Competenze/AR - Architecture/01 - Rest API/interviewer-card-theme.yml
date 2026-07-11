@@ -1,5 +1,8 @@
 extends: default
 
+page:
+  margin: [10mm, 12mm, 8mm, 12mm]
+
 base:
   font-size: 8.5
   line-height: 1.08

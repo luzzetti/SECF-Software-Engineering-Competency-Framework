@@ -1,4 +1,4 @@
-:pdf-theme: {docdir}/../../../struttura-cards/tema-schede-valutazione.yml
+:pdf-theme: {docdir}/interviewer-card-theme.yml
 :pdf-page-size: A4
 
 [[AR01-EX02]]

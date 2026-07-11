@@ -1,8 +1,0 @@
-= Bibliografia e testi consigliati
-
-.AR Architecture
-* AR-01 - Rest API:
-https://www.manning.com/books/api-design-patterns[Api Design Patterns]
-
-.DA Database
-* DA-02 - Query SQL:

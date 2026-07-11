@@ -7,7 +7,16 @@ Il Software Engineering Competency Framework (SECF) si fonda su un insieme di pr
 
 Questi principi rappresentano il riferimento per interpretare le competenze, condurre le valutazioni e utilizzare correttamente il framework nei diversi contesti.
 
-Ogni competenza, livello di padronanza ed esercizio di valutazione deve essere coerente con tali principi.
+Ogni competenza, livello di padronanza e Scheda di Valutazione deve essere coerente con tali principi.
+
+=== 0. Le schede lavorano in coppia
+
+Per ogni competenza il framework usa due documenti complementari:
+
+* la *Scheda Esercizio*, visibile al candidato;
+* la *Scheda di Valutazione*, usata dall'intervistatore.
+
+I due documenti descrivono la stessa competenza da prospettive diverse. La Scheda Esercizio presenta il contesto e il problema; la Scheda di Valutazione guida l'osservazione, la progressione delle domande e l'assegnazione del livello.
 
 === 1. Le competenze sono più importanti delle tecnologie
 
@@ -21,7 +30,7 @@ Le competenze rimangono trasferibili e mantengono il proprio valore nel tempo.
 
 === 2. Le domande devono partire da problemi reali
 
-Le Competency Card e gli esercizi sono progettati per simulare situazioni che uno sviluppatore potrebbe realmente incontrare durante il proprio lavoro.
+Le Schede Esercizio e le Schede di Valutazione sono progettate per simulare situazioni che uno sviluppatore potrebbe realmente incontrare durante il proprio lavoro.
 
 È preferibile chiedere:
 
@@ -86,11 +95,11 @@ Il framework descrive una progressione continua delle competenze, nella quale ci
 
 === 7. Le prove pratiche sono preferibili quando possibile
 
-Quando una competenza può essere valutata attraverso un esercizio pratico, tale modalità è generalmente preferibile rispetto a una domanda puramente teorica.
+Quando una competenza può essere valutata attraverso una Scheda Esercizio, tale modalità è generalmente preferibile rispetto a una domanda puramente teorica.
 
-Le prove pratiche consentono di osservare direttamente il comportamento del candidato e producono evidenze generalmente più affidabili.
+Le Schede Esercizio consentono di osservare direttamente il comportamento del candidato e producono evidenze generalmente più affidabili.
 
-Gli esercizi costituiscono un complemento alle Competency Card e non le sostituiscono.
+Le Schede Esercizio completano le Schede di Valutazione e non le sostituiscono.
 
 === 8. Il framework supporta il giudizio dell'intervistatore
 

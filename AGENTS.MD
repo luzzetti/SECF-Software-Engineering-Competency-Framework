@@ -1,6 +1,6 @@
 # Agents.md
 
-Questo file guida chi usa l'AI per creare o revisionare **Competency Card** ed **esercizi pratici** nel repository SECF.
+Questo file guida chi usa l'AI per creare o revisionare **Schede di Valutazione** ed **Schede Esercizio** nel repository SECF.
 
 ## Obiettivo
 
@@ -12,10 +12,10 @@ Produrre contenuti coerenti con il framework descritto in questo repository:
 - scritti in modo chiaro, sintetico e mantenibile;
 - allineati ai principi del SECF, ai livelli di competenza cumulativi `L0`-`L5` e alla sintesi di profilo `E0`-`E5` usata dopo il colloquio.
 
-Prima di scrivere una nuova card o un nuovo esercizio, leggere almeno:
+Prima di scrivere una nuova Scheda di Valutazione o una nuova Scheda Esercizio, leggere almeno:
 
 - `02 - Principles/principles.adoc`
-- `05 - Interview guide/interview-guide.adoc`
+- `05 - Interview guide/interview-playbook.adoc`
 - il documento della competenza interessata in `06 - Competencies/**` oppure in `proto-v2/competenze/**` se si sta lavorando sulla nuova struttura;
 - `proto-v2/ladder/secf-progression-framework.adoc`;
 - `proto-v2/struttura-cards/creazione-scheda-operativa.prompt` quando serve allineare il formato delle schede.
@@ -24,7 +24,7 @@ Prima di scrivere una nuova card o un nuovo esercizio, leggere almeno:
 
 ### 1. Parti sempre da una situazione concreta
 
-Ogni card deve descrivere un contesto di lavoro plausibile.
+Ogni scheda deve descrivere un contesto di lavoro plausibile.
 La domanda di base deve partire da una situazione osservabile, non da una definizione astratta.
 
 Preferire formulazioni del tipo:
@@ -39,7 +39,7 @@ Evitare formulazioni come:
 
 ### 2. Valuta il ragionamento, non la memoria
 
-La card deve far emergere:
+La scheda deve far emergere:
 
 - analisi del problema;
 - decisioni motivate;
@@ -47,14 +47,14 @@ La card deve far emergere:
 - alternative considerate;
 - gestione dei vincoli e del contesto.
 
-Se una domanda richiede soprattutto nozioni teoriche, probabilmente non e una buona card.
+Se una domanda richiede soprattutto nozioni teoriche, probabilmente non e una buona scheda.
 
-### 3. Mantieni separati base, approfondimenti e livelli
+### 3. Mantieni separati base, progressione e livelli
 
 La struttura deve rispettare questa logica:
 
 - la domanda di base individua il livello iniziale;
-- le domande di approfondimento esplorano progressivamente livelli piu alti;
+- le domande di progressione esplorano progressivamente livelli piu alti;
 - i livelli descrivono evidenze cumulative, non categorie indipendenti;
 - la scheda valuta una singola competenza; il profilo complessivo `E0`-`E5` si assegna dopo il colloquio usando l'insieme delle evidenze raccolte.
 
@@ -62,12 +62,12 @@ Non mischiare nella stessa domanda segnali di piu livelli senza una progressione
 
 ### 4. Documenta cio che serve, non tutto
 
-La card deve contenere solo cio che aiuta l'intervistatore a valutare in modo affidabile:
+La scheda di valutazione deve contenere solo cio che aiuta l'intervistatore a valutare in modo affidabile:
 
 - scopo della competenza;
 - cosa osservare;
 - domanda di base;
-- domande di approfondimento;
+- domande di progressione;
 - segnali positivi;
 - segnali di attenzione;
 - livelli `L0`-`L5`;
@@ -88,9 +88,9 @@ Il testo deve aiutarlo a capire:
 
 Il candidato non e il lettore primario del documento.
 
-## Regole per una buona Competency Card
+## Regole per una buona Scheda di Valutazione
 
-Ogni card dovrebbe avere queste caratteristiche:
+Ogni scheda di valutazione dovrebbe avere queste caratteristiche:
 
 - descrive una sola competenza;
 - usa un linguaggio concreto e professionale;
@@ -100,9 +100,9 @@ Ogni card dovrebbe avere queste caratteristiche:
 - contiene domande che crescono in profondita senza cambiare tema;
 - mantiene coerenza con il resto del framework.
 
-## Regole per gli esercizi pratici
+## Regole per le Schede Esercizio
 
-Quando crei un esercizio, preferisci scenari che:
+Quando crei una Scheda Esercizio, preferisci scenari che:
 
 - simulano un problema reale di lavoro;
 - richiedono osservazione diretta del comportamento;
@@ -111,7 +111,7 @@ Quando crei un esercizio, preferisci scenari che:
 - non dipendono da dettagli inutili dell'ambiente;
 - hanno criteri di valutazione comprensibili.
 
-Un buon esercizio:
+Una buona Scheda Esercizio:
 
 - mette il candidato in una situazione credibile;
 - espone decisioni, priorita e compromessi;
@@ -121,7 +121,7 @@ Un buon esercizio:
 
 ## Criteri di qualita
 
-Prima di considerare pronta una card o un esercizio, verificare che:
+Prima di considerare pronta una Scheda di Valutazione o una Scheda Esercizio, verificare che:
 
 - la competenza sia chiaramente identificabile;
 - la situazione sia realistica;
@@ -154,7 +154,7 @@ Prima di considerare pronta una card o un esercizio, verificare che:
 - Non appesantire con spiegazioni ridondanti.
 - Mantieni la coerenza terminologica con il resto del repository.
 
-## Struttura consigliata per una card
+## Struttura consigliata per una Scheda di Valutazione
 
 Quando utile, segui questa sequenza:
 
@@ -163,7 +163,7 @@ Quando utile, segui questa sequenza:
 3. Scopo.
 4. Cosa osservare.
 5. Domanda di base.
-6. Domande di approfondimento.
+6. Domande di progressione.
 7. Segnali positivi.
 8. Segnali di attenzione.
 9. Livelli.
@@ -171,7 +171,7 @@ Quando utile, segui questa sequenza:
 
 ## Processo consigliato
 
-Quando devi creare una nuova card o un nuovo esercizio:
+Quando devi creare una nuova Scheda di Valutazione o una nuova Scheda Esercizio:
 
 1. Leggi la competenza di riferimento.
 2. Individua il comportamento che vuoi osservare.
@@ -179,7 +179,7 @@ Quando devi creare una nuova card o un nuovo esercizio:
 4. Definisci cosa distingue un livello dall'altro.
 5. Scrivi segnali positivi e segnali di attenzione.
 6. Rimuovi ogni dettaglio superfluo.
-7. Rileggi per verificare che la card sia usabile in colloquio.
+7. Rileggi per verificare che la scheda sia usabile in colloquio.
 8. Verifica che il profilo `E0`-`E5` non venga confuso con i livelli della singola competenza.
 
 ## Regola finale

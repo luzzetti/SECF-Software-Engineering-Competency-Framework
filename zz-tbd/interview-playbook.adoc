@@ -13,10 +13,9 @@ Prima del colloquio l'intervistatore dovrebbe:
 
 * definire il ruolo da valutare;
 * identificare le competenze più rilevanti;
-* selezionare le Competency Card da utilizzare;
-* preparare eventuali esercizi pratici.
+* selezionare le Schede di Valutazione da utilizzare;
 
-Non è necessario utilizzare tutte le Competency Card durante un singolo colloquio.
+Non è necessario utilizzare tutte le Schede di Valutazione durante un singolo colloquio.
 
 === Iniziare dal candidato
 
@@ -44,25 +43,25 @@ Queste domande hanno diversi obiettivi:
 * permettono di osservare la comunicazione tecnica;
 * aiutano a comprendere il contesto professionale;
 * fanno emergere spontaneamente competenze, responsabilità e tecnologie utilizzate;
-* aiutano l'intervistatore a scegliere le Competency Card più pertinenti per il resto del colloquio.
+* aiutano l'intervistatore a scegliere le Schede di Valutazione più pertinenti per il resto del colloquio.
 
-=== Utilizzare le Competency Card
+=== Utilizzare le Schede di Valutazione
 
-Le Competency Card rappresentano il principale strumento di valutazione.
+Le Schede di Valutazione rappresentano il principale strumento di valutazione.
 
 Per ciascuna competenza è consigliabile:
 
 . porre la domanda di base;
-. utilizzare le domande di approfondimento quando necessario;
+. utilizzare le domande di progressione quando necessario;
 . interrompere l'approfondimento quando sono state raccolte evidenze sufficienti.
 
 L'obiettivo non è completare tutte le domande della scheda, ma comprendere il livello di padronanza della competenza.
 
-=== Utilizzare gli esercizi
+=== Utilizzare le Schede Esercizio
 
-Quando appropriato è consigliabile integrare il colloquio con uno o più esercizi pratici.
+Quando appropriato è consigliabile integrare il colloquio con una o più Schede Esercizio.
 
-Gli esercizi permettono di osservare direttamente il comportamento del candidato e rappresentano spesso la fonte di evidenze più affidabile.
+Le Schede Esercizio permettono di osservare direttamente il comportamento del candidato e rappresentano spesso la fonte di evidenze più affidabile.
 
 === Prendere appunti
 
@@ -80,7 +79,7 @@ L'intervistatore dovrebbe dedicare la maggior parte dell'attenzione all'ascolto 
 
 Terminato il colloquio è consigliabile:
 
-. completare la valutazione delle Competency Card;
+. completare la valutazione delle Schede di Valutazione;
 . assegnare i livelli di competenza (`L0`-`L5`);
 . determinare il livello di progressione (`E0`-`E5`);
 . scrivere una breve sintesi della valutazione.

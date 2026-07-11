@@ -1,33 +1,33 @@
 Certo. Puoi riusare questo prompt cambiando solo il file target.
 
 ```text
-Vorrei trasformare questa card interviewer AsciiDoc in una scheda operativa compatta, simile a `proto-v2/AR01-EX02-Rest-api-Interviewer.adoc`.
+Vorrei trasformare questa Scheda di Valutazione AsciiDoc in una scheda operativa compatta, simile a `proto-v2/AR01-EX02-Rest-api-Interviewer.adoc`.
 
 Obiettivo:
 - semplificare il lavoro dell’interviewer;
 - avere una progressione chiara da L0 a L5;
 - far stare idealmente tutto in un foglio A4;
-- mantenere il contenuto specifico dell’esercizio, senza renderlo generico.
+- mantenere il contenuto specifico della Scheda Esercizio, senza renderlo generico.
 
 Lavora sul file: [INSERISCI_FILE_INTERVIEWER.adoc]
 
 Prima leggi:
-- la card interviewer indicata;
-- se esiste, anche la card candidato/esercizio collegata, per capire scenario, consegna e soluzione attesa.
+- la Scheda di Valutazione indicata;
+- se esiste, anche la Scheda Esercizio collegata, per capire scenario, consegna e soluzione attesa.
 
-Riscrivi la card con questa struttura:
+Riscrivi la Scheda di Valutazione con questa struttura:
 
 1. Header AsciiDoc con:
    - `:pdf-theme: {docdir}/interviewer-card-theme.yml`
    - `:pdf-page-size: A4`
 
-2. Titolo della card.
+2. Titolo della scheda.
 
 3. Sezione:
-   `==== Card per l'intervistatore`
+   `==== Scheda di Valutazione per l'intervistatore`
 
 4. Una frase breve di obiettivo:
-   - cosa valuta l’esercizio;
+   - cosa valuta la Scheda Esercizio;
    - cosa NON è l’obiettivo;
    - come usare checkbox e domande.
 
@@ -80,5 +80,5 @@ list:
 Verifica finale:
 - controlla che il file sia AsciiDoc valido a livello sintattico;
 - esegui `git diff --check`;
-- non toccare file non collegati alla card.
+- non toccare file non collegati alla scheda.
 ```

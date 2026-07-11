@@ -38,6 +38,7 @@
 
 ==== Architecture
 
+// https://www.manning.com/books/api-design-patterns
 * `AR-01` *API Design* - Progettazione di API semplici, coerenti, evolvibili e adatte al sistema.
 * `AR-02` *Sistemi Distribuiti* - Analisi e progettazione di sistemi composti da componenti comunicanti.
 * `AR-03` *Modellazione dei Dati* - Progettazione di modelli dati coerenti, evolvibili e aderenti al dominio.

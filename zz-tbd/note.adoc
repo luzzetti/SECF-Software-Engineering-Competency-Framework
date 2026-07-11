@@ -10,5 +10,6 @@ Principi
 Livelli di competenza
 Progressione professionale
 Metodologia
-Competency Cards
+Schede Esercizio
+Schede di Valutazione
 

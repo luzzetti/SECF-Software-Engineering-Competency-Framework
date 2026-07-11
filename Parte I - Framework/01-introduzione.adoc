@@ -13,7 +13,7 @@ Il SECF è composto da tre elementi principali.
 
 * *Competency Framework*, che definisce il catalogo delle competenze tecniche e professionali.
 * *Progression Framework*, che descrive i livelli di crescita professionale (E0–E5).
-* *Interview Framework*, che raccoglie Competency Card, guide per l'intervistatore ed esercizi pratici per la valutazione delle competenze.
+* *Documentazione di valutazione*, che raccoglie le Schede Esercizio e le Schede di Valutazione per l'intervistatore.
 
 === Obiettivi
 
@@ -55,6 +55,11 @@ Il documento è organizzato in tre sezioni principali:
 
 . il framework e i suoi principi;
 . il catalogo delle competenze;
-. gli strumenti di valutazione, comprendenti Competency Card, guide ed esercizi pratici.
+. gli strumenti di valutazione, comprendenti Schede Esercizio, Schede di Valutazione e guide di supporto.
 
 Le competenze sono organizzate per area e descritte attraverso livelli di padronanza, indicatori osservabili ed esempi di valutazione, così da favorire un utilizzo coerente del framework nei diversi contesti.
+
+=== Glossario rapido
+
+* *Scheda Esercizio*: documento visibile al candidato, costruito attorno a uno scenario concreto.
+* *Scheda di Valutazione*: documento usato dall'intervistatore per raccogliere evidenze e assegnare il livello.

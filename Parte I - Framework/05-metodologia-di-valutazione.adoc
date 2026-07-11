@@ -14,7 +14,7 @@ Il SECF non sostituisce il giudizio dell'intervistatore, ma fornisce un metodo s
 L'utilizzo del framework si articola in cinque fasi.
 
 . Identificare le competenze rilevanti per il ruolo.
-. Raccogliere evidenze attraverso domande, discussioni ed esercizi pratici.
+. Raccogliere evidenze attraverso Schede Esercizio, Schede di Valutazione e discussioni tecniche.
 . Assegnare un livello (`L0`-`L5`) a ciascuna competenza osservata.
 . Determinare il livello di progressione (`E0`-`E5`) utilizzando il Progression Framework.
 . Documentare sinteticamente le evidenze che hanno portato alla valutazione.
@@ -30,7 +30,7 @@ Sono considerate evidenze valide, ad esempio:
 * esperienze realmente vissute;
 * descrizione di progetti sviluppati;
 * risposte a domande tecniche;
-* esercizi pratici;
+* Schede Esercizio;
 * analisi di codice;
 * discussione di decisioni progettuali e relativi trade-off.
 
@@ -135,7 +135,7 @@ L'intervistatore non deve cercare di dimostrare la propria preparazione.
 
 Il suo compito consiste nel mettere il candidato nelle condizioni di mostrare le proprie competenze.
 
-Domande di approfondimento, chiarimenti ed esercizi pratici rappresentano strumenti per raccogliere evidenze, non per mettere in difficoltà il candidato.
+Domande di progressione, chiarimenti e Schede Esercizio rappresentano strumenti per raccogliere evidenze, non per mettere in difficoltà il candidato.
 
 Un buon colloquio è una conversazione tecnica strutturata, non un interrogatorio.
 
