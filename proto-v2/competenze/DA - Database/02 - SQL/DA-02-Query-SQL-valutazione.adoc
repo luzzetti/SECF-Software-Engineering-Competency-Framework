@@ -1,0 +1,70 @@
+:pdf-theme: {docdir}/interviewer-card-theme.yml
+:pdf-page-size: A4
+
+[[da02-ex02]]
+=== DA-02-EX02 - Prodotti più Venduti
+
+===== L0
+
+Non costruisce una query collegata al requisito: resta su selezioni generiche, non collega ordini, righe e prodotti, o ignora filtro temporale e aggregazioni.
+
+* Domanda per L1: quali tabelle servono per passare dagli ordini ai prodotti venduti?
+* Domanda per L1: cosa significa "ultimi 30 giorni" nel modello dato?
+
+===== L1
+
+Riconosce elementi evidenti, ma la soluzione resta incompleta o fragile.
+
+* [ ] Individua almeno `CustomerOrder`, `OrderItem` e `Product`.
+* [ ] Capisce che serve un filtro su `OrderDate`, ma può applicarlo in modo impreciso.
+* [ ] Usa una `JOIN` o una somma, ma confonde chiavi, duplicazioni o colonne da aggregare.
+* [ ] Distingue quantità e ricavo solo parzialmente.
+* Domanda per L2: quali condizioni di `JOIN` useresti tra ordini, righe e prodotti?
+* Domanda per L2: quali campi devono comparire in `GROUP BY`?
+
+===== L2
+
+Produce una query coerente di base che restituisce il report richiesto.
+
+* [ ] Collega `CustomerOrder o`, `OrderItem oi` e `Product p` con `o.Id = oi.OrderId` e `p.Id = oi.ProductId`.
+* [ ] Filtra gli ordini degli ultimi 30 giorni con una condizione equivalente su `o.OrderDate`.
+* [ ] Calcola `SUM(oi.Quantity)` come quantità totale.
+* [ ] Calcola `SUM(oi.Quantity * oi.UnitPrice)` come ricavo totale.
+* [ ] Raggruppa per prodotto, nome e categoria; ordina per ricavo decrescente.
+* Domanda per L3: quali indici potrebbero aiutare questa query e perché?
+* Domanda per L3: cosa cambia se due prodotti hanno stesso nome o categoria?
+
+===== L3
+
+Motiva la query e ragiona sui primi meccanismi fisici che la rendono sostenibile.
+
+* [ ] Spiega alias, chiavi di join, granularità delle righe e rischio di duplicazioni.
+* [ ] Distingue `UnitPrice` storico dalla tabella `Product` e motiva il calcolo del ricavo.
+* [ ] Propone indici coerenti con filtro e join, ad esempio su `CustomerOrder(OrderDate)`, `OrderItem(OrderId)` e `OrderItem(ProductId)`.
+* [ ] Distingue indici primari, indici su chiavi esterne e indici composti, spiegando quando un indice composto come `(OrderDate, Id)` o `(OrderId, ProductId)` può essere utile.
+* [ ] Legge a livello base un piano di esecuzione: scan, seek, join, sort e aggregazione.
+* Domanda per L4: quando un indice non basta più per rendere accettabile questo report?
+* Domanda per L4: useresti una vista, una vista materializzata o una tabella di aggregati?
+
+===== L4
+
+Ragiona su evoluzione del reporting, strutture derivate e crescita dei dati.
+
+* [ ] Valuta cardinalità, selettività degli indici, costo del sort per ricavo e impatto di molti record storici.
+* [ ] Confronta query live, vista logica, vista materializzata, tabella di aggregati e pre-calcolo periodico.
+* [ ] Considera partizionamento per data di `CustomerOrder` o delle righe d'ordine, motivando pruning, retention e manutenzione.
+* [ ] Discute aggiornamento degli aggregati, latenze accettabili, invalidazione e coerenza del dato esposto a dashboard o ETL.
+* [ ] Considera compatibilità tra DBMS diversi e costo di migrazione dello schema.
+* Domanda per L5: quali segnali ti porterebbero a separare il carico di reporting dal database transazionale?
+* Domanda per L5: quando useresti partizionamento, replica read-only o sharding?
+
+===== L5
+
+Guida una scelta completa per il report dentro un'architettura dati scalabile.
+
+* [ ] Collega requisito, correttezza SQL, volume dati, freschezza del report, isolamento del carico e costi operativi.
+* [ ] Definisce criteri decisionali tra query live, indici, viste materializzate, aggregati, partizionamento, read-replica e sharding.
+* [ ] Distingue scalabilità verticale, replica per letture, sharding per distribuzione del dato e sistemi analitici separati.
+* [ ] Esplicita trade-off su consistenza, lag di replica, complessità applicativa, operatività, costi di storage e recovery.
+* [ ] Prevede test con dataset rappresentativi, controlli su ricavi/quantità, explain plan, metriche di latenza e monitoraggio continuo.
+* [ ] Stabilisce pratiche future: naming coerente, review delle query, ciclo di vita degli indici, ownership e regressioni misurate.

@@ -1,0 +1,57 @@
+[[ar01-ex02]]
+=== AR-01 - Rest API
+
+ifdef::metadata[]
+
+==== Metadati
+
+Competenza::
+AR-01 - API Design
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+endif::[]
+
+'''
+
+==== Scenario
+
+Entri a far parte di un team che espone le seguenti API per la gestione degli ordini.
+
+==== Materiale fornito
+
+[source,text]
+----
+GET    /getOrders
+
+POST   /createOrder
+
+POST   /deleteOrder
+
+POST   /updateOrder
+
+GET    /getCustomerOrders?id=123
+
+POST   /applyDiscount
+
+GET    /searchOrders?customer=Mario&status=CONFIRMED&from=2026-01-01&to=2026-12-31
+
+POST   /cancelOrder?id=123
+----
+
+==== Consegna
+
+Analizza il design delle API.
+
+Descrivi:
+
+* quali problemi individui;
+* quali modifiche proporresti;
+* come evolveresti il contratto mantenendo, se possibile, la retrocompatibilità.

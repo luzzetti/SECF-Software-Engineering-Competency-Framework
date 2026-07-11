@@ -1,0 +1,374 @@
+[[secf-progression-framework]]
+== SECF Engineering Progression Framework
+
+=== Note iniziali
+
+Questa è una bozza di progression framework da usare insieme alle evidenze raccolte tramite le schede del SECF.
+
+Il framework non serve a calcolare automaticamente il livello di una persona, bensì a guidare una conversazione strutturata su autonomia, scope, impatto, competenze tecniche e comportamenti professionali.
+
+I livelli assegnati nelle singole schede operative (`L0`-`L5`) descrivono la padronanza di una competenza specifica.
+
+Il livello di progression descritto in questo documento (`E0`-`E5`) rappresenta invece una sintesi del profilo complessivo.
+
+Le due cose sono collegate, ma non sono equivalenti.
+
+=== Principi guida
+
+*Il livello complessivo non è una media.*
+
+Un candidato con molte competenze a `L3` e una lacuna critica in una competenza essenziale per il ruolo potrebbe non essere valutabile come profilo `E3`.
+
+Allo stesso modo, un candidato può avere picchi molto forti in alcune aree senza aver ancora dimostrato lo scope o l'impatto necessari per un livello superiore.
+
+*Le evidenze contano più delle dichiarazioni.*
+
+Ogni valutazione deve essere supportata da esempi, esercizi, decisioni spiegate, trade-off discussi o esperienze concrete.
+
+*I livelli sono cumulativi.*
+
+Un profilo `E3` deve dimostrare anche le aspettative dei livelli precedenti.
+
+*Il contesto del ruolo conta.*
+
+Non tutte le competenze hanno lo stesso peso per ogni posizione.
+
+Per un ruolo backend possono pesare maggiormente API Design, Data Access, Testing, Distributed Systems e Observability.
+
+*Il framework è una bussola, non un algoritmo.*
+
+Il risultato finale deve essere motivato con una sintesi qualitativa: cosa la persona può fare oggi, con quale autonomia, su quale scope e con quali rischi.
+
+<<<
+
+=== Dimensioni di progression
+
+==== Scope
+
+Descrive l'ampiezza del problema che la persona è in grado di affrontare.
+
+Esempi di scope:
+
+* task ben definito;
+* attività o bug con ambiguità limitata;
+* feature o componente;
+* progetto o area tecnica;
+* più team o dominio;
+* organizzazione o direzione tecnica ampia.
+
+==== Impatto
+
+Descrive quanto il contributo della persona influenza il risultato del team o dell'organizzazione.
+
+L'impatto può essere prodotto tramite:
+
+* delivery affidabile;
+* qualità tecnica;
+* riduzione del rischio;
+* miglioramento delle pratiche;
+* mentoring e crescita del team;
+* decisioni architetturali;
+* semplificazione o evoluzione di sistemi complessi.
+
+==== Competenze tecniche
+
+Descrivono la capacità di progettare, implementare, verificare, mantenere ed evolvere soluzioni software.
+
+Nel SECF queste competenze sono osservate attraverso aree come:
+
+* Software Engineering;
+* Architecture;
+* Data;
+* Platform Engineering;
+* Computer Science.
+
+==== Comportamenti professionali
+
+Descrivono come la persona lavora con gli altri.
+
+Includono:
+
+* comunicazione;
+* gestione dei feedback;
+* ownership;
+* collaborazione;
+* mentoring;
+* capacità di rendere visibili rischi, blocchi e trade-off.
+
+=== Uso delle schede SECF
+
+Dopo un colloquio o una serie di colloqui, l'interviewer dovrebbe produrre una sintesi simile a questa:
+
+[cols="1,1,3"]
+|===
+|Competenza |Livello |Evidenza
+
+|`AR-01` API Design
+|`L3`
+|Ha proposto un redesign coerente, discusso versioning, compatibilità e gestione degli errori.
+
+|`SE-03` Testing
+|`L2`
+|Ha distinto unit, integration e contract test, ma non ha mostrato esperienza nel definire una strategia complessiva.
+
+|`PE-03` CI/CD
+|`NV`
+|Competenza non osservata.
+|===
+
+La decisione sul progression level dovrebbe poi considerare:
+
+* quali competenze erano essenziali per il ruolo;
+* quali livelli sono stati effettivamente dimostrati;
+* dove esistono lacune critiche;
+* quali competenze sono semplicemente non valutate (`NV`);
+* se il candidato ha dimostrato autonomia, scope e impatto coerenti con il livello complessivo.
+
+<<<
+
+=== Livelli di progression
+
+I livelli seguenti usano il prefisso `E` per distinguerli dai livelli delle singole competenze.
+
+==== E0 - Foundation
+
+Scope::
+Task molto guidati.
+
+Sintesi::
+Profilo all'inizio del percorso tecnico oppure non ancora pronto per contribuire in modo affidabile senza supporto significativo.
+
+Impatto::
+Contribuisce solo su attività circoscritte e ben definite, con forte supporto da parte di persone più esperte.
+
+Competenze tecniche::
+Dimostra basi disomogenee.
+Alcune competenze possono essere a `L1`, ma emergono lacune significative su aree essenziali.
+
+Comportamenti::
+Ha bisogno di guida per comunicare avanzamento, blocchi e incertezze.
+Deve ancora consolidare metodo, autonomia e abitudini professionali.
+
+Segnali tipici dalle schede::
+Molte competenze essenziali a `L0` o `L1`; poche evidenze concrete; difficoltà a motivare le scelte.
+
+<<<
+
+==== E1 - Junior Engineer
+
+Scope::
+Task ben definiti.
+
+Sintesi::
+Profilo in grado di contribuire a compiti semplici, imparando rapidamente dal team e chiedendo supporto quando necessario.
+
+Impatto::
+Consegna attività circoscritte e contribuisce agli obiettivi del team quando il problema è chiaro.
+
+Competenze tecniche::
+Dimostra fondamentali sufficienti nelle competenze essenziali.
+Sa applicare concetti noti in contesti semplici.
+
+Comportamenti::
+Chiede feedback, comunica blocchi, apprende dal codice e dalle decisioni del team.
+
+Segnali tipici dalle schede::
+Competenze essenziali prevalentemente a `L1`, con qualche `L2` su aree più familiari.
+Poche competenze critiche a `L0`.
+
+<<<
+
+==== E2 - Software Engineer
+
+Scope::
+Task complessi o feature piccole.
+
+Sintesi::
+Profilo produttivo e affidabile, capace di lavorare in autonomia nella maggior parte delle attività ordinarie del team.
+
+Impatto::
+Contribuisce con continuità alla delivery e alla qualità del software prodotto dal team.
+
+Competenze tecniche::
+Progetta soluzioni semplici e corrette, motiva le scelte principali, testa il proprio lavoro e riconosce i problemi più comuni.
+
+Comportamenti::
+Collabora attivamente, dà feedback utili, prende ownership dei difetti nel proprio ambito e comunica in modo prevedibile.
+
+Segnali tipici dalle schede::
+Competenze essenziali prevalentemente a `L2`; alcune aree a `L1` sono accettabili se non centrali per il ruolo.
+Nessuna lacuna critica non presidiata.
+
+<<<
+
+==== E3 - Strong Software Engineer
+
+Scope::
+Feature, componente o progetto di media complessità.
+
+Sintesi::
+Profilo autonomo e solido, capace di progettare e portare a termine lavoro significativo per il team.
+
+Impatto::
+Influenza positivamente qualità tecnica, decisioni progettuali e capacità del team di consegnare.
+
+Competenze tecniche::
+Gestisce trade-off, requisiti non funzionali, evoluzione del sistema e casi non banali.
+Sa criticare e migliorare design esistenti.
+
+Comportamenti::
+Supporta colleghi meno esperti, rende visibili rischi e alternative, contribuisce a code review e discussioni tecniche con impatto positivo.
+
+Segnali tipici dalle schede::
+Competenze essenziali prevalentemente a `L3`; buone evidenze in testing, design, debugging, collaborazione e almeno alcune competenze architetturali o platform rilevanti.
+
+<<<
+
+==== E4 - Senior Engineer
+
+Scope::
+Progetti complessi, sistemi esistenti o area tecnica del team.
+
+Sintesi::
+Profilo esperto che guida decisioni tecniche importanti e aumenta l'efficacia degli altri.
+
+Impatto::
+Contribuisce al raggiungimento degli obiettivi del team non solo tramite il proprio codice, ma anche tramite decisioni, mentoring, qualità e riduzione del rischio.
+
+Competenze tecniche::
+Progetta soluzioni evolvibili, gestisce ambiguità, bilancia debito tecnico e priorità, considera affidabilità, sicurezza, performance, osservabilità e manutenibilità.
+
+Comportamenti::
+È punto di riferimento tecnico nel team.
+Comunica chiaramente rischi e trade-off anche a stakeholder non tecnici.
+Aiuta il team a migliorare pratiche e standard.
+
+Segnali tipici dalle schede::
+Molte competenze essenziali a `L3` o `L4`; nessuna debolezza grave nelle aree centrali del ruolo; evidenze forti di autonomia, mentoring e decisioni sistemiche.
+
+<<<
+
+==== E5 - Staff / Principal Engineer
+
+Scope::
+Dominio, più team o direzione tecnica ampia.
+
+Sintesi::
+Profilo di leadership tecnica con impatto oltre il singolo team.
+
+Impatto::
+Influenza sistemi, pratiche e decisioni a livello di area o organizzazione.
+Risolve problemi ad alta ambiguità e crea condizioni perché altri team lavorino meglio.
+
+Competenze tecniche::
+Definisce criteri, standard, architetture e strategie tecniche.
+Sa affrontare problemi sistemici e collegare decisioni tecniche a impatti organizzativi e di business.
+
+Comportamenti::
+Moltiplica l'efficacia degli altri, crea allineamento tra team, comunica visione e trade-off, sponsorizza crescita tecnica e qualità ingegneristica.
+
+Segnali tipici dalle schede::
+Competenze strategiche a `L4` o `L5`, specialmente in Architecture, Platform Engineering, Collaboration e nelle aree centrali del ruolo.
+Evidenze di impatto oltre il team.
+
+<<<
+
+=== Come mappare i risultati delle schede
+
+Il mapping dovrebbe essere fatto in tre passaggi.
+
+. Definire le competenze essenziali per il ruolo.
+. Valutare il pattern dei risultati, non la media.
+. Scrivere una motivazione sintetica del livello complessivo.
+
+==== Pattern utili
+
+Profilo junior::
+Dimostra basi sufficienti, molte risposte guidate, autonomia limitata, competenze essenziali attorno a `L1`.
+
+Profilo mid-level::
+Dimostra autonomia operativa, competenze essenziali attorno a `L2`, ragionamento pratico e ownership del proprio lavoro.
+
+Profilo strong / senior iniziale::
+Dimostra trade-off, progettazione, impatto sulla qualità del team, competenze essenziali tra `L2` e `L3`, con alcune evidenze `L3` forti.
+
+Profilo senior::
+Dimostra autonomia su problemi complessi, mentoring, visione sistemica, competenze essenziali prevalentemente a `L3` e `L4`.
+
+Profilo staff/principal::
+Dimostra impatto multi-team, capacità di definire direzione tecnica, gestione di ambiguità elevata e competenze strategiche a `L4` o `L5`.
+
+=== Casi da trattare con attenzione
+
+==== Picchi forti e basi deboli
+
+Un candidato può avere `L4` in una competenza specifica e `L1` in altre competenze fondamentali.
+
+Questo indica una specializzazione, non necessariamente un livello complessivo alto.
+
+==== Molti `NV`
+
+Molte competenze non valutate non devono essere interpretate come negative.
+
+Riducono però la confidenza della valutazione.
+
+In questi casi è preferibile indicare:
+
+* livello stimato;
+* livello di confidenza;
+* competenze da approfondire.
+
+==== Lacune critiche
+
+Una lacuna in una competenza essenziale per il ruolo può limitare il livello complessivo.
+
+Esempi:
+
+* backend engineer senior con testing e debugging deboli;
+* platform engineer con CI/CD o operating environment deboli;
+* tech lead con comunicazione tecnica o mentoring deboli.
+
+==== Specialisti
+
+Alcuni profili possono essere molto forti in un dominio specifico.
+
+Il framework dovrebbe riconoscere questa forza, ma distinguere tra:
+
+* specialista efficace dentro uno scope ristretto;
+* leader tecnico capace di moltiplicare impatto su un'area più ampia.
+
+=== Template di sintesi finale
+
+[cols="1,3"]
+|===
+|Campo |Contenuto
+
+|Livello proposto
+|`E2`, `E3`, `E4`, ...
+
+|Confidenza
+|Alta / media / bassa
+
+|Scope dimostrato
+|Task, feature, progetto, area, più team
+
+|Competenze forti
+|Elenco delle competenze con evidenze migliori
+
+|Lacune o rischi
+|Competenze deboli, non valutate o critiche per il ruolo
+
+|Motivazione
+|Sintesi qualitativa del perché il livello proposto è coerente con le evidenze
+|===
+
+Esempio:
+
+[quote]
+____
+Livello proposto: E3, confidenza media.
+
+Il candidato ha dimostrato autonomia su design, testing e API, con buone evidenze di trade-off e gestione dell'evoluzione del sistema.
+Le competenze platform sono state osservate solo parzialmente, quindi non ci sono evidenze sufficienti per valutare uno scope senior più ampio.
+Per un ruolo backend di prodotto, il profilo appare coerente con uno Strong Software Engineer.
+____

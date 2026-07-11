@@ -1,0 +1,69 @@
+:pdf-theme: {docdir}/interviewer-card-theme.yml
+:pdf-page-size: A4
+
+[[se07-ex01]]
+=== SE-07-EX01 - Report Lento
+
+===== L0
+
+Non riconosce problemi significativi: propone modifiche casuali o ignora il fatto che `findAll()` carica circa 8 milioni di ordini.
+
+* Domanda per L1: quale parte del codice ti sembra più rischiosa con milioni di record?
+* Domanda per L1: cosa succede a memoria, CPU e database quando questo endpoint viene chiamato spesso?
+
+===== L1
+
+Riconosce problemi evidenti, ma frammentari: nota che il codice è lento senza collegare misurazioni, query e volume dati.
+
+* [ ] Nota che `findAll()` carica troppi record.
+* [ ] Nota filtro su `Status` e `CreatedAt` fatto in memoria.
+* [ ] Nota ordinamento in memoria e possibile consumo eccessivo di heap.
+* [ ] Intuisce che `getCustomer().getName()` può generare query inutili o N+1.
+* Domanda per L2: come riscriveresti il flusso per evitare `findAll()` e far lavorare il database?
+* Domanda per L2: come limiteresti il risultato senza perdere l'ordine richiesto?
+
+===== L2
+
+Propone una soluzione coerente di base per ridurre dati letti, ordinati e trasferiti.
+
+* [ ] Filtra nel database gli ordini `COMPLETED` degli ultimi 30 giorni.
+* [ ] Ordina per `CreatedAt` nel database invece che nello stream Java.
+* [ ] Introduce paginazione o limite sul risultato del report.
+* [ ] Seleziona solo i campi necessari a `OrderReportRow`.
+* [ ] Misura tempi dell'endpoint prima e dopo la modifica.
+* Domanda per L3: quale indice valuteresti e come controlleresti che venga usato?
+* Domanda per L3: come verificheresti se esiste una query N+1 sul cliente?
+
+===== L3
+
+Motiva le scelte e tratta casi non banali: collega codice, piano di esecuzione, indici e verifica del risultato.
+
+* [ ] Propone un metodo tipo `findCompletedOrdersCreatedAfter(from, pageable)` o query equivalente.
+* [ ] Valuta un indice coerente con filtro e ordinamento, per esempio su `Status` e `CreatedAt`.
+* [ ] Controlla query generate, explain plan, cardinalità, CPU, memoria e tempi DB.
+* [ ] Gestisce join/fetch/proiezioni per evitare N+1 e dati collegati non necessari.
+* [ ] Considera cache o pre-calcolo solo dopo aver capito frequenza d'uso e freschezza richiesta.
+* Domanda per L4: cosa cambia se il report è consultato molte volte al giorno ma non deve essere real-time?
+* Domanda per L4: quali effetti collaterali può avere un nuovo indice sulle scritture?
+
+===== L4
+
+Ragiona su evoluzione, compatibilità e impatti operativi del reporting.
+
+* [ ] Valuta query live, cache con TTL, vista materializzata, pre-calcolo periodico o replica read-only.
+* [ ] Sceglie una migrazione incrementale: metriche baseline, rollout, confronto risultati e rollback.
+* [ ] Considera impatto su scritture, storage, invalidazione cache, job schedulati e freschezza del dato.
+* [ ] Definisce osservabilità: latenza p95/p99, righe lette, query lente, errori, heap e carico DB.
+* [ ] Mantiene compatibile il contratto del report o esplicita come comunicarne eventuali cambi.
+* Domanda per L5: con quali criteri sceglieresti tra cache, vista materializzata e query ottimizzata?
+* Domanda per L5: come eviteresti che nuovi report ripetano lo stesso problema?
+
+===== L5
+
+Guida una scelta completa, con trade-off, criteri decisionali e prevenzione futura.
+
+* [ ] Collega requisito, volume dati, frequenza d'uso, freschezza ammessa e costo operativo.
+* [ ] Definisce criteri misurabili: latenza target, throughput, carico DB, memoria, costo di manutenzione e correttezza del report.
+* [ ] Esplicita trade-off tra semplicità della query, indici, cache, pre-calcolo, consistenza e complessità di rilascio.
+* [ ] Prevede test con dataset rappresentativi, benchmark, explain plan e monitoraggio post-rilascio.
+* [ ] Stabilisce pratiche future: review performance, limiti/paginazione di default, linee guida query, dashboard e ownership dei report.

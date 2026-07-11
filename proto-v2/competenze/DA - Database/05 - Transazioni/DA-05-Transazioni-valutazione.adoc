@@ -1,0 +1,70 @@
+:pdf-theme: {docdir}/interviewer-card-theme.yml
+:pdf-page-size: A4
+
+[[da05-ex01]]
+=== DA-05-EX01 - Creazione di un Ordine
+
+'''
+
+===== L0
+
+Non riconosce problemi significativi nel flusso `createOrder`, `updateInventory`, `chargePayment`, `sendConfirmationEmail`.
+
+* Tratta tutte le operazioni come equivalenti e atomiche.
+* Non distingue database locale, pagamento esterno ed email.
+* Propone di eseguire tutto in sequenza senza discutere errori o rollback.
+* Domanda per L0: Cosa succede se il pagamento fallisce dopo aver creato l'ordine?
+
+===== L1
+
+Riconosce problemi evidenti ma in modo frammentario, senza costruire una strategia coerente.
+
+* [ ] Nota che possono esserci errori a meta' flusso.
+* [ ] Cita rollback o retry, ma senza chiarire su quali operazioni.
+* [ ] Intuisce che la mail e' meno critica dell'ordine.
+* [ ] Non separa ancora nettamente transazione locale e sistemi remoti.
+* Domanda per L1: Quali operazioni devono riuscire o fallire insieme?
+
+===== L2
+
+Propone una soluzione coerente di base e individua il confine principale della transazione.
+
+* [ ] Mette `createOrder()` e `updateInventory()` nella stessa transazione locale.
+* [ ] Esclude `sendConfirmationEmail()` dalla transazione dell'ordine.
+* [ ] Riconosce `chargePayment()` come chiamata a sistema esterno o comunque non banale.
+* [ ] Accetta consistenza eventuale per notifiche o passaggi asincroni.
+* [ ] Descrive almeno un esito di fallimento gestibile.
+* Domanda per L2: Dove metteresti il commit rispetto a pagamento ed email?
+
+===== L3
+
+Motiva le scelte e tratta casi non banali di errore, consistenza e recupero.
+
+* [ ] Spiega perche' una transazione lunga che include servizi esterni e' rischiosa.
+* [ ] Distingue rollback tecnico, compensazione di dominio e retry.
+* [ ] Gestisce pagamento fallito, pagamento riuscito ma notifica fallita, email non inviata.
+* [ ] Introduce eventi o job asincroni, per esempio `PaymentCompleted`.
+* [ ] Considera idempotenza per evitare doppi pagamenti, doppie email o doppie elaborazioni.
+* Domanda per L3: Come eviteresti di addebitare due volte lo stesso ordine?
+* Domanda per L3: Quando useresti una compensazione invece di un rollback?
+
+===== L4
+
+Ragiona su evoluzione, compatibilita', migrazione e impatti operativi della soluzione.
+
+* [ ] Valuta Saga, outbox, code o workflow quando il processo attraversa piu' servizi.
+* [ ] Distingue consistenza forte dove serve e consistenza eventuale dove e' accettabile.
+* [ ] Definisce stati dell'ordine compatibili con fallimenti parziali, retry e riconciliazione.
+* [ ] Considera osservabilita', audit, timeout, dead letter e procedure di recupero.
+* [ ] Ragiona su migrazione dal flusso sincrono attuale a uno piu' resiliente.
+* Domanda per L4: Come introdurresti eventi o outbox senza rompere il comportamento esistente?
+* Domanda per L4: Quali metriche o log ti servono per capire se il processo e' affidabile?
+
+===== L5
+
+Guida una scelta completa, esplicitando trade-off, criteri decisionali e prevenzione futura.
+
+* [ ] Confronta alternative: transazione locale piu' eventi, Saga, compensazioni, orchestrazione.
+* [ ] Sceglie in base a requisiti di dominio: rischio di overselling, conferma ordine, SLA pagamento.
+* [ ] Definisce invarianti, stati, ownership dei dati e responsabilita' dei servizi.
+* [ ] Prevede test di failure mode, idempotenza, concorrenza, retry e riconciliazione.

@@ -1,0 +1,83 @@
+[[se07-ex01]]
+=== SE-07-EX01 - Report Lento
+
+ifdef::metadata[]
+
+==== Metadati
+
+Competenza::
+SE-07 - Performance Engineering
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+endif::[]
+
+'''
+
+==== Scenario
+
+Un'applicazione backend espone un endpoint utilizzato dal team Operations per visualizzare gli ordini più recenti.
+
+Negli ultimi mesi il numero di ordini è cresciuto molto e l'endpoint è diventato lento.
+
+Gli utenti segnalano tempi di risposta di diversi secondi.
+
+==== Materiale fornito
+
+Endpoint:
+
+[source,text]
+----
+GET /reports/recent-orders
+----
+
+Codice semplificato:
+
+[source,java]
+----
+public List<OrderReportRow> getRecentOrders() {
+
+    List<Order> orders = orderRepository.findAll();
+
+    return orders.stream()
+        .filter(order -> order.getStatus().equals("COMPLETED"))
+        .filter(order -> order.getCreatedAt().isAfter(LocalDateTime.now().minusDays(30)))
+        .sorted(Comparator.comparing(Order::getCreatedAt).reversed())
+        .map(order -> new OrderReportRow(
+            order.getId(),
+            order.getCustomer().getName(),
+            order.getTotal(),
+            order.getCreatedAt()
+        ))
+        .collect(Collectors.toList());
+}
+----
+
+Informazioni aggiuntive:
+
+[source,text]
+----
+- La tabella Order contiene circa 8 milioni di record.
+- Il report mostra solo gli ordini degli ultimi 30 giorni.
+- Il report viene consultato spesso durante la giornata.
+- Non è richiesto che i dati siano aggiornati al secondo.
+----
+
+==== Consegna
+
+Analizza il problema.
+
+Descrivi:
+
+* quali possibili cause individui;
+* quali informazioni raccoglieresti prima di intervenire;
+* quali modifiche proporresti;
+* quali trade-off considereresti;
+* come verificheresti il miglioramento.

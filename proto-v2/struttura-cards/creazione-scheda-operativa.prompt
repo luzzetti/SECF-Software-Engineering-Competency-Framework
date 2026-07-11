@@ -1,0 +1,84 @@
+Certo. Puoi riusare questo prompt cambiando solo il file target.
+
+```text
+Vorrei trasformare questa card interviewer AsciiDoc in una scheda operativa compatta, simile a `proto-v2/AR01-EX02-Rest-api-Interviewer.adoc`.
+
+Obiettivo:
+- semplificare il lavoro dell’interviewer;
+- avere una progressione chiara da L0 a L5;
+- far stare idealmente tutto in un foglio A4;
+- mantenere il contenuto specifico dell’esercizio, senza renderlo generico.
+
+Lavora sul file: [INSERISCI_FILE_INTERVIEWER.adoc]
+
+Prima leggi:
+- la card interviewer indicata;
+- se esiste, anche la card candidato/esercizio collegata, per capire scenario, consegna e soluzione attesa.
+
+Riscrivi la card con questa struttura:
+
+1. Header AsciiDoc con:
+   - `:pdf-theme: {docdir}/interviewer-card-theme.yml`
+   - `:pdf-page-size: A4`
+
+2. Titolo della card.
+
+3. Sezione:
+   `==== Card per l'intervistatore`
+
+4. Una frase breve di obiettivo:
+   - cosa valuta l’esercizio;
+   - cosa NON è l’obiettivo;
+   - come usare checkbox e domande.
+
+5. Livelli da `L0` a `L5`, usando heading `===== L0`, `===== L1`, ecc.
+
+Per ogni livello:
+- scrivi una descrizione breve del comportamento osservabile;
+- da L1 in poi usa checkbox `* [ ]` per gli argomenti che l’interviewer può spuntare;
+- alla fine di L0-L4 aggiungi 1-2 domande nel formato:
+  `* Domanda per Lx: ...`
+
+La progressione deve essere:
+- L0: non riconosce problemi significativi;
+- L1: riconosce problemi evidenti ma frammentari;
+- L2: propone una soluzione coerente di base;
+- L3: motiva le scelte e tratta casi non banali;
+- L4: ragiona su evoluzione, compatibilità, migrazione, impatti;
+- L5: guida una scelta completa, con trade-off, criteri decisionali e prevenzione futura.
+
+Mantieni il testo compatto:
+- evita sezioni separate tipo “Soluzione canonica”, “Spunti”, “Rubrica”;
+- integra quelle informazioni nei livelli;
+- non usare blocchi lunghi se puoi sintetizzare in bullet;
+- punta a circa 60-75 righe totali.
+
+Se il file `interviewer-card-theme.yml` non esiste nella stessa directory, crealo con una configurazione minimale:
+
+```yaml
+extends: default
+
+page:
+  margin: [10mm, 12mm, 8mm, 12mm]
+
+base:
+  font-size: 8.5
+  line-height: 1.00
+
+heading:
+  line-height: 1.00
+  margin-top: 3
+  margin-bottom: 3
+  h3-font-size: 12
+  h4-font-size: 10
+  h5-font-size: 9
+
+list:
+  item-spacing: 1.5
+```
+
+Verifica finale:
+- controlla che il file sia AsciiDoc valido a livello sintattico;
+- esegui `git diff --check`;
+- non toccare file non collegati alla card.
+```

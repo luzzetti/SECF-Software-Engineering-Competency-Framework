@@ -1,0 +1,60 @@
+[[da05-ex01]]
+=== DA-05-EX01 - Creazione di un Ordine
+
+ifdef::metadata[]
+
+==== Metadati
+
+Competenza::
+DA-05 - Transaction Management
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+endif::[]
+
+'''
+
+==== Scenario
+
+Stai sviluppando il backend di un sistema e-commerce.
+
+Quando un cliente conferma un ordine devono essere eseguite le seguenti operazioni:
+
+* creare l'ordine;
+* diminuire la disponibilità dei prodotti;
+* registrare il pagamento;
+* inviare una email di conferma.
+
+==== Materiale fornito
+
+Pseudo-codice attuale:
+
+[source,java]
+----
+createOrder();
+
+updateInventory();
+
+chargePayment();
+
+sendConfirmationEmail();
+----
+
+==== Consegna
+
+Analizza il flusso.
+
+Descrivi:
+
+* quali problemi individui;
+* quali operazioni dovrebbero appartenere alla stessa transazione;
+* quali operazioni non includeresti nella transazione;
+* cosa potrebbe succedere in caso di errore;
+* come gestiresti gli scenari di fallimento.

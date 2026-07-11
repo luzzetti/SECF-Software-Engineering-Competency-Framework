@@ -1,0 +1,69 @@
+[[da02-ex02]]
+=== DA-02-EX02 - Prodotti più Venduti
+
+ifdef::metadata[]
+
+==== Metadati
+
+Competenza::
+DA-02 - SQL
+
+Livello consigliato::
+L2
+
+Tempo stimato::
+15 minuti
+
+Modalità::
+Pratica
+
+endif::[]
+
+'''
+
+==== Scenario
+
+Stai lavorando a un sistema di e-commerce.
+
+Il Product Owner richiede un report con i prodotti più venduti negli ultimi 30 giorni.
+
+==== Materiale fornito
+
+[source,text]
+----
+Customer
+--------
+Id
+Name
+
+CustomerOrder
+-------------
+Id
+CustomerId
+OrderDate
+
+OrderItem
+---------
+Id
+OrderId
+ProductId
+Quantity
+UnitPrice
+
+Product
+-------
+Id
+Name
+Category
+----
+
+==== Consegna
+
+Scrivi una query SQL che restituisca, per ogni prodotto venduto negli ultimi 30 giorni:
+
+* nome del prodotto;
+* categoria;
+* quantità totale venduta;
+* ricavo totale generato.
+
+Il risultato deve essere ordinato dal prodotto con il ricavo maggiore a quello con il ricavo minore.

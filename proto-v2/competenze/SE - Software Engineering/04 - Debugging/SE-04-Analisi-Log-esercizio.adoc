@@ -1,0 +1,68 @@
+[[se04-ex03]]
+=== SE-04-EX03 - Rumore nei Log
+
+ifdef::metadata[]
+
+==== Metadati
+
+Competenza::
+SE-04 - Debugging
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+20 minuti
+
+Modalità::
+Pratica / Discussione
+
+endif::[]
+
+'''
+
+==== Scenario
+
+Negli ultimi giorni alcuni utenti segnalano errori sporadici durante la conferma degli ordini.
+
+L'unica informazione disponibile è un estratto del log applicativo.
+
+==== Materiale fornito
+
+[source,text]
+----
+2026-10-14 10:21:31 INFO  HttpServer          - Request POST /orders
+2026-10-14 10:21:31 INFO  OrderController     - Creating order 20451
+2026-10-14 10:21:31 INFO  InventoryService    - Reserving products
+2026-10-14 10:21:31 INFO  NotificationService - Sending notification
+2026-10-14 10:21:31 WARN  MailClient          - SMTP server temporarily unavailable
+2026-10-14 10:21:31 INFO  PaymentService      - Charging customer 771
+2026-10-14 10:21:32 INFO  PaymentService      - Payment completed
+2026-10-14 10:21:32 ERROR OrderService        - Error while confirming order
+
+java.lang.NullPointerException
+    at com.company.order.OrderService.applyDiscount(OrderService.java:143)
+    at com.company.order.OrderService.confirm(OrderService.java:88)
+    at com.company.api.OrderController.create(OrderController.java:62)
+
+2026-10-14 10:21:32 INFO  Scheduler           - Daily cleanup started
+2026-10-14 10:21:33 INFO  Scheduler           - Daily cleanup completed
+
+2026-10-14 10:21:34 INFO  HttpServer          - Request GET /products
+2026-10-14 10:21:34 INFO  ProductController   - Listing products
+
+2026-10-14 10:21:35 WARN  CacheService        - Cache miss for customer 771
+
+2026-10-14 10:21:36 INFO  NotificationService - Retry completed successfully
+----
+
+==== Consegna
+
+Analizza il log.
+
+Descrivi:
+
+* quali informazioni ritieni realmente rilevanti;
+* quali messaggi consideri rumore;
+* quali ipotesi formuleresti;
+* quali verifiche eseguiresti successivamente.

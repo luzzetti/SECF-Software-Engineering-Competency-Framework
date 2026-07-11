@@ -1,0 +1,65 @@
+:pdf-theme: {docdir}/../../../struttura-cards/tema-schede-valutazione.yml
+:pdf-page-size: A4
+
+[[AR01-EX02]]
+=== AR-01 - Rest API
+
+'''
+
+===== L0
+
+Non individua problemi significativi o resta su commenti generici.
+
+* Domanda per L1: cosa ti sembra poco chiaro o poco coerente nei nomi degli endpoint?
+* Domanda per L1: vedi differenze tra azioni come `getOrders` e risorse come `orders`?
+
+===== L1
+
+Riconosce problemi evidenti, ma senza ancora costruire un modello coerente.
+
+* [ ] Nota naming orientato alle azioni: `getOrders`, `createOrder`, `deleteOrder`.
+* [ ] Nota uso improprio o poco espressivo di `POST` per update, delete o cancel.
+* [ ] Nota parametri e filtri esposti in modo non uniforme.
+* Domanda per L2: se dovessi ridisegnare gli endpoint intorno alle risorse, quali risorse useresti?
+* Domanda per L2: quali metodi HTTP useresti per lista, creazione, lettura, modifica e cancellazione?
+
+===== L2
+
+Propone un design più coerente tra risorse, endpoint e operazioni.
+
+* [ ] Modella `orders` come risorsa principale.
+* [ ] Usa metodi coerenti: `GET /orders`, `POST /orders`, `GET/PUT/DELETE /orders/{id}`.
+* [ ] Distingue collezioni, singole risorse e sotto-risorse, per esempio `GET /customers/{id}/orders`.
+* Domanda per L3: come modelleresti operazioni non puramente CRUD, per esempio sconto e cancellazione?
+* Domanda per L3: quali scelte faresti per filtri, paginazione, ordinamento ed errori?
+
+===== L3
+
+Motiva le scelte e considera casi non banali senza perdere coerenza.
+
+* [ ] Discute `POST /orders/{id}/discount` o risorse dedicate per operazioni di dominio.
+* [ ] Distingue `PUT` e `PATCH` oppure motiva la scelta di usarne solo uno.
+* [ ] Considera filtri su `GET /orders`, status code, error model e idempotenza.
+* [ ] Riconosce che non esiste una sola soluzione corretta, ma serve coerenza.
+* Domanda per L4: come introdurresti il nuovo design senza rompere i client esistenti?
+* Domanda per L4: quando useresti versioning, compatibilità temporanea o deprecazione?
+
+===== L4
+
+Propone una strategia di evoluzione dell'API, non solo endpoint migliori.
+
+* [ ] Prevede compatibilità temporanea tra vecchi e nuovi endpoint.
+* [ ] Definisce migrazione, documentazione, changelog e comunicazione ai consumatori.
+* [ ] Considera versioning, deprecazione, monitoring dell'uso e rollback.
+* [ ] Valuta impatto su client, test, gateway, sicurezza e osservabilità.
+* Domanda per L5: come decideresti se mantenere a lungo i vecchi endpoint o forzare la migrazione?
+* Domanda per L5: quali segnali useresti per capire che l'evoluzione dell'API è riuscita?
+
+===== L5
+
+Guida una scelta architetturale completa, esplicitando trade-off e criteri decisionali.
+
+* [ ] Collega design API, dominio, governance, costi di migrazione e lifecycle del prodotto.
+* [ ] Propone criteri misurabili: adozione dei nuovi endpoint, error rate, latenza, ticket, client migrati.
+* [ ] Sa scegliere tra compatibilità, pulizia del contratto e velocità di evoluzione motivando il trade-off.
+* [ ] Definisce un processo futuro per evitare regressioni: review API, contract test, linee guida e ownership.

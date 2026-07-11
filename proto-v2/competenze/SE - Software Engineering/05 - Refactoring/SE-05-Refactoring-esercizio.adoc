@@ -1,0 +1,143 @@
+[[se05-ex01]]
+=== SE-05-EX01 - Refactoring Progressivo
+
+ifdef::metadata[]
+
+==== Metadati
+
+Competenza::
+SE-05 - Refactoring
+
+Livello consigliato::
+L2-L3
+
+Tempo stimato::
+25 minuti
+
+Modalità::
+Pratica / Discussione
+
+endif::[]
+
+'''
+
+==== Scenario
+
+Stai lavorando su un'applicazione di fatturazione usata in produzione.
+
+Il metodo `calculate()` è cresciuto nel tempo: calcola il totale delle righe, applica sconti, gestisce regole per paese e arrotonda il risultato.
+
+Il team vuole renderlo più leggibile perché deve aggiungere nuove regole fiscali, ma non vuole cambiare il comportamento esistente.
+
+==== Materiale fornito
+
+Regole note:
+
+[source,text]
+----
+- Ogni riga ha prezzo unitario e quantità.
+- Una riga può avere uno sconto percentuale.
+- Le righe senza sconto percentuale di clienti VIP ricevono uno sconto del 5%.
+- I clienti VIP con totale superiore a 500 ricevono un ulteriore sconto del 5%.
+- Le fatture italiane applicano IVA al 22%.
+- Le fatture non italiane applicano tasse al 20%.
+- Gli importi finali vengono arrotondati a 2 decimali.
+----
+
+[source,java]
+----
+public class InvoiceService {
+
+    public BigDecimal calculate(Invoice i) {
+
+        BigDecimal x = BigDecimal.ZERO;
+
+        for (InvoiceLine l : i.getLines()) {
+            BigDecimal y = l.getUnitPrice()
+                .multiply(BigDecimal.valueOf(l.getQuantity()));
+
+            if (l.getDiscountPercentage() != null) {
+                y = y.subtract(
+                    y.multiply(l.getDiscountPercentage())
+                     .divide(BigDecimal.valueOf(100))
+                );
+            }
+
+            if (i.getCustomer() != null
+                    && i.getCustomer().isVip()
+                    && l.getDiscountPercentage() == null) {
+                y = y.multiply(BigDecimal.valueOf(0.95));
+            }
+
+            x = x.add(y);
+        }
+
+        if (i.getCustomer() != null
+                && i.getCustomer().isVip()
+                && x.compareTo(BigDecimal.valueOf(500)) > 0) {
+            x = x.subtract(x.multiply(BigDecimal.valueOf(5))
+                 .divide(BigDecimal.valueOf(100)));
+        }
+
+        if ("IT".equals(i.getCountry())) {
+            x = x.add(x.multiply(BigDecimal.valueOf(22))
+                 .divide(BigDecimal.valueOf(100)));
+        }
+
+        if (!"IT".equals(i.getCountry())) {
+            x = x.add(x.multiply(BigDecimal.valueOf(20))
+                 .divide(BigDecimal.valueOf(100)));
+        }
+
+        return x.setScale(2, RoundingMode.HALF_UP);
+    }
+}
+----
+
+Il team ha già iniziato a scrivere alcuni test, ma non è sicuro che siano sufficienti.
+
+[source,java]
+----
+class InvoiceServiceTest {
+
+    @Test
+    void calculatesTotalForSingleLineWithoutDiscount() {
+        Invoice invoice = invoice(
+            customer(false),
+            "DE",
+            line("10.00", 2, null)
+        );
+
+        assertThat(service.calculate(invoice))
+            .isEqualByComparingTo("24.00");
+    }
+
+    @Test
+    void appliesLineDiscount() {
+        Invoice invoice = invoice(
+            customer(false),
+            "DE",
+            line("10.00", 2, new BigDecimal("10"))
+        );
+
+        assertThat(service.calculate(invoice))
+            .isEqualByComparingTo("21.60");
+    }
+}
+----
+
+==== Consegna
+
+Lavora come se dovessi preparare un piccolo refactoring da proporre al team.
+
+Non devi riscrivere tutto il codice. Parti dalla situazione data e descrivi una strategia concreta.
+
+Rispondi seguendo questi passi:
+
+. Individua le responsabilità mescolate nel metodo.
+. Decidi quali test aggiungeresti prima di modificare il codice.
+. Proponi il primo refactoring piccolo e verificabile.
+. Spiega come controlleresti di non avere cambiato il comportamento.
+. Indica dove ti fermeresti in questa iterazione.
+
+

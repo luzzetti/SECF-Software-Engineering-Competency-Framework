@@ -1,0 +1,25 @@
+
+**Tech Lead** è una responsabilità o un “cappello”, non necessariamente un livello di carriera.
+
+Un Tech Lead guida tecnicamente un team o un progetto: coordina decisioni tecniche, aiuta a spezzare il lavoro, allinea gli engineer, gestisce trade-off e rischi. Può essere un `E3` forte o un `E4`, a seconda dello scope. Non implica per forza impatto multi-team.
+
+**Staff Engineer** è un livello di seniority individual contributor.
+
+Uno Staff Engineer ha impatto oltre il singolo team: influenza un dominio, più team o una piattaforma, risolve problemi ambigui, definisce direzione tecnica, crea standard, sblocca altri team. Può fare anche da Tech Lead, ma non è definito solo da quello.
+
+**Principal Engineer** è uno step ancora più ampio.
+
+Un Principal lavora su problemi strategici e sistemici: direzione tecnica aziendale, architetture trasversali, scelte con impatto di lungo periodo, allineamento tra molti team o aree. È meno “lead del progetto X” e più “questa è la direzione tecnica giusta per l’organizzazione”.
+
+In breve:
+
+| Ruolo | Domanda chiave |
+|---|---|
+| Tech Lead | “Chi guida tecnicamente questo team/progetto?” |
+| Staff Engineer | “Chi migliora un dominio o più team in modo sistematico?” |
+| Principal Engineer | “Chi influenza la direzione tecnica dell’azienda?” |
+
+Nella bozza attuale ho accorpato `Staff / Principal` in `E5`. Ha senso per una prima versione, ma se vuoi un framework più preciso io li separerei:
+
+- `E5 - Staff Engineer`: impatto multi-team / dominio.
+- `E6 - Principal Engineer`: impatto aziendale / strategico.

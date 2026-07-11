@@ -39,6 +39,7 @@ public class InvoiceService {
             BigDecimal lineTotal =
                 line.getUnitPrice().multiply(BigDecimal.valueOf(line.getQuantity()));
 
+            // e.m. -> void subtractDiscountPercentageIfExists(lineTotal, percentage)
             if (line.getDiscountPercentage() != null) {
                 BigDecimal discount =
                     lineTotal.multiply(line.getDiscountPercentage())
@@ -50,10 +51,12 @@ public class InvoiceService {
             total = total.add(lineTotal);
         }
 
+        // void subtractVipPercentageIfExist(total, invoice.getCustomer())
         if (invoice.getCustomer().isVip()) {
             total = total.multiply(BigDecimal.valueOf(0.95));
         }
 
+        // void addTax(total, invoice.getCountry())
         if (invoice.getCountry().equals("IT")) {
             total = total.multiply(BigDecimal.valueOf(1.22));
         } else {
@@ -91,7 +94,7 @@ L'obiettivo non è ottenere il codice finale perfetto, ma osservare se il candid
 ==== Cosa osservare
 
 * Distingue refactoring da cambio funzionale.
-* Propone test di caratterizzazione prima delle modifiche.
+* Propone test di caratterizzazione prima delle modifiche. (Bibliografia: Working with legacy code)
 * Procede per piccoli passi.
 * Riduce il rischio di regressione.
 * Estrae metodi con responsabilità chiare.

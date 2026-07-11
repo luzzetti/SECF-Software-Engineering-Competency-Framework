@@ -1,0 +1,64 @@
+:pdf-theme: {docdir}/interviewer-card-theme.yml
+:pdf-page-size: A4
+
+[[se04-ex03]]
+=== SE-04 - Analisi Log
+
+===== L0
+
+Non riconosce problemi significativi: legge il log in modo casuale, confonde messaggi indipendenti e non individua l'eccezione in `OrderService.applyDiscount()`.
+
+* Domanda per L1: quale riga ti sembra il primo segnale di errore reale?
+* Domanda per L1: quali messaggi appartengono alla richiesta `POST /orders`?
+
+===== L1
+
+Riconosce indizi evidenti, ma frammentari: si aggancia a eccezione, SMTP o cache senza ricostruire il flusso.
+
+* [ ] Nota la `NullPointerException` o lo stack trace.
+* [ ] Cita il problema SMTP o il cache miss senza verificarne la rilevanza.
+* [ ] Fatica a distinguere richiesta ordine, job schedulato e `GET /products`.
+* Domanda per L2: come ordineresti gli eventi della conferma ordine?
+* Domanda per L2: quali messaggi sono rumore rispetto all'errore?
+
+===== L2
+
+Propone una lettura coerente di base della sequenza e identifica cosa verificare.
+
+* [ ] Ricostruisce `POST /orders`, creazione ordine, riserva prodotti, notifica, pagamento, errore.
+* [ ] Considera rilevanti pagamento completato e `NullPointerException` in `applyDiscount()`.
+* [ ] Esclude come rumore scheduler, `GET /products` e cache miss salvo nuove evidenze.
+* [ ] Propone di controllare riga 143, dati ordine/cliente e stato di pagamento/ordine.
+* Domanda per L3: perché il warning SMTP non è necessariamente la causa dell'errore?
+* Domanda per L3: quali informazioni mancano per confermare l'ipotesi sullo sconto?
+
+===== L3
+
+Motiva l'analisi e tratta casi non banali senza perdere la timeline.
+
+* [ ] Distingue causa probabile, effetti collaterali ed eventi asincroni o ritentati.
+* [ ] Usa timestamp e componenti per separare flussi concorrenti e richieste non correlate.
+* [ ] Formula ipotesi su sconto, cliente 771, dati null e ordine parzialmente confermato.
+* [ ] Propone riproduzione, controllo idempotenza, stato transazionale e correlazione con casi simili.
+* Domanda per L4: come miglioreresti questi log per ridurre ambiguità alla prossima analisi?
+* Domanda per L4: cosa cambierebbe se il pagamento fosse confermato ma l'ordine no?
+
+===== L4
+
+Ragiona su evoluzione del debugging, compatibilità dei log e impatti operativi.
+
+* [ ] Propone Correlation ID o request ID per legare eventi della stessa richiesta.
+* [ ] Suggerisce log strutturati con order id, customer id, esito step, durata e severity coerente.
+* [ ] Valuta metriche e allarmi su error rate conferma ordine, retry notifica, pagamenti senza ordine.
+* [ ] Considera compatibilità con dashboard, privacy dei dati e migrazione graduale dello schema logging.
+* Domanda per L5: quali criteri useresti per decidere quali log aggiungere o rimuovere?
+* Domanda per L5: come eviteresti che il rumore torni a rendere difficile il debugging?
+
+===== L5
+
+Guida una scelta completa di osservabilità e prevenzione futura.
+
+* [ ] Collega diagnosi, rischio business, consistenza ordine-pagamento e costi di logging.
+* [ ] Definisce criteri decisionali: segnale utile, volume, cardinalità, privacy, retention, costo e tempo di diagnosi.
+* [ ] Stabilisce un piano futuro: standard logging, correlation id obbligatorio, runbook, test su error path e monitoring.
+* [ ] Esplicita trade-off tra dettaglio dei log, rumore, performance, sicurezza e operatività del team.
