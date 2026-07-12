@@ -1,7 +1,7 @@
-[[assessment-methodology]]
-== Metodologia di Valutazione
+[[metodologia-di-valutazione]]
+= Metodologia di Valutazione
 
-=== Scopo
+== Scopo
 
 Questo capitolo descrive come utilizzare il Software Engineering Competency Framework durante un processo di valutazione.
 
@@ -9,7 +9,7 @@ L'obiettivo del framework è supportare un processo decisionale il più possibil
 
 Il SECF non sostituisce il giudizio dell'intervistatore, ma fornisce un metodo strutturato per raccogliere evidenze, valutare le singole competenze e determinare il profilo professionale complessivo.
 
-=== Il processo di valutazione
+== Il processo di valutazione
 
 L'utilizzo del framework si articola in cinque fasi.
 
@@ -21,7 +21,7 @@ L'utilizzo del framework si articola in cinque fasi.
 
 Ogni fase deve essere supportata da evidenze osservabili.
 
-=== Le evidenze
+== Le evidenze
 
 Per evidenza si intende qualsiasi elemento osservabile che consenta di motivare una valutazione.
 
@@ -49,7 +49,7 @@ Le semplici dichiarazioni non costituiscono, da sole, un'evidenza sufficiente.
 
 |===
 
-=== Assegnazione dei livelli di competenza
+== Assegnazione dei livelli di competenza
 
 Per ogni competenza osservata l'intervistatore assegna il livello più alto effettivamente dimostrato dal candidato.
 
@@ -59,7 +59,7 @@ In caso di dubbio tra due livelli consecutivi è preferibile assegnare il livell
 
 Se una competenza non viene osservata, deve essere classificata come `NV`.
 
-=== Determinazione del livello di progressione
+== Determinazione del livello di progressione
 
 Terminata la valutazione delle singole competenze, l'intervistatore determina il livello di progressione (`E0`-`E5`) utilizzando il Progression Framework.
 
@@ -74,7 +74,7 @@ La valutazione complessiva considera:
 
 Il livello di progressione non rappresenta una media dei livelli delle singole competenze.
 
-=== Documentare la valutazione
+== Documentare la valutazione
 
 Per ogni competenza è consigliabile annotare una breve motivazione.
 
@@ -105,7 +105,7 @@ Per ogni competenza è consigliabile annotare una breve motivazione.
 * eventuali lacune rilevanti;
 * motivazione complessiva.
 
-=== Errori comuni
+== Errori comuni
 
 Durante una valutazione è opportuno evitare alcuni errori ricorrenti.
 
@@ -129,7 +129,7 @@ Un candidato molto comunicativo non è necessariamente più competente di uno me
 
 Il framework osserva il processo decisionale, non la coincidenza della risposta con la soluzione preferita dall'intervistatore.
 
-=== Il ruolo dell'intervistatore
+== Il ruolo dell'intervistatore
 
 L'intervistatore non deve cercare di dimostrare la propria preparazione.
 
@@ -139,7 +139,7 @@ Domande di progressione, chiarimenti e Schede Esercizio rappresentano strumenti 
 
 Un buon colloquio è una conversazione tecnica strutturata, non un interrogatorio.
 
-=== Punti chiave
+== Punti chiave
 
 * Valutare esclusivamente le competenze rilevanti per il ruolo.
 * Basare ogni valutazione su evidenze osservabili.

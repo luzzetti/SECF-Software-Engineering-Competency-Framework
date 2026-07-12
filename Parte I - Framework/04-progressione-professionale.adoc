@@ -1,7 +1,7 @@
-[[progression-levels]]
-== Progressione Professionale
+[[livelli-di-progressione]]
+= Progressione Professionale
 
-=== Scopo
+== Scopo
 
 Il Progression Framework descrive il profilo professionale complessivo di una persona attraverso sei livelli di progressione (`E0`-`E5`).
 
@@ -19,17 +19,17 @@ Il livello di progressione viene determinato considerando:
 
 Il Progression Framework costituisce una guida alla valutazione e non un algoritmo di calcolo.
 
-=== Le dimensioni della progressione
+== Le dimensioni della progressione
 
 La progressione professionale viene osservata attraverso quattro dimensioni principali.
 
-==== Scope
+=== Scope
 
 Descrive l'ampiezza dei problemi che la persona è in grado di affrontare.
 
 Lo scope può evolvere da attività ben definite fino a sistemi complessi, domini estesi o contesti organizzativi più ampi.
 
-==== Impatto
+=== Impatto
 
 Descrive gli effetti prodotti dal contributo della persona.
 
@@ -42,13 +42,13 @@ L'impatto può manifestarsi attraverso:
 * miglioramento delle pratiche del team;
 * mentoring e crescita delle persone.
 
-==== Competenze
+=== Competenze
 
 Descrivono il livello di padronanza delle competenze osservate durante la valutazione.
 
 I livelli di competenza (`L0`-`L5`) rappresentano uno degli elementi utilizzati per determinare il livello di progressione.
 
-==== Comportamenti professionali
+=== Comportamenti professionali
 
 Descrivono il modo in cui la persona collabora con il team.
 
@@ -61,9 +61,9 @@ Comprendono, ad esempio:
 * capacità decisionale;
 * gestione dei trade-off.
 
-=== Livelli di progressione
+== Livelli di progressione
 
-==== E0 - Foundation
+=== E0 - Foundation
 
 Sintesi::
 Profilo all'inizio del percorso tecnico oppure non ancora pronto per contribuire in modo affidabile senza supporto significativo.
@@ -85,7 +85,7 @@ Deve ancora consolidare metodo, autonomia e abitudini professionali.
 Segnali tipici dalle schede::
 Molte competenze essenziali a `L0` o `L1`; poche evidenze concrete; difficoltà a motivare le scelte.
 
-==== E1 - Junior Engineer
+=== E1 - Junior Engineer
 
 Sintesi::
 Profilo in grado di contribuire a compiti semplici, imparando rapidamente dal team e chiedendo supporto quando necessario.
@@ -107,7 +107,7 @@ Segnali tipici dalle schede::
 Competenze essenziali prevalentemente a `L1`, con qualche `L2` su aree più familiari.
 Poche competenze critiche a `L0`.
 
-==== E2 - Software Engineer
+=== E2 - Software Engineer
 
 Sintesi::
 Profilo produttivo e affidabile, capace di lavorare in autonomia nella maggior parte delle attività ordinarie del team.
@@ -128,7 +128,7 @@ Segnali tipici dalle schede::
 Competenze essenziali prevalentemente a `L2`; alcune aree a `L1` sono accettabili se non centrali per il ruolo.
 Nessuna lacuna critica non presidiata.
 
-==== E3 - Strong Software Engineer
+=== E3 - Strong Software Engineer
 
 Sintesi::
 Profilo autonomo e solido, capace di progettare e portare a termine lavoro significativo per il team.
@@ -149,7 +149,7 @@ Supporta colleghi meno esperti, rende visibili rischi e alternative, contribuisc
 Segnali tipici dalle schede::
 Competenze essenziali prevalentemente a `L3`; buone evidenze in testing, design, debugging, collaborazione e almeno alcune competenze architetturali o platform rilevanti.
 
-==== E4 - Senior Engineer
+=== E4 - Senior Engineer
 
 Sintesi::
 Profilo esperto che guida decisioni tecniche importanti e aumenta l'efficacia degli altri.
@@ -171,7 +171,7 @@ Aiuta il team a migliorare pratiche e standard.
 Segnali tipici dalle schede::
 Molte competenze essenziali a `L3` o `L4`; nessuna debolezza grave nelle aree centrali del ruolo; evidenze forti di autonomia, mentoring e decisioni sistemiche.
 
-==== E5 - Staff / Principal Engineer
+=== E5 - Staff / Principal Engineer
 
 Sintesi::
 Profilo di leadership tecnica con impatto oltre il singolo team.
@@ -194,7 +194,7 @@ Segnali tipici dalle schede::
 Competenze strategiche a `L4` o `L5`, specialmente in Architecture, Platform Engineering, Collaboration e nelle aree centrali del ruolo.
 Evidenze di impatto oltre il team.
 
-=== Assegnazione del livello
+== Assegnazione del livello
 
 Il livello di progressione non deriva dalla media dei livelli delle singole competenze.
 
@@ -207,25 +207,25 @@ La valutazione finale dovrebbe considerare:
 * lo scope e l'impatto del contributo tecnico;
 * i comportamenti professionali osservati.
 
-=== Casi particolari
+== Casi particolari
 
-==== Competenze non valutate
+=== Competenze non valutate
 
 Le competenze non osservate (`NV`) non rappresentano una valutazione negativa.
 
 Riducendo però le evidenze disponibili, possono diminuire il livello di confidenza della valutazione complessiva.
 
-==== Specializzazione
+=== Specializzazione
 
 Un candidato può dimostrare livelli molto elevati in alcune competenze e livelli inferiori in altre.
 
 Questa situazione rappresenta una specializzazione e non costituisce necessariamente un indicatore del livello di progressione complessivo.
 
-==== Lacune critiche
+=== Lacune critiche
 
 Una lacuna in una competenza essenziale per il ruolo può limitare il livello di progressione, anche in presenza di ottime evidenze in altre aree.
 
-=== Sintesi della valutazione
+== Sintesi della valutazione
 
 Al termine della valutazione è consigliabile produrre una sintesi contenente almeno le seguenti informazioni.
 

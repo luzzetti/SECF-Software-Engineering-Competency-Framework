@@ -1,7 +1,7 @@
-[[competency-levels]]
-== Livelli di Competenza
+[[livelli-di-competenza]]
+= Livelli di Competenza
 
-=== Scopo
+== Scopo
 
 Il Software Engineering Competency Framework (SECF) descrive il livello di padronanza di ciascuna competenza attraverso una scala composta da sei livelli (`L0`-`L5`) e da uno stato di valutazione (`NV`).
 
@@ -9,7 +9,7 @@ I livelli descrivono esclusivamente la padronanza osservata di una singola compe
 
 Non rappresentano il ruolo aziendale, gli anni di esperienza o il livello professionale complessivo del candidato.
 
-=== Stati della valutazione
+== Stati della valutazione
 
 Prima di assegnare un livello è necessario stabilire se la competenza sia stata effettivamente osservata.
 
@@ -28,7 +28,7 @@ Prima di assegnare un livello è necessario stabilire se la competenza sia stata
 NOTE: *NV* non rappresenta una valutazione negativa.
 Indica semplicemente che la competenza non è stata osservata.
 
-=== Livello L1
+== Livello L1
 
 Il candidato:
 
@@ -37,7 +37,7 @@ Il candidato:
 * applica la competenza in situazioni semplici e ben definite;
 * necessita di supporto nei casi non standard.
 
-=== Livello L2
+== Livello L2
 
 Il candidato:
 
@@ -46,7 +46,7 @@ Il candidato:
 * motiva le proprie decisioni;
 * riconosce i principali casi limite.
 
-=== Livello L3
+== Livello L3
 
 Il candidato:
 
@@ -55,7 +55,7 @@ Il candidato:
 * valuta i principali trade-off;
 * adatta la soluzione al contesto applicativo.
 
-=== Livello L4
+== Livello L4
 
 Il candidato:
 
@@ -64,7 +64,7 @@ Il candidato:
 * definisce criteri per scegliere tra soluzioni differenti;
 * individua rischi e conseguenze delle decisioni tecniche.
 
-=== Livello L5
+== Livello L5
 
 Il candidato:
 
@@ -73,7 +73,7 @@ Il candidato:
 * definisce linee guida, modelli o soluzioni riutilizzabili;
 * affronta problemi caratterizzati da elevata complessità e forte incertezza.
 
-=== Caratteristiche dei livelli
+== Caratteristiche dei livelli
 
 I livelli di competenza seguono alcuni principi generali.
 
@@ -81,7 +81,7 @@ I livelli di competenza seguono alcuni principi generali.
 * Sono *indipendenti*: il livello raggiunto in una competenza non determina il livello delle altre competenze.
 * Sono *contestuali*: il livello viene assegnato sulla base delle evidenze raccolte durante la valutazione.
 
-=== Cosa i livelli non rappresentano
+== Cosa i livelli non rappresentano
 
 I livelli di competenza non rappresentano:
 
@@ -96,7 +96,7 @@ Uno stesso professionista può trovarsi a livelli differenti in competenze diffe
 
 Questa variabilità è normale e rappresenta uno degli obiettivi del framework: descrivere in modo accurato il profilo delle competenze osservate, evitando di sintetizzarle in un unico giudizio.
 
-=== Relazione con il Progression Framework
+== Relazione con il Progression Framework
 
 I livelli `L0`-`L5` descrivono esclusivamente la padronanza di una singola competenza.
 

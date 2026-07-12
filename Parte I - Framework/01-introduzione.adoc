@@ -1,13 +1,13 @@
-[[introduction]]
-== Introduzione
+[[introduzione]]
+= Introduzione
 
-=== Cos'è il SECF
+== Cos'è il SECF
 
 Il Software Engineering Competency Framework (SECF) è un framework progettato per osservare, valutare e sviluppare le competenze degli ingegneri del software.
 
 L'obiettivo del framework è rendere le valutazioni tecniche più oggettive, coerenti e ripetibili, supportando sia i processi di selezione sia la crescita professionale delle persone e dei team.
 
-=== Cosa contiene
+== Cosa contiene
 
 Il SECF è composto da tre elementi principali.
 
@@ -15,7 +15,7 @@ Il SECF è composto da tre elementi principali.
 * *Progression Framework*, che descrive i livelli di crescita professionale (E0–E5).
 * *Documentazione di valutazione*, che raccoglie le Schede Esercizio e le Schede di Valutazione per l'intervistatore.
 
-=== Obiettivi
+== Obiettivi
 
 Il framework è progettato per essere:
 
@@ -25,7 +25,7 @@ Il framework è progettato per essere:
 * *Indipendente dalle tecnologie*, privilegiando competenze e principi trasferibili.
 * *Evolutivo*, adattabile all'evoluzione delle tecnologie e delle pratiche di sviluppo.
 
-=== Cosa non è
+== Cosa non è
 
 Il SECF non è:
 
@@ -37,7 +37,7 @@ Il SECF non è:
 
 Il framework descrive esclusivamente il livello di padronanza delle competenze osservate durante il processo di valutazione.
 
-=== Destinatari
+== Destinatari
 
 Il framework è rivolto principalmente a:
 
@@ -49,7 +49,7 @@ Il framework è rivolto principalmente a:
 * recruiter tecnici;
 * sviluppatori che desiderano pianificare il proprio percorso di crescita.
 
-=== Struttura del documento
+== Struttura del documento
 
 Il documento è organizzato in tre sezioni principali:
 
@@ -59,7 +59,7 @@ Il documento è organizzato in tre sezioni principali:
 
 Le competenze sono organizzate per area e descritte attraverso livelli di padronanza, indicatori osservabili ed esempi di valutazione, così da favorire un utilizzo coerente del framework nei diversi contesti.
 
-=== Glossario rapido
+== Glossario rapido
 
 * *Scheda Esercizio*: documento visibile al candidato, costruito attorno a uno scenario concreto.
 * *Scheda di Valutazione*: documento usato dall'intervistatore per raccogliere evidenze e assegnare il livello.

@@ -1,27 +1,7 @@
-[[se07-ex01]]
-=== SE-07-EX01 - Report Lento
+[[SE-07-scheda]]
+= SE-07 - Performance - Scheda
 
-ifdef::metadata[]
-
-==== Metadati
-
-Competenza::
-SE-07 - Performance Engineering
-
-Livello consigliato::
-L2-L3
-
-Tempo stimato::
-25 minuti
-
-Modalità::
-Pratica / Discussione
-
-endif::[]
-
-'''
-
-==== Scenario
+== Scenario
 
 Un'applicazione backend espone un endpoint utilizzato dal team Operations per visualizzare gli ordini più recenti.
 
@@ -29,7 +9,7 @@ Negli ultimi mesi il numero di ordini è cresciuto molto e l'endpoint è diventa
 
 Gli utenti segnalano tempi di risposta di diversi secondi.
 
-==== Materiale fornito
+== Materiale fornito
 
 Endpoint:
 
@@ -70,7 +50,7 @@ Informazioni aggiuntive:
 - Non è richiesto che i dati siano aggiornati al secondo.
 ----
 
-==== Consegna
+== Consegna
 
 Analizza il problema.
 

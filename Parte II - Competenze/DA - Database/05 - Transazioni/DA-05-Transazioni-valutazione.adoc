@@ -1,12 +1,12 @@
 :pdf-theme: {docdir}/interviewer-card-theme.yml
 :pdf-page-size: A4
 
-[[da05-ex01]]
-=== DA-05-EX01 - Creazione di un Ordine
+[[DA-05-valutazione]]
+= DA-05 - Transazioni - Valutazione
 
 '''
 
-===== L0
+== L0
 
 Non riconosce problemi significativi nel flusso `createOrder`, `updateInventory`, `chargePayment`, `sendConfirmationEmail`.
 
@@ -15,7 +15,7 @@ Non riconosce problemi significativi nel flusso `createOrder`, `updateInventory`
 * Propone di eseguire tutto in sequenza senza discutere errori o rollback.
 * Domanda per L0: Cosa succede se il pagamento fallisce dopo aver creato l'ordine?
 
-===== L1
+== L1
 
 Riconosce problemi evidenti ma in modo frammentario, senza costruire una strategia coerente.
 
@@ -25,7 +25,7 @@ Riconosce problemi evidenti ma in modo frammentario, senza costruire una strateg
 * [ ] Non separa ancora nettamente transazione locale e sistemi remoti.
 * Domanda per L1: Quali operazioni devono riuscire o fallire insieme?
 
-===== L2
+== L2
 
 Propone una soluzione coerente di base e individua il confine principale della transazione.
 
@@ -36,7 +36,7 @@ Propone una soluzione coerente di base e individua il confine principale della t
 * [ ] Descrive almeno un esito di fallimento gestibile.
 * Domanda per L2: Dove metteresti il commit rispetto a pagamento ed email?
 
-===== L3
+== L3
 
 Motiva le scelte e tratta casi non banali di errore, consistenza e recupero.
 
@@ -48,7 +48,7 @@ Motiva le scelte e tratta casi non banali di errore, consistenza e recupero.
 * Domanda per L3: Come eviteresti di addebitare due volte lo stesso ordine?
 * Domanda per L3: Quando useresti una compensazione invece di un rollback?
 
-===== L4
+== L4
 
 Ragiona su evoluzione, compatibilita', migrazione e impatti operativi della soluzione.
 
@@ -60,7 +60,7 @@ Ragiona su evoluzione, compatibilita', migrazione e impatti operativi della solu
 * Domanda per L4: Come introdurresti eventi o outbox senza rompere il comportamento esistente?
 * Domanda per L4: Quali metriche o log ti servono per capire se il processo e' affidabile?
 
-===== L5
+== L5
 
 Guida una scelta completa, esplicitando trade-off, criteri decisionali e prevenzione futura.
 

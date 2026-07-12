@@ -1,33 +1,13 @@
-[[se04-ex03]]
-=== SE-04-EX03 - Rumore nei Log
+[[SE-04-scheda]]
+= SE-04 - Log Analysis - Scheda
 
-ifdef::metadata[]
-
-==== Metadati
-
-Competenza::
-SE-04 - Debugging
-
-Livello consigliato::
-L2-L3
-
-Tempo stimato::
-20 minuti
-
-Modalità::
-Pratica / Discussione
-
-endif::[]
-
-'''
-
-==== Scenario
+== Scenario
 
 Negli ultimi giorni alcuni utenti segnalano errori sporadici durante la conferma degli ordini.
 
 L'unica informazione disponibile è un estratto del log applicativo.
 
-==== Materiale fornito
+== Materiale fornito
 
 [source,text]
 ----
@@ -56,13 +36,13 @@ java.lang.NullPointerException
 2026-10-14 10:21:36 INFO  NotificationService - Retry completed successfully
 ----
 
-==== Consegna
+== Consegna
 
 Analizza il log.
 
 Descrivi:
 
-* quali informazioni ritieni realmente rilevanti;
-* quali messaggi consideri rumore;
-* quali ipotesi formuleresti;
-* quali verifiche eseguiresti successivamente.
+* Quali informazioni ritieni realmente rilevanti;
+* Quali messaggi consideri rumore;
+* Quali ipotesi formuleresti;
+* Quali verifiche eseguiresti successivamente.

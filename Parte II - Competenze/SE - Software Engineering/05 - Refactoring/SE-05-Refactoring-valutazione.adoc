@@ -1,134 +1,69 @@
-[[se05-ex01]]
-=== SE-05-EX01 - Refactoring Progressivo
+:pdf-theme: {docdir}/interviewer-card-theme.yml
+:pdf-page-size: A4
 
-'''
+[[se05-valutazione]]
+= SE-05 - Refactoring - Valutazione
 
-==== Guida per l'intervistatore
+== L0
 
-L'esercizio valuta la capacità del candidato di affrontare un refactoring in modo incrementale e sicuro.
+Non riconosce problemi significativi o propone interventi che cambiano il comportamento senza protezioni.
 
-L'obiettivo non è ottenere il codice finale perfetto, ma osservare se il candidato sa iniziare da un punto concreto, proteggere il comportamento esistente e procedere per passi verificabili.
+* Domanda per L0: da dove partiresti per non introdurre regressioni?
+* Domanda per L0: quale parte del comportamento vorresti verificare prima di toccare il codice?
 
-Se il candidato resta bloccato, non anticipare la soluzione. Offri un appiglio operativo:
+== L1
 
-* "Quale comportamento vorresti proteggere con un test prima di toccare il codice?"
-* "Quale parte del metodo riusciresti a estrarre senza cambiare logica?"
-* "Dopo questo piccolo cambiamento, come ti accorgeresti di una regressione?"
+Riconosce smell evidenti nel codice, ma in modo frammentario e senza un primo passo sicuro.
 
-==== Cosa osservare
+* [ ] Nota nomi deboli, duplicazioni o condizioni ripetute
+* [ ] Identifica almeno un punto di semplificazione locale
+* [ ] Distingue in modo parziale tra miglioramento e cambio funzionale
+* [ ] Parla di test solo in modo generico
+* Domanda per L1: quale sarebbe il cambiamento più piccolo e meno rischioso?
+* Domanda per L1: quali segnali ti fanno dire che il codice va protetto prima di modificarlo?
 
-* Distingue refactoring da cambio funzionale.
-* Parte da test di caratterizzazione o da casi già esistenti.
-* Procede per piccoli passi.
-* Riduce il rischio di regressione.
-* Riconosce segnali concreti nel codice: nomi deboli, regole duplicate o sparse, condizioni ripetute, magic numbers.
-* Separa responsabilità chiare: totale di riga, sconti VIP, tasse, arrotondamento.
-* Evita riscritture complete non necessarie.
-* Sa dire dove si fermerebbe nella prima iterazione.
+== L2
 
-==== Soluzione canonica
+Propone una strategia di base coerente e orientata a piccoli passi verificabili.
 
-Una buona risposta dovrebbe includere una strategia progressiva, non necessariamente una nuova architettura.
+* [ ] Parte da test di caratterizzazione o dai test già presenti
+* [ ] Propone un refactoring locale, per esempio estrazione di metodi
+* [ ] Separa almeno una responsabilità evidente
+* [ ] Mantiene esplicito il controllo del comportamento esistente
+* [ ] Riconosce casi utili da coprire: righe con e senza sconto, cliente VIP, paese, arrotondamento
+* Domanda per L2: quale test aggiungeresti per primo e perché?
+* Domanda per L2: quale responsabilità estrarresti prima dal metodo?
 
-Prima di modificare il codice, il candidato dovrebbe proporre o completare test che catturino il comportamento esistente, ad esempio:
+== L3
 
-[source,text]
-----
-- fattura con una riga senza sconto;
-- fattura con una riga con sconto;
-- fattura con più righe;
-- cliente VIP con riga senza sconto percentuale;
-- cliente VIP con riga già scontata;
-- cliente VIP con totale superiore a 500;
-- cliente non VIP;
-- paese IT;
-- paese non IT.
-----
+Motiva le scelte, tratta casi non banali e collega il refactoring alla protezione del dominio.
 
-È particolarmente utile se il candidato nota che i test forniti coprono solo una parte del comportamento: mancano combinazioni con più righe, clienti VIP, paese IT, soglia 500 e interazione fra sconto riga, sconto cliente e tasse.
+* [ ] Spiega perché certi passaggi riducono il rischio di regressione
+* [ ] Considera l'interazione tra sconto di riga, sconto VIP e tasse
+* [ ] Decide l'ordine dei passi in modo coerente con i test
+* [ ] Riconosce dove fermarsi nella prima iterazione
+* [ ] Distingue chiaramente refactoring da modifica funzionale
+* Domanda per L3: come verificheresti che il comportamento sia rimasto invariato dopo ogni passo?
+* Domanda per L3: quali casi aggiungeresti prima di toccare la logica VIP o fiscale?
 
-Possibili passi di refactoring:
+== L4
 
-. Scrivere o completare test di caratterizzazione.
-. Rinominare variabili locali senza cambiare la struttura del metodo.
-. Estrarre il calcolo dell'importo di una riga.
-. Estrarre l'applicazione degli sconti VIP.
-. Estrarre il calcolo delle tasse.
-. Estrarre l'arrotondamento finale.
-. Sostituire magic numbers con costanti nominate, solo quando i test proteggono il comportamento.
-. Verificare i test dopo ogni passo.
+Ragiona su evoluzione, compatibilità, migrazione e impatti sul design futuro.
 
-Una possibile direzione di miglioramento:
+* [ ] Valuta l'effetto delle nuove regole sul codice già scritto
+* [ ] Considera compatibilità con comportamenti esistenti e casi limite
+* [ ] Propone una struttura che faciliti estensioni future
+* [ ] Anticipa rischi di accoppiamento tra regole diverse
+* [ ] Distingue il refactoring immediato da un'evoluzione più ampia
+* Domanda per L4: come prepareresti il codice per nuove regole fiscali senza riscriverlo tutto?
+* Domanda per L4: quale compromesso faresti tra semplicità immediata ed estensibilità futura?
 
-[source,java]
-----
-public BigDecimal calculate(Invoice invoice) {
-    BigDecimal subtotal = calculateSubtotalAfterLineRules(invoice);
-    BigDecimal discountedSubtotal = applyVipThresholdDiscount(invoice, subtotal);
-    BigDecimal taxedTotal = applyTax(discountedSubtotal, invoice.getCountry());
-    return round(taxedTotal);
-}
-----
+== L5
 
-Un primo passo sufficiente può essere anche più piccolo:
+Guida una scelta completa, con trade-off espliciti, criteri decisionali e prevenzione dei problemi futuri.
 
-[source,java]
-----
-private BigDecimal calculateLineAmountAfterDiscounts(Invoice invoice, InvoiceLine line) {
-    BigDecimal amount =
-        line.getUnitPrice().multiply(BigDecimal.valueOf(line.getQuantity()));
-
-    if (line.getDiscountPercentage() != null) {
-        return amount.subtract(
-            amount.multiply(line.getDiscountPercentage())
-                  .divide(BigDecimal.valueOf(100))
-        );
-    }
-
-    if (invoice.getCustomer() != null && invoice.getCustomer().isVip()) {
-        return amount.multiply(BigDecimal.valueOf(0.95));
-    }
-
-    return amount;
-}
-----
-
-==== Soluzioni alternative
-
-Sono valide soluzioni che:
-
-* introducono una classe dedicata al calcolo delle tasse;
-* separano sconti e tasse in componenti distinti;
-* usano una pipeline di regole;
-* mantengono tutto nella stessa classe ma con metodi più piccoli;
-* evitano astrazioni premature se il dominio è ancora semplice.
-
-L'intervistatore dovrebbe valutare se il candidato mantiene il comportamento esistente durante il refactoring.
-
-==== Spunti di approfondimento
-
-* Quale test aggiungeresti per primo rispetto a quelli già presenti?
-* Qual è il più piccolo refactoring che puoi fare con rischio basso?
-* Dopo l'estrazione di un metodo, cosa dovrebbe restare identico?
-* Quali casi copriresti prima di toccare le condizioni sui clienti VIP?
-* Quali casi copriresti prima di toccare le tasse?
-* Quando ti fermeresti nella prima iterazione?
-* Quali modifiche considereresti fuori scope perché cambiano il comportamento?
-* Come gestiresti regole fiscali più complesse solo dopo aver stabilizzato il codice?
-
-==== Rubrica di valutazione
-
-L0::
-Propone modifiche casuali, riscrive il metodo o cambia il comportamento senza accorgersene.
-
-L1::
-Individua problemi di leggibilità, ma resta su osservazioni generiche e non definisce un primo passo sicuro.
-
-L2::
-Propone un refactoring incrementale semplice, per esempio rinominare variabili o estrarre il calcolo della riga, e aggiunge almeno alcuni test a supporto.
-
-L3::
-Distingue chiaramente refactoring e cambio funzionale, completa i test di caratterizzazione principali e procede per piccoli passi verificabili.
-
-L4::
-Definisce una strategia completa di refactoring, bilanciando rischio, testabilità, evoluzione del dominio e semplicità della soluzione.
+* [ ] Definisce una strategia di refactoring sostenibile per il team
+* [ ] Seleziona criteri chiari per fermarsi o continuare
+* [ ] Bilancia test, leggibilità, rischio e manutenibilità
+* [ ] Propone come prevenire regressioni nelle evoluzioni successive
+* [ ] Riesce a giustificare alternative diverse senza perdere coerenza

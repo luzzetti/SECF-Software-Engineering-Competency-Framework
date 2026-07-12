@@ -1,7 +1,7 @@
 [[elenco-competenze]]
-=== Elenco competenze
+= Elenco competenze
 
-==== Computer Science
+== Computer Science
 
 * `CS-01` *Algoritmi* - Analisi di problemi, scelta di soluzioni algoritmiche e motivazione delle scelte.
 * `CS-02` *Strutture Dati* - Scelta della struttura dati più adatta al problema da risolvere.
@@ -10,7 +10,7 @@
 * `CS-05` *Networking* - Comprensione delle reti per analizzare e risolvere problemi in applicazioni distribuite.
 * `CS-06` *Concorrenza e Parallelismo* - Analisi e gestione di problemi legati all'esecuzione concorrente.
 
-==== Software Engineering
+== Software Engineering
 
 * `SE-01` *Code Design* - Progettazione di codice semplice, leggibile, manutenibile ed estendibile.
 * `SE-02` *Identità e Uguaglianza degli Oggetti* - Uso corretto di identità, uguaglianza, collezioni e strutture dati.
@@ -21,7 +21,7 @@
 * `SE-07` *Performance Engineering* - Individuazione, analisi e risoluzione di problemi di prestazioni.
 * `SE-08` *Clean Code* - Scrittura e riconoscimento di codice semplice, leggibile e manutenibile.
 
-==== Data
+== Data
 
 * `DA-01` *Database Relazionali* - Progettazione, interrogazione e uso corretto di database relazionali.
 * `DA-02` *SQL* - Interrogazione di database relazionali in modo corretto, efficace ed efficiente.
@@ -29,14 +29,14 @@
 * `DA-04` *ORM e Data Access* - Progettazione di accesso ai dati efficace, mantenibile ed efficiente.
 * `DA-05` *Transaction Management* - Gestione di transazioni, consistenza e scenari di errore.
 
-==== Delivery
+== Delivery
 
 * `DE-01` *Analisi dei Requisiti* - Comprensione, analisi e chiarimento dei requisiti prima dello sviluppo.
 * `DE-02` *Stima delle Attività* - Stima di complessità, dipendenze, rischi e incertezze.
 * `DE-03` *Documentazione* - Produzione di documentazione utile, aggiornata e adeguata al contesto.
 * `DE-04` *Gestione del Debito Tecnico* - Riconoscimento, valutazione e gestione del debito tecnico.
 
-==== Architecture
+== Architecture
 
 // https://www.manning.com/books/api-design-patterns
 * `AR-01` *API Design* - Progettazione di API semplici, coerenti, evolvibili e adatte al sistema.
@@ -50,7 +50,7 @@
 * `AR-09` *Secure Coding* - Riduzione del rischio di vulnerabilità tramite pratiche di sviluppo corrette.
 * `AR-10` *Event-Driven Architecture* - Progettazione di sistemi a eventi, con vantaggi, limiti e criticità.
 
-==== Platform Engineering
+== Platform Engineering
 
 * `PE-01` *Version Control* - Uso collaborativo del controllo versione con storia chiara e gestibile.
 * `PE-02` *Build Automation* - Progettazione di build automatizzate, riproducibili e affidabili.
@@ -62,7 +62,7 @@
 * `PE-08` *Gestione delle Dipendenze* - Gestione controllata, sicura e sostenibile delle dipendenze.
 * `PE-09` *Operating Environment* - Uso efficace dell'ambiente di esecuzione e degli strumenti del sistema operativo.
 
-==== Collaboration
+== Collaboration
 
 * `CO-01` *Comunicazione Tecnica* - Comunicazione chiara di concetti, decisioni e problemi tecnici.
 * `CO-02` *Code Review* - Analisi del codice altrui e feedback costruttivi.

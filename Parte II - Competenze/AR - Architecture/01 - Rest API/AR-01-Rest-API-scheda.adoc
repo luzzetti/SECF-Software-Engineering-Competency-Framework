@@ -1,31 +1,11 @@
-[[ar01-ex02]]
-=== AR-01 - Rest API
+[[AR-01-scheda]]
+= AR-01 - Rest API - Scheda
 
-ifdef::metadata[]
-
-==== Metadati
-
-Competenza::
-AR-01 - API Design
-
-Livello consigliato::
-L2-L3
-
-Tempo stimato::
-20 minuti
-
-Modalità::
-Pratica / Discussione
-
-endif::[]
-
-'''
-
-==== Scenario
+== Scenario
 
 Entri a far parte di un team che espone le seguenti API per la gestione degli ordini.
 
-==== Materiale fornito
+== Materiale fornito
 
 [source,text]
 ----
@@ -46,7 +26,7 @@ GET    /searchOrders?customer=Mario&status=CONFIRMED&from=2026-01-01&to=2026-12-
 POST   /cancelOrder?id=123
 ----
 
-==== Consegna
+== Consegna
 
 Analizza il design delle API.
 

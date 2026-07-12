@@ -1,7 +1,7 @@
-[[principles]]
-== Principi
+[[principi]]
+= Principi
 
-=== Scopo
+== Scopo
 
 Il Software Engineering Competency Framework (SECF) si fonda su un insieme di principi che ne guidano la progettazione, l'utilizzo e l'evoluzione.
 
@@ -9,7 +9,7 @@ Questi principi rappresentano il riferimento per interpretare le competenze, con
 
 Ogni competenza, livello di padronanza e Scheda di Valutazione deve essere coerente con tali principi.
 
-=== 0. Le schede lavorano in coppia
+== Le schede lavorano in coppia
 
 Per ogni competenza il framework usa due documenti complementari:
 
@@ -18,7 +18,7 @@ Per ogni competenza il framework usa due documenti complementari:
 
 I due documenti descrivono la stessa competenza da prospettive diverse. La Scheda Esercizio presenta il contesto e il problema; la Scheda di Valutazione guida l'osservazione, la progressione delle domande e l'assegnazione del livello.
 
-=== 1. Le competenze sono più importanti delle tecnologie
+== Le competenze sono più importanti delle tecnologie
 
 Il framework valuta competenze, non tecnologie.
 
@@ -28,7 +28,7 @@ Le tecnologie evolvono rapidamente.
 
 Le competenze rimangono trasferibili e mantengono il proprio valore nel tempo.
 
-=== 2. Le domande devono partire da problemi reali
+== Le domande devono partire da problemi reali
 
 Le Schede Esercizio e le Schede di Valutazione sono progettate per simulare situazioni che uno sviluppatore potrebbe realmente incontrare durante il proprio lavoro.
 
@@ -59,7 +59,7 @@ ____
 
 L'obiettivo della valutazione è osservare il ragionamento del candidato, non verificarne la memoria.
 
-=== 3. Il ragionamento è più importante della risposta
+== Il ragionamento è più importante della risposta
 
 Uno stesso problema può essere affrontato con soluzioni differenti.
 
@@ -71,7 +71,7 @@ Il framework non ricerca una risposta "corretta", ma valuta la capacità del can
 * comprendere i trade-off;
 * adattare la soluzione al contesto.
 
-=== 4. Le valutazioni devono essere basate su evidenze
+== Le valutazioni devono essere basate su evidenze
 
 Ogni valutazione deve essere supportata da evidenze osservabili.
 
@@ -79,7 +79,7 @@ Le impressioni personali, l'intuito o la semplice esperienza dell'intervistatore
 
 Quando una competenza non viene valutata, essa deve essere considerata *Non Valutata (NV)* e non può contribuire alla valutazione complessiva.
 
-=== 5. Le competenze sono indipendenti
+== Le competenze sono indipendenti
 
 Ogni competenza viene valutata indipendentemente dalle altre.
 
@@ -87,13 +87,13 @@ Un livello elevato in una competenza non implica automaticamente un livello anal
 
 Il profilo professionale complessivo deriva dall'insieme delle competenze osservate e non dalla semplice media dei livelli assegnati.
 
-=== 6. I livelli di competenza sono cumulativi
+== I livelli di competenza sono cumulativi
 
 Ogni livello di padronanza comprende automaticamente le competenze previste dai livelli precedenti.
 
 Il framework descrive una progressione continua delle competenze, nella quale ciascun livello estende e consolida quelli precedenti.
 
-=== 7. Le prove pratiche sono preferibili quando possibile
+== Le prove pratiche sono preferibili quando possibile
 
 Quando una competenza può essere valutata attraverso una Scheda Esercizio, tale modalità è generalmente preferibile rispetto a una domanda puramente teorica.
 
@@ -101,7 +101,7 @@ Le Schede Esercizio consentono di osservare direttamente il comportamento del ca
 
 Le Schede Esercizio completano le Schede di Valutazione e non le sostituiscono.
 
-=== 8. Il framework supporta il giudizio dell'intervistatore
+== Il framework supporta il giudizio dell'intervistatore
 
 Il SECF non sostituisce il giudizio tecnico dell'intervistatore.
 
@@ -109,7 +109,7 @@ Fornisce una struttura comune per rendere le valutazioni più oggettive, coerent
 
 L'esperienza dell'intervistatore rimane fondamentale per interpretare correttamente le evidenze raccolte.
 
-=== 9. Competenze e progressione professionale sono concetti distinti
+== Competenze e progressione professionale sono concetti distinti
 
 Il livello di una singola competenza descrive esclusivamente la padronanza osservata in quello specifico ambito.
 
@@ -117,7 +117,7 @@ La progressione professionale (E0-E5) rappresenta invece il profilo complessivo 
 
 Le due valutazioni sono correlate, ma non devono essere confuse.
 
-=== Punti chiave
+== Punti chiave
 
 * Valutare competenze, non tecnologie.
 * Partire sempre da problemi reali.

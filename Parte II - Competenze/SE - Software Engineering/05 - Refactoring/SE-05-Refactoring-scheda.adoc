@@ -1,27 +1,7 @@
-[[se05-ex01]]
-=== SE-05-EX01 - Refactoring Progressivo
+[[SE-05-scheda]]
+= SE-05 - Refactoring - Scheda
 
-ifdef::metadata[]
-
-==== Metadati
-
-Competenza::
-SE-05 - Refactoring
-
-Livello consigliato::
-L2-L3
-
-Tempo stimato::
-25 minuti
-
-Modalità::
-Pratica / Discussione
-
-endif::[]
-
-'''
-
-==== Scenario
+== Scenario
 
 Stai lavorando su un'applicazione di fatturazione usata in produzione.
 
@@ -29,7 +9,7 @@ Il metodo `calculate()` è cresciuto nel tempo: calcola il totale delle righe, a
 
 Il team vuole renderlo più leggibile perché deve aggiungere nuove regole fiscali, ma non vuole cambiare il comportamento esistente.
 
-==== Materiale fornito
+== Materiale fornito
 
 Regole note:
 
@@ -79,12 +59,12 @@ public class InvoiceService {
                  .divide(BigDecimal.valueOf(100)));
         }
 
-        if ("IT".equals(i.getCountry())) {
+        if (i.getCountry().equals("IT")) {
             x = x.add(x.multiply(BigDecimal.valueOf(22))
                  .divide(BigDecimal.valueOf(100)));
         }
 
-        if (!"IT".equals(i.getCountry())) {
+        if (!i.getCountry().equals("IT")) {
             x = x.add(x.multiply(BigDecimal.valueOf(20))
                  .divide(BigDecimal.valueOf(100)));
         }
@@ -94,39 +74,7 @@ public class InvoiceService {
 }
 ----
 
-Il team ha già iniziato a scrivere alcuni test, ma non è sicuro che siano sufficienti.
-
-[source,java]
-----
-class InvoiceServiceTest {
-
-    @Test
-    void calculatesTotalForSingleLineWithoutDiscount() {
-        Invoice invoice = invoice(
-            customer(false),
-            "DE",
-            line("10.00", 2, null)
-        );
-
-        assertThat(service.calculate(invoice))
-            .isEqualByComparingTo("24.00");
-    }
-
-    @Test
-    void appliesLineDiscount() {
-        Invoice invoice = invoice(
-            customer(false),
-            "DE",
-            line("10.00", 2, new BigDecimal("10"))
-        );
-
-        assertThat(service.calculate(invoice))
-            .isEqualByComparingTo("21.60");
-    }
-}
-----
-
-==== Consegna
+== Consegna
 
 Lavora come se dovessi preparare un piccolo refactoring da proporre al team.
 

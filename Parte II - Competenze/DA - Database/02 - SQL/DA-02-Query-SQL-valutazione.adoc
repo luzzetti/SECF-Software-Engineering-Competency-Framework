@@ -1,17 +1,17 @@
 :pdf-theme: {docdir}/interviewer-card-theme.yml
 :pdf-page-size: A4
 
-[[da02-ex02]]
-=== DA-02-EX02 - Prodotti più Venduti
+[[DA-02-valutazione]]
+= DA-02 - Query SQL - Valutazione
 
-===== L0
+== L0
 
 Non costruisce una query collegata al requisito: resta su selezioni generiche, non collega ordini, righe e prodotti, o ignora filtro temporale e aggregazioni.
 
 * Domanda per L1: quali tabelle servono per passare dagli ordini ai prodotti venduti?
 * Domanda per L1: cosa significa "ultimi 30 giorni" nel modello dato?
 
-===== L1
+== L1
 
 Riconosce elementi evidenti, ma la soluzione resta incompleta o fragile.
 
@@ -22,7 +22,7 @@ Riconosce elementi evidenti, ma la soluzione resta incompleta o fragile.
 * Domanda per L2: quali condizioni di `JOIN` useresti tra ordini, righe e prodotti?
 * Domanda per L2: quali campi devono comparire in `GROUP BY`?
 
-===== L2
+== L2
 
 Produce una query coerente di base che restituisce il report richiesto.
 
@@ -34,7 +34,7 @@ Produce una query coerente di base che restituisce il report richiesto.
 * Domanda per L3: quali indici potrebbero aiutare questa query e perché?
 * Domanda per L3: cosa cambia se due prodotti hanno stesso nome o categoria?
 
-===== L3
+== L3
 
 Motiva la query e ragiona sui primi meccanismi fisici che la rendono sostenibile.
 
@@ -46,7 +46,7 @@ Motiva la query e ragiona sui primi meccanismi fisici che la rendono sostenibile
 * Domanda per L4: quando un indice non basta più per rendere accettabile questo report?
 * Domanda per L4: useresti una vista, una vista materializzata o una tabella di aggregati?
 
-===== L4
+== L4
 
 Ragiona su evoluzione del reporting, strutture derivate e crescita dei dati.
 
@@ -58,7 +58,7 @@ Ragiona su evoluzione del reporting, strutture derivate e crescita dei dati.
 * Domanda per L5: quali segnali ti porterebbero a separare il carico di reporting dal database transazionale?
 * Domanda per L5: quando useresti partizionamento, replica read-only o sharding?
 
-===== L5
+== L5
 
 Guida una scelta completa per il report dentro un'architettura dati scalabile.
 

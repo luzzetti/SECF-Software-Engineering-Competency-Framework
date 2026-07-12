@@ -1,17 +1,17 @@
 :pdf-theme: {docdir}/interviewer-card-theme.yml
 :pdf-page-size: A4
 
-[[se04-ex03]]
-=== SE-04 - Analisi Log
+[[SE-04-valutazione]]
+= SE-04 - Analisi Log - Valutazione
 
-===== L0
+== L0
 
 Non riconosce problemi significativi: legge il log in modo casuale, confonde messaggi indipendenti e non individua l'eccezione in `OrderService.applyDiscount()`.
 
 * Domanda per L1: quale riga ti sembra il primo segnale di errore reale?
 * Domanda per L1: quali messaggi appartengono alla richiesta `POST /orders`?
 
-===== L1
+== L1
 
 Riconosce indizi evidenti, ma frammentari: si aggancia a eccezione, SMTP o cache senza ricostruire il flusso.
 
@@ -21,7 +21,7 @@ Riconosce indizi evidenti, ma frammentari: si aggancia a eccezione, SMTP o cache
 * Domanda per L2: come ordineresti gli eventi della conferma ordine?
 * Domanda per L2: quali messaggi sono rumore rispetto all'errore?
 
-===== L2
+== L2
 
 Propone una lettura coerente di base della sequenza e identifica cosa verificare.
 
@@ -32,7 +32,7 @@ Propone una lettura coerente di base della sequenza e identifica cosa verificare
 * Domanda per L3: perché il warning SMTP non è necessariamente la causa dell'errore?
 * Domanda per L3: quali informazioni mancano per confermare l'ipotesi sullo sconto?
 
-===== L3
+== L3
 
 Motiva l'analisi e tratta casi non banali senza perdere la timeline.
 
@@ -43,7 +43,7 @@ Motiva l'analisi e tratta casi non banali senza perdere la timeline.
 * Domanda per L4: come miglioreresti questi log per ridurre ambiguità alla prossima analisi?
 * Domanda per L4: cosa cambierebbe se il pagamento fosse confermato ma l'ordine no?
 
-===== L4
+== L4
 
 Ragiona su evoluzione del debugging, compatibilità dei log e impatti operativi.
 
@@ -54,7 +54,7 @@ Ragiona su evoluzione del debugging, compatibilità dei log e impatti operativi.
 * Domanda per L5: quali criteri useresti per decidere quali log aggiungere o rimuovere?
 * Domanda per L5: come eviteresti che il rumore torni a rendere difficile il debugging?
 
-===== L5
+== L5
 
 Guida una scelta completa di osservabilità e prevenzione futura.
 

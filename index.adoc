@@ -1,0 +1,54 @@
+= SECF – Software Engineering Competency Framework
+Christian Luzzetti
+v.0.1, 2026-07-12
+:title-page:
+:doctype: book
+:toc:
+:toclevels: 2
+:lang: it
+
+== Parte I – Framework
+
+include::Parte I - Framework/01-introduzione.adoc[]
+
+include::Parte I - Framework/02-principi.adoc[]
+
+include::Parte I - Framework/03-livelli-di-competenza.adoc[]
+
+include::Parte I - Framework/04-progressione-professionale.adoc[]
+
+include::Parte I - Framework/05-metodologia-di-valutazione.adoc[]
+
+== Parte II – Competenze
+
+include::Parte II - Competenze/06-elenco-competenze.adoc[]
+
+=== AR - Architecture
+
+include::Parte II - Competenze/AR - Architecture/01 - Rest API/AR-01-Rest-API-scheda.adoc[]
+
+include::Parte II - Competenze/AR - Architecture/01 - Rest API/AR-01-Rest-API-valutazione.adoc[]
+
+=== DA - Database
+
+include::Parte II - Competenze/DA - Database/02 - SQL/DA-02-Query-SQL-scheda.adoc[]
+
+include::Parte II - Competenze/DA - Database/02 - SQL/DA-02-Query-SQL-valutazione.adoc[]
+
+include::Parte II - Competenze/DA - Database/05 - Transazioni/DA-05-Transazioni-scheda.adoc[]
+
+include::Parte II - Competenze/DA - Database/05 - Transazioni/DA-05-Transazioni-valutazione.adoc[]
+
+=== SE – Software Engineering
+
+include::Parte II - Competenze/SE - Software Engineering/04 - Debugging/SE-04-Analisi-Log-scheda.adoc[]
+
+include::Parte II - Competenze/SE - Software Engineering/04 - Debugging/SE-04-Analisi-Log-valutazione.adoc[]
+
+include::Parte II - Competenze/SE - Software Engineering/05 - Refactoring/SE-05-Refactoring-scheda.adoc[]
+
+include::Parte II - Competenze/SE - Software Engineering/05 - Refactoring/SE-05-Refactoring-valutazione.adoc[]
+
+include::Parte II - Competenze/SE - Software Engineering/07 - Performance/SE-07-Report-Lento-esercizio.adoc[]
+
+include::Parte II - Competenze/SE - Software Engineering/07 - Performance/SE-07-Report-Lento-valutazione.adoc[]

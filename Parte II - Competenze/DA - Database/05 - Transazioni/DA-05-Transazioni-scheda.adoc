@@ -1,27 +1,7 @@
-[[da05-ex01]]
-=== DA-05-EX01 - Creazione di un Ordine
+[[DA-05-scheda]]
+= DA-05 - Transazioni - Scheda
 
-ifdef::metadata[]
-
-==== Metadati
-
-Competenza::
-DA-05 - Transaction Management
-
-Livello consigliato::
-L2-L3
-
-Tempo stimato::
-25 minuti
-
-Modalità::
-Pratica / Discussione
-
-endif::[]
-
-'''
-
-==== Scenario
+== Scenario
 
 Stai sviluppando il backend di un sistema e-commerce.
 
@@ -32,7 +12,7 @@ Quando un cliente conferma un ordine devono essere eseguite le seguenti operazio
 * registrare il pagamento;
 * inviare una email di conferma.
 
-==== Materiale fornito
+== Materiale fornito
 
 Pseudo-codice attuale:
 
@@ -47,7 +27,7 @@ chargePayment();
 sendConfirmationEmail();
 ----
 
-==== Consegna
+== Consegna
 
 Analizza il flusso.
 
