@@ -18,7 +18,7 @@ include::Parte I - Framework/03-livelli-di-competenza.adoc[leveloffset=+2]
 
 include::Parte I - Framework/04-progressione-professionale.adoc[leveloffset=+2]
 
-include::Parte II - Competenze/06-elenco-competenze.adoc[leveloffset=+2]
+include::Parte I - Framework/06-elenco-competenze.adoc[leveloffset=+2]
 
 == Parte II - Operativa
 
@@ -37,22 +37,22 @@ Ogni scheda presenta uno scenario realistico e richiede al candidato di analizza
 Le risposte fornite costituiscono evidenze osservabili che permettono all'intervistatore di assegnare un livello di competenza secondo i criteri definiti nel framework.
 
 <<<
-include::Parte II - Competenze/AR - Architecture/01 - Rest API/AR-01-Rest-API-scheda.adoc[leveloffset=+3]
+include::Parte II - Operativa/schede/AR - Architecture/01 - Rest API/AR-01-Rest-API-scheda.adoc[leveloffset=+3]
 
 <<<
-include::Parte II - Competenze/DA - Database/02 - SQL/DA-02-Query-SQL-scheda.adoc[leveloffset=+3]
+include::Parte II - Operativa/schede/DA - Database/02 - SQL/DA-02-Query-SQL-scheda.adoc[leveloffset=+3]
 
 <<<
-include::Parte II - Competenze/DA - Database/05 - Transazioni/DA-05-Transazioni-scheda.adoc[leveloffset=+3]
+include::Parte II - Operativa/schede/DA - Database/05 - Transazioni/DA-05-Transazioni-scheda.adoc[leveloffset=+3]
 
 <<<
-include::Parte II - Competenze/SE - Software Engineering/04 - Debugging/SE-04-Analisi-Log-scheda.adoc[leveloffset=+3]
+include::Parte II - Operativa/schede/SE - Software Engineering/04 - Debugging/SE-04-Analisi-Log-scheda.adoc[leveloffset=+3]
 
 <<<
-include::Parte II - Competenze/SE - Software Engineering/05 - Refactoring/SE-05-Refactoring-scheda.adoc[leveloffset=+3]
+include::Parte II - Operativa/schede/SE - Software Engineering/05 - Refactoring/SE-05-Refactoring-scheda.adoc[leveloffset=+3]
 
 <<<
-include::Parte II - Competenze/SE - Software Engineering/07 - Performance/SE-07-Report-Lento-esercizio.adoc[leveloffset=+3]
+include::Parte II - Operativa/schede/SE - Software Engineering/07 - Performance/SE-07-Report-Lento-esercizio.adoc[leveloffset=+3]
 
 === Schede di Valutazione
 
@@ -61,19 +61,19 @@ Le Schede di Valutazione sono strumenti utilizzati dagli intervistatori per asse
 Ogni scheda contiene criteri di valutazione specifici che descrivono le evidenze osservabili associate a ciascun livello, permettendo all'intervistatore di giustificare oggettivamente la valutazione assegnata e garantendo coerenza nel processo di assessment.
 
 <<<
-include::Parte II - Competenze/AR - Architecture/01 - Rest API/AR-01-Rest-API-valutazione.adoc[leveloffset=+3]
+include::Parte II - Operativa/schede/AR - Architecture/01 - Rest API/AR-01-Rest-API-valutazione.adoc[leveloffset=+3]
 
 <<<
-include::Parte II - Competenze/DA - Database/02 - SQL/DA-02-Query-SQL-valutazione.adoc[leveloffset=+3]
+include::Parte II - Operativa/schede/DA - Database/02 - SQL/DA-02-Query-SQL-valutazione.adoc[leveloffset=+3]
 
 <<<
-include::Parte II - Competenze/DA - Database/05 - Transazioni/DA-05-Transazioni-valutazione.adoc[leveloffset=+3]
+include::Parte II - Operativa/schede/DA - Database/05 - Transazioni/DA-05-Transazioni-valutazione.adoc[leveloffset=+3]
 
 <<<
-include::Parte II - Competenze/SE - Software Engineering/04 - Debugging/SE-04-Analisi-Log-valutazione.adoc[leveloffset=+3]
+include::Parte II - Operativa/schede/SE - Software Engineering/04 - Debugging/SE-04-Analisi-Log-valutazione.adoc[leveloffset=+3]
 
 <<<
-include::Parte II - Competenze/SE - Software Engineering/05 - Refactoring/SE-05-Refactoring-valutazione.adoc[leveloffset=+3]
+include::Parte II - Operativa/schede/SE - Software Engineering/05 - Refactoring/SE-05-Refactoring-valutazione.adoc[leveloffset=+3]
 
 <<<
-include::Parte II - Competenze/SE - Software Engineering/07 - Performance/SE-07-Report-Lento-valutazione.adoc[leveloffset=+3]
+include::Parte II - Operativa/schede/SE - Software Engineering/07 - Performance/SE-07-Report-Lento-valutazione.adoc[leveloffset=+3]
