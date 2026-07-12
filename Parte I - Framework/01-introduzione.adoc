@@ -9,11 +9,12 @@ L'obiettivo del framework è rendere le valutazioni tecniche più oggettive, coe
 
 == Cosa contiene
 
-Il SECF è composto da tre elementi principali.
+Il SECF è organizzato in due parti principali.
 
-* *Competency Framework*, che definisce il catalogo delle competenze tecniche e professionali.
-* *Progression Framework*, che descrive i livelli di crescita professionale (E0–E5).
-* *Documentazione di valutazione*, che raccoglie le Schede Esercizio e le Schede di Valutazione per l'intervistatore.
+* *Framework teorico*, che definisce i principi del modello, i livelli di competenza (`L0`-`L5`) e i livelli di progressione professionale (`E0`-`E5`).
+* *Parte operativa*, che raccoglie playbook, schede e template per applicare il framework durante la valutazione.
+
+Il catalogo delle competenze completa il framework teorico, fornendo il perimetro di competenze su cui applicare il modello.
 
 == Obiettivi
 
@@ -51,15 +52,8 @@ Il framework è rivolto principalmente a:
 
 == Struttura del documento
 
-Il documento è organizzato in tre sezioni principali:
+Il documento è organizzato in una parte teorica e una parte operativa.
 
-. il framework e i suoi principi;
-. il catalogo delle competenze;
-. gli strumenti di valutazione, comprendenti Schede Esercizio, Schede di Valutazione e guide di supporto.
+La parte teorica definisce i principi, i livelli di competenza, i livelli di progressione professionale e il catalogo delle competenze.
 
-Le competenze sono organizzate per area e descritte attraverso livelli di padronanza, indicatori osservabili ed esempi di valutazione, così da favorire un utilizzo coerente del framework nei diversi contesti.
-
-== Glossario rapido
-
-* *Scheda Esercizio*: documento visibile al candidato, costruito attorno a uno scenario concreto.
-* *Scheda di Valutazione*: documento usato dall'intervistatore per raccogliere evidenze e assegnare il livello.
+La parte operativa raccoglie gli strumenti per applicare il framework durante il colloquio e per documentare l'esito della valutazione.

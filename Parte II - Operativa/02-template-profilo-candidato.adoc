@@ -1,0 +1,79 @@
+[[template-profilo-candidato]]
+= Template profilo candidato
+
+== Dati generali
+
+[cols="1,3"]
+|===
+|Ruolo
+|__________
+
+|Data colloquio
+|__________
+
+|Intervistatore
+|__________
+
+|Candidato
+|__________
+
+|Contesto
+|__________
+|===
+
+== Sintesi della valutazione
+
+[cols="1,3"]
+|===
+|Livello proposto
+|`E0` - `E5`
+
+|Livello di confidenza
+|Alto / Medio / Basso
+
+|Competenze osservate
+|____________________
+
+|Lacune rilevanti
+|____________________
+
+|Motivazione
+|____________________
+|===
+
+== Livelli di competenza osservati
+
+[cols="1,1,4"]
+|===
+|Competenza |Livello |Evidenza
+
+|`AR-01`
+|`NV`
+|____________________
+
+|`DA-02`
+|`NV`
+|____________________
+
+|`DA-05`
+|`NV`
+|____________________
+
+|`SE-04`
+|`NV`
+|____________________
+
+|`SE-05`
+|`NV`
+|____________________
+
+|`SE-07`
+|`NV`
+|____________________
+|===
+
+== Note finali
+
+* Evidenze più rilevanti: ____________________
+* Rischi o dubbi: ____________________
+* Azioni successive: ____________________

@@ -61,9 +61,7 @@ Comprendono, ad esempio:
 * capacità decisionale;
 * gestione dei trade-off.
 
-== Livelli di progressione
-
-=== E0 - Foundation
+== E0 - Foundation
 
 Sintesi::
 Profilo all'inizio del percorso tecnico oppure non ancora pronto per contribuire in modo affidabile senza supporto significativo.
@@ -85,7 +83,7 @@ Deve ancora consolidare metodo, autonomia e abitudini professionali.
 Segnali tipici dalle schede::
 Molte competenze essenziali a `L0` o `L1`; poche evidenze concrete; difficoltà a motivare le scelte.
 
-=== E1 - Junior Engineer
+== E1 - Junior Engineer
 
 Sintesi::
 Profilo in grado di contribuire a compiti semplici, imparando rapidamente dal team e chiedendo supporto quando necessario.
@@ -107,7 +105,7 @@ Segnali tipici dalle schede::
 Competenze essenziali prevalentemente a `L1`, con qualche `L2` su aree più familiari.
 Poche competenze critiche a `L0`.
 
-=== E2 - Software Engineer
+== E2 - Software Engineer
 
 Sintesi::
 Profilo produttivo e affidabile, capace di lavorare in autonomia nella maggior parte delle attività ordinarie del team.
@@ -128,7 +126,7 @@ Segnali tipici dalle schede::
 Competenze essenziali prevalentemente a `L2`; alcune aree a `L1` sono accettabili se non centrali per il ruolo.
 Nessuna lacuna critica non presidiata.
 
-=== E3 - Strong Software Engineer
+== E3 - Strong Software Engineer
 
 Sintesi::
 Profilo autonomo e solido, capace di progettare e portare a termine lavoro significativo per il team.
@@ -149,7 +147,7 @@ Supporta colleghi meno esperti, rende visibili rischi e alternative, contribuisc
 Segnali tipici dalle schede::
 Competenze essenziali prevalentemente a `L3`; buone evidenze in testing, design, debugging, collaborazione e almeno alcune competenze architetturali o platform rilevanti.
 
-=== E4 - Senior Engineer
+== E4 - Senior Engineer
 
 Sintesi::
 Profilo esperto che guida decisioni tecniche importanti e aumenta l'efficacia degli altri.
@@ -171,7 +169,7 @@ Aiuta il team a migliorare pratiche e standard.
 Segnali tipici dalle schede::
 Molte competenze essenziali a `L3` o `L4`; nessuna debolezza grave nelle aree centrali del ruolo; evidenze forti di autonomia, mentoring e decisioni sistemiche.
 
-=== E5 - Staff / Principal Engineer
+== E5 - Staff / Principal Engineer
 
 Sintesi::
 Profilo di leadership tecnica con impatto oltre il singolo team.
