@@ -66,4 +66,3 @@ Guida una scelta completa, con trade-off, criteri decisionali e prevenzione futu
 * [ ] Definisce criteri misurabili: latenza target, throughput, carico DB, memoria, costo di manutenzione e correttezza del report.
 * [ ] Esplicita trade-off tra semplicità della query, indici, cache, pre-calcolo, consistenza e complessità di rilascio.
 * [ ] Prevede test con dataset rappresentativi, benchmark, explain plan e monitoraggio post-rilascio.
-* [ ] Stabilisce pratiche future: review performance, limiti/paginazione di default, linee guida query, dashboard e ownership dei report.

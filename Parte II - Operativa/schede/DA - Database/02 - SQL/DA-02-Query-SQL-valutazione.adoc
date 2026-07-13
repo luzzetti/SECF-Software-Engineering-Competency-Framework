@@ -38,8 +38,8 @@ Produce una query coerente di base che restituisce il report richiesto.
 
 Motiva la query e ragiona sui primi meccanismi fisici che la rendono sostenibile.
 
-* [ ] Spiega alias, chiavi di join, granularità delle righe e rischio di duplicazioni.
-* [ ] Distingue `UnitPrice` storico dalla tabella `Product` e motiva il calcolo del ricavo.
+// * [ ] Spiega alias, chiavi di join, granularità delle righe e rischio di duplicazioni.
+// * [ ] Distingue `UnitPrice` storico dalla tabella `Product` e motiva il calcolo del ricavo.
 * [ ] Propone indici coerenti con filtro e join, ad esempio su `CustomerOrder(OrderDate)`, `OrderItem(OrderId)` e `OrderItem(ProductId)`.
 * [ ] Distingue indici primari, indici su chiavi esterne e indici composti, spiegando quando un indice composto come `(OrderDate, Id)` o `(OrderId, ProductId)` può essere utile.
 * [ ] Legge a livello base un piano di esecuzione: scan, seek, join, sort e aggregazione.
@@ -66,5 +66,4 @@ Guida una scelta completa per il report dentro un'architettura dati scalabile.
 * [ ] Definisce criteri decisionali tra query live, indici, viste materializzate, aggregati, partizionamento, read-replica e sharding.
 * [ ] Distingue scalabilità verticale, replica per letture, sharding per distribuzione del dato e sistemi analitici separati.
 * [ ] Esplicita trade-off su consistenza, lag di replica, complessità applicativa, operatività, costi di storage e recovery.
-* [ ] Prevede test con dataset rappresentativi, controlli su ricavi/quantità, explain plan, metriche di latenza e monitoraggio continuo.
-* [ ] Stabilisce pratiche future: naming coerente, review delle query, ciclo di vita degli indici, ownership e regressioni misurate.
+* [ ] Prevede test con dataset rappresentativi, controlli su ricavi/quantità, metriche di latenza e monitoraggio continuo.

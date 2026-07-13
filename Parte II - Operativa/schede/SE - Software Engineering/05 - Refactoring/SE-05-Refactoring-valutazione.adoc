@@ -8,8 +8,8 @@
 
 Non riconosce problemi significativi o propone interventi che cambiano il comportamento senza protezioni.
 
-* Domanda per L0: da dove partiresti per non introdurre regressioni?
-* Domanda per L0: quale parte del comportamento vorresti verificare prima di toccare il codice?
+* Domanda per L1: da dove partiresti per non introdurre regressioni?
+* Domanda per L1: quale parte del comportamento vorresti verificare prima di toccare il codice?
 
 == L1
 
@@ -19,8 +19,8 @@ Riconosce smell evidenti nel codice, ma in modo frammentario e senza un primo pa
 * [ ] Identifica almeno un punto di semplificazione locale
 * [ ] Distingue in modo parziale tra miglioramento e cambio funzionale
 * [ ] Parla di test solo in modo generico
-* Domanda per L1: quale sarebbe il cambiamento più piccolo e meno rischioso?
-* Domanda per L1: quali segnali ti fanno dire che il codice va protetto prima di modificarlo?
+* Domanda per L2: quale sarebbe il cambiamento più piccolo e meno rischioso?
+* Domanda per L2: quali segnali ti fanno dire che il codice va protetto prima di modificarlo?
 
 == L2
 
@@ -31,8 +31,8 @@ Propone una strategia di base coerente e orientata a piccoli passi verificabili.
 * [ ] Separa almeno una responsabilità evidente
 * [ ] Mantiene esplicito il controllo del comportamento esistente
 * [ ] Riconosce casi utili da coprire: righe con e senza sconto, cliente VIP, paese, arrotondamento
-* Domanda per L2: quale test aggiungeresti per primo e perché?
-* Domanda per L2: quale responsabilità estrarresti prima dal metodo?
+* Domanda per L3: quale test aggiungeresti per primo e perché?
+* Domanda per L3: quale responsabilità estrarresti prima dal metodo?
 
 == L3
 
@@ -43,8 +43,8 @@ Motiva le scelte, tratta casi non banali e collega il refactoring alla protezion
 * [ ] Decide l'ordine dei passi in modo coerente con i test
 * [ ] Riconosce dove fermarsi nella prima iterazione
 * [ ] Distingue chiaramente refactoring da modifica funzionale
-* Domanda per L3: come verificheresti che il comportamento sia rimasto invariato dopo ogni passo?
-* Domanda per L3: quali casi aggiungeresti prima di toccare la logica VIP o fiscale?
+* Domanda per L4: come verificheresti che il comportamento sia rimasto invariato dopo ogni passo?
+* Domanda per L4: quali casi aggiungeresti prima di toccare la logica VIP o fiscale?
 
 == L4
 
@@ -55,8 +55,8 @@ Ragiona su evoluzione, compatibilità, migrazione e impatti sul design futuro.
 * [ ] Propone una struttura che faciliti estensioni future
 * [ ] Anticipa rischi di accoppiamento tra regole diverse
 * [ ] Distingue il refactoring immediato da un'evoluzione più ampia
-* Domanda per L4: come prepareresti il codice per nuove regole fiscali senza riscriverlo tutto?
-* Domanda per L4: quale compromesso faresti tra semplicità immediata ed estensibilità futura?
+* Domanda per L5: come prepareresti il codice per nuove regole fiscali senza riscriverlo tutto?
+* Domanda per L5: quale compromesso faresti tra semplicità immediata ed estensibilità futura?
 
 == L5
 
