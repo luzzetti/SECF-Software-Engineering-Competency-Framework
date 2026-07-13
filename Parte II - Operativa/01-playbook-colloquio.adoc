@@ -11,9 +11,9 @@ Non rappresenta una procedura obbligatoria, ma raccoglie una serie di pratiche u
 
 Prima del colloquio l'intervistatore dovrebbe:
 
-* definire il ruolo da valutare;
-* identificare le competenze più rilevanti;
-* selezionare le Schede di Valutazione da utilizzare.
+* Definire il ruolo da valutare;
+* Identificare le competenze più rilevanti;
+* Selezionare le Schede di Valutazione da utilizzare.
 
 Non è necessario utilizzare tutte le Schede di Valutazione durante un singolo colloquio.
 
@@ -39,11 +39,11 @@ ____
 
 Queste domande hanno diversi obiettivi:
 
-* aiutano il candidato a iniziare parlando di argomenti familiari;
-* permettono di osservare la comunicazione tecnica;
-* aiutano a comprendere il contesto professionale;
-* fanno emergere spontaneamente competenze, responsabilità e tecnologie utilizzate;
-* aiutano l'intervistatore a scegliere le Schede di Valutazione più pertinenti per il resto del colloquio.
+* Aiutano il candidato a iniziare parlando di argomenti familiari;
+* Permettono di osservare la comunicazione tecnica;
+* Aiutano a comprendere il contesto professionale;
+* Fanno emergere spontaneamente competenze, responsabilità e tecnologie utilizzate;
+* Aiutano l'intervistatore a scegliere le Schede di Valutazione più pertinenti per il resto del colloquio.
 
 == Utilizzare le Schede di Valutazione
 
