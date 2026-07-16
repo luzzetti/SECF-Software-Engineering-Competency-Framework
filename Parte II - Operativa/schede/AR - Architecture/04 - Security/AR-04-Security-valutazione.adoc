@@ -1,0 +1,65 @@
+:pdf-theme: {docdir}/interviewer-card-theme.yml
+:pdf-page-size: A4
+
+[[AR-04-valutazione]]
+= AR-04 - Security - Valutazione
+
+== L0
+
+Non ha un modello coerente di autenticazione e autorizzazione, oppure confonde i due concetti.
+
+* Domanda per L1: che differenza c'è, secondo te, tra autenticazione e autorizzazione?
+* Domanda per L1: come fa il server a sapere che un utente ha già effettuato il login?
+
+== L1
+
+Riconosce i concetti di base, ma in modo frammentato.
+
+* [ ] Distingue autenticazione (chi sei) da autorizzazione (cosa puoi fare).
+* [ ] Propone un meccanismo di base per il login, per esempio sessione con cookie o token, senza dettagliare durata o rinnovo.
+* [ ] Cita ruoli o permessi in modo generico, senza modellarli sui casi `admin`/`editor`.
+* [ ] Menziona OAuth2 o provider esterni solo come nome, senza descrivere un flusso.
+* Domanda per L2: come gestiresti la scadenza di una sessione o di un token?
+* Domanda per L2: che differenza faresti tra i permessi di un `admin` e quelli di un `editor`?
+
+== L2
+
+Propone un design coerente di base, ma ancora poco differenziato tra i diversi client.
+
+* [ ] Sceglie un meccanismo di sessione (token o cookie) con una scadenza esplicita.
+* [ ] Distingue login diretto (email/password) da login tramite provider esterno, almeno a grandi linee.
+* [ ] Modella ruoli e permessi in modo coerente con `admin` ed `editor`.
+* [ ] Riconosce che web e mobile possono avere esigenze diverse in termini di durata della sessione.
+* Domanda per L3: come useresti OAuth2 per far accedere l'app mobile o il partner esterno? Quale flusso sceglieresti?
+* Domanda per L3: come gestiresti il rinnovo di un token scaduto senza richiedere ogni volta le credenziali?
+
+== L3
+
+Motiva le scelte e distingue i flussi più adatti ai diversi client.
+
+* [ ] Distingue token di accesso e refresh token, con scadenze diverse e rotazione dei refresh token.
+* [ ] Propone Authorization Code con PKCE per l'app mobile e un flusso appropriato, per esempio Client Credentials o token exchange, per il partner esterno.
+* [ ] Discute JWT e token opachi, motivando la scelta in base a validazione, revoca e dimensione del token.
+* [ ] Cita esplicitamente rischi OWASP pertinenti, per esempio broken access control o gestione debole delle credenziali.
+* Domanda per L4: come revocheresti immediatamente l'accesso di un utente o di un partner compromesso?
+* Domanda per L4: come eviteresti che un token rubato venga riutilizzato indefinitamente?
+
+== L4
+
+Ragiona su revoca, difesa in profondità e impatti operativi tra i diversi client.
+
+* [ ] Definisce una strategia di revoca, per esempio blacklist, token a vita breve o introspection, valida sia per utenti sia per partner.
+* [ ] Applica autorizzazione granulare (RBAC o più fine) e principio del privilegio minimo alle API esposte al partner.
+* [ ] Copre più categorie OWASP pertinenti, per esempio autenticazione, controllo degli accessi e gestione delle sessioni, con mitigazioni concrete.
+* [ ] Valuta impatti su UX, performance e compatibilità nella scelta tra sessione classica e token-based auth.
+* Domanda per L5: con quali criteri decideresti se costruire l'autenticazione internamente o adottare un Identity Provider esterno (OAuth2/OIDC)?
+* Domanda per L5: quali metriche o segnali useresti per capire se il sistema di autenticazione e autorizzazione è sano?
+
+== L5
+
+Guida una scelta di sicurezza completa, esplicitando trade-off e criteri decisionali.
+
+* [ ] Collega le scelte di autenticazione e autorizzazione a governance della sicurezza, esperienza utente e superficie di attacco complessiva su tutti i client.
+* [ ] Propone criteri misurabili: tasso di account compromessi, tempo di revoca effettivo, copertura MFA, adozione dei flussi corretti da parte dei client.
+* [ ] Bilancia sicurezza, usabilità e costo di implementazione motivando il trade-off tra costruire internamente e adottare un IdP.
+* [ ] Definisce un processo sostenibile: security review periodiche, threat modeling e gestione del ciclo di vita di credenziali e permessi.

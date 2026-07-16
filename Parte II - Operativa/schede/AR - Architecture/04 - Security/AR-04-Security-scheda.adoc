@@ -1,0 +1,28 @@
+[[AR-04-scheda]]
+= AR-04 - Security - Scheda
+
+== Scenario
+
+Devi progettare autenticazione e autorizzazione per una nuova piattaforma.
+
+La piattaforma sarà utilizzata da tre tipologie di client: un'applicazione web e un'app mobile per gli utenti finali, e un'integrazione lato server con un partner esterno.
+
+== Materiale fornito
+
+* Gli utenti finali si registrano con email e password, oppure tramite un provider esterno (Google, Microsoft).
+* L'app mobile deve restare autenticata per giorni, senza richiedere il login ad ogni apertura.
+* Alcune funzionalità sono riservate a utenti con ruolo `admin`, altre a utenti con ruolo `editor`.
+* Un partner esterno deve poter richiamare alcune API per conto dei propri utenti, senza che questi ultimi interagiscano direttamente con l'applicazione.
+* Il sistema deve poter revocare in qualsiasi momento l'accesso di un utente o di un partner.
+
+== Consegna
+
+Descrivi come progetteresti autenticazione e autorizzazione per questo sistema.
+
+In particolare:
+
+* quale flusso di login useresti per gli utenti finali, incluso l'eventuale uso di provider esterni;
+* che tipo di token useresti, come li gestiresti (durata, refresh, revoca) e per quali client;
+* come modelleresti autorizzazione, ruoli e permessi;
+* come gestiresti l'accesso alle API da parte del partner esterno;
+* quali rischi di sicurezza terresti in considerazione e come li mitigheresti.
