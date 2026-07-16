@@ -1,0 +1,37 @@
+= PE-03 - CI/CD - Scheda
+
+== Scenario
+
+Entri a far parte di un team che rilascia in produzione un servizio web.
+Il processo di rilascio è interamente governato dalla seguente pipeline di CI/CD.
+
+== Materiale fornito
+
+[source,yaml]
+----
+on: push
+
+jobs:
+  build-test-deploy:
+    runs-on: linux
+    steps:
+      - checkout
+      - run: npm install
+      - run: npm run build
+      - run: scp -r ./dist deploy@prod-01:/var/www/app   # deploy in produzione
+      - run: npm test
+
+env:
+  DB_PASSWORD: "S3cr3t!2026"
+  DEPLOY_KEY: "AKIA5J7QX4EXAMPLEKEY"
+----
+
+== Consegna
+
+Analizza il design della pipeline.
+
+Descrivi:
+
+* Quali problemi individui (correttezza dell'ordine delle fasi, sicurezza, affidabilità);
+* Quali modifiche proporresti;
+* Come evolveresti il processo di rilascio mantenendo deploy sicuri, veloci e reversibili.

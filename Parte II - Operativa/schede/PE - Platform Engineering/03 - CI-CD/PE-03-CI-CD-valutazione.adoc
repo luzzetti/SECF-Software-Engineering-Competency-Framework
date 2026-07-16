@@ -1,0 +1,80 @@
+= PE-03 - CI/CD - valutazione
+
+== L0
+
+Non individua problemi significativi o resta su commenti generici.
+
+* Domanda per L1: in che ordine vengono eseguiti build, test e deploy in questa pipeline?
+* Domanda per L1: noti qualcosa di rischioso nel modo in cui sono gestite password e chiavi?
+
+== L1
+
+Riconosce problemi evidenti, ma senza ancora costruire un modello coerente.
+
+☐ Nota che i test girano dopo il deploy e quindi non bloccano il rilascio.
+
+☐ Nota segreti in chiaro nel file di pipeline: `DB_PASSWORD`, `DEPLOY_KEY`.
+
+☐ Nota che ogni push, su qualsiasi branch, finisce in produzione.
+
+Domanda per L2: come struttureresti la pipeline in fasi distinte?
+
+Domanda per L2: cosa dovrebbe succedere se i test falliscono?
+
+== L2
+
+Propone una pipeline più coerente tra fasi, gating e gestione dei segreti.
+
+☐ Separa le fasi build -> test -> deploy, con i test che bloccano il deploy in caso di fallimento.
+
+☐ Sposta i segreti in un secret store o in variabili protette, fuori dal file versionato.
+
+☐ Limita il deploy in produzione al solo branch principale o a un tag di rilascio.
+
+Domanda per L3: come riuseresti l'artefatto costruito invece di ricostruirlo a ogni fase?
+
+Domanda per L3: come gestiresti ambienti diversi, per esempio staging e produzione?
+
+== L3
+
+Motiva le scelte e considera casi non banali senza perdere coerenza.
+
+☐ Costruisce un artefatto immutabile riusato nelle fasi successive: build once, deploy many.
+
+☐ Distingue gli ambienti (staging, produzione) con promozione controllata e approvazione manuale per la produzione.
+
+☐ Aggiunge caching delle dipendenze ed esecuzione parallela dei test per un feedback rapido.
+
+☐ Riconosce che non esiste un'unica pipeline corretta, ma serve coerenza tra rischio e velocità.
+
+Domanda per L4: cosa succede se un rilascio va male in produzione?
+
+Domanda per L4: come renderesti i deploy tracciabili e reversibili?
+
+== L4
+
+Propone una strategia di delivery, non solo step migliori.
+
+☐ Prevede versioning degli artefatti, changelog e tracciabilità commit -> build -> deploy.
+
+☐ Definisce un rollback rapido e/o strategie di rilascio progressivo (blue-green, canary).
+
+☐ Considera health check, smoke test post-deploy e gate automatici di promozione.
+
+☐ Valuta l'impatto su sicurezza (least privilege delle credenziali di deploy), osservabilità e notifiche.
+
+Domanda per L5: come decideresti quanto investire in automazione rispetto ad approvazioni manuali?
+
+Domanda per L5: quali metriche useresti per capire se il processo di delivery è sano?
+
+== L5
+
+Guida una scelta di delivery completa, esplicitando trade-off e criteri decisionali.
+
+☐ Collega pipeline, gestione del rischio, governance dei rilasci, sicurezza e lifecycle del prodotto.
+
+☐ Propone metriche misurabili: lead time, deployment frequency, change failure rate, MTTR (DORA).
+
+☐ Sa bilanciare velocità di rilascio, stabilità e controllo motivando i trade-off.
+
+☐ Definisce un processo sostenibile: policy as code, ambienti riproducibili, ownership e revisione periodica della pipeline.
